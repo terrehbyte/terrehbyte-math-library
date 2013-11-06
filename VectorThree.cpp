@@ -25,36 +25,39 @@ namespace Vector3
 	{
 	}
 	
-	float	Vector3::GetDotProduct(const Vector3 a_Term)
+	float	Vector3::GetDotProduct(const Vector3 a_FirstTerm, const Vector3 a_SecondTerm)
 	{
-		return (fX * a_Term.fX) + (fY * a_Term.fY);
+		return (a_FirstTerm.fX * a_SecondTerm.fX) + (a_FirstTerm.fX * a_SecondTerm.fY);
 	}
 
-	Vector3 Vector3::GetNormal()
+	Vector3 Vector3::GetNormal(const Vector3 a_Term)
 	{
 		Vector3 temp;
-		float fMagnitude = this->GetMagnitude();
-		temp.fX = fX / fMagnitude;
-		temp.fY = fY / fMagnitude;
-		temp.fZ = fZ / fMagnitude;
+
+		float fMagnitude = GetMagnitude(a_Term);
+
+		temp.fX = a_Term.fX / fMagnitude;
+		temp.fY = a_Term.fY / fMagnitude;
+		temp.fZ = a_Term.fZ / fMagnitude;
+		
 		return temp;
 	}
 
-	Vector3 Vector3::GetCrossProduct(const Vector3 a_Term)
+	Vector3 Vector3::GetCrossProduct(const Vector3 a_FirstTerm, const Vector3 a_SecondTerm)
 	{
 		Vector3 temp;
-		temp.fX = fY * a_Term.fZ - fZ * a_Term.fY;
-		temp.fY = fZ * a_Term.fX - fX * a_Term.fZ;
-		temp.fZ = fX * a_Term.fY - fY * a_Term.fX;
+		temp.fX = a_FirstTerm.fY * a_SecondTerm.fZ - a_FirstTerm.fZ * a_SecondTerm.fY;
+		temp.fY = a_FirstTerm.fZ * a_SecondTerm.fX - a_FirstTerm.fX * a_SecondTerm.fZ;
+		temp.fZ = a_FirstTerm.fX * a_SecondTerm.fY - a_FirstTerm.fY * a_SecondTerm.fX;
 	
 		return temp;
 	}
 
-	float	Vector3::GetMagnitude()
+	float	Vector3::GetMagnitude(const Vector3 a_Term)
 	{
-		float fFirst = fX * fX;
-		float fSecond = fY * fY;
-		float fThird = fZ * fZ;
+		float fFirst	= a_Term.fX * a_Term.fX;
+		float fSecond	= a_Term.fY * a_Term.fY;
+		float fThird	= a_Term.fZ * a_Term.fZ;
 	
 		return sqrt(fFirst + fSecond + fThird);
 	}
