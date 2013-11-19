@@ -26,6 +26,9 @@ namespace Vector3
 		static Vector3	GetCrossProduct(const Vector3 a_FirstTerm, const Vector3 a_SecondTerm);
 		static float	GetMagnitude(const Vector3 a_Term);
 
+		// MyVector.GetCrossProduct(OtherVector);
+		// GetCrossProduct(MyVector, OtherVector);
+
 		// ** OPERATORS ** - allows the object to be used with basic operators
 		Vector3	operator + (const Vector3 a_First);
 		Vector3	operator + (const float a_fAddendScalar);

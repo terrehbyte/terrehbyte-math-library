@@ -51,21 +51,3 @@ namespace Vector2
 	};
 }
 #endif
-
-/*
-
-LordWhatever		Justin
-
-gillebunchstudio	Caleb
-HBMASTER101			Hunter
-{LEP}Evilguy		LEP
-BigFoote			Brandon
-Vianya				Vinessa
-
-terrehbyte			Terry
-flickenmaste		Wil
-guanoParty			Ian
-Tredo				TJC
-RickyMario7			Ricky
-
-*/
