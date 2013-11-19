@@ -10,9 +10,15 @@
 #define _VECTORFOUR_H_
 #include <string>
 
+#ifdef DLL
+	#define DLLEXPORT __declspec(dllexport)
+#else
+	#define DLLEXPORT __declspec(dllimport)
+#endif
+
 namespace Vector4
 {
-	class Vector4
+	class DLLEXPORT Vector4
 	{
 	public:
 		// ** CONSTRUCTORS ** - called when instantiated

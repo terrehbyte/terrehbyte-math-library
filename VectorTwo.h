@@ -9,10 +9,16 @@
 #ifndef _VECTORTWO_H_
 #define _VECTORTWO_H_
 
+#ifdef DLL
+	#define DLLEXPORT __declspec(dllexport)
+#else
+	#define DLLEXPORT __declspec(dllimport)
+#endif
+
 namespace Vector2
 {
 
-	class Vector2
+	class DLLEXPORT Vector2
 	{
 	public:
 		// ** CONSTRUCTORS ** - initialize values

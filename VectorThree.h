@@ -9,9 +9,15 @@
 #ifndef _VECTORTHREE_H_
 #define _VECTORTHREE_H_
 
+#ifdef DLL
+	#define DLLEXPORT __declspec(dllexport)
+#else
+	#define DLLEXPORT __declspec(dllimport)
+#endif
+
 namespace Vector3
 {
-	class Vector3
+	class DLLEXPORT Vector3
 	{
 	public:
 		// ** CONSTRUCTORS ** - called when instantiated
