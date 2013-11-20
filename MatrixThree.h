@@ -19,12 +19,14 @@ namespace Matrix3
 {
 	class DLLEXPORT Matrix3
 	{
-	private:
-		
 	public:
-		//float fArray[3][3];
 
-		void Transpose();
+		Matrix3();
+		~Matrix3();
+
+		float m_afArray[3][3];
+
+		Matrix3 Transpose();
 
 		Matrix3	operator + (const Matrix3 a_Addend);
 		Matrix3	operator + (const float a_AddendScalar);
@@ -32,8 +34,8 @@ namespace Matrix3
 		Matrix3	operator - (const Matrix3 a_Subtrahend);
 		Matrix3	operator - (const float a_SubtrahendScalar);
 
-		Matrix3	operator * (const Matrix3 a_Term);
-		Matrix3	operator * (const float a_TermScalar);
+		Matrix3	operator * (const Matrix3 a_Factor);
+		Matrix3	operator * (const float a_FactorScalar);
 
 
 	};
