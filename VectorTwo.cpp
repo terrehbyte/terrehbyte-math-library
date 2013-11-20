@@ -48,25 +48,32 @@ namespace Vector2
 	// ** OPERATOR OVERLOADS ** - allows the object to be used with basic operators
 	Vector2	Vector2::operator + (const Vector2 a_Addend)
 	{
+		// Create a blank Vector2
 		Vector2 temp;
 
-		temp.fX = fX;
-		temp.fY = fY;
-
+		// Add the two things together
 		temp.fX = fX + a_Addend.fX;
 		temp.fY = fY + a_Addend.fY;
+
+		// Return dat shit
 		return temp;
 	}
-
+	// 1 + 1 = 2
+	// ADDEND + ADDEND = SUM
 	Vector2 Vector2::operator + (const float a_fAddendScalar)
 	{
+		// Create a blank Vector2
 		Vector2 temp;
+
+		// Set the blank vector equal to the Vector2 being added against
 		temp.fX = fX;
 		temp.fY = fY;
 
+		// Add temp's X and Y to the other X and Y
 		temp.fX = temp.fX + a_fAddendScalar;
 		temp.fY = temp.fY + a_fAddendScalar;
 
+		// Return temp, the sum of two Vector2 things
 		return temp;
 	}
 

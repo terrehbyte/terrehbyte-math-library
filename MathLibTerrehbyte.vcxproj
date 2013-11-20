@@ -72,11 +72,15 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MatrixFour.cpp" />
+    <ClCompile Include="MatrixThree.cpp" />
     <ClCompile Include="VectorFour.cpp" />
     <ClCompile Include="VectorThree.cpp" />
     <ClCompile Include="VectorTwo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MatrixFour.h" />
+    <ClInclude Include="MatrixThree.h" />
     <ClInclude Include="VectorFour.h" />
     <ClInclude Include="VectorThree.h" />
     <ClInclude Include="VectorTwo.h" />
