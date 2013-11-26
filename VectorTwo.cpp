@@ -205,4 +205,18 @@ namespace Vector2
 		return;
 	}
 
+	bool	Vector2::operator == (const Vector2 a_Source)
+	{
+		if (fX == a_Source.fX &&
+			fY == a_Source.fY)
+		{
+			return true;
+		}
+
+		else
+		{
+			return false;
+		}
+	}
+
 }

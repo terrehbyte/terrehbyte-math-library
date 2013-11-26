@@ -17,7 +17,6 @@
 
 namespace Vector2
 {
-
 	class DLLEXPORT Vector2
 	{
 	public:
@@ -43,7 +42,6 @@ namespace Vector2
 		Vector2 operator -= (const Vector2 a_Addend);
 		Vector2 operator -= (const float a_fSubtrahendScalar);
 	
-	
 		Vector2 operator * (const float a_fScalar);
 		Vector2 operator *= (const float a_fScalar);
 
@@ -51,6 +49,7 @@ namespace Vector2
 		Vector2 operator /= (const float a_fScalar);
 	
 		void	operator = (const Vector2 a_Source);
+		bool	operator == (const Vector2 a_Source);
 	
 		float		fY;
 		float		fX;
