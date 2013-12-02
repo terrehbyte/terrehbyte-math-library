@@ -53,47 +53,16 @@ namespace Vector4
 		return temp;
 	}
 
-	int ConvertHextoInt(const std::string a_HexValue)
-	{
-		using std::string;
-		using std::ostringstream;
-
-		ostringstream CharSStream;
-
-		CharSStream << a_HexValue;
-
-		int iHex;
-		int iCheckPos = 0;
-
-		/*
-		while (CharSStream[iCheckPos] != '\0')
-		{
-
-
-			// Iterate to Next Char
-			iCheckPos++;
-		}
-		*/
-		
-
-		return iHex;
-	}
-
-	void Vector4::ConstructFromHex(std::string a_HexRed,
-						  std::string a_HexBlue,
-						  std::string a_HexGreen,
-						  std::string a_HexAlpha)
-	{
-		using std::string;
-		using std::hex;
-
-		// Process RED
-		fW = ConvertHextoInt(a_HexRed);
-		// Process BLUE
-		fX = ConvertHextoInt(a_HexBlue);
-		// Process GREEN
-		fX = ConvertHextoInt(a_HexGreen);
-		// Process ALPHA
-		fX = ConvertHextoInt(a_HexAlpha);
+	void Vector4::ConstructFromHex(
+		int a_iRED,
+		int a_iGREEN,
+		int a_iBLUE,
+		int a_iALPHA
+		)
+	{	
+		fW = a_iRED;
+		fX = a_iGREEN;
+		fY = a_iBLUE;
+		fZ = a_iALPHA;
 	}
 }

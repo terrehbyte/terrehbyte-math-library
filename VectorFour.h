@@ -31,10 +31,12 @@ namespace Vector4
 		static float	GetMagnitude(const Vector4 a_Term);
 		static Vector4	GetNormal(const Vector4 a_Term);
 		
-		void	ConstructFromHex(std::string a_HexRed,
-								 std::string a_HexBlue,
-								 std::string a_HexGreen,
-								 std::string a_HexAlpha);
+		void	ConstructFromHex(
+			int a_iRED,
+			int a_iGREEN,
+			int a_iBLUE,
+			int a_iALPHA
+			);
 
 		float	fW;
 		float	fX;
