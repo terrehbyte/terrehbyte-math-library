@@ -33,6 +33,9 @@
     <ClCompile Include="MatrixFour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TBYTEmath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VectorTwo.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MatrixFour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TBYTEmath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

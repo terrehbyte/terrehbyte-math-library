@@ -27,10 +27,10 @@ namespace Vector3
 		~Vector3();
 
 		// ** FUNCTIONS **
-		static float	GetDotProduct(const Vector3 a_FirstTerm, const Vector3 a_SecondTerm);
-		static Vector3	GetNormal(const Vector3 a_Term);
-		static Vector3	GetCrossProduct(const Vector3 a_FirstTerm, const Vector3 a_SecondTerm);
-		static float	GetMagnitude(const Vector3 a_Term);
+		float	GetDotProduct(const Vector3 a_Term);
+		Vector3	GetNormal();
+		Vector3	GetCrossProduct(const Vector3 a_Term);
+		float	GetMagnitude(const Vector3 a_Term);
 
 		// MyVector.GetCrossProduct(OtherVector);
 		// GetCrossProduct(MyVector, OtherVector);
