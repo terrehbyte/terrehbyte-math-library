@@ -22,7 +22,23 @@ namespace Matrix4
 	private:
 
 	public:
-		float fArray[4][4];
+		Matrix4();
+		~Matrix4();
+
+		float m_afArray[4][4];
+
+		Matrix4 Transpose();
+
+		Matrix4	operator + (const Matrix4 a_Addend);
+		Matrix4	operator + (const float a_AddendScalar);
+
+		Matrix4	operator - (const Matrix4 a_Subtrahend);
+		Matrix4	operator - (const float a_SubtrahendScalar);
+
+		Matrix4	operator * (const Matrix4 a_Factor);
+		Matrix4	operator * (const float a_FactorScalar);
+
+
 	};
 }
 
