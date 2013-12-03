@@ -27,6 +27,7 @@ namespace Matrix3
 		float m_afArray[3][3];
 
 		Matrix3 Transpose();
+		Matrix3 Scale(const float a_fFactorScalar);
 
 		Matrix3	operator + (const Matrix3 a_Addend);
 		Matrix3	operator + (const float a_AddendScalar);

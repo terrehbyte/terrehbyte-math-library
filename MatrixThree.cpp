@@ -34,6 +34,27 @@ namespace Matrix3
 		return tempMatrix;
 	}
 
+	Matrix3 Matrix3::Scale(const float a_fFactorScalar)
+	{
+		Matrix3 tempMatrix;
+
+		tempMatrix = *this;
+
+		tempMatrix.m_afArray[0][0] *= a_fFactorScalar;
+		tempMatrix.m_afArray[0][1] *= a_fFactorScalar;
+		tempMatrix.m_afArray[0][2] *= a_fFactorScalar;
+
+		tempMatrix.m_afArray[1][0] *= a_fFactorScalar;
+		tempMatrix.m_afArray[1][1] *= a_fFactorScalar;
+		tempMatrix.m_afArray[1][2] *= a_fFactorScalar;
+
+		tempMatrix.m_afArray[2][0] *= a_fFactorScalar;
+		tempMatrix.m_afArray[2][1] *= a_fFactorScalar;
+		tempMatrix.m_afArray[2][2] *= a_fFactorScalar;
+
+		return tempMatrix;
+	}
+
 	Matrix3 Matrix3::operator+ (const Matrix3 a_Addend)
 	{
 		Matrix3 tempMatrix;

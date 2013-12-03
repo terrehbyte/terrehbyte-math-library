@@ -46,6 +46,33 @@ namespace Matrix4
 		return tempMatrix;
 	}
 
+	Matrix4 Matrix4::Scale(const float a_fFactorScalar)
+	{
+		Matrix4 tempMatrix;
+
+		tempMatrix.m_afArray[0][0] *= a_fFactorScalar;
+		tempMatrix.m_afArray[0][1] *= a_fFactorScalar;
+		tempMatrix.m_afArray[0][2] *= a_fFactorScalar;
+		tempMatrix.m_afArray[0][3] *= a_fFactorScalar;
+
+		tempMatrix.m_afArray[1][0] *= a_fFactorScalar;
+		tempMatrix.m_afArray[1][1] *= a_fFactorScalar;
+		tempMatrix.m_afArray[1][2] *= a_fFactorScalar;
+		tempMatrix.m_afArray[1][3] *= a_fFactorScalar;
+
+		tempMatrix.m_afArray[2][0] *= a_fFactorScalar;
+		tempMatrix.m_afArray[2][1] *= a_fFactorScalar;
+		tempMatrix.m_afArray[2][2] *= a_fFactorScalar;
+		tempMatrix.m_afArray[2][3] *= a_fFactorScalar;
+
+		tempMatrix.m_afArray[3][0] *= a_fFactorScalar;
+		tempMatrix.m_afArray[3][1] *= a_fFactorScalar;
+		tempMatrix.m_afArray[3][2] *= a_fFactorScalar;
+		tempMatrix.m_afArray[3][3] *= a_fFactorScalar;
+
+		return tempMatrix;
+	}
+
 	Matrix4 Matrix4::operator+ (const Matrix4 a_Addend)
 	{
 		Matrix4 tempMatrix;
