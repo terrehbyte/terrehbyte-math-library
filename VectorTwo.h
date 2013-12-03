@@ -31,6 +31,8 @@ namespace Vector2
 		Vector2	GetNormal();
 		float	GetMagnitude();
 
+		Vector2 Lerp(const Vector2 a_TerminatingVector, const float a_fInterpolationPoint);
+
 		// ** OPERATORS ** - allows the object to be used with basic operators
 		Vector2	operator + (const Vector2 a_Addend);
 		Vector2	operator + (const float a_fAddendScalar);

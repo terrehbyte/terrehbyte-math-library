@@ -32,6 +32,8 @@ namespace Vector3
 		Vector3	GetCrossProduct(const Vector3 a_Term);
 		float	GetMagnitude(const Vector3 a_Term);
 
+		Vector3 Lerp(const Vector3 a_TerminatingVector, const float a_fInterpPoint);
+
 		// MyVector.GetCrossProduct(OtherVector);
 		// GetCrossProduct(MyVector, OtherVector);
 

@@ -58,6 +58,22 @@ namespace Vector2
 		// Return dat shit
 		return temp;
 	}
+
+	Vector2 Vector2::Lerp(const Vector2 a_TerminatingVector, const float a_fInterpPoint)
+	{
+		Vector2 InterpolatedVector;
+		InterpolatedVector.fX = a_fInterpPoint;
+		
+		float InterpValue;
+
+		InterpValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fY - fY) ) / (a_TerminatingVector.fX - fX);
+		InterpValue += fY;
+
+		InterpolatedVector.fY = InterpValue;
+
+		return InterpolatedVector;
+	}
+
 	// 1 + 1 = 2
 	// ADDEND + ADDEND = SUM
 	Vector2 Vector2::operator + (const float a_fAddendScalar)

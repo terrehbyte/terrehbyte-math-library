@@ -70,6 +70,26 @@ namespace Vector3
 		return sqrt(fFirst + fSecond + fThird);
 	}
 
+	Vector3 Vector3::Lerp(const Vector3 a_TerminatingVector, const float a_fInterpPoint)
+	{
+		Vector3 InterpolatedVector;
+		InterpolatedVector.fX = a_fInterpPoint;
+		
+		float InterpYValue;
+		float InterpZValue;
+
+		InterpYValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fY - fY) ) / (a_TerminatingVector.fX - fX);
+		InterpYValue += fY;
+
+		InterpZValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fZ - fZ) ) / (a_TerminatingVector.fX - fX);
+		InterpZValue += fY;
+
+		InterpolatedVector.fY = InterpYValue;
+		InterpolatedVector.fZ = InterpZValue;
+
+		return InterpolatedVector;
+	}
+
 	// ** OPERATOR OVERLOADS ** - allows the object to be used with basic operators
 	Vector3	Vector3::operator + (const Vector3 a_Addend)
 	{
