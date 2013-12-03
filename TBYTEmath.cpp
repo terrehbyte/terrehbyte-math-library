@@ -2,6 +2,12 @@
 
 namespace tbyte
 {
+	float LERP(float a_First, float a_Second, float a_InterpolationValue)
+	{
+		return a_First + (a_Second - a_First) * a_InterpolationValue;
+	}
+
+
 	float DegreesToRadians(float a_fDegrees)
 	{
 		float fRadians = a_fDegrees * (180 / M_PI);
@@ -42,6 +48,7 @@ namespace tbyte
 
 			if ( dPowTwo > a_dTestNumber)
 			{
+				a_dTestNumber = dPowTwo;
 				// return the number as needed
 				return dPowTwo;
 			}
