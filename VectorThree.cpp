@@ -34,7 +34,7 @@ namespace Vector3
 	{
 		Vector3 temp;
 
-		float fMagnitude = GetMagnitude(*this);
+		float fMagnitude = GetMagnitude();
 
 		temp.fX = fX / fMagnitude;
 		temp.fY = fY / fMagnitude;
@@ -60,11 +60,11 @@ namespace Vector3
 		return temp;
 	}
 
-	float	Vector3::GetMagnitude(const Vector3 a_Term)
+	float	Vector3::GetMagnitude()
 	{
-		float fFirst	= a_Term.fX * a_Term.fX;
-		float fSecond	= a_Term.fY * a_Term.fY;
-		float fThird	= a_Term.fZ * a_Term.fZ;
+		float fFirst	= fX * fX;
+		float fSecond	= fY * fY;
+		float fThird	= fZ * fZ;
 
 		// consider using something besides costly sqrt
 		return sqrt(fFirst + fSecond + fThird);
