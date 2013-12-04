@@ -137,6 +137,11 @@ App_Data/*.ldf
 # Windows detritus
 # =========================
 
+# Batch files
+*.ps1
+*.bat
+*.lnk
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
