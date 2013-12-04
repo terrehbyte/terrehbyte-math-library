@@ -19,7 +19,6 @@ namespace Matrix4
 	{
 	}
 
-
 	Matrix4 Matrix4::Transpose()
 	{
 		Matrix4 tempMatrix;
@@ -72,6 +71,8 @@ namespace Matrix4
 
 		return tempMatrix;
 	}
+
+
 
 	Matrix4 Matrix4::operator+ (const Matrix4 a_Addend)
 	{

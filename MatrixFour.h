@@ -28,9 +28,10 @@ namespace Matrix4
 		float m_afArray[4][4];
 
 		Matrix4 Transpose();
-		Matrix4 Scale(const float a_fFactorScalar)
-		{
-		}
+		Matrix4 Scale(const float a_fFactorScalar);
+
+		Matrix4 PointTransform();
+		Matrix4 VectorTransform();
 
 		Matrix4	operator + (const Matrix4 a_Addend);
 		Matrix4	operator + (const float a_AddendScalar);

@@ -9,6 +9,8 @@
 #ifndef _MATRIXTHREE_H_
 #define _MATRIXTHREE_H_
 
+#include "VectorTwo.h"
+
 #ifdef DLL
 	#define DLLEXPORT __declspec(dllexport)
 #else
@@ -29,6 +31,9 @@ namespace Matrix3
 		Matrix3 Transpose();
 		Matrix3 Scale(const float a_fFactorScalar);
 
+		Matrix3 PointTransform(const Vector2::Vector2 a_fTransformPoint);
+		Matrix3 VectorTransform();
+
 		Matrix3	operator + (const Matrix3 a_Addend);
 		Matrix3	operator + (const float a_AddendScalar);
 
@@ -37,8 +42,6 @@ namespace Matrix3
 
 		Matrix3	operator * (const Matrix3 a_Factor);
 		Matrix3	operator * (const float a_FactorScalar);
-
-
 	};
 }
 
