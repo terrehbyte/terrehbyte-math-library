@@ -60,9 +60,9 @@ namespace Vector4
 		int a_iALPHA
 		)
 	{	
-		fW = a_iRED;
-		fX = a_iGREEN;
-		fY = a_iBLUE;
-		fZ = a_iALPHA;
+		fW = a_iRED / 255;
+		fX = a_iGREEN / 255;
+		fY = a_iBLUE / 255;
+		fZ = a_iALPHA / 255;
 	}
 }
