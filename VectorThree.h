@@ -56,6 +56,7 @@ namespace Vector3
 		Vector3 operator /= (const float a_fScalar);
 	
 		void	operator = (const Vector3 a_Source);
+		bool	operator == (const Vector3 a_Source);
 
 		float	fX;
 		float	fY;

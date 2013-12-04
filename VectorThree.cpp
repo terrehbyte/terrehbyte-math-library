@@ -268,4 +268,20 @@ namespace Vector3
 		fZ = a_Source.fZ;
 		return;
 	}
+
+	bool	Vector3::operator == (const Vector3 a_Source)
+	{
+		if(
+			fX == a_Source.fX &&
+			fY == a_Source.fY &&
+			fZ == a_Source.fZ
+		)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
