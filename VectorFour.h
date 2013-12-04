@@ -28,8 +28,8 @@ namespace Vector4
 		~Vector4();
 
 		// ** FUNCTIONS **
-		static float	GetMagnitude(const Vector4 a_Term);
-		static Vector4	GetNormal(const Vector4 a_Term);
+		float	GetMagnitude();
+		Vector4	GetNormal();
 		
 		void	ConstructFromHex(
 			int a_iRED,

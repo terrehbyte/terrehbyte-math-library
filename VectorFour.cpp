@@ -28,27 +28,27 @@ namespace Vector4
 	{
 	}
 
-	float	Vector4::GetMagnitude(const Vector4 a_Term)
+	float	Vector4::GetMagnitude()
 	{
-		float fFirst	= a_Term.fW * a_Term.fW;
-		float fSecond	= a_Term.fX * a_Term.fX;
-		float fThird	= a_Term.fY * a_Term.fY;
-		float fFourth	= a_Term.fZ * a_Term.fZ;
+		float fFirst	= fW * fW;
+		float fSecond	= fX * fX;
+		float fThird	= fY * fY;
+		float fFourth	= fZ * fZ;
 		
 	
 		return sqrt(fFirst + fSecond + fThird + fFourth);
 	}
 
-	Vector4 Vector4::GetNormal(const Vector4 a_Term)
+	Vector4 Vector4::GetNormal()
 	{
 		Vector4 temp;
 
-		float fMagnitude = GetMagnitude(a_Term);
+		float fMagnitude = GetMagnitude();
 
-		temp.fW = a_Term.fW / fMagnitude;
-		temp.fX = a_Term.fX / fMagnitude;
-		temp.fY = a_Term.fY / fMagnitude;
-		temp.fZ = a_Term.fZ / fMagnitude;
+		temp.fW = fW / fMagnitude;
+		temp.fX = fX / fMagnitude;
+		temp.fY = fY / fMagnitude;
+		temp.fZ = fZ / fMagnitude;
 		
 		return temp;
 	}
