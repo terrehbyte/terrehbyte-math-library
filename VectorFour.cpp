@@ -9,7 +9,6 @@
 #include <math.h>
 #include "VectorFour.h"
 #include <iostream>
-#include <sstream>
 
 // ** CONSTRUCTORS ** - initialize values
 
@@ -35,7 +34,6 @@ namespace Vector4
 		float fThird	= fY * fY;
 		float fFourth	= fZ * fZ;
 		
-	
 		return sqrt(fFirst + fSecond + fThird + fFourth);
 	}
 
@@ -60,9 +58,174 @@ namespace Vector4
 		int a_iALPHA
 		)
 	{	
-		fW = a_iRED / 255;
+		fW = a_iRED   / 255;
 		fX = a_iGREEN / 255;
-		fY = a_iBLUE / 255;
+		fY = a_iBLUE  / 255;
 		fZ = a_iALPHA / 255;
+	}
+	
+	Vector4 Vector4::operator + (const Vector4 a_Addend)
+	{
+		// Create a temp Vector4
+		Vector4 temp = (*this);
+
+		// Add temp's X and Y to the other X and Y
+		temp.fW = temp.fW + a_Addend.fW;
+		temp.fX = temp.fX + a_Addend.fX;
+		temp.fY = temp.fY + a_Addend.fY;
+		temp.fZ = temp.fZ + a_Addend.fZ;
+
+		// Return temp, the sum of two Vector4 things
+		return temp;
+	}
+	
+	Vector4 Vector4::operator + (const float a_fAddendScalar)
+	{
+		// Create a temp Vector4
+		Vector4 temp = (*this);
+
+		// Add temp's X and Y to the other X and Y
+		temp.fW = temp.fW + a_fAddendScalar;
+		temp.fX = temp.fX + a_fAddendScalar;
+		temp.fY = temp.fY + a_fAddendScalar;
+		temp.fZ = temp.fZ + a_fAddendScalar;
+
+		// Return temp, the sum of two Vector4 things
+		return temp;
+	}
+
+	Vector4	Vector4::operator += (const Vector4 a_Addend)
+	{
+		Vector4 temp = (*this) + a_Addend;
+
+		return temp;
+	}
+
+	Vector4 Vector4::operator += (const float a_fAddendScalar)
+	{
+		Vector4 temp = (*this);
+
+		temp.fW = temp.fW + a_fAddendScalar;
+		temp.fX = temp.fX + a_fAddendScalar;
+		temp.fY = temp.fY + a_fAddendScalar;
+		temp.fW = temp.fW + a_fAddendScalar;
+
+		return temp;
+	}
+
+	Vector4	Vector4::operator - (const Vector4 a_Subtrahend)
+	{
+		Vector4 temp = (*this);
+
+		temp.fW = fW - a_Subtrahend.fW;
+		temp.fX = fX - a_Subtrahend.fX;
+		temp.fY = fY - a_Subtrahend.fY;
+		temp.fZ = fZ - a_Subtrahend.fZ;
+		return temp;
+	}
+
+	Vector4 Vector4::operator - (const float a_fSubtrahendScalar)
+	{
+		Vector4 temp = (*this);
+		
+		temp.fW = temp.fW - a_fSubtrahendScalar;
+		temp.fX = temp.fX - a_fSubtrahendScalar;
+		temp.fY = temp.fY - a_fSubtrahendScalar;
+		temp.fZ = temp.fZ - a_fSubtrahendScalar;
+
+		return temp;
+	}
+
+	Vector4	Vector4::operator -= (const Vector4 a_Subtrahend)
+	{
+		Vector4 temp = (*this) - a_Subtrahend;
+
+		return temp;
+	}
+
+	Vector4	Vector4::operator -= (const float a_fSubtrahendScalar)
+	{
+		Vector4 temp = (*this);
+
+		temp.fW = temp.fW - a_fSubtrahendScalar;
+		temp.fX = temp.fX - a_fSubtrahendScalar;
+		temp.fY = temp.fY - a_fSubtrahendScalar;
+		temp.fZ = temp.fZ - a_fSubtrahendScalar;
+
+		return temp;
+	}
+
+	Vector4 Vector4::operator * (const float a_fScalar)
+	{
+		Vector4 temp = (*this);
+
+		temp.fW = temp.fW * a_fScalar;
+		temp.fX = temp.fX * a_fScalar;
+		temp.fY = temp.fY * a_fScalar;
+		temp.fZ = temp.fZ * a_fScalar;
+
+		return temp;
+	}
+
+	Vector4 Vector4::operator *= (const float a_fScalar)
+	{
+		Vector4 temp = (*this);
+
+		temp.fW = temp.fW * a_fScalar;
+		temp.fX = temp.fX * a_fScalar;
+		temp.fY = temp.fY * a_fScalar;
+		temp.fZ = temp.fZ * a_fScalar;
+
+		return temp;
+	}
+
+	Vector4 Vector4::operator / (const float a_fScalar)
+	{
+		Vector4 temp = (*this);
+
+		temp.fW = temp.fW / a_fScalar;
+		temp.fX = temp.fX / a_fScalar;
+		temp.fY = temp.fY / a_fScalar;
+		temp.fZ = temp.fZ / a_fScalar;
+
+		return temp;
+	}
+
+	Vector4 Vector4::operator /= (const float a_fScalar)
+	{
+		Vector4 temp =  (*this);
+
+		temp.fW = temp.fW / a_fScalar;
+		temp.fX = temp.fX / a_fScalar;
+		temp.fY = temp.fY / a_fScalar;
+		temp.fZ = temp.fZ / a_fScalar;
+
+		return temp;
+	}
+
+	// Assignment Operator - Assigns the values of an existing Vector4 to another existing Vector4
+	void	Vector4::operator = (const Vector4 a_Source)
+	{
+		fW = a_Source.fW;
+		fX = a_Source.fX;
+		fY = a_Source.fY;
+		fZ = a_Source.fZ;
+		return;
+	}
+
+	bool	Vector4::operator == (const Vector4 a_Source)
+	{
+		if (fW == a_Source.fW &&
+			fX == a_Source.fX &&
+			fY == a_Source.fY &&
+			fZ == a_Source.fZ)
+		{
+			return true;
+		}
+
+		else
+		{
+			return false;
+		}
 	}
 }

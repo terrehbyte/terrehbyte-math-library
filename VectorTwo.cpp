@@ -74,16 +74,10 @@ namespace Vector2
 		return InterpolatedVector;
 	}
 
-	// 1 + 1 = 2
 	// ADDEND + ADDEND = SUM
 	Vector2 Vector2::operator + (const float a_fAddendScalar)
-	{
-		// Create a blank Vector2
-		Vector2 temp;
-
-		// Set the blank vector equal to the Vector2 being added against
-		temp.fX = fX;
-		temp.fY = fY;
+	{		
+		Vector2 temp = (*this);
 
 		// Add temp's X and Y to the other X and Y
 		temp.fX = temp.fX + a_fAddendScalar;
@@ -95,21 +89,14 @@ namespace Vector2
 
 	Vector2	Vector2::operator += (const Vector2 a_Addend)
 	{
-		Vector2 temp;
+		Vector2 temp = (*this) + a_Addend;
 
-		temp.fX = fX;
-		temp.fY = fY;
-
-		temp.fX = fX + a_Addend.fX;
-		temp.fY = fY + a_Addend.fY;
 		return temp;
 	}
 
 	Vector2 Vector2::operator += (const float a_fAddendScalar)
 	{
-		Vector2 temp;
-		temp.fX = fX;
-		temp.fY = fY;
+		Vector2 temp = (*this);
 
 		temp.fX = temp.fX + a_fAddendScalar;
 		temp.fY = temp.fY + a_fAddendScalar;
@@ -119,10 +106,7 @@ namespace Vector2
 
 	Vector2	Vector2::operator - (const Vector2 a_Subtrahend)
 	{
-		Vector2 temp;
-
-		temp.fX = fX;
-		temp.fY = fY;
+		Vector2 temp = (*this);
 
 		temp.fX = fX - a_Subtrahend.fX;
 		temp.fY = fY - a_Subtrahend.fY;
@@ -131,9 +115,7 @@ namespace Vector2
 
 	Vector2 Vector2::operator - (const float a_fSubtrahendScalar)
 	{
-		Vector2 temp;
-		temp.fX = fX;
-		temp.fY = fY;
+		Vector2 temp = (*this);
 
 		temp.fX = temp.fX - a_fSubtrahendScalar;
 		temp.fY = temp.fY - a_fSubtrahendScalar;
@@ -143,21 +125,14 @@ namespace Vector2
 
 	Vector2	Vector2::operator -= (const Vector2 a_Subtrahend)
 	{
-		Vector2 temp;
+		Vector2 temp = (*this) - a_Subtrahend;
 
-		temp.fX = fX;
-		temp.fY = fY;
-
-		temp.fX = fX - a_Subtrahend.fX;
-		temp.fY = fY - a_Subtrahend.fY;
 		return temp;
 	}
 
 	Vector2	Vector2::operator -= (const float a_fSubtrahendScalar)
 	{
-		Vector2 temp;
-		temp.fX = fX;
-		temp.fY = fY;
+		Vector2 temp = (*this);
 
 		temp.fX = temp.fX - a_fSubtrahendScalar;
 		temp.fY = temp.fY - a_fSubtrahendScalar;
@@ -167,9 +142,7 @@ namespace Vector2
 
 	Vector2 Vector2::operator * (const float a_fScalar)
 	{
-		Vector2 temp;
-		temp.fX = fX;
-		temp.fY = fY;
+		Vector2 temp = (*this);
 
 		temp.fX = temp.fX * a_fScalar;
 		temp.fY = temp.fY * a_fScalar;
@@ -179,9 +152,7 @@ namespace Vector2
 
 	Vector2 Vector2::operator *= (const float a_fScalar)
 	{
-		Vector2 temp;
-		temp.fX = fX;
-		temp.fY = fY;
+		Vector2 temp = (*this);
 
 		temp.fX = temp.fX * a_fScalar;
 		temp.fY = temp.fY * a_fScalar;
@@ -191,9 +162,7 @@ namespace Vector2
 
 	Vector2 Vector2::operator / (const float a_fScalar)
 	{
-		Vector2 temp;
-		temp.fX = fX;
-		temp.fY = fY;
+		Vector2 temp = (*this);
 
 		temp.fX = temp.fX / a_fScalar;
 		temp.fY = temp.fY / a_fScalar;
@@ -203,9 +172,7 @@ namespace Vector2
 
 	Vector2 Vector2::operator /= (const float a_fScalar)
 	{
-		Vector2 temp;
-		temp.fX = fX;
-		temp.fY = fY;
+		Vector2 temp = (*this);
 
 		temp.fX = temp.fX / a_fScalar;
 		temp.fY = temp.fY / a_fScalar;

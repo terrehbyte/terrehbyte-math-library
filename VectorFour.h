@@ -8,7 +8,6 @@
 
 #ifndef _VECTORFOUR_H_
 #define _VECTORFOUR_H_
-#include <string>
 
 #ifdef DLL
 	#define DLLEXPORT __declspec(dllexport)
@@ -42,6 +41,26 @@ namespace Vector4
 		float	fX;
 		float	fY;
 		float	fZ;
+
+		// ** OPERATORS ** - allows the object to be used with basic operators
+		Vector4	operator + (const Vector4 a_Addend);
+		Vector4	operator + (const float a_fAddendScalar);
+		Vector4	operator += (const Vector4 a_Addend);
+		Vector4 operator += (const float a_fAddendScalar);
+	
+		Vector4 operator - (const Vector4 a_Subtrahend);
+		Vector4 operator - (const float a_fSubtrahendScalar);
+		Vector4 operator -= (const Vector4 a_Addend);
+		Vector4 operator -= (const float a_fSubtrahendScalar);
+	
+		Vector4 operator * (const float a_fScalar);
+		Vector4 operator *= (const float a_fScalar);
+
+		Vector4 operator / (const float a_fScalar);	
+		Vector4 operator /= (const float a_fScalar);
+	
+		void	operator = (const Vector4 a_Source);
+		bool	operator == (const Vector4 a_Source);
 	};
 }
 

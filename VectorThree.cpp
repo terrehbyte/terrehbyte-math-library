@@ -93,11 +93,7 @@ namespace Vector3
 	// ** OPERATOR OVERLOADS ** - allows the object to be used with basic operators
 	Vector3	Vector3::operator + (const Vector3 a_Addend)
 	{
-		Vector3 temp;
-
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = fX + a_Addend.fX;
 		temp.fY = fY + a_Addend.fY;
@@ -107,11 +103,7 @@ namespace Vector3
 
 	Vector3	Vector3::operator + (const float a_fAddendScalar)
 	{
-		Vector3 temp;
-
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = fX + a_fAddendScalar;
 		temp.fY = fY + a_fAddendScalar;
@@ -121,25 +113,14 @@ namespace Vector3
 
 	Vector3	Vector3::operator += (const Vector3 a_Addend)
 	{
-		Vector3 temp;
+		Vector3 temp = (*this) + a_Addend;
 
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
-
-		temp.fX = fX + a_Addend.fX;
-		temp.fY = fY + a_Addend.fY;
-		temp.fZ = fZ + a_Addend.fZ;
 		return temp;
 	}
 
 	Vector3	Vector3::operator += (const float a_fAddendScalar)
 	{
-		Vector3 temp;
-
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = fX + a_fAddendScalar;
 		temp.fY = fY + a_fAddendScalar;
@@ -149,11 +130,7 @@ namespace Vector3
 
 	Vector3	Vector3::operator - (const Vector3 a_Subtrahend)
 	{
-		Vector3 temp;
-
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = fX - a_Subtrahend.fX;
 		temp.fY = fY - a_Subtrahend.fY;
@@ -163,11 +140,7 @@ namespace Vector3
 
 	Vector3 Vector3::operator - (const float a_fSubtrahendScalar)
 	{
-		Vector3 temp;
-
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = fX - a_fSubtrahendScalar;
 		temp.fY = fY - a_fSubtrahendScalar;
@@ -177,25 +150,13 @@ namespace Vector3
 
 	Vector3	Vector3::operator -= (const Vector3 a_Subtrahend)
 	{
-		Vector3 temp;
-
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
-
-		temp.fX = fX - a_Subtrahend.fX;
-		temp.fY = fY - a_Subtrahend.fY;
-		temp.fZ = fZ - a_Subtrahend.fZ;
+		Vector3 temp = (*this) - a_Subtrahend;
 		return temp;
 	}
 
 	Vector3 Vector3::operator -= (const float a_fSubtrahendScalar)
 	{
-		Vector3 temp;
-
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = fX - a_fSubtrahendScalar;
 		temp.fY = fY - a_fSubtrahendScalar;
@@ -206,10 +167,7 @@ namespace Vector3
 
 	Vector3 Vector3::operator * (const float a_fScalar)
 	{
-		Vector3 temp;
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = temp.fX * a_fScalar;
 		temp.fY = temp.fY * a_fScalar;
@@ -220,10 +178,7 @@ namespace Vector3
 
 	Vector3 Vector3::operator *= (const float a_fScalar)
 	{
-		Vector3 temp;
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = temp.fX * a_fScalar;
 		temp.fY = temp.fY * a_fScalar;
@@ -234,10 +189,7 @@ namespace Vector3
 
 	Vector3 Vector3::operator / (const float a_fScalar)
 	{
-		Vector3 temp;
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = temp.fX / a_fScalar;
 		temp.fY = temp.fY / a_fScalar;
@@ -248,10 +200,7 @@ namespace Vector3
 
 	Vector3 Vector3::operator /= (const float a_fScalar)
 	{
-		Vector3 temp;
-		temp.fX = fX;
-		temp.fY = fY;
-		temp.fZ = fZ;
+		Vector3 temp = (*this);
 
 		temp.fX = temp.fX / a_fScalar;
 		temp.fY = temp.fY / a_fScalar;
