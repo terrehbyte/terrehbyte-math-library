@@ -214,6 +214,12 @@ namespace Matrix3
 
 	Matrix3 Matrix3::operator = (const Matrix3 a_Source)
 	{
+		// prevent self-assignment by checking addresses
+		if (this == &a_Source)
+		{
+			return *this;
+		}
+
 		for (int iCol = 0, iModifier = 15;
 			 iCol <= 2;
 			 iCol++)
@@ -225,6 +231,8 @@ namespace Matrix3
 				m_afArray[iCol][iRow] = a_Source.m_afArray[iCol][iRow];
 			}
 		}
+
+		return *this;
 	}	
 
 	bool Matrix3::operator == (const Matrix3 a_Source)
