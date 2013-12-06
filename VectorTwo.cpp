@@ -89,19 +89,12 @@ namespace Vector2
 
 	Vector2	Vector2::operator += (const Vector2 a_Addend)
 	{
-		Vector2 temp = (*this) + a_Addend;
-
-		return temp;
+		return (*this) + a_Addend;
 	}
 
 	Vector2 Vector2::operator += (const float a_fAddendScalar)
 	{
-		Vector2 temp = (*this);
-
-		temp.fX = temp.fX + a_fAddendScalar;
-		temp.fY = temp.fY + a_fAddendScalar;
-
-		return temp;
+		return (*this) + a_fAddendScalar;
 	}
 
 	Vector2	Vector2::operator - (const Vector2 a_Subtrahend)
@@ -110,6 +103,7 @@ namespace Vector2
 
 		temp.fX = fX - a_Subtrahend.fX;
 		temp.fY = fY - a_Subtrahend.fY;
+
 		return temp;
 	}
 
@@ -125,39 +119,22 @@ namespace Vector2
 
 	Vector2	Vector2::operator -= (const Vector2 a_Subtrahend)
 	{
-		Vector2 temp = (*this) - a_Subtrahend;
-
-		return temp;
+		return (*this) - a_Subtrahend;
 	}
 
 	Vector2	Vector2::operator -= (const float a_fSubtrahendScalar)
 	{
-		Vector2 temp = (*this);
-
-		temp.fX = temp.fX - a_fSubtrahendScalar;
-		temp.fY = temp.fY - a_fSubtrahendScalar;
-
-		return temp;
+		return (*this) - a_fSubtrahendScalar;
 	}
 
 	Vector2 Vector2::operator * (const float a_fScalar)
 	{
-		Vector2 temp = (*this);
-
-		temp.fX = temp.fX * a_fScalar;
-		temp.fY = temp.fY * a_fScalar;
-
-		return temp;
+		return (*this) - a_fScalar;
 	}
 
 	Vector2 Vector2::operator *= (const float a_fScalar)
 	{
-		Vector2 temp = (*this);
-
-		temp.fX = temp.fX * a_fScalar;
-		temp.fY = temp.fY * a_fScalar;
-
-		return temp;
+		return (*this) - a_fScalar;
 	}
 
 	Vector2 Vector2::operator / (const float a_fScalar)
@@ -172,19 +149,21 @@ namespace Vector2
 
 	Vector2 Vector2::operator /= (const float a_fScalar)
 	{
-		Vector2 temp = (*this);
-
-		temp.fX = temp.fX / a_fScalar;
-		temp.fY = temp.fY / a_fScalar;
-
-		return temp;
+		return (*this) / a_fScalar;
 	}
 
 	// Assignment Operator - Assigns the values of an existing vector2 to another existing vector2
 	Vector2	Vector2::operator = (const Vector2 a_Source)
 	{
+		// avoid self-assignment
+		if (this == &a_Source)
+		{
+			return *this;
+		}
+
 		fX = a_Source.fX;
 		fY = a_Source.fY;
+		
 		return *this;
 	}
 

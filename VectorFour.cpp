@@ -96,21 +96,12 @@ namespace Vector4
 
 	Vector4	Vector4::operator += (const Vector4 a_Addend)
 	{
-		Vector4 temp = (*this) + a_Addend;
-
-		return temp;
+		return (*this) + a_Addend;
 	}
 
 	Vector4 Vector4::operator += (const float a_fAddendScalar)
 	{
-		Vector4 temp = (*this);
-
-		temp.fW = temp.fW + a_fAddendScalar;
-		temp.fX = temp.fX + a_fAddendScalar;
-		temp.fY = temp.fY + a_fAddendScalar;
-		temp.fZ = temp.fZ + a_fAddendScalar;
-
-		return temp;
+		return (*this) + a_fAddendScalar;
 	}
 
 	Vector4	Vector4::operator - (const Vector4 a_Subtrahend)
@@ -138,33 +129,17 @@ namespace Vector4
 
 	Vector4	Vector4::operator -= (const Vector4 a_Subtrahend)
 	{
-		Vector4 temp = (*this) - a_Subtrahend;
-
-		return temp;
+		return (*this) - a_Subtrahend;
 	}
 
 	Vector4	Vector4::operator -= (const float a_fSubtrahendScalar)
 	{
-		Vector4 temp = (*this);
-
-		temp.fW = temp.fW - a_fSubtrahendScalar;
-		temp.fX = temp.fX - a_fSubtrahendScalar;
-		temp.fY = temp.fY - a_fSubtrahendScalar;
-		temp.fZ = temp.fZ - a_fSubtrahendScalar;
-
-		return temp;
+		return (*this) - a_fSubtrahendScalar;
 	}
 
 	Vector4 Vector4::operator * (const float a_fScalar)
 	{
-		Vector4 temp = (*this);
-
-		temp.fW = temp.fW * a_fScalar;
-		temp.fX = temp.fX * a_fScalar;
-		temp.fY = temp.fY * a_fScalar;
-		temp.fZ = temp.fZ * a_fScalar;
-
-		return temp;
+		return (*this) - a_fScalar;
 	}
 
 	Vector4 Vector4::operator *= (const float a_fScalar)

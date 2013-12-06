@@ -113,19 +113,12 @@ namespace Vector3
 
 	Vector3	Vector3::operator += (const Vector3 a_Addend)
 	{
-		Vector3 temp = (*this) + a_Addend;
-
-		return temp;
+		return (*this) + a_Addend;
 	}
 
 	Vector3	Vector3::operator += (const float a_fAddendScalar)
 	{
-		Vector3 temp = (*this);
-
-		temp.fX = fX + a_fAddendScalar;
-		temp.fY = fY + a_fAddendScalar;
-		temp.fZ = fZ + a_fAddendScalar;
-		return temp;
+		return (*this) + a_fAddendScalar;
 	}
 
 	Vector3	Vector3::operator - (const Vector3 a_Subtrahend)
@@ -150,19 +143,12 @@ namespace Vector3
 
 	Vector3	Vector3::operator -= (const Vector3 a_Subtrahend)
 	{
-		Vector3 temp = (*this) - a_Subtrahend;
-		return temp;
+		return (*this) - a_Subtrahend;
 	}
 
 	Vector3 Vector3::operator -= (const float a_fSubtrahendScalar)
 	{
-		Vector3 temp = (*this);
-
-		temp.fX = fX - a_fSubtrahendScalar;
-		temp.fY = fY - a_fSubtrahendScalar;
-		temp.fZ = fZ - a_fSubtrahendScalar;
-
-		return temp;
+		return (*this) - a_fSubtrahendScalar;
 	}
 
 	Vector3 Vector3::operator * (const float a_fScalar)
@@ -178,13 +164,7 @@ namespace Vector3
 
 	Vector3 Vector3::operator *= (const float a_fScalar)
 	{
-		Vector3 temp = (*this);
-
-		temp.fX = temp.fX * a_fScalar;
-		temp.fY = temp.fY * a_fScalar;
-		temp.fZ = temp.fZ * a_fScalar;
-
-		return temp;
+		return (*this) * a_fScalar;
 	}
 
 	Vector3 Vector3::operator / (const float a_fScalar)
@@ -200,18 +180,18 @@ namespace Vector3
 
 	Vector3 Vector3::operator /= (const float a_fScalar)
 	{
-		Vector3 temp = (*this);
-
-		temp.fX = temp.fX / a_fScalar;
-		temp.fY = temp.fY / a_fScalar;
-		temp.fZ = temp.fZ / a_fScalar;
-
-		return temp;
+		return (*this) / a_fScalar;
 	}
 
 	// Assignment Operator - Assigns the values of an existing Vector3 to another existing Vector3
 	Vector3	Vector3::operator = (const Vector3 a_Source)
 	{
+		// avoid self-assignment
+		if (this == &a_Source)
+		{
+			return *this;
+		}
+
 		fX = a_Source.fX;
 		fY = a_Source.fY;
 		fZ = a_Source.fZ;
@@ -221,14 +201,14 @@ namespace Vector3
 
 	bool	Vector3::operator == (const Vector3 a_Source)
 	{
-		if(
-			fX == a_Source.fX &&
-			fY == a_Source.fY &&
-			fZ == a_Source.fZ
+		if(fX == a_Source.fX &&
+		   fY == a_Source.fY &&
+		   fZ == a_Source.fZ
 		)
 		{
 			return true;
 		}
+
 		else
 		{
 			return false;
