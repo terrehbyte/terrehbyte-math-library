@@ -53,8 +53,8 @@ namespace Matrix3
 			iRow++)
 		{
 			for (int iCol = 0;
-				iRow <= 2;
-				iRow++)
+				iCol <= 2;
+				iCol++)
 			{
 				tempMatrix.m_afArray[iRow][iCol] *= a_fFactorScalar;
 			}
@@ -72,8 +72,8 @@ namespace Matrix3
 			iRow++)
 		{
 			for (int iCol = 0;
-				iRow <= 2;
-				iRow++)
+				iCol <= 2;
+				iCol++)
 			{
 				tempMatrix.m_afArray[iRow][iCol] += a_Addend.m_afArray[iRow][iCol];
 			}
@@ -91,8 +91,8 @@ namespace Matrix3
 			iRow++)
 		{
 			for (int iCol = 0;
-				iRow <= 2;
-				iRow++)
+				iCol <= 2;
+				iCol++)
 			{
 				tempMatrix.m_afArray[iRow][iCol] += a_fAddendScalar;
 			}
@@ -101,6 +101,8 @@ namespace Matrix3
 		return tempMatrix;
 	}
 
+	// ISSUE! += doesn't return the added value.
+	// Try seeing http://courses.cms.caltech.edu/cs11/material/cpp/donnie/cpp-ops.html
 	Matrix3 Matrix3::operator+= (const Matrix3 a_Addend)
 	{
 		return (*this) + a_Addend;
@@ -120,8 +122,8 @@ namespace Matrix3
 			iRow++)
 		{
 			for (int iCol = 0;
-				iRow <= 2;
-				iRow++)
+				iCol <= 2;
+				iCol++)
 			{
 				tempMatrix.m_afArray[iRow][iCol] += a_Subtrahend.m_afArray[iRow][iCol];
 			}
@@ -139,8 +141,8 @@ namespace Matrix3
 			iRow++)
 		{
 			for (int iCol = 0;
-				iRow <= 2;
-				iRow++)
+				iCol <= 2;
+				iCol++)
 			{
 				tempMatrix.m_afArray[iRow][iCol] -= a_fSubtrahendScalar;
 			}
@@ -222,8 +224,8 @@ namespace Matrix3
 			iRow++)
 		{
 			for (int iCol = 0;
-				iRow <= 2;
-				iRow++)
+				iCol <= 2;
+				iCol++)
 			{
 				tempMatrix.m_afArray[iRow][iCol] *= a_fFactorScalar;
 			}
