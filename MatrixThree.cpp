@@ -251,7 +251,6 @@ namespace Matrix3
 				}
 			}
 		}
-
 		return true;
 	}	
 

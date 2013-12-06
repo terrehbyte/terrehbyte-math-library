@@ -204,13 +204,14 @@ namespace Vector4
 	}
 
 	// Assignment Operator - Assigns the values of an existing Vector4 to another existing Vector4
-	void	Vector4::operator = (const Vector4 a_Source)
+	Vector4	Vector4::operator = (const Vector4 a_Source)
 	{
 		fW = a_Source.fW;
 		fX = a_Source.fX;
 		fY = a_Source.fY;
 		fZ = a_Source.fZ;
-		return;
+		
+		return *this;
 	}
 
 	bool	Vector4::operator == (const Vector4 a_Source)

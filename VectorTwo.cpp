@@ -181,11 +181,11 @@ namespace Vector2
 	}
 
 	// Assignment Operator - Assigns the values of an existing vector2 to another existing vector2
-	void	Vector2::operator = (const Vector2 a_Source)
+	Vector2	Vector2::operator = (const Vector2 a_Source)
 	{
 		fX = a_Source.fX;
 		fY = a_Source.fY;
-		return;
+		return *this;
 	}
 
 	bool	Vector2::operator == (const Vector2 a_Source)

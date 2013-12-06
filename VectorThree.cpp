@@ -210,12 +210,13 @@ namespace Vector3
 	}
 
 	// Assignment Operator - Assigns the values of an existing Vector3 to another existing Vector3
-	void	Vector3::operator = (const Vector3 a_Source)
+	Vector3	Vector3::operator = (const Vector3 a_Source)
 	{
 		fX = a_Source.fX;
 		fY = a_Source.fY;
 		fZ = a_Source.fZ;
-		return;
+	
+		return *this;
 	}
 
 	bool	Vector3::operator == (const Vector3 a_Source)

@@ -59,7 +59,7 @@ namespace Vector4
 		Vector4 operator / (const float a_fScalar);	
 		Vector4 operator /= (const float a_fScalar);
 	
-		void	operator = (const Vector4 a_Source);
+		Vector4	operator = (const Vector4 a_Source);
 		bool	operator == (const Vector4 a_Source);
 	};
 }

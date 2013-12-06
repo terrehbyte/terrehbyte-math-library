@@ -50,7 +50,7 @@ namespace Vector2
 		Vector2 operator / (const float a_fScalar);	
 		Vector2 operator /= (const float a_fScalar);
 	
-		void	operator = (const Vector2 a_Source);
+		Vector2	operator = (const Vector2 a_Source);
 		bool	operator == (const Vector2 a_Source);
 	
 		float		fY;
