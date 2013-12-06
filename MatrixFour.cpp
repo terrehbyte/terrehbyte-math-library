@@ -76,7 +76,7 @@ namespace Matrix4
 				iRow <= 3;
 				iRow++)
 			{
-				tempMatrix.m_afArray[iRow][iCol] + a_Addend.m_afArray[iRow][iCol];
+				tempMatrix.m_afArray[iRow][iCol] += a_Addend.m_afArray[iRow][iCol];
 			}
 		}
 
@@ -95,7 +95,7 @@ namespace Matrix4
 				iRow <= 3;
 				iRow++)
 			{
-				tempMatrix.m_afArray[iRow][iCol] + a_AddendScalar;
+				tempMatrix.m_afArray[iRow][iCol] += a_AddendScalar;
 			}
 		}
 
@@ -124,7 +124,7 @@ namespace Matrix4
 				iRow <= 3;
 				iRow++)
 			{
-				tempMatrix.m_afArray[iRow][iCol] + a_Subtrahend.m_afArray[iRow][iCol];
+				tempMatrix.m_afArray[iRow][iCol] -= a_Subtrahend.m_afArray[iRow][iCol];
 			}
 		}
 
@@ -143,7 +143,7 @@ namespace Matrix4
 				iRow <= 3;
 				iRow++)
 			{
-				tempMatrix.m_afArray[iRow][iCol] - a_SubtrahendScalar;
+				tempMatrix.m_afArray[iRow][iCol] -= a_SubtrahendScalar;
 			}
 		}
 
