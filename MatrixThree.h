@@ -42,6 +42,9 @@ namespace Matrix3
 
 		Matrix3	operator * (const Matrix3 a_Factor);
 		Matrix3	operator * (const float a_FactorScalar);
+
+		Matrix3 operator = (const Matrix3 a_Source);
+		bool operator == (const Matrix3 a_Term);
 	};
 }
 

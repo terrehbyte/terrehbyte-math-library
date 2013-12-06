@@ -31,10 +31,10 @@ namespace Vector4
 		Vector4	GetNormal();
 		
 		void	ConstructFromHex(
-			int a_iRED,
-			int a_iGREEN,
-			int a_iBLUE,
-			int a_iALPHA
+			float a_iRED,
+			float a_iGREEN,
+			float a_iBLUE,
+			float a_iALPHA
 			);
 
 		float	fW;

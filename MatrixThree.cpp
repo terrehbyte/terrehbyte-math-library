@@ -211,4 +211,40 @@ namespace Matrix3
 
 		return tempMatrix;
 	}
+
+	Matrix3 Matrix3::operator = (const Matrix3 a_Source)
+	{
+		for (int iCol = 0, iModifier = 15;
+			 iCol <= 2;
+			 iCol++)
+		{
+			for (int iRow = 0;
+				iRow <= 2;
+				iRow++)
+			{
+				m_afArray[iCol][iRow] = a_Source.m_afArray[iCol][iRow];
+			}
+		}
+	}	
+
+	bool Matrix3::operator == (const Matrix3 a_Source)
+	{
+		for (int iCol = 0, iModifier = 15;
+			 iCol <= 2;
+			 iCol++)
+		{
+			for (int iRow = 0;
+				iRow <= 2;
+				iRow++)
+			{
+				if (m_afArray[iCol][iRow] != a_Source.m_afArray[iCol][iRow])
+				{
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}	
+
 }

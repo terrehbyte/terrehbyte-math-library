@@ -108,7 +108,7 @@ namespace Vector4
 		temp.fW = temp.fW + a_fAddendScalar;
 		temp.fX = temp.fX + a_fAddendScalar;
 		temp.fY = temp.fY + a_fAddendScalar;
-		temp.fW = temp.fW + a_fAddendScalar;
+		temp.fZ = temp.fZ + a_fAddendScalar;
 
 		return temp;
 	}
