@@ -237,7 +237,7 @@ namespace Matrix3
 
 	bool Matrix3::operator == (const Matrix3 a_Source)
 	{
-		for (int iCol = 0, iModifier = 15;
+		for (int iCol = 0;
 			 iCol <= 2;
 			 iCol++)
 		{

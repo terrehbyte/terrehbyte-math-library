@@ -262,4 +262,41 @@ namespace Matrix4
 
 		return tempMatrix;
 	}
+
+	Matrix4 Matrix4::operator = (const Matrix4 a_Source)
+	{
+		for (int iCol = 0;
+			 iCol <= 3;
+			 iCol++)
+		{
+			for (int iRow = 0;
+				iRow <= 3;
+				iRow++)
+			{
+				m_afArray[iCol][iRow] = a_Source.m_afArray[iCol][iRow];
+			}
+		}
+
+		return *this;
+	}
+
+	bool Matrix4::operator == (const Matrix4 a_Source)
+	{
+		for (int iCol = 0;
+			 iCol <= 3;
+			 iCol++)
+		{
+			for (int iRow = 0;
+				iRow <= 3;
+				iRow++)
+			{
+				if (m_afArray[iCol][iRow] != a_Source.m_afArray[iCol][iRow])
+				{
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
 }
