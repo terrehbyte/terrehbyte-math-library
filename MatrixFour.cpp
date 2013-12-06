@@ -47,147 +47,117 @@ namespace Matrix4
 
 	Matrix4 Matrix4::Scale(const float a_fFactorScalar)
 	{
-		Matrix4 tempMatrix;
+		Matrix4 tempMatrix = *this;
 
-		tempMatrix.m_afArray[0][0] *= a_fFactorScalar;
-		tempMatrix.m_afArray[0][1] *= a_fFactorScalar;
-		tempMatrix.m_afArray[0][2] *= a_fFactorScalar;
-		tempMatrix.m_afArray[0][3] *= a_fFactorScalar;
-
-		tempMatrix.m_afArray[1][0] *= a_fFactorScalar;
-		tempMatrix.m_afArray[1][1] *= a_fFactorScalar;
-		tempMatrix.m_afArray[1][2] *= a_fFactorScalar;
-		tempMatrix.m_afArray[1][3] *= a_fFactorScalar;
-
-		tempMatrix.m_afArray[2][0] *= a_fFactorScalar;
-		tempMatrix.m_afArray[2][1] *= a_fFactorScalar;
-		tempMatrix.m_afArray[2][2] *= a_fFactorScalar;
-		tempMatrix.m_afArray[2][3] *= a_fFactorScalar;
-
-		tempMatrix.m_afArray[3][0] *= a_fFactorScalar;
-		tempMatrix.m_afArray[3][1] *= a_fFactorScalar;
-		tempMatrix.m_afArray[3][2] *= a_fFactorScalar;
-		tempMatrix.m_afArray[3][3] *= a_fFactorScalar;
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iRow <= 3;
+				iRow++)
+			{
+				tempMatrix.m_afArray[iRow][iCol] *= a_fFactorScalar;
+			}
+		}
 
 		return tempMatrix;
 	}
 
-
-
 	Matrix4 Matrix4::operator+ (const Matrix4 a_Addend)
 	{
-		Matrix4 tempMatrix;
+		Matrix4 tempMatrix = *this;
 
-		tempMatrix = *this;
-
-		tempMatrix.m_afArray[0][0] = m_afArray[0][0] + a_Addend.m_afArray[0][0];
-		tempMatrix.m_afArray[0][1] = m_afArray[0][1] + a_Addend.m_afArray[0][1];
-		tempMatrix.m_afArray[0][2] = m_afArray[0][2] + a_Addend.m_afArray[0][2];
-		tempMatrix.m_afArray[0][3] = m_afArray[0][3] + a_Addend.m_afArray[0][3];
-
-		tempMatrix.m_afArray[1][0] = m_afArray[1][0] + a_Addend.m_afArray[1][0];
-		tempMatrix.m_afArray[1][1] = m_afArray[1][1] + a_Addend.m_afArray[1][1];
-		tempMatrix.m_afArray[1][2] = m_afArray[1][2] + a_Addend.m_afArray[1][2];
-		tempMatrix.m_afArray[1][3] = m_afArray[1][3] + a_Addend.m_afArray[1][3];
-
-		tempMatrix.m_afArray[2][0] = m_afArray[2][0] + a_Addend.m_afArray[2][0];
-		tempMatrix.m_afArray[2][1] = m_afArray[2][1] + a_Addend.m_afArray[2][1];
-		tempMatrix.m_afArray[2][2] = m_afArray[2][2] + a_Addend.m_afArray[2][2];
-		tempMatrix.m_afArray[2][3] = m_afArray[2][3] + a_Addend.m_afArray[2][3];
-
-		tempMatrix.m_afArray[3][0] = m_afArray[3][0] + a_Addend.m_afArray[3][0];
-		tempMatrix.m_afArray[3][1] = m_afArray[3][1] + a_Addend.m_afArray[3][1];
-		tempMatrix.m_afArray[3][2] = m_afArray[3][2] + a_Addend.m_afArray[3][2];
-		tempMatrix.m_afArray[3][3] = m_afArray[3][3] + a_Addend.m_afArray[3][3];
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iRow <= 3;
+				iRow++)
+			{
+				tempMatrix.m_afArray[iRow][iCol] + a_Addend.m_afArray[iRow][iCol];
+			}
+		}
 
 		return tempMatrix;
 	}
 
 	Matrix4 Matrix4::operator+ (const float a_AddendScalar)
 	{
-		Matrix4 tempMatrix;
+		Matrix4 tempMatrix = *this;
 
-		tempMatrix = *this;
-
-		tempMatrix.m_afArray[0][0] = m_afArray[0][0] + a_AddendScalar;
-		tempMatrix.m_afArray[0][1] = m_afArray[0][1] + a_AddendScalar;
-		tempMatrix.m_afArray[0][2] = m_afArray[0][2] + a_AddendScalar;
-		tempMatrix.m_afArray[0][3] = m_afArray[0][3] + a_AddendScalar;
-
-		tempMatrix.m_afArray[1][0] = m_afArray[1][0] + a_AddendScalar;
-		tempMatrix.m_afArray[1][1] = m_afArray[1][1] + a_AddendScalar;
-		tempMatrix.m_afArray[1][2] = m_afArray[1][2] + a_AddendScalar;
-		tempMatrix.m_afArray[1][3] = m_afArray[1][3] + a_AddendScalar;
-
-		tempMatrix.m_afArray[2][0] = m_afArray[2][0] + a_AddendScalar;
-		tempMatrix.m_afArray[2][1] = m_afArray[2][1] + a_AddendScalar;
-		tempMatrix.m_afArray[2][2] = m_afArray[2][2] + a_AddendScalar;
-		tempMatrix.m_afArray[2][3] = m_afArray[2][3] + a_AddendScalar;
-
-		tempMatrix.m_afArray[3][0] = m_afArray[3][0] + a_AddendScalar;
-		tempMatrix.m_afArray[3][1] = m_afArray[3][1] + a_AddendScalar;
-		tempMatrix.m_afArray[3][2] = m_afArray[3][2] + a_AddendScalar;
-		tempMatrix.m_afArray[3][3] = m_afArray[3][3] + a_AddendScalar;
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iRow <= 3;
+				iRow++)
+			{
+				tempMatrix.m_afArray[iRow][iCol] + a_AddendScalar;
+			}
+		}
 
 		return tempMatrix;
 	}
 
+	Matrix4 Matrix4::operator+= (const Matrix4 a_Addend)
+	{
+		return (*this) + a_Addend;
+	}
+
+	Matrix4 Matrix4::operator+= (const float a_AddendScalar)
+	{
+		return (*this) + a_AddendScalar;
+	}
+
 	Matrix4 Matrix4::operator- (const Matrix4 a_Subtrahend)
 	{
-		Matrix4 tempMatrix;
+		Matrix4 tempMatrix = *this;
 
-		tempMatrix = *this;
-
-		tempMatrix.m_afArray[0][0] = m_afArray[0][0] - a_Subtrahend.m_afArray[0][0];
-		tempMatrix.m_afArray[0][1] = m_afArray[0][1] - a_Subtrahend.m_afArray[0][1];
-		tempMatrix.m_afArray[0][2] = m_afArray[0][2] - a_Subtrahend.m_afArray[0][2];
-		tempMatrix.m_afArray[0][3] = m_afArray[0][3] - a_Subtrahend.m_afArray[0][3];
-
-		tempMatrix.m_afArray[1][0] = m_afArray[1][0] - a_Subtrahend.m_afArray[1][0];
-		tempMatrix.m_afArray[1][1] = m_afArray[1][1] - a_Subtrahend.m_afArray[1][1];
-		tempMatrix.m_afArray[1][2] = m_afArray[1][2] - a_Subtrahend.m_afArray[1][2];
-		tempMatrix.m_afArray[1][3] = m_afArray[1][3] - a_Subtrahend.m_afArray[1][3];
-
-		tempMatrix.m_afArray[2][0] = m_afArray[2][0] - a_Subtrahend.m_afArray[2][0];
-		tempMatrix.m_afArray[2][1] = m_afArray[2][1] - a_Subtrahend.m_afArray[2][1];
-		tempMatrix.m_afArray[2][2] = m_afArray[2][2] - a_Subtrahend.m_afArray[2][2];
-		tempMatrix.m_afArray[2][3] = m_afArray[2][3] - a_Subtrahend.m_afArray[2][3];
-
-		tempMatrix.m_afArray[3][0] = m_afArray[3][0] - a_Subtrahend.m_afArray[3][0];
-		tempMatrix.m_afArray[3][1] = m_afArray[3][1] - a_Subtrahend.m_afArray[3][1];
-		tempMatrix.m_afArray[3][2] = m_afArray[3][2] - a_Subtrahend.m_afArray[3][2];
-		tempMatrix.m_afArray[3][3] = m_afArray[3][3] - a_Subtrahend.m_afArray[3][3];
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iRow <= 3;
+				iRow++)
+			{
+				tempMatrix.m_afArray[iRow][iCol] + a_Subtrahend.m_afArray[iRow][iCol];
+			}
+		}
 
 		return tempMatrix;
 	}
 
 	Matrix4 Matrix4::operator- (const float a_SubtrahendScalar)
 	{
-		Matrix4 tempMatrix;
+		Matrix4 tempMatrix = *this;
 
-		tempMatrix = *this;
-
-		tempMatrix.m_afArray[0][0] = m_afArray[0][0] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[0][1] = m_afArray[0][1] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[0][2] = m_afArray[0][2] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[0][3] = m_afArray[0][3] + a_SubtrahendScalar;
-
-		tempMatrix.m_afArray[1][0] = m_afArray[1][0] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[1][1] = m_afArray[1][1] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[1][2] = m_afArray[1][2] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[1][3] = m_afArray[1][3] + a_SubtrahendScalar;
-
-		tempMatrix.m_afArray[2][0] = m_afArray[2][0] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[2][1] = m_afArray[2][1] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[2][2] = m_afArray[2][2] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[2][3] = m_afArray[2][3] + a_SubtrahendScalar;
-
-		tempMatrix.m_afArray[3][0] = m_afArray[3][0] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[3][1] = m_afArray[3][1] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[3][2] = m_afArray[3][2] + a_SubtrahendScalar;
-		tempMatrix.m_afArray[3][3] = m_afArray[3][3] + a_SubtrahendScalar;
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iRow <= 3;
+				iRow++)
+			{
+				tempMatrix.m_afArray[iRow][iCol] - a_SubtrahendScalar;
+			}
+		}
 
 		return tempMatrix;
+	}
+
+	Matrix4 Matrix4::operator-= (const Matrix4 a_Subtrahend)
+	{
+		return (*this) - a_Subtrahend;
+	}
+
+	Matrix4 Matrix4::operator-= (const float a_SubtrahendScalar)
+	{
+		return (*this) + a_SubtrahendScalar;
 	}
 
 	// Lazy to hard code all of the matrix concatenation stuff so will leave as is
@@ -278,6 +248,16 @@ namespace Matrix4
 		}
 
 		return *this;
+	}
+
+	Matrix4 Matrix4::operator*= (const Matrix4 a_Factor)
+	{
+		return (*this) * a_Factor;
+	}
+
+	Matrix4 Matrix4::operator*= (const float a_FactorScalar)
+	{
+		return (*this) * a_FactorScalar;
 	}
 
 	bool Matrix4::operator == (const Matrix4 a_Source)

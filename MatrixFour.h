@@ -35,15 +35,21 @@ namespace Matrix4
 
 		Matrix4	operator + (const Matrix4 a_Addend);
 		Matrix4	operator + (const float a_AddendScalar);
+		Matrix4 operator += (const Matrix4 a_Addend);
+		Matrix4 operator += (const float a_AddendScalar);
 
 		Matrix4	operator - (const Matrix4 a_Subtrahend);
 		Matrix4	operator - (const float a_SubtrahendScalar);
+		Matrix4	operator -= (const Matrix4 a_Subtrahend);
+		Matrix4	operator -= (const float a_SubtrahendScalar);
 
 		Matrix4	operator * (const Matrix4 a_Factor);
 		Matrix4	operator * (const float a_FactorScalar);
+		Matrix4	operator *= (const Matrix4 a_Factor);
+		Matrix4	operator *= (const float a_FactorScalar);
 
 		Matrix4 operator = (const Matrix4 a_Source);
-		bool	operator == (const Matrix4 a_Term);
+		bool	operator == (const Matrix4 a_Source);
 	};
 }
 

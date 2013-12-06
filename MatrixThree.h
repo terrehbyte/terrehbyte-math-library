@@ -35,16 +35,22 @@ namespace Matrix3
 		Matrix3 VectorTransform();
 
 		Matrix3	operator + (const Matrix3 a_Addend);
-		Matrix3	operator + (const float a_AddendScalar);
+		Matrix3	operator + (const float a_fAddendScalar);
+		Matrix3	operator += (const Matrix3 a_Addend);
+		Matrix3	operator += (const float a_fAddendScalar);
 
 		Matrix3	operator - (const Matrix3 a_Subtrahend);
-		Matrix3	operator - (const float a_SubtrahendScalar);
+		Matrix3	operator - (const float a_fSubtrahendScalar);
+		Matrix3	operator -= (const Matrix3 a_Subtrahend);
+		Matrix3	operator -= (const float a_fSubtrahendScalar);
 
 		Matrix3	operator * (const Matrix3 a_Factor);
-		Matrix3	operator * (const float a_FactorScalar);
+		Matrix3	operator * (const float a_fFactorScalar);
+		Matrix3	operator *= (const Matrix3 a_Factor);
+		Matrix3	operator *= (const float a_fFactorScalar);
 
 		Matrix3 operator = (const Matrix3 a_Source);
-		bool operator == (const Matrix3 a_Term);
+		bool	operator == (const Matrix3 a_Term);
 	};
 }
 
