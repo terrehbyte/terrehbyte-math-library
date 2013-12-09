@@ -45,20 +45,6 @@ namespace Vector2
 		return sqrt(fFirst + fSecond);
 	}
 
-	// ** OPERATOR OVERLOADS ** - allows the object to be used with basic operators
-	Vector2	Vector2::operator + (const Vector2 a_Addend)
-	{
-		// Create a blank Vector2
-		Vector2 temp;
-
-		// Add the two things together
-		temp.fX = fX + a_Addend.fX;
-		temp.fY = fY + a_Addend.fY;
-
-		// Return dat shit
-		return temp;
-	}
-
 	Vector2 Vector2::Lerp(const Vector2 a_TerminatingVector, const float a_fInterpPoint)
 	{
 		Vector2 InterpolatedVector;
@@ -74,14 +60,28 @@ namespace Vector2
 		return InterpolatedVector;
 	}
 
+	// ** OPERATOR OVERLOADS ** - allows the object to be used with basic operators
+	Vector2	Vector2::operator + (const Vector2 a_Addend)
+	{
+		// Create a blank Vector2
+		Vector2 temp = (*this);
+
+		// Add the two things together
+		temp.fX += a_Addend.fX;
+		temp.fY += a_Addend.fY;
+
+		// Return dat shit
+		return temp;
+	}
+
 	// ADDEND + ADDEND = SUM
 	Vector2 Vector2::operator + (const float a_fAddendScalar)
 	{		
 		Vector2 temp = (*this);
 
 		// Add temp's X and Y to the other X and Y
-		temp.fX = temp.fX + a_fAddendScalar;
-		temp.fY = temp.fY + a_fAddendScalar;
+		temp.fX += a_fAddendScalar;
+		temp.fY += a_fAddendScalar;
 
 		// Return temp, the sum of two Vector2 things
 		return temp;
@@ -89,20 +89,22 @@ namespace Vector2
 
 	Vector2	Vector2::operator += (const Vector2 a_Addend)
 	{
-		return (*this) + a_Addend;
+		(*this) = (*this) + a_Addend;
+		return (*this);
 	}
 
 	Vector2 Vector2::operator += (const float a_fAddendScalar)
 	{
-		return (*this) + a_fAddendScalar;
+		(*this) = (*this) + a_fAddendScalar;
+		return (*this);
 	}
 
 	Vector2	Vector2::operator - (const Vector2 a_Subtrahend)
 	{
 		Vector2 temp = (*this);
 
-		temp.fX = fX - a_Subtrahend.fX;
-		temp.fY = fY - a_Subtrahend.fY;
+		temp.fX -= a_Subtrahend.fX;
+		temp.fY -= a_Subtrahend.fY;
 
 		return temp;
 	}
@@ -129,12 +131,18 @@ namespace Vector2
 
 	Vector2 Vector2::operator * (const float a_fScalar)
 	{
-		return (*this) - a_fScalar;
+		Vector2 temp;
+
+		temp.fX = fX * a_fScalar;
+		temp.fY = fY * a_fScalar;
+
+		return temp;
 	}
 
 	Vector2 Vector2::operator *= (const float a_fScalar)
 	{
-		return (*this) - a_fScalar;
+		(*this) = (*this) * a_fScalar;
+		return (*this);
 	}
 
 	Vector2 Vector2::operator / (const float a_fScalar)
@@ -149,7 +157,8 @@ namespace Vector2
 
 	Vector2 Vector2::operator /= (const float a_fScalar)
 	{
-		return (*this) / a_fScalar;
+		(*this) = (*this) / a_fScalar;
+		return (*this);
 	}
 
 	// Assignment Operator - Assigns the values of an existing vector2 to another existing vector2
