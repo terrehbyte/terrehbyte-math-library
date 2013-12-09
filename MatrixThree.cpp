@@ -20,6 +20,7 @@ namespace Matrix3
 
 	Matrix3 Matrix3::Transpose()
 	{
+		// not ready for prime time
 		Matrix3 tempMatrix;
 
 		tempMatrix = *this;
@@ -28,14 +29,17 @@ namespace Matrix3
 		tempMatrix.m_afArray[0][1] = m_afArray[1][0];
 		tempMatrix.m_afArray[0][2] = m_afArray[2][0];
 		tempMatrix.m_afArray[0][3] = m_afArray[3][0];
+		
 		// gap @ [FIRST][1]
 		tempMatrix.m_afArray[1][0] = m_afArray[0][1];
 		tempMatrix.m_afArray[1][2] = m_afArray[2][1];
 		tempMatrix.m_afArray[1][3] = m_afArray[3][1];
+		
 		// gap @ [FIRST][2]
 		tempMatrix.m_afArray[2][0] = m_afArray[0][2];
 		tempMatrix.m_afArray[2][1] = m_afArray[1][2];
 		tempMatrix.m_afArray[2][3] = m_afArray[3][2];
+		
 		// gap @ [FIRST][3]
 		tempMatrix.m_afArray[3][0] = m_afArray[0][3];
 		tempMatrix.m_afArray[3][1] = m_afArray[1][3];
@@ -127,7 +131,7 @@ namespace Matrix3
 				iCol <= 2;
 				iCol++)
 			{
-				tempMatrix.m_afArray[iRow][iCol] += a_Subtrahend.m_afArray[iRow][iCol];
+				tempMatrix.m_afArray[iRow][iCol] -= a_Subtrahend.m_afArray[iRow][iCol];
 			}
 		}
 
@@ -161,61 +165,51 @@ namespace Matrix3
 
 	Matrix3 Matrix3::operator-= (const float a_fSubtrahendScalar)
 	{
-		(*this) = (*this) + a_fSubtrahendScalar;
+		(*this) = (*this) - a_fSubtrahendScalar;
 		return (*this);
 	}
 
-	// Lazy to hard code all of the matrix concatenation stuff so will leave as is
 	Matrix3	Matrix3::operator * (const Matrix3 a_Factor)
 	{
-		// also see Matrix Concatenation
-		// MatrixA * MatrixB = MatrixC
-
-		// Matrix to return that stores the concatenated matrix
-		// i.e. MatrixC
 		Matrix3 tempMatrix;
 
-		// Set the Initial MatrixA row and col
-		int iACol = 0;
-		int iARow = 0;
-			
-		// Set the Initial MatrixB row and col
-		int iBCol = 0;
-		int iBRow = 0;
+		tempMatrix.m_afArray[0][0] =	m_afArray[0][0] * a_Factor.m_afArray[0][0] +
+										m_afArray[0][1] * a_Factor.m_afArray[1][0] +
+										m_afArray[0][2] * a_Factor.m_afArray[2][0];
 
-		// Set the Initial MatrixC row and col
-		int iCCol = 0;
-		int iCRow = 0;
+		tempMatrix.m_afArray[0][1] =	m_afArray[0][0] * a_Factor.m_afArray[0][1] +
+										m_afArray[0][1] * a_Factor.m_afArray[1][1] +
+										m_afArray[0][2] * a_Factor.m_afArray[2][1];
+		
+		tempMatrix.m_afArray[0][2] =	m_afArray[0][0] * a_Factor.m_afArray[0][2] +
+										m_afArray[0][1] * a_Factor.m_afArray[1][2] +
+										m_afArray[0][2] * a_Factor.m_afArray[2][2];
 
-		for(;
-			iARow <= 2;
-			iARow++)
-		{
-			// Store value to be stored
-			float fSum = 0;
-			
-			// Calculate the sum of Row A Current Row * Col B0,1,2
-			while (iBRow < 3 && iBCol < 3)
-			{
-				fSum = m_afArray[iARow][iACol] + a_Factor.m_afArray[iBRow][iBCol];
 
-				iACol++;
-				iBRow++;
-			}
+		tempMatrix.m_afArray[1][0] =	m_afArray[1][0] * a_Factor.m_afArray[0][0] +
+										m_afArray[1][1] * a_Factor.m_afArray[1][0] +
+										m_afArray[1][2] * a_Factor.m_afArray[2][0];
 
-			// Assign the determined value to its container
-			tempMatrix.m_afArray[iCCol][iCRow] = fSum;
+		tempMatrix.m_afArray[1][1] =	m_afArray[1][0] * a_Factor.m_afArray[0][1] +
+										m_afArray[1][1] * a_Factor.m_afArray[1][1] +
+										m_afArray[1][2] * a_Factor.m_afArray[2][1];
 
-			// Move to the next column to be assigned
-			iCCol++;
+		tempMatrix.m_afArray[1][2] =	m_afArray[1][0] * a_Factor.m_afArray[0][2] +
+										m_afArray[1][1] * a_Factor.m_afArray[1][2] + 
+										m_afArray[1][2] * a_Factor.m_afArray[2][2];
 
-			// if iCCol is beyond range of array, move to next row and reset ccol
-			if (iCCol > 2)
-			{
-				iCRow++;
-				iCCol = 0;
-			}
-		}
+		tempMatrix.m_afArray[2][0] =	m_afArray[2][0] * a_Factor.m_afArray[0][0] +
+										m_afArray[2][1] * a_Factor.m_afArray[1][0] +
+										m_afArray[2][2] * a_Factor.m_afArray[2][0];
+
+		tempMatrix.m_afArray[2][1] =	m_afArray[2][0] * a_Factor.m_afArray[0][1] +
+										m_afArray[2][1] * a_Factor.m_afArray[1][1] +
+										m_afArray[2][2] * a_Factor.m_afArray[2][1];
+		
+		tempMatrix.m_afArray[2][2] =	m_afArray[2][0] * a_Factor.m_afArray[0][2] +
+										m_afArray[2][1] * a_Factor.m_afArray[1][2] +
+										m_afArray[2][2] * a_Factor.m_afArray[2][2];
+
 		return tempMatrix;
 	}
 
