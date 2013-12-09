@@ -105,12 +105,14 @@ namespace Matrix3
 	// Try seeing http://courses.cms.caltech.edu/cs11/material/cpp/donnie/cpp-ops.html
 	Matrix3 Matrix3::operator+= (const Matrix3 a_Addend)
 	{
-		return (*this) + a_Addend;
+		(*this) = (*this) + a_Addend;
+		return (*this);
 	}
 
 	Matrix3 Matrix3::operator+= (const float a_fAddendScalar)
 	{
-		return (*this) + a_fAddendScalar;
+		(*this) = (*this) + a_fAddendScalar;
+		return (*this);
 	}
 
 	Matrix3 Matrix3::operator- (const Matrix3 a_Subtrahend)
@@ -153,12 +155,14 @@ namespace Matrix3
 
 	Matrix3 Matrix3::operator-= (const Matrix3 a_Subtrahend)
 	{
-		return (*this) - a_Subtrahend;
+		(*this) =  (*this) - a_Subtrahend;
+		return (*this);
 	}
 
 	Matrix3 Matrix3::operator-= (const float a_fSubtrahendScalar)
 	{
-		return (*this) + a_fSubtrahendScalar;
+		(*this) = (*this) + a_fSubtrahendScalar;
+		return (*this);
 	}
 
 	// Lazy to hard code all of the matrix concatenation stuff so will leave as is
@@ -254,12 +258,14 @@ namespace Matrix3
 
 	Matrix3 Matrix3::operator*= (const Matrix3 a_Factor)
 	{
-		return (*this) * a_Factor;
+		(*this) = (*this) * a_Factor;
+		return (*this);
 	}
 
 	Matrix3 Matrix3::operator*= (const float a_FactorScalar)
 	{
-		return (*this) * a_FactorScalar;
+		(*this) = (*this) * a_FactorScalar;
+		return (*this);
 	}
 
 	bool Matrix3::operator == (const Matrix3 a_Source)
