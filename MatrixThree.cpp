@@ -20,7 +20,6 @@ namespace Matrix3
 
 	Matrix3 Matrix3::Transpose()
 	{
-		// not ready for prime time
 		Matrix3 tempMatrix;
 
 		tempMatrix = *this;

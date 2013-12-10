@@ -16,10 +16,6 @@ namespace Vector4
 {
 	Vector4::Vector4()
 	{
-		fW = 0;
-		fY = 0;
-		fX = 0;
-		fZ = 0;
 	}
 	
 	// ** DESTRUCTORS ** - destroy values in heap
