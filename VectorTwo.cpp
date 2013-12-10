@@ -14,8 +14,6 @@ namespace Vector2
 	// ** CONSTRUCTORS ** - initialize values
 	Vector2::Vector2()
 	{
-		fY = 0;
-		fX = 0;
 	}
 	
 	// ** DESTRUCTORS ** - destroy values in heap
