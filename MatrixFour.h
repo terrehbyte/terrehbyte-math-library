@@ -31,6 +31,7 @@ namespace Matrix4
 		// 4D Array for Easy Traversal
 		float m_afArray[4][4];
 
+		// Returns the matrix, but transposed
 		Matrix4 Transpose();
 
 		// Returns a point that has been transformed by the Matrix caller
