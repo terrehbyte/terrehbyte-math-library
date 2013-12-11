@@ -30,6 +30,7 @@ namespace Matrix3
 		// 3D Array for Easy Traversal
 		float m_afArray[3][3];
 
+		// Returns the matrix, but transposed
 		Matrix3 Transpose();
 
 		// Returns a point that has been transformed by the Matrix3 caller

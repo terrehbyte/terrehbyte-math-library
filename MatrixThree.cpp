@@ -23,19 +23,17 @@ namespace Matrix3
 	{
 		Matrix3 tempMatrix;
 
-		tempMatrix = *this;
-
-		// gap @ [FIRST][0]
+		tempMatrix.m_afArray[0][0] = m_afArray[0][0];
 		tempMatrix.m_afArray[0][1] = m_afArray[1][0];
 		tempMatrix.m_afArray[0][2] = m_afArray[2][0];
 		
-		// gap @ [FIRST][1]
 		tempMatrix.m_afArray[1][0] = m_afArray[0][1];
+		tempMatrix.m_afArray[1][1] = m_afArray[1][1];
 		tempMatrix.m_afArray[1][2] = m_afArray[2][1];
 
-		// gap @ [FIRST][2]
 		tempMatrix.m_afArray[2][0] = m_afArray[0][2];
 		tempMatrix.m_afArray[2][1] = m_afArray[1][2];
+		tempMatrix.m_afArray[2][2] = m_afArray[2][2];
 
 		return tempMatrix;
 	}
