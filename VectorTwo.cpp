@@ -29,6 +29,7 @@ namespace Vector2
 		Vector2 temp;
 		float fMagnitude = GetMagnitude();
 		temp / fMagnitude;
+
 		return temp;
 	}
 
@@ -108,8 +109,8 @@ namespace Vector2
 	{
 		Vector2 temp = (*this);
 
-		temp.fX = temp.fX - a_fSubtrahendScalar;
-		temp.fY = temp.fY - a_fSubtrahendScalar;
+		temp.fX -= a_fSubtrahendScalar;
+		temp.fY -= a_fSubtrahendScalar;
 
 		return temp;
 	}
@@ -126,10 +127,10 @@ namespace Vector2
 
 	Vector2 Vector2::operator * (const float a_fScalar)
 	{
-		Vector2 temp;
+		Vector2 temp = (*this);
 
-		temp.fX = fX * a_fScalar;
-		temp.fY = fY * a_fScalar;
+		temp.fX *= a_fScalar;
+		temp.fY *= a_fScalar;
 
 		return temp;
 	}
@@ -144,8 +145,8 @@ namespace Vector2
 	{
 		Vector2 temp = (*this);
 
-		temp.fX = temp.fX / a_fScalar;
-		temp.fY = temp.fY / a_fScalar;
+		temp.fX /= a_fScalar;
+		temp.fY /= a_fScalar;
 
 		return temp;
 	}
