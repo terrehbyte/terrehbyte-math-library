@@ -23,6 +23,8 @@ namespace Vector2
 		Vector2();
 		~Vector2();
 
+
+
 		float	fY;
 		float	fX;
 
