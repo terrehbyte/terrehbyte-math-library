@@ -38,7 +38,7 @@ namespace Matrix3
 		return tempMatrix;
 	}
 
-	Vector4::Vector4 Matrix3::PointTransform(const Vector4::Vector4 a_Point)
+	Vector4::Vector4 Matrix3::VectorTransform(const Vector4::Vector4 a_Point)
 	{
 		Vector4::Vector4 temp;
 		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];

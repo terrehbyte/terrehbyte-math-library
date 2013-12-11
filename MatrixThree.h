@@ -34,7 +34,7 @@ namespace Matrix3
 		Matrix3 Transpose();
 
 		// Returns a point that has been transformed by the Matrix3 caller
-		Vector4::Vector4 PointTransform(const Vector4::Vector4 a_Point);
+		Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix3 MakeIdentityMatrix();
