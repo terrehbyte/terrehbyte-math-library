@@ -32,6 +32,8 @@ namespace Matrix4
 
 		Matrix4 Transpose();
 
+		Vector4::Vector4 PointTransform(const Vector4::Vector4 a_Point);
+
 		Matrix4 MakeIdentityMatrix();
 		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
 
@@ -39,8 +41,7 @@ namespace Matrix4
 		Matrix4 MakeYRotationMatrix(float a_Radians);
 		Matrix4 MakeZRotationMatrix(float a_Radians);
 
-		Matrix4 PointTransform();
-		Matrix4 VectorTransform();
+		Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Vector);
 
 		Matrix4	operator + (const Matrix4 a_Addend);
 		Matrix4	operator + (const float a_AddendScalar);

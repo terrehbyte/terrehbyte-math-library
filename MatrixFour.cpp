@@ -7,6 +7,7 @@
 //////////////////////////////////////////////////////////////////////////
 
 #include "MatrixFour.h"
+#include <cmath>
 
 namespace Matrix4
 {
@@ -48,12 +49,132 @@ namespace Matrix4
 		return tempMatrix;
 	}
 
+	Vector4::Vector4 Matrix4::PointTransform(const Vector4::Vector4 a_Point)
+	{
+		Vector4::Vector4 temp;
+		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
+		temp.fY = a_Point.fX * m_afArray[0][1] + a_Point.fY * m_afArray[1][1] + a_Point.fZ * m_afArray[2][1];
+		temp.fZ = a_Point.fX * m_afArray[0][2] + a_Point.fY * m_afArray[1][2] + a_Point.fZ * m_afArray[2][2];
+		return temp;
+	}
+
+	Matrix4 Matrix4::MakeIdentityMatrix()
+	{
+		Matrix4 temp;
+
+		temp.m_afArray[0][0] = 1;
+		temp.m_afArray[0][1] = 0;
+		temp.m_afArray[0][2] = 0;
+		temp.m_afArray[0][3] = 0;
+		
+		temp.m_afArray[1][0] = 0;
+		temp.m_afArray[1][1] = 1;
+		temp.m_afArray[1][2] = 0;
+		temp.m_afArray[1][2] = 0;
+
+		temp.m_afArray[2][0] = 0;
+		temp.m_afArray[2][1] = 0;
+		temp.m_afArray[2][2] = 1;
+		temp.m_afArray[2][3] = 0;
+
+		temp.m_afArray[3][0] = 0;
+		temp.m_afArray[3][1] = 0;
+		temp.m_afArray[3][2] = 0;
+		temp.m_afArray[3][3] = 1;
+
+		(*this) = temp;
+
+		return (*this);
+	}
+
 	Vector4::Vector4 Matrix4::Scale(const Vector4::Vector4 a_Vector)
 	{
 		Vector4::Vector4 temp;
-		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * m_afArray[1][0] + a_Vector.fZ * m_afArray[2][0];
-		temp.fY = a_Vector.fX * m_afArray[0][1] + a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * m_afArray[2][1];
-		temp.fZ = a_Vector.fX * m_afArray[0][2] + a_Vector.fY * m_afArray[1][2] + a_Vector.fZ * m_afArray[2][2];
+		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
+		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
+		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];
+		return temp;
+	}
+
+	Matrix4 Matrix4::MakeXRotationMatrix(float a_Radians)
+	{
+		Matrix4 temp;
+
+		temp.m_afArray[0][0] = 1;
+		temp.m_afArray[0][1] = 0;
+		temp.m_afArray[0][2] = 0;
+		
+		temp.m_afArray[1][0] = 0;
+		temp.m_afArray[1][1] = std::cos(a_Radians);
+		temp.m_afArray[1][2] = std::sin(a_Radians);
+
+		temp.m_afArray[2][0] = 0;
+		temp.m_afArray[2][1] = std::sin(a_Radians) * -1;
+		temp.m_afArray[2][2] = std::cos(a_Radians);
+
+		(*this) = temp;
+
+		return (*this);
+	}
+
+	Matrix4 Matrix4::MakeYRotationMatrix(float a_Radians)
+	{
+		Matrix4 temp;
+
+		temp.m_afArray[0][0] = std::cos(a_Radians);
+		temp.m_afArray[0][1] = 0;
+		temp.m_afArray[0][2] = std::sin(a_Radians) * -1;
+		
+		temp.m_afArray[1][0] = 0;
+		temp.m_afArray[1][1] = 1;
+		temp.m_afArray[1][2] = 0;
+
+		temp.m_afArray[2][0] = std::sin(a_Radians);
+		temp.m_afArray[2][1] = 0;
+		temp.m_afArray[2][2] = std::cos(a_Radians);
+
+		(*this) = temp;
+
+		return (*this);
+	}
+	
+	Matrix4 Matrix4::MakeZRotationMatrix(float a_Radians)
+	{
+		Matrix4 temp;
+
+		temp.m_afArray[0][0] = std::cos(a_Radians);
+		temp.m_afArray[0][1] = std::sin(a_Radians);
+		temp.m_afArray[0][2] = 0;
+		
+		temp.m_afArray[1][0] = std::sin(a_Radians) * -1;
+		temp.m_afArray[1][1] = std::cos(a_Radians);
+		temp.m_afArray[1][2] = 0;
+
+		temp.m_afArray[2][0] = 0;
+		temp.m_afArray[2][1] = 0;
+		temp.m_afArray[2][2] = 1;
+
+		(*this) = temp;
+
+		return (*this);
+	}
+
+	Vector4::Vector4 Matrix4::VectorTransform(const Vector4::Vector4 a_Vector)
+	{
+		Vector4::Vector4 temp;
+		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * m_afArray[1][0] + a_Vector.fZ * m_afArray[2][0] + a_Vector.fW * m_afArray[3][0];
+		temp.fY = a_Vector.fX * m_afArray[0][1] + a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * m_afArray[2][1] + a_Vector.fW * m_afArray[3][1];
+		temp.fZ = a_Vector.fX * m_afArray[0][2] + a_Vector.fY * m_afArray[1][2] + a_Vector.fZ * m_afArray[2][2] + a_Vector.fW * m_afArray[3][2];
+		temp.fW = a_Vector.fX * m_afArray[0][3] + a_Vector.fY * m_afArray[1][3] + a_Vector.fZ * m_afArray[2][3] + a_Vector.fW * m_afArray[3][3];
+
+		if (temp.fW != 1 && temp.fW != 0)
+		{
+			temp.fX /= temp.fW;
+			temp.fY /= temp.fW;
+			temp.fZ /= temp.fW;
+			temp.fW /= temp.fW;
+		}
+
 		return temp;
 	}
 

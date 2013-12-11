@@ -40,7 +40,7 @@ namespace Matrix3
 		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
 
 		Vector4::Vector4 PointTransform(const Vector4::Vector4 a_Point);
-		Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Vector);
+		//Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Vector);
 
 		Matrix3	operator + (const Matrix3 a_Addend);
 		Matrix3	operator + (const float a_fAddendScalar);
