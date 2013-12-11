@@ -43,6 +43,7 @@ namespace Matrix3
 		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
 
 		// Returns a Transform Matrix3 for rotation around the '_'-axis in radians
+		// Consider making these static
 		Matrix3 MakeXRotationMatrix(float a_Radians);
 		Matrix3 MakeYRotationMatrix(float a_Radians);
 		Matrix3 MakeZRotationMatrix(float a_Radians);
