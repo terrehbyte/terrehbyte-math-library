@@ -6,6 +6,9 @@
 //
 //////////////////////////////////////////////////////////////////////////
 
+#include "VectorThree.h"
+#include "VectorFour.h"
+
 #ifndef _MATRIXFOUR_H_
 #define _MATRIXFOUR_H_
 
@@ -28,7 +31,13 @@ namespace Matrix4
 		float m_afArray[4][4];
 
 		Matrix4 Transpose();
-		Matrix4 Scale(const float a_fFactorScalar);
+
+		Matrix4 MakeIdentityMatrix();
+		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
+
+		Matrix4 MakeXRotationMatrix(float a_Radians);
+		Matrix4 MakeYRotationMatrix(float a_Radians);
+		Matrix4 MakeZRotationMatrix(float a_Radians);
 
 		Matrix4 PointTransform();
 		Matrix4 VectorTransform();

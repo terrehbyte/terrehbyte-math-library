@@ -9,7 +9,8 @@
 #ifndef _MATRIXTHREE_H_
 #define _MATRIXTHREE_H_
 
-#include "VectorTwo.h"
+#include "VectorThree.h"
+#include "VectorFour.h"
 
 #ifdef DLL
 	#define DLLEXPORT __declspec(dllexport)
@@ -29,10 +30,17 @@ namespace Matrix3
 		float m_afArray[3][3];
 
 		Matrix3 Transpose();
-		Matrix3 Scale(const float a_fFactorScalar);
 
-		Matrix3 PointTransform(const Vector2::Vector2 a_fTransformPoint);
-		Matrix3 VectorTransform();
+		Matrix3 MakeIdentityMatrix();
+
+		Matrix3 MakeXRotationMatrix(float a_Radians);
+		Matrix3 MakeYRotationMatrix(float a_Radians);
+		Matrix3 MakeZRotationMatrix(float a_Radians);
+
+		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
+
+		Vector4::Vector4 PointTransform(const Vector4::Vector4 a_Point);
+		Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Vector);
 
 		Matrix3	operator + (const Matrix3 a_Addend);
 		Matrix3	operator + (const float a_fAddendScalar);

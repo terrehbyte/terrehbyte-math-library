@@ -29,9 +29,8 @@ namespace Vector2
 	Vector2 Vector2::GetNormal()
 	{
 		Vector2 temp;
-		float fMagnitude = this->GetMagnitude();
-		temp.fX = fX / fMagnitude;
-		temp.fY = fY / fMagnitude;
+		float fMagnitude = GetMagnitude();
+		temp / fMagnitude;
 		return temp;
 	}
 

@@ -48,23 +48,13 @@ namespace Matrix4
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::Scale(const float a_fFactorScalar)
+	Vector4::Vector4 Matrix4::Scale(const Vector4::Vector4 a_Vector)
 	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] *= a_fFactorScalar;
-			}
-		}
-
-		return tempMatrix;
+		Vector4::Vector4 temp;
+		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * m_afArray[1][0] + a_Vector.fZ * m_afArray[2][0];
+		temp.fY = a_Vector.fX * m_afArray[0][1] + a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * m_afArray[2][1];
+		temp.fZ = a_Vector.fX * m_afArray[0][2] + a_Vector.fY * m_afArray[1][2] + a_Vector.fZ * m_afArray[2][2];
+		return temp;
 	}
 
 	Matrix4 Matrix4::operator+ (const Matrix4 a_Addend)

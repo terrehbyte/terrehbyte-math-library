@@ -6,6 +6,7 @@
 //
 //////////////////////////////////////////////////////////////////////////
 
+
 #include "MatrixThree.h"
 
 namespace Matrix3
@@ -39,23 +40,52 @@ namespace Matrix3
 		return tempMatrix;
 	}
 
-	Matrix3 Matrix3::Scale(const float a_fFactorScalar)
+	Matrix3 Matrix3::MakeIdentityMatrix()
 	{
-		Matrix3 tempMatrix = *this;
+		Matrix3 temp;
 
-		for (int iRow = 0;
-			iRow <= 2;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 2;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] *= a_fFactorScalar;
-			}
-		}
+		temp.m_afArray[0][0] = 1;
+		temp.m_afArray[0][1] = 0;
+		temp.m_afArray[0][2] = 0;
+		
+		temp.m_afArray[1][0] = 0;
+		temp.m_afArray[1][1] = 1;
+		temp.m_afArray[1][2] = 0;
 
-		return tempMatrix;
+		temp.m_afArray[2][0] = 0;
+		temp.m_afArray[2][1] = 0;
+		temp.m_afArray[2][2] = 1;
+
+		(*this) = temp;
+
+		return (*this);
+	}
+
+	Vector4::Vector4 Matrix3::Scale(const Vector4::Vector4 a_Vector)
+	{
+		Vector4::Vector4 temp;
+		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * m_afArray[1][0] + a_Vector.fZ * m_afArray[2][0];
+		temp.fY = a_Vector.fX * m_afArray[0][1] + a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * m_afArray[2][1];
+		temp.fZ = a_Vector.fX * m_afArray[0][2] + a_Vector.fY * m_afArray[1][2] + a_Vector.fZ * m_afArray[2][2];
+		return temp;
+	}
+
+	Vector4::Vector4 Matrix3::PointTransform(const Vector4::Vector4 a_Point)
+	{
+		Vector4::Vector4 temp;
+		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
+		temp.fY = a_Point.fX * m_afArray[0][1] + a_Point.fY * m_afArray[1][1] + a_Point.fZ * m_afArray[2][1];
+		temp.fZ = a_Point.fX * m_afArray[0][2] + a_Point.fY * m_afArray[1][2] + a_Point.fZ * m_afArray[2][2];
+		return temp;
+	}
+
+	Vector4::Vector4 Matrix3::VectorTransform(const Vector4::Vector4 a_Vector)
+	{
+		Vector4::Vector4 temp;
+		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * m_afArray[1][0] + a_Vector.fZ * m_afArray[2][0];
+		temp.fY = a_Vector.fX * m_afArray[0][1] + a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * m_afArray[2][1];
+		temp.fZ = a_Vector.fX * m_afArray[0][2] + a_Vector.fY * m_afArray[1][2] + a_Vector.fZ * m_afArray[2][2];
+		return temp;
 	}
 
 	Matrix3 Matrix3::operator+ (const Matrix3 a_Addend)
