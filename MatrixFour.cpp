@@ -13,7 +13,6 @@ namespace Matrix4
 {
 	Matrix4::Matrix4()
 	{
-
 	}
 
 	Matrix4::~Matrix4()

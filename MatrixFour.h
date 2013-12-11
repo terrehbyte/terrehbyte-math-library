@@ -28,21 +28,29 @@ namespace Matrix4
 		Matrix4();
 		~Matrix4();
 
+		// 4D Array for Easy Traversal
 		float m_afArray[4][4];
 
 		Matrix4 Transpose();
 
+		// Returns a point that has been transformed by the Matrix caller
 		Vector4::Vector4 PointTransform(const Vector4::Vector4 a_Point);
 
+		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix4 MakeIdentityMatrix();
+
+		// Returns a Vector4 that has been scaled by the Matrix caller
 		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
 
+		// Returns a Transform Matrix4 for rotation around the '_'-axis in radians
 		Matrix4 MakeXRotationMatrix(float a_Radians);
 		Matrix4 MakeYRotationMatrix(float a_Radians);
 		Matrix4 MakeZRotationMatrix(float a_Radians);
 
+		// Returns a Vector4 transformed by the Matrix caller
 		Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Vector);
 
+		// Operators (explained by their parameters)
 		Matrix4	operator + (const Matrix4 a_Addend);
 		Matrix4	operator + (const float a_AddendScalar);
 		Matrix4 operator += (const Matrix4 a_Addend);

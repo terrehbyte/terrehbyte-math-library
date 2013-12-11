@@ -27,21 +27,26 @@ namespace Matrix3
 		Matrix3();
 		~Matrix3();
 
+		// 3D Array for Easy Traversal
 		float m_afArray[3][3];
 
 		Matrix3 Transpose();
 
+		// Returns a point that has been transformed by the Matrix3 caller
+		Vector4::Vector4 PointTransform(const Vector4::Vector4 a_Point);
+
+		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix3 MakeIdentityMatrix();
 
+		// Returns a Vector4 that has been scaled by the Matrix caller
+		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
+
+		// Returns a Transform Matrix3 for rotation around the '_'-axis in radians
 		Matrix3 MakeXRotationMatrix(float a_Radians);
 		Matrix3 MakeYRotationMatrix(float a_Radians);
 		Matrix3 MakeZRotationMatrix(float a_Radians);
 
-		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
-
-		Vector4::Vector4 PointTransform(const Vector4::Vector4 a_Point);
-		//Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Vector);
-
+		// Operators (explained by their parameters)
 		Matrix3	operator + (const Matrix3 a_Addend);
 		Matrix3	operator + (const float a_fAddendScalar);
 		Matrix3	operator += (const Matrix3 a_Addend);

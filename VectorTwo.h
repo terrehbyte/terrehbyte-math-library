@@ -20,13 +20,9 @@ namespace Vector2
 	class DLLEXPORT Vector2
 	{
 	public:
-		// ** CONSTRUCTORS ** - initialize values
 		Vector2();
-	
-		// ** DESTRUCTORS ** - destroy values in heap
 		~Vector2();
 
-		// ** FUNCTIONS **
 		float	GetDotProduct(const Vector2 a_Term);
 		Vector2	GetNormal();
 		float	GetMagnitude();

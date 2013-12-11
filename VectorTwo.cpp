@@ -11,12 +11,10 @@
 
 namespace Vector2
 {
-	// ** CONSTRUCTORS ** - initialize values
 	Vector2::Vector2()
 	{
 	}
 	
-	// ** DESTRUCTORS ** - destroy values in heap
 	Vector2::~Vector2()
 	{
 	}
