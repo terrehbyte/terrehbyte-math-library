@@ -26,9 +26,9 @@ namespace Vector2
 
 	Vector2 Vector2::GetNormal()
 	{
-		Vector2 temp;
+		Vector2 temp = (*this);
 		float fMagnitude = GetMagnitude();
-		temp / fMagnitude;
+		temp /= fMagnitude;
 
 		return temp;
 	}

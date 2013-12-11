@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	TBYTEmath.cpp
+//	File:	TBYTEmath.h
 //	Author:	Terry Nguyen
 //	Date:	12/11/2013
 //	Brief:	Provides functions for handling basic mathematical inconveniences
@@ -14,7 +14,6 @@ namespace tbyte
 	{
 		return a_First + (a_Second - a_First) * a_InterpolationValue;
 	}
-
 
 	float DegreesToRadians(float a_fDegrees)
 	{

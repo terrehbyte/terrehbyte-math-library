@@ -140,6 +140,8 @@ namespace Matrix3
 		return (*this);
 	}
 
+
+	// OPERATORS
 	Matrix3 Matrix3::operator+ (const Matrix3 a_Addend)
 	{
 		Matrix3 tempMatrix = *this;
@@ -178,8 +180,6 @@ namespace Matrix3
 		return tempMatrix;
 	}
 
-	// ISSUE! += doesn't return the added value.
-	// Try seeing http://courses.cms.caltech.edu/cs11/material/cpp/donnie/cpp-ops.html
 	Matrix3 Matrix3::operator+= (const Matrix3 a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
