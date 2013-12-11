@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	VectorFour.h
 //	Author:	Terry Nguyen
-//	Date:	11/05/2013
+//	Date:	12/11/2013
 //	Brief:	Provides access to VectorFour
 //
 //////////////////////////////////////////////////////////////////////////
@@ -20,16 +20,21 @@ namespace Vector4
 	class DLLEXPORT Vector4
 	{
 	public:
-		// ** CONSTRUCTORS ** - called when instantiated
 		Vector4();
-
-		// ** DESTRUCTORS ** - called when freed from memory
 		~Vector4();
 
-		// ** FUNCTIONS **
+		float	fW;
+		float	fX;
+		float	fY;
+		float	fZ;
+
+		// Returns the magnitude of the vector
 		float	GetMagnitude();
+
+		// Return what the caller would be when normalized
 		Vector4	GetNormal();
 		
+		// Reconstructs the caller to be comrpised of hex color values
 		void	ConstructFromHex(
 			float a_iRED,
 			float a_iGREEN,
@@ -37,12 +42,7 @@ namespace Vector4
 			float a_iALPHA
 			);
 
-		float	fW;
-		float	fX;
-		float	fY;
-		float	fZ;
-
-		// ** OPERATORS ** - allows the object to be used with basic operators
+		// Operators overloaded - see parameters
 		Vector4	operator + (const Vector4 a_Addend);
 		Vector4	operator + (const float a_fAddendScalar);
 		Vector4	operator += (const Vector4 a_Addend);

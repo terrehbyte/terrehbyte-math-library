@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	VectorThree.h
 //	Author:	Terry Nguyen
-//	Date:	11/05/2013
+//	Date:	12/11/2013
 //	Brief:	Provides access to VectorThree for 2D sprite games
 //
 //////////////////////////////////////////////////////////////////////////
@@ -20,24 +20,28 @@ namespace Vector3
 	class DLLEXPORT Vector3
 	{
 	public:
-		// ** CONSTRUCTORS ** - called when instantiated
 		Vector3();
-
-		// ** DESTRUCTORS ** - called when freed from memory
 		~Vector3();
 
-		// ** FUNCTIONS **
+		float	fX;
+		float	fY;
+		float	fZ;
+
+		// Returns the Dot Product between the caller and the Vector3 term
 		float	GetDotProduct(const Vector3 a_Term);
+
+		// Return what the caller would be when normalized
 		Vector3	GetNormal();
+
+		// Returns the cross product between caller and term
 		Vector3	GetCrossProduct(const Vector3 a_Term);
+		
+		// Returns the magnitude of the vector
 		float	GetMagnitude();
 
+		// Return a linearly interpolated Vector3
 		Vector3 Lerp(const Vector3 a_TerminatingVector, const float a_fInterpPoint);
 
-		// MyVector.GetCrossProduct(OtherVector);
-		// GetCrossProduct(MyVector, OtherVector);
-
-		// ** OPERATORS ** - allows the object to be used with basic operators
 		Vector3	operator + (const Vector3 a_First);
 		Vector3	operator + (const float a_fAddendScalar);
 		Vector3 operator += (const Vector3 a_Addend);
@@ -48,7 +52,6 @@ namespace Vector3
 		Vector3 operator -= (const Vector3 a_Subtrahend);
 		Vector3 operator -= (const float a_fSubtrahendScalar);
 
-
 		Vector3 operator * (const float a_fScalar);
 		Vector3 operator *= (const float a_fScalar);
 
@@ -57,10 +60,6 @@ namespace Vector3
 	
 		Vector3	operator = (const Vector3 a_Source);
 		bool	operator == (const Vector3 a_Source);
-
-		float	fX;
-		float	fY;
-		float	fZ;
 	};
 }
 #endif

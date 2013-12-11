@@ -1,16 +1,16 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	MatrixFour.h
 //	Author:	Terry Nguyen
-//	Date:	11/19/2013
+//	Date:	12/11/2013
 //	Brief:	Provides access to MatrixFour for 2D sprite games
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include "VectorThree.h"
-#include "VectorFour.h"
-
 #ifndef _MATRIXFOUR_H_
 #define _MATRIXFOUR_H_
+
+#include "VectorThree.h"
+#include "VectorFour.h"
 
 #ifdef DLL
 	#define DLLEXPORT __declspec(dllexport)
