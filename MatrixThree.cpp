@@ -86,9 +86,9 @@ namespace Matrix3
 		return temp;
 	}
 
-	Vector4::Vector4 Matrix3::Scale(const Vector4::Vector4 a_Vector)
+	Vector3::Vector3 Matrix3::Scale(const Vector3::Vector3 a_Vector)
 	{
-		Vector4::Vector4 temp;
+		Vector3::Vector3 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
 		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
 		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];
@@ -104,6 +104,7 @@ namespace Matrix3
 		temp.m_afArray[0][2] = 0;
 		
 		temp.m_afArray[1][0] = 0;
+		// float imprecision http://stackoverflow.com/questions/1605435/cosfm-pi-2-not-returning-zero
 		temp.m_afArray[1][1] = std::cos(a_Radians);
 		temp.m_afArray[1][2] = std::sin(a_Radians);
 
@@ -142,10 +143,10 @@ namespace Matrix3
 		Matrix3 temp;
 
 		temp.m_afArray[0][0] = std::cos(a_Radians);
-		temp.m_afArray[0][1] = std::sin(a_Radians);
+		temp.m_afArray[0][1] = std::sin(a_Radians) * -1;
 		temp.m_afArray[0][2] = 0;
 		
-		temp.m_afArray[1][0] = std::sin(a_Radians) * -1;
+		temp.m_afArray[1][0] = std::sin(a_Radians);
 		temp.m_afArray[1][1] = std::cos(a_Radians);
 		temp.m_afArray[1][2] = 0;
 
