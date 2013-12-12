@@ -25,7 +25,7 @@ namespace Vector3
 	{
 	}
 	
-	float	Vector3::GetDotProduct(const Vector3 a_Term)
+	float	Vector3::GetDotProduct(const Vector3 &a_Term)
 	{
 		return (fX * a_Term.fX) + (fY * a_Term.fY) + (fZ * a_Term.fZ);
 	}
@@ -43,7 +43,7 @@ namespace Vector3
 		return temp;
 	}
 
-	Vector3 Vector3::GetCrossProduct(const Vector3 a_Term)
+	Vector3 Vector3::GetCrossProduct(const Vector3 &a_Term)
 	{
 		// X is 1
 		// Y is 2
@@ -70,7 +70,7 @@ namespace Vector3
 		return sqrt(fFirst + fSecond + fThird);
 	}
 
-	Vector3 Vector3::Lerp(const Vector3 a_TerminatingVector, const float a_fInterpPoint)
+	Vector3 Vector3::Lerp(const Vector3 &a_TerminatingVector, const float &a_fInterpPoint)
 	{
 		Vector3 InterpolatedVector;
 		InterpolatedVector.fX = a_fInterpPoint;
@@ -91,7 +91,7 @@ namespace Vector3
 	}
 
 	// ** OPERATOR OVERLOADS ** - allows the object to be used with basic operators
-	Vector3	Vector3::operator + (const Vector3 a_Addend)
+	Vector3	Vector3::operator + (const Vector3 &a_Addend)
 	{
 		Vector3 temp = (*this);
 
@@ -101,7 +101,7 @@ namespace Vector3
 		return temp;
 	}
 
-	Vector3	Vector3::operator + (const float a_fAddendScalar)
+	Vector3	Vector3::operator + (const float &a_fAddendScalar)
 	{
 		Vector3 temp = (*this);
 
@@ -111,17 +111,17 @@ namespace Vector3
 		return temp;
 	}
 
-	Vector3	Vector3::operator += (const Vector3 a_Addend)
+	Vector3	Vector3::operator += (const Vector3 &a_Addend)
 	{
 		return (*this) + a_Addend;
 	}
 
-	Vector3	Vector3::operator += (const float a_fAddendScalar)
+	Vector3	Vector3::operator += (const float &a_fAddendScalar)
 	{
 		return (*this) + a_fAddendScalar;
 	}
 
-	Vector3	Vector3::operator - (const Vector3 a_Subtrahend)
+	Vector3	Vector3::operator - (const Vector3 &a_Subtrahend)
 	{
 		Vector3 temp = (*this);
 
@@ -131,7 +131,7 @@ namespace Vector3
 		return temp;
 	}
 
-	Vector3 Vector3::operator - (const float a_fSubtrahendScalar)
+	Vector3 Vector3::operator - (const float &a_fSubtrahendScalar)
 	{
 		Vector3 temp = (*this);
 
@@ -141,17 +141,17 @@ namespace Vector3
 		return temp;
 	}
 
-	Vector3	Vector3::operator -= (const Vector3 a_Subtrahend)
+	Vector3	Vector3::operator -= (const Vector3 &a_Subtrahend)
 	{
 		return (*this) - a_Subtrahend;
 	}
 
-	Vector3 Vector3::operator -= (const float a_fSubtrahendScalar)
+	Vector3 Vector3::operator -= (const float &a_fSubtrahendScalar)
 	{
 		return (*this) - a_fSubtrahendScalar;
 	}
 
-	Vector3 Vector3::operator * (const float a_fScalar)
+	Vector3 Vector3::operator * (const float &a_fScalar)
 	{
 		Vector3 temp = (*this);
 
@@ -162,12 +162,12 @@ namespace Vector3
 		return temp;
 	}
 
-	Vector3 Vector3::operator *= (const float a_fScalar)
+	Vector3 Vector3::operator *= (const float &a_fScalar)
 	{
 		return (*this) * a_fScalar;
 	}
 
-	Vector3 Vector3::operator / (const float a_fScalar)
+	Vector3 Vector3::operator / (const float &a_fScalar)
 	{
 		Vector3 temp = (*this);
 
@@ -178,13 +178,13 @@ namespace Vector3
 		return temp;
 	}
 
-	Vector3 Vector3::operator /= (const float a_fScalar)
+	Vector3 Vector3::operator /= (const float &a_fScalar)
 	{
 		return (*this) / a_fScalar;
 	}
 
 	// Assignment Operator - Assigns the values of an existing Vector3 to another existing Vector3
-	Vector3	Vector3::operator = (const Vector3 a_Source)
+	Vector3	Vector3::operator = (const Vector3 &a_Source)
 	{
 		// avoid self-assignment
 		if (this == &a_Source)
@@ -199,7 +199,7 @@ namespace Vector3
 		return *this;
 	}
 
-	bool	Vector3::operator == (const Vector3 a_Source)
+	bool	Vector3::operator == (const Vector3 &a_Source)
 	{
 		if(fX == a_Source.fX &&
 		   fY == a_Source.fY &&

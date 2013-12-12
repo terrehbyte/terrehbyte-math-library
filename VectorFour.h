@@ -43,24 +43,24 @@ namespace Vector4
 			);
 
 		// Operators overloaded - see parameters
-		Vector4	operator + (const Vector4 a_Addend);
-		Vector4	operator + (const float a_fAddendScalar);
-		Vector4	operator += (const Vector4 a_Addend);
-		Vector4 operator += (const float a_fAddendScalar);
+		Vector4	operator + (const Vector4 &a_Addend);
+		Vector4	operator + (const float &a_fAddendScalar);
+		Vector4	operator += (const Vector4 &a_Addend);
+		Vector4 operator += (const float &a_fAddendScalar);
 	
-		Vector4 operator - (const Vector4 a_Subtrahend);
-		Vector4 operator - (const float a_fSubtrahendScalar);
-		Vector4 operator -= (const Vector4 a_Addend);
-		Vector4 operator -= (const float a_fSubtrahendScalar);
+		Vector4 operator - (const Vector4 &a_Subtrahend);
+		Vector4 operator - (const float &a_fSubtrahendScalar);
+		Vector4 operator -= (const Vector4 &a_Addend);
+		Vector4 operator -= (const float &a_fSubtrahendScalar);
 	
-		Vector4 operator * (const float a_fScalar);
-		Vector4 operator *= (const float a_fScalar);
+		Vector4 operator * (const float &a_fScalar);
+		Vector4 operator *= (const float &a_fScalar);
 
-		Vector4 operator / (const float a_fScalar);	
-		Vector4 operator /= (const float a_fScalar);
+		Vector4 operator / (const float &a_fScalar);	
+		Vector4 operator /= (const float &a_fScalar);
 	
-		Vector4	operator = (const Vector4 a_Source);
-		bool	operator == (const Vector4 a_Source);
+		Vector4	operator = (const Vector4 &a_Source);
+		bool	operator == (const Vector4 &a_Source);
 	};
 }
 

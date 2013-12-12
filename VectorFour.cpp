@@ -60,7 +60,7 @@ namespace Vector4
 		fZ = a_iALPHA / 255;
 	}
 	
-	Vector4 Vector4::operator + (const Vector4 a_Addend)
+	Vector4 Vector4::operator + (const Vector4 &a_Addend)
 	{
 		// Create a temp Vector4
 		Vector4 temp = (*this);
@@ -75,7 +75,7 @@ namespace Vector4
 		return temp;
 	}
 	
-	Vector4 Vector4::operator + (const float a_fAddendScalar)
+	Vector4 Vector4::operator + (const float &a_fAddendScalar)
 	{
 		// Create a temp Vector4
 		Vector4 temp = (*this);
@@ -90,19 +90,19 @@ namespace Vector4
 		return temp;
 	}
 
-	Vector4	Vector4::operator += (const Vector4 a_Addend)
+	Vector4	Vector4::operator += (const Vector4 &a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
 		return (*this);
 	}
 
-	Vector4 Vector4::operator += (const float a_fAddendScalar)
+	Vector4 Vector4::operator += (const float &a_fAddendScalar)
 	{
 		(*this) = (*this) + a_fAddendScalar;
 		return (*this);
 	}
 
-	Vector4	Vector4::operator - (const Vector4 a_Subtrahend)
+	Vector4	Vector4::operator - (const Vector4 &a_Subtrahend)
 	{
 		Vector4 temp = (*this);
 
@@ -113,7 +113,7 @@ namespace Vector4
 		return temp;
 	}
 
-	Vector4 Vector4::operator - (const float a_fSubtrahendScalar)
+	Vector4 Vector4::operator - (const float &a_fSubtrahendScalar)
 	{
 		Vector4 temp = (*this);
 		
@@ -125,19 +125,19 @@ namespace Vector4
 		return temp;
 	}
 
-	Vector4	Vector4::operator -= (const Vector4 a_Subtrahend)
+	Vector4	Vector4::operator -= (const Vector4 &a_Subtrahend)
 	{
 		(*this) = (*this) - a_Subtrahend;
 		return (*this);
 	}
 
-	Vector4	Vector4::operator -= (const float a_fSubtrahendScalar)
+	Vector4	Vector4::operator -= (const float &a_fSubtrahendScalar)
 	{
 		(*this) = (*this) - a_fSubtrahendScalar;
 		return (*this);
 	}
 
-	Vector4 Vector4::operator * (const float a_fScalar)
+	Vector4 Vector4::operator * (const float &a_fScalar)
 	{
 		Vector4 temp = (*this);
 
@@ -149,13 +149,13 @@ namespace Vector4
 		return temp;
 	}
 
-	Vector4 Vector4::operator *= (const float a_fScalar)
+	Vector4 Vector4::operator *= (const float &a_fScalar)
 	{
 		(*this) = (*this) * a_fScalar;
 		return (*this);
 	}
 
-	Vector4 Vector4::operator / (const float a_fScalar)
+	Vector4 Vector4::operator / (const float &a_fScalar)
 	{
 		Vector4 temp = (*this);
 
@@ -167,14 +167,14 @@ namespace Vector4
 		return temp;
 	}
 
-	Vector4 Vector4::operator /= (const float a_fScalar)
+	Vector4 Vector4::operator /= (const float &a_fScalar)
 	{
 		(*this) = (*this) / a_fScalar;
 		return (*this);
 	}
 
 	// Assignment Operator - Assigns the values of an existing Vector4 to another existing Vector4
-	Vector4	Vector4::operator = (const Vector4 a_Source)
+	Vector4	Vector4::operator = (const Vector4 &a_Source)
 	{
 		fW = a_Source.fW;
 		fX = a_Source.fX;
@@ -184,7 +184,7 @@ namespace Vector4
 		return *this;
 	}
 
-	bool	Vector4::operator == (const Vector4 a_Source)
+	bool	Vector4::operator == (const Vector4 &a_Source)
 	{
 		if (fW == a_Source.fW &&
 			fX == a_Source.fX &&
