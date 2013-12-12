@@ -18,7 +18,7 @@
 	#define DLLEXPORT __declspec(dllimport)
 #endif
 
-namespace Matrix4
+namespace tbyte
 {
 	class DLLEXPORT Matrix4
 	{

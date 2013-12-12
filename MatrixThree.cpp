@@ -9,7 +9,7 @@
 #include "MatrixThree.h"
 #include <cmath>
 
-namespace Matrix3
+namespace tbyte
 {
 	Matrix3::Matrix3()
 	{

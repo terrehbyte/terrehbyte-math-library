@@ -9,7 +9,7 @@
 #include "MatrixFour.h"
 #include <cmath>
 
-namespace Matrix4
+namespace tbyte
 {
 	Matrix4::Matrix4()
 	{
