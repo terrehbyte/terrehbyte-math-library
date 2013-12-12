@@ -35,13 +35,13 @@ namespace Matrix4
 		Matrix4 Transpose();
 
 		// Returns a point that has been transformed by the Matrix caller
-		Vector4::Vector4 PointTransform(const Vector4::Vector4 a_Point);
+		tbyte::Vector4 PointTransform(const tbyte::Vector4 a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix4 MakeIdentityMatrix();
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
-		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
+		tbyte::Vector4 Scale(const tbyte::Vector4 a_Vector);
 
 		// Returns a Transform Matrix4 for rotation around the '_'-axis in radians
 		Matrix4 MakeXRotationMatrix(float a_Radians);
@@ -49,7 +49,7 @@ namespace Matrix4
 		Matrix4 MakeZRotationMatrix(float a_Radians);
 
 		// Returns a Vector4 transformed by the Matrix caller
-		Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Vector);
+		tbyte::Vector4 VectorTransform(const tbyte::Vector4 a_Vector);
 
 		// Operators (explained by their parameters)
 		Matrix4	operator + (const Matrix4 a_Addend);

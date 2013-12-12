@@ -12,7 +12,7 @@
 
 // ** CONSTRUCTORS ** - initialize values
 
-namespace Vector4
+namespace tbyte
 {
 	Vector4::Vector4()
 	{
