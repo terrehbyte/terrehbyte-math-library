@@ -3,7 +3,7 @@
 
 # User-specific files
 *.suo
-# *.user - I need this for now
+*.user
 *.sln.docstates
 
 # Build results
