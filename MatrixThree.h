@@ -18,11 +18,13 @@
 	#define DLLEXPORT __declspec(dllimport)
 #endif
 
-namespace Matrix3
+namespace tbyte
 {
 	class DLLEXPORT Matrix3
 	{
 	public:
+
+
 
 		Matrix3();
 		~Matrix3();
@@ -34,15 +36,15 @@ namespace Matrix3
 		Matrix3 Transpose();
 
 		// Returns a point that has been transformed by the Matrix3 caller
-		Vector4::Vector4 VectorTransform(const Vector4::Vector4 a_Point);
-		Vector3::Vector3 VectorTransform(const Vector3::Vector3 a_Point);
+		tbyte::Vector4 VectorTransform(const tbyte::Vector4 a_Point);
+		tbyte::Vector3 VectorTransform(const tbyte::Vector3 a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix3 MakeIdentityMatrix();
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
-		Vector4::Vector4 Scale(const Vector4::Vector4 a_Vector);
-		Vector3::Vector3 Scale(const Vector3::Vector3 a_Vector);
+		tbyte::Vector4 Scale(const tbyte::Vector4 a_Vector);
+		tbyte::Vector3 Scale(const tbyte::Vector3 a_Vector);
 
 		// Returns a Transform Matrix3 for rotation around the '_'-axis in radians
 		// Consider making these static

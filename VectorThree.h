@@ -15,7 +15,7 @@
 	#define DLLEXPORT __declspec(dllimport)
 #endif
 
-namespace Vector3
+namespace tbyte
 {
 	class DLLEXPORT Vector3
 	{

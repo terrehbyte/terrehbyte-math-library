@@ -11,7 +11,7 @@
 
 // ** CONSTRUCTORS ** - initialize values
 
-namespace Vector3
+namespace tbyte
 {
 	Vector3::Vector3()
 	{

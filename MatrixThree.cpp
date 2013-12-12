@@ -9,7 +9,7 @@
 #include "MatrixThree.h"
 #include <cmath>
 
-namespace Matrix3
+namespace tbyte
 {
 	Matrix3::Matrix3()
 	{
@@ -38,18 +38,18 @@ namespace Matrix3
 		return tempMatrix;
 	}
 
-	Vector4::Vector4 Matrix3::VectorTransform(const Vector4::Vector4 a_Point)
+	tbyte::Vector4 Matrix3::VectorTransform(const tbyte::Vector4 a_Point)
 	{
-		Vector4::Vector4 temp;
+		tbyte::Vector4 temp;
 		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
 		temp.fY = a_Point.fX * m_afArray[0][1] + a_Point.fY * m_afArray[1][1] + a_Point.fZ * m_afArray[2][1];
 		temp.fZ = a_Point.fX * m_afArray[0][2] + a_Point.fY * m_afArray[1][2] + a_Point.fZ * m_afArray[2][2];
 		return temp;
 	}
 
-	Vector3::Vector3 Matrix3::VectorTransform(const Vector3::Vector3 a_Point)
+	tbyte::Vector3 Matrix3::VectorTransform(const tbyte::Vector3 a_Point)
 	{
-		Vector3::Vector3 temp;
+		tbyte::Vector3 temp;
 		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
 		temp.fY = a_Point.fX * m_afArray[0][1] + a_Point.fY * m_afArray[1][1] + a_Point.fZ * m_afArray[2][1];
 		temp.fZ = a_Point.fX * m_afArray[0][2] + a_Point.fY * m_afArray[1][2] + a_Point.fZ * m_afArray[2][2];
@@ -77,18 +77,18 @@ namespace Matrix3
 		return (*this);
 	}
 
-	Vector4::Vector4 Matrix3::Scale(const Vector4::Vector4 a_Vector)
+	tbyte::Vector4 Matrix3::Scale(const tbyte::Vector4 a_Vector)
 	{
-		Vector4::Vector4 temp;
+		tbyte::Vector4 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
 		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
 		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];
 		return temp;
 	}
 
-	Vector3::Vector3 Matrix3::Scale(const Vector3::Vector3 a_Vector)
+	tbyte::Vector3 Matrix3::Scale(const tbyte::Vector3 a_Vector)
 	{
-		Vector3::Vector3 temp;
+		tbyte::Vector3 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
 		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
 		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];

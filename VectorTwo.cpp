@@ -9,7 +9,7 @@
 #include <math.h>
 #include "VectorTwo.h"
 
-namespace Vector2
+namespace tbyte
 {
 	Vector2::Vector2()
 	{
