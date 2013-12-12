@@ -36,12 +36,14 @@ namespace tbyte
 
 		// Returns a point that has been transformed by the Matrix caller
 		tbyte::Vector4 PointTransform(const tbyte::Vector4 a_Point);
+		tbyte::Vector3 PointTransform(const tbyte::Vector3 a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix4 MakeIdentityMatrix();
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
 		tbyte::Vector4 Scale(const tbyte::Vector4 a_Vector);
+		tbyte::Vector3 Scale(const tbyte::Vector3 a_Vector);
 
 		// Returns a Transform Matrix4 for rotation around the '_'-axis in radians
 		Matrix4 MakeXRotationMatrix(float a_Radians);
@@ -50,6 +52,7 @@ namespace tbyte
 
 		// Returns a Vector4 transformed by the Matrix caller
 		tbyte::Vector4 VectorTransform(const tbyte::Vector4 a_Vector);
+		tbyte::Vector3 VectorTransform(const tbyte::Vector3 a_Vector);
 
 		// Operators (explained by their parameters)
 		Matrix4	operator + (const Matrix4 a_Addend);

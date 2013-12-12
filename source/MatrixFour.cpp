@@ -55,6 +55,15 @@ namespace tbyte
 		return temp;
 	}
 
+	tbyte::Vector3 Matrix4::PointTransform(const tbyte::Vector3 a_Point)
+	{
+		tbyte::Vector3 temp;
+		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
+		temp.fY = a_Point.fX * m_afArray[0][1] + a_Point.fY * m_afArray[1][1] + a_Point.fZ * m_afArray[2][1];
+		temp.fZ = a_Point.fX * m_afArray[0][2] + a_Point.fY * m_afArray[1][2] + a_Point.fZ * m_afArray[2][2];
+		return temp;
+	}
+
 	Matrix4 Matrix4::MakeIdentityMatrix()
 	{
 		Matrix4 temp;
@@ -87,6 +96,15 @@ namespace tbyte
 	tbyte::Vector4 Matrix4::Scale(const tbyte::Vector4 a_Vector)
 	{
 		tbyte::Vector4 temp;
+		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
+		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
+		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];
+		return temp;
+	}
+
+	tbyte::Vector3 Matrix4::Scale(const tbyte::Vector3 a_Vector)
+	{
+		tbyte::Vector3 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
 		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
 		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];
