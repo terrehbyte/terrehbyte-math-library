@@ -37,7 +37,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <SourcePath>$(ProjectDir)source;$(SourcePath)</SourcePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
@@ -70,23 +75,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MatrixFour.cpp" />
-    <ClCompile Include="MatrixThree.cpp" />
-    <ClCompile Include="TBYTEmath.cpp" />
-    <ClCompile Include="VectorFour.cpp" />
-    <ClCompile Include="VectorThree.cpp" />
-    <ClCompile Include="VectorTwo.cpp" />
+    <ClCompile Include="source\MatrixFour.cpp" />
+    <ClCompile Include="source\MatrixThree.cpp" />
+    <ClCompile Include="source\TBYTEmath.cpp" />
+    <ClCompile Include="source\VectorFour.cpp" />
+    <ClCompile Include="source\VectorThree.cpp" />
+    <ClCompile Include="source\VectorTwo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MatrixFour.h" />
-    <ClInclude Include="MatrixThree.h" />
-    <ClInclude Include="TBYTEmath.h" />
-    <ClInclude Include="VectorFour.h" />
-    <ClInclude Include="VectorThree.h" />
-    <ClInclude Include="VectorTwo.h" />
+    <ClInclude Include="include\MatrixFour.h" />
+    <ClInclude Include="include\MatrixThree.h" />
+    <ClInclude Include="include\TBYTEmath.h" />
+    <ClInclude Include="include\VectorFour.h" />
+    <ClInclude Include="include\VectorThree.h" />
+    <ClInclude Include="include\VectorTwo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

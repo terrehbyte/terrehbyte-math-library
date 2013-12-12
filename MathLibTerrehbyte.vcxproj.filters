@@ -15,46 +15,45 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReadMe.txt" />
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="VectorTwo.cpp">
+    <ClCompile Include="source\VectorTwo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VectorThree.cpp">
+    <ClCompile Include="source\VectorThree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VectorFour.cpp">
+    <ClCompile Include="source\VectorFour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MatrixThree.cpp">
+    <ClCompile Include="source\TBYTEmath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MatrixFour.cpp">
+    <ClCompile Include="source\MatrixFour.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TBYTEmath.cpp">
+    <ClCompile Include="source\MatrixThree.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="VectorTwo.h">
+    <ClInclude Include="include\MatrixFour.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VectorThree.h">
+    <ClInclude Include="include\MatrixThree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VectorFour.h">
+    <ClInclude Include="include\TBYTEmath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixThree.h">
+    <ClInclude Include="include\VectorFour.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MatrixFour.h">
+    <ClInclude Include="include\VectorThree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TBYTEmath.h">
+    <ClInclude Include="include\VectorTwo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
