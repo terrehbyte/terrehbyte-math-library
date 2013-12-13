@@ -36,7 +36,6 @@ namespace tbyte
 
 		// Returns a point that has been transformed by the Matrix caller
 		tbyte::Vector4 PointTransform(const tbyte::Vector4 a_Point);
-		tbyte::Vector3 PointTransform(const tbyte::Vector3 a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix4 MakeIdentityMatrix();

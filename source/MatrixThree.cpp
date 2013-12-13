@@ -77,7 +77,7 @@ namespace tbyte
 
 		return (*this);
 	}
-
+	// depreciated
 	tbyte::Vector4 Matrix3::Scale(const tbyte::Vector4 a_Vector)
 	{
 		tbyte::Vector4 temp;
@@ -88,7 +88,7 @@ namespace tbyte
 		temp.fW = a_Vector.fW;
 		return temp;
 	}
-
+	// depreciated
 	tbyte::Vector3 Matrix3::Scale(const tbyte::Vector3 a_Vector)
 	{
 		tbyte::Vector3 temp;

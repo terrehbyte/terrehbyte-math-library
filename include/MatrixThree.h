@@ -43,6 +43,7 @@ namespace tbyte
 		Matrix3 MakeIdentityMatrix();
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
+		// depreciated
 		tbyte::Vector4 Scale(const tbyte::Vector4 a_Vector);
 		tbyte::Vector3 Scale(const tbyte::Vector3 a_Vector);
 
