@@ -238,12 +238,14 @@ namespace tbyte
 
 	Matrix4 Matrix4::operator+= (const Matrix4 a_Addend)
 	{
-		return (*this) + a_Addend;
+		(*this) = (*this) + a_Addend;
+		return (*this);
 	}
 
 	Matrix4 Matrix4::operator+= (const float a_AddendScalar)
 	{
-		return (*this) + a_AddendScalar;
+		(*this) = (*this) + a_AddendScalar;
+		return (*this);
 	}
 
 	Matrix4 Matrix4::operator- (const Matrix4 a_Subtrahend)
@@ -286,65 +288,106 @@ namespace tbyte
 
 	Matrix4 Matrix4::operator-= (const Matrix4 a_Subtrahend)
 	{
-		return (*this) - a_Subtrahend;
+		(*this) = (*this) - a_Subtrahend;
+		return (*this);
 	}
 
 	Matrix4 Matrix4::operator-= (const float a_SubtrahendScalar)
 	{
-		return (*this) + a_SubtrahendScalar;
+		(*this) = (*this) - a_SubtrahendScalar;
+		return (*this);
 	}
 
 	// Lazy to hard code all of the matrix concatenation stuff so will leave as is
 	Matrix4	Matrix4::operator * (const Matrix4 a_Factor)
 	{
-		// also see Matrix Concatenation
-		// MatrixA * MatrixB = MatrixC
-
-		// Matrix to return that stores the concatenated matrix
-		// i.e. MatrixC
 		Matrix4 tempMatrix;
+		
+		// row 1
 
-		// Set the Initial MatrixA row and col
-		int iACol = 0;
-		int iARow = 0;
-			
-		// Set the Initial MatrixB row and col
-		int iBCol = 0;
-		int iBRow = 0;
+		tempMatrix.m_afArray[0][0] =	m_afArray[0][0] * a_Factor.m_afArray[0][0] +
+										m_afArray[0][1] * a_Factor.m_afArray[1][0] +
+										m_afArray[0][2] * a_Factor.m_afArray[2][0] +
+										m_afArray[0][3] * a_Factor.m_afArray[3][0];
 
-		// Set the Initial MatrixC row and col
-		int iCCol = 0;
-		int iCRow = 0;
+		tempMatrix.m_afArray[0][1] =	m_afArray[0][0] * a_Factor.m_afArray[0][1] +
+										m_afArray[0][1] * a_Factor.m_afArray[1][1] +
+										m_afArray[0][2] * a_Factor.m_afArray[2][1] +
+										m_afArray[0][3] * a_Factor.m_afArray[3][1];
+		
+		tempMatrix.m_afArray[0][2] =	m_afArray[0][0] * a_Factor.m_afArray[0][2] +
+										m_afArray[0][1] * a_Factor.m_afArray[1][2] +
+										m_afArray[0][2] * a_Factor.m_afArray[2][2] +
+										m_afArray[0][3] * a_Factor.m_afArray[3][2];
 
-		for(;
-			iARow <= 2;
-			iARow++)
-		{
-			// Store value to be stored
-			float fSum = 0;
-			
-			// Calculate the sum of Row A Current Row * Col B0,1,2
-			while (iBRow < 3 && iBCol < 3)
-			{
-				fSum = m_afArray[iARow][iACol] + a_Factor.m_afArray[iBRow][iBCol];
+		tempMatrix.m_afArray[0][3] =	m_afArray[0][0] * a_Factor.m_afArray[0][3] +
+										m_afArray[0][1] * a_Factor.m_afArray[1][3] +
+										m_afArray[0][2] * a_Factor.m_afArray[2][3] +
+										m_afArray[0][3] * a_Factor.m_afArray[3][3];
+		// row 2
 
-				iACol++;
-				iBRow++;
-			}
+		tempMatrix.m_afArray[1][0] =	m_afArray[1][0] * a_Factor.m_afArray[0][0] +
+										m_afArray[1][1] * a_Factor.m_afArray[1][0] +
+										m_afArray[1][2] * a_Factor.m_afArray[2][0] +
+										m_afArray[1][3] * a_Factor.m_afArray[3][0];
 
-			// Assign the determined value to its container
-			tempMatrix.m_afArray[iCCol][iCRow] = fSum;
+		tempMatrix.m_afArray[1][1] =	m_afArray[1][0] * a_Factor.m_afArray[0][1] +
+										m_afArray[1][1] * a_Factor.m_afArray[1][1] +
+										m_afArray[1][2] * a_Factor.m_afArray[2][1] +
+										m_afArray[1][3] * a_Factor.m_afArray[3][1];
 
-			// Move to the next column to be assigned
-			iCCol++;
+		tempMatrix.m_afArray[1][2] =	m_afArray[1][0] * a_Factor.m_afArray[0][2] +
+										m_afArray[1][1] * a_Factor.m_afArray[1][2] + 
+										m_afArray[1][2] * a_Factor.m_afArray[2][2] +
+										m_afArray[1][3] * a_Factor.m_afArray[3][2];
 
-			// if iCCol is beyond range of array, move to next row and reset ccol
-			if (iCCol > 2)
-			{
-				iCRow++;
-				iCCol = 0;
-			}
-		}
+		tempMatrix.m_afArray[1][3] =	m_afArray[1][0] * a_Factor.m_afArray[0][3] +
+										m_afArray[1][1] * a_Factor.m_afArray[1][3] + 
+										m_afArray[1][2] * a_Factor.m_afArray[2][3] +
+										m_afArray[1][3] * a_Factor.m_afArray[3][3];
+
+		// row 3
+		tempMatrix.m_afArray[2][0] =	m_afArray[2][0] * a_Factor.m_afArray[0][0] +
+										m_afArray[2][1] * a_Factor.m_afArray[1][0] +
+										m_afArray[2][2] * a_Factor.m_afArray[2][0] +
+										m_afArray[2][3] * a_Factor.m_afArray[3][0];
+
+		tempMatrix.m_afArray[2][1] =	m_afArray[2][0] * a_Factor.m_afArray[0][1] +
+										m_afArray[2][1] * a_Factor.m_afArray[1][1] +
+										m_afArray[2][2] * a_Factor.m_afArray[2][1] +
+										m_afArray[2][3] * a_Factor.m_afArray[3][1];
+		
+		tempMatrix.m_afArray[2][2] =	m_afArray[2][0] * a_Factor.m_afArray[0][2] +
+										m_afArray[2][1] * a_Factor.m_afArray[1][2] +
+										m_afArray[2][2] * a_Factor.m_afArray[2][2] +
+										m_afArray[2][3] * a_Factor.m_afArray[3][2];
+
+		tempMatrix.m_afArray[2][3] =	m_afArray[2][0] * a_Factor.m_afArray[0][3] +
+										m_afArray[2][1] * a_Factor.m_afArray[1][3] +
+										m_afArray[2][2] * a_Factor.m_afArray[2][3] +
+										m_afArray[2][3] * a_Factor.m_afArray[3][3];
+
+		// row 4
+		tempMatrix.m_afArray[3][0] =	m_afArray[3][0] * a_Factor.m_afArray[0][0] +
+										m_afArray[3][1] * a_Factor.m_afArray[1][0] +
+										m_afArray[3][2] * a_Factor.m_afArray[2][0] +
+										m_afArray[3][3] * a_Factor.m_afArray[3][0];
+
+		tempMatrix.m_afArray[3][1] =	m_afArray[3][0] * a_Factor.m_afArray[0][1] +
+										m_afArray[3][1] * a_Factor.m_afArray[1][1] +
+										m_afArray[3][2] * a_Factor.m_afArray[2][1] +
+										m_afArray[3][3] * a_Factor.m_afArray[3][1];
+		
+		tempMatrix.m_afArray[3][2] =	m_afArray[3][0] * a_Factor.m_afArray[0][2] +
+										m_afArray[3][1] * a_Factor.m_afArray[1][2] +
+										m_afArray[3][2] * a_Factor.m_afArray[2][2] +
+										m_afArray[3][3] * a_Factor.m_afArray[3][2];
+
+		tempMatrix.m_afArray[3][3] =	m_afArray[3][0] * a_Factor.m_afArray[0][3] +
+										m_afArray[3][1] * a_Factor.m_afArray[1][3] +
+										m_afArray[3][2] * a_Factor.m_afArray[2][3] +
+										m_afArray[3][3] * a_Factor.m_afArray[3][3];
+
 		return tempMatrix;
 	}
 
@@ -353,11 +396,11 @@ namespace tbyte
 		Matrix4 tempMatrix;
 
 		for(int iPosX = 0;
-			iPosX < 3;
+			iPosX <= 3;
 			iPosX++)
 		{
 			for(int iPosY = 0;
-				iPosY < 3;
+				iPosY <= 3;
 				iPosY++)
 			{
 				tempMatrix.m_afArray[iPosX][iPosY] = m_afArray[iPosX][iPosY] * a_FactorScalar;
@@ -386,12 +429,14 @@ namespace tbyte
 
 	Matrix4 Matrix4::operator*= (const Matrix4 a_Factor)
 	{
-		return (*this) * a_Factor;
+		(*this) = (*this) * a_Factor;
+		return (*this);
 	}
 
 	Matrix4 Matrix4::operator*= (const float a_FactorScalar)
 	{
-		return (*this) * a_FactorScalar;
+		(*this) = (*this) * a_FactorScalar;
+		return (*this);
 	}
 
 	bool Matrix4::operator == (const Matrix4 a_Source)
