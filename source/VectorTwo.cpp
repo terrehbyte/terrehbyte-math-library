@@ -27,7 +27,9 @@ namespace tbyte
 		Vector2 VectorB = a_Term;
 		VectorB = VectorB.GetNormal();
 		
-		return acos((VectorA).GetDotProduct(VectorB));
+		float fEuler = acos((VectorA).GetDotProduct(VectorB));
+
+		return fEuler;
 	}
 
 	float	Vector2::GetDotProduct(const Vector2 &a_Term)
