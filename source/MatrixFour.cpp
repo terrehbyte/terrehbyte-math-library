@@ -106,13 +106,13 @@ namespace tbyte
 
 		OrthoProj.MakeIdentityMatrix();
 
-		OrthoProj.m_afArray [0][0] = 2 / a_fRight - a_fLeft;
+		OrthoProj.m_afArray [0][0] = 2 / (a_fRight - a_fLeft);
 		OrthoProj.m_afArray [0][3] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
 
-		OrthoProj.m_afArray [1][1] = 2 / a_fTop - a_fBottom;
+		OrthoProj.m_afArray [1][1] = 2 / (a_fTop - a_fBottom);
 		OrthoProj.m_afArray [1][3] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
 
-		OrthoProj.m_afArray [2][2] = 2 / a_fFar - a_fNear;
+		OrthoProj.m_afArray [2][2] = -2 / (a_fFar - a_fNear);
 		OrthoProj.m_afArray [2][3] = -( (a_fFar + a_fNear) / (a_fFar - a_fNear));
 		
 		return OrthoProj;
@@ -129,13 +129,13 @@ namespace tbyte
 
 		OrthoProj.MakeIdentityMatrix();
 
-		OrthoProj.m_afArray [0][0] = 2 / a_fRight - a_fLeft;
+		OrthoProj.m_afArray [0][0] = 2 / (a_fRight - a_fLeft);
 		
 
-		OrthoProj.m_afArray [1][1] = 2 / a_fTop - a_fBottom;
+		OrthoProj.m_afArray [1][1] = 2 / (a_fTop - a_fBottom);
 		
 
-		OrthoProj.m_afArray [2][2] = -1 / a_fFar - a_fNear;
+		OrthoProj.m_afArray [2][2] = -1 / (a_fFar - a_fNear);
 
 		OrthoProj.m_afArray [3][0] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
 		OrthoProj.m_afArray [3][1] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
@@ -490,7 +490,7 @@ namespace tbyte
 		return (*this);
 	}
 
-	bool Matrix4::operator == (const Matrix4 a_Source)
+	bool	Matrix4::operator == (const Matrix4 a_Source)
 	{
 		for (int iCol = 0;
 			 iCol <= 3;
@@ -504,6 +504,188 @@ namespace tbyte
 				{
 					return false;
 				}
+			}
+		}
+
+		return true;
+	}
+
+	bool	Matrix4::operator > (const Matrix4 a_Source)
+	{
+		Matrix4 tempMatrix = *this;
+
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iCol <= 3;
+				iCol++)
+			{
+				if (!(tempMatrix.m_afArray[iRow][iCol] > a_Source.m_afArray[iRow][iCol]))
+				{
+					return false;
+				}
+
+			}
+		}
+
+		return true;
+	}
+	bool	Matrix4::operator < (const Matrix4 a_Source)
+	{
+		Matrix4 tempMatrix = *this;
+
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iCol <= 3;
+				iCol++)
+			{
+				if (!(tempMatrix.m_afArray[iRow][iCol] < a_Source.m_afArray[iRow][iCol]))
+				{
+					return false;
+				}
+
+			}
+		}
+
+		return true;
+	}
+
+	bool	Matrix4::operator > (const float a_Scalar)
+	{
+		Matrix4 tempMatrix = *this;
+
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iCol <= 3;
+				iCol++)
+			{
+				if (!(tempMatrix.m_afArray[iRow][iCol] > a_Scalar))
+				{
+					return false;
+				}
+
+			}
+		}
+
+		return true;
+	}
+	bool	Matrix4::operator < (const float a_Scalar)
+	{
+		Matrix4 tempMatrix = *this;
+
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iCol <= 3;
+				iCol++)
+			{
+				if (!(tempMatrix.m_afArray[iRow][iCol] < a_Scalar))
+				{
+					return false;
+				}
+
+			}
+		}
+
+		return true;
+	}
+
+	bool	Matrix4::operator >= (const Matrix4 a_Source)
+	{
+		Matrix4 tempMatrix = *this;
+
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iCol <= 3;
+				iCol++)
+			{
+				if (!(tempMatrix.m_afArray[iRow][iCol] >= a_Source.m_afArray[iRow][iCol]))
+				{
+					return false;
+				}
+
+			}
+		}
+
+		return true;
+
+	}
+	bool	Matrix4::operator <= (const Matrix4 a_Source)
+	{
+		Matrix4 tempMatrix = *this;
+
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iCol <= 3;
+				iCol++)
+			{
+				if (!(tempMatrix.m_afArray[iRow][iCol] <= a_Source.m_afArray[iRow][iCol]))
+				{
+					return false;
+				}
+
+			}
+		}
+
+		return true;
+	}
+
+	bool	Matrix4::operator >= (const float a_Scalar)
+	{
+		Matrix4 tempMatrix = *this;
+
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iCol <= 3;
+				iCol++)
+			{
+				if (!(tempMatrix.m_afArray[iRow][iCol] >= a_Scalar))
+				{
+					return false;
+				}
+
+			}
+		}
+
+		return true;
+	}
+	
+	bool	Matrix4::operator <= (const float a_Scalar)
+	{
+		Matrix4 tempMatrix = *this;
+
+		for (int iRow = 0;
+			iRow <= 3;
+			iRow++)
+		{
+			for (int iCol = 0;
+				iCol <= 3;
+				iCol++)
+			{
+				if (!(tempMatrix.m_afArray[iRow][iCol] <= a_Scalar))
+				{
+					return false;
+				}
+
 			}
 		}
 

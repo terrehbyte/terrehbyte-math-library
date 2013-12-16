@@ -87,6 +87,19 @@ namespace tbyte
 
 		Matrix4 operator = (const Matrix4 a_Source);
 		bool	operator == (const Matrix4 a_Source);
+
+		// test these
+
+		bool	operator > (const Matrix4 a_Source);
+		bool	operator < (const Matrix4 a_Source);
+		bool	operator > (const float a_Scalar);
+		bool	operator < (const float a_Scalar);
+
+		bool	operator >= (const Matrix4 a_Source);
+		bool	operator <= (const Matrix4 a_Source);
+		bool	operator >= (const float a_Scalar);
+		bool	operator <= (const float a_Scalar);
+
 	};
 }
 
