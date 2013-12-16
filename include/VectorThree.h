@@ -27,6 +27,9 @@ namespace tbyte
 		float	fY;
 		float	fZ;
 
+		// Get Euler Angle Between Two Vectors
+		float Vector3::GetEulerAngle(const Vector3 &a_Term);
+
 		// Returns the Dot Product between the caller and the Vector3 term
 		float	GetDotProduct(const Vector3 &a_Term);
 

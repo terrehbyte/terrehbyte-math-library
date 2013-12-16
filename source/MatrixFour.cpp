@@ -93,6 +93,29 @@ namespace tbyte
 		return (*this);
 	}
 
+	Matrix4 Matrix4::MakeOrthoProjMatrix(float a_fLeft,
+										 float a_fRight,
+										 float a_fTop,
+										 float a_fBottom,
+										 float a_fFar,
+										 float a_fNear)
+	{
+		Matrix4 OrthoProj;
+
+		OrthoProj.MakeIdentityMatrix();
+
+		OrthoProj.m_afArray [0][0] = 2 / a_fRight - a_fLeft;
+		OrthoProj.m_afArray [0][3] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
+
+		OrthoProj.m_afArray [1][1] = 2 / a_fTop - a_fBottom;
+		OrthoProj.m_afArray [1][3] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
+
+		OrthoProj.m_afArray [2][2] = 2 / a_fFar - a_fNear;
+		OrthoProj.m_afArray [2][3] = -( (a_fFar + a_fNear) / (a_fFar - a_fNear));
+		
+		return OrthoProj;
+	}
+
 	// depreciated
 	tbyte::Vector4 Matrix4::Scale(const tbyte::Vector4 a_Vector)
 	{

@@ -33,7 +33,7 @@ namespace tbyte
 
 		// Return what the caller would be when normalized
 		Vector4	GetNormal();
-		
+
 		// Reconstructs the caller to be comrpised of hex color values
 		void	ConstructFromHex(
 			float a_iRED,

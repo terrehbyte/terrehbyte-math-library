@@ -6,6 +6,8 @@
 //
 //////////////////////////////////////////////////////////////////////////
 
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include "TBYTEmath.h"
 
 namespace tbyte
@@ -17,14 +19,13 @@ namespace tbyte
 
 	float DegreesToRadians(float a_fDegrees)
 	{
-		float fRadians = a_fDegrees * (180 / M_PI);
+		float fRadians = a_fDegrees * (M_PI / 180);
 		return fRadians;
 	}
 
 	float RadiansToDegrees(float a_fRadians)
 	{
-		const int cSomething = 1;
-		float fDegrees = a_fRadians * ((180 * M_PI) / cSomething);
+		float fDegrees = a_fRadians * (180 / M_PI);
 		return fDegrees;
 	}
 

@@ -19,6 +19,17 @@ namespace tbyte
 	{
 	}
 
+	float Vector2::GetEulerAngle(const Vector2 &a_Term)
+	{
+		Vector2 VectorA = (*this);
+		VectorA = VectorA.GetNormal();
+		
+		Vector2 VectorB = a_Term;
+		VectorB = VectorB.GetNormal();
+		
+		return acos((VectorA).GetDotProduct(VectorB));
+	}
+
 	float	Vector2::GetDotProduct(const Vector2 &a_Term)
 	{
 		return (fX * a_Term.fX) + (fY * a_Term.fY);

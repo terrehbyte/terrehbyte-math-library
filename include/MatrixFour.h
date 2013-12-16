@@ -40,6 +40,14 @@ namespace tbyte
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix4 MakeIdentityMatrix();
 
+		// Assigns & Returns the Orthographic Project Matrix that was created
+		Matrix4 MakeOrthoProjMatrix(float a_fLeft,
+									float a_fRight,
+									float a_fTop,
+									float a_fBottom,
+									float a_fFar,
+									float a_fNear);
+
 		// Returns a Vector4 that has been scaled by the Matrix caller
 		tbyte::Vector4 Scale(const tbyte::Vector4 a_Vector);
 		tbyte::Vector3 Scale(const tbyte::Vector3 a_Vector);
