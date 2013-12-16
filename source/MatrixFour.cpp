@@ -49,6 +49,7 @@ namespace tbyte
 	tbyte::Vector4 Matrix4::PointTransform(const tbyte::Vector4 a_Point)
 	{
 		tbyte::Vector4 temp;
+
 		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fY * m_afArray[2][0] + a_Point.fW * m_afArray[3][0];
 		temp.fY = a_Point.fX * m_afArray[0][1] + a_Point.fY * m_afArray[1][1] + a_Point.fY * m_afArray[2][1] + a_Point.fW * m_afArray[3][1];
 		temp.fZ = a_Point.fX * m_afArray[0][2] + a_Point.fY * m_afArray[1][2] + a_Point.fY * m_afArray[2][2] + a_Point.fW * m_afArray[3][2];
@@ -61,6 +62,7 @@ namespace tbyte
 			temp.fZ /= temp.fW;
 			temp.fW /= temp.fW;
 		}
+
 		return temp;
 	}
 
@@ -93,7 +95,7 @@ namespace tbyte
 		return (*this);
 	}
 
-	Matrix4 Matrix4::MakeOrthoProjMatrix(float a_fLeft,
+	Matrix4 Matrix4::MakeOGLOrthoProjMatrix(float a_fLeft,
 										 float a_fRight,
 										 float a_fTop,
 										 float a_fBottom,
@@ -112,6 +114,32 @@ namespace tbyte
 
 		OrthoProj.m_afArray [2][2] = 2 / a_fFar - a_fNear;
 		OrthoProj.m_afArray [2][3] = -( (a_fFar + a_fNear) / (a_fFar - a_fNear));
+		
+		return OrthoProj;
+	}
+
+	Matrix4 Matrix4::MakeOrthoProjMatrix(float a_fLeft,
+										 float a_fRight,
+										 float a_fTop,
+										 float a_fBottom,
+										 float a_fFar,
+										 float a_fNear)
+	{
+		Matrix4 OrthoProj;
+
+		OrthoProj.MakeIdentityMatrix();
+
+		OrthoProj.m_afArray [0][0] = 2 / a_fRight - a_fLeft;
+		
+
+		OrthoProj.m_afArray [1][1] = 2 / a_fTop - a_fBottom;
+		
+
+		OrthoProj.m_afArray [2][2] = -1 / a_fFar - a_fNear;
+
+		OrthoProj.m_afArray [3][0] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
+		OrthoProj.m_afArray [3][1] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
+		OrthoProj.m_afArray [3][2] = a_fNear / (a_fFar - a_fNear);
 		
 		return OrthoProj;
 	}

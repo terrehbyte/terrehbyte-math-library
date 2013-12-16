@@ -41,6 +41,14 @@ namespace tbyte
 		Matrix4 MakeIdentityMatrix();
 
 		// Assigns & Returns the Orthographic Project Matrix that was created
+		Matrix4 MakeOGLOrthoProjMatrix(float a_fLeft,
+									float a_fRight,
+									float a_fTop,
+									float a_fBottom,
+									float a_fFar,
+									float a_fNear);
+
+		// Assigns & Returns the Orthographic Project Matrix that was created
 		Matrix4 MakeOrthoProjMatrix(float a_fLeft,
 									float a_fRight,
 									float a_fTop,
