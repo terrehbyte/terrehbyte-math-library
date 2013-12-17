@@ -9,15 +9,9 @@
 #ifndef _VECTORTHREE_H_
 #define _VECTORTHREE_H_
 
-#ifdef DLL
-	#define DLLEXPORT __declspec(dllexport)
-#else
-	#define DLLEXPORT __declspec(dllimport)
-#endif
-
 namespace tbyte
 {
-	class DLLEXPORT Vector3
+	class  Vector3
 	{
 	public:
 		Vector3();

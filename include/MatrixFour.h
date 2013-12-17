@@ -12,15 +12,9 @@
 #include "VectorThree.h"
 #include "VectorFour.h"
 
-#ifdef DLL
-	#define DLLEXPORT __declspec(dllexport)
-#else
-	#define DLLEXPORT __declspec(dllimport)
-#endif
-
 namespace tbyte
 {
-	class DLLEXPORT Matrix4
+	class  Matrix4
 	{
 	private:
 

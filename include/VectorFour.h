@@ -9,15 +9,9 @@
 #ifndef _VECTORFOUR_H_
 #define _VECTORFOUR_H_
 
-#ifdef DLL
-	#define DLLEXPORT __declspec(dllexport)
-#else
-	#define DLLEXPORT __declspec(dllimport)
-#endif
-
 namespace tbyte
 {
-	class DLLEXPORT Vector4
+	class  Vector4
 	{
 	public:
 		Vector4();
