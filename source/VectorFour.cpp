@@ -47,7 +47,7 @@ namespace tbyte
 		return temp;
 	}
 
-	void Vector4::ConstructFromHex(
+	Vector4 Vector4::ConstructFromHex(
 		float a_iRED,
 		float a_iGREEN,
 		float a_iBLUE,
@@ -58,6 +58,18 @@ namespace tbyte
 		fX = a_iGREEN / 255;
 		fY = a_iBLUE  / 255;
 		fZ = a_iALPHA / 255;
+
+		return (*this);
+	}
+
+	Vector4 Vector4::ConstructFromHex(int a_iHEXValue)
+	{	
+		fW = ((a_iHEXValue >> 24) & 0xFF) / 255.0;
+		fX = ((a_iHEXValue >> 16) & 0xFF) / 255.0;
+		fY = ((a_iHEXValue >> 8) & 0xFF) / 255.0;
+		fZ = ((a_iHEXValue) & 0xFF) / 255.0;
+
+		return (*this);
 	}
 	
 	Vector4 Vector4::operator + (const Vector4 &a_Addend)

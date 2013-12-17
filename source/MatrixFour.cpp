@@ -144,7 +144,6 @@ namespace tbyte
 		return OrthoProj;
 	}
 
-	// depreciated
 	tbyte::Vector4 Matrix4::Scale(const tbyte::Vector4 a_Vector)
 	{
 		tbyte::Vector4 temp;
@@ -155,7 +154,6 @@ namespace tbyte
 		return temp;
 	}
 
-	// depreciated
 	tbyte::Vector3 Matrix4::Scale(const tbyte::Vector3 a_Vector)
 	{
 		tbyte::Vector3 temp;

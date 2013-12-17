@@ -35,12 +35,15 @@ namespace tbyte
 		Vector4	GetNormal();
 
 		// Reconstructs the caller to be comrpised of hex color values
-		void	ConstructFromHex(
+		Vector4	ConstructFromHex(
 			float a_iRED,
 			float a_iGREEN,
 			float a_iBLUE,
 			float a_iALPHA
 			);
+
+		// Reconstructs the caller to be comrpised of hex color values
+		Vector4	ConstructFromHex(int a_iHEXValue);
 
 		// Operators overloaded - see parameters
 		Vector4	operator + (const Vector4 &a_Addend);
