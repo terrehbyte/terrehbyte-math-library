@@ -1,13 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	VectorThree.h
 //	Author:	Terry Nguyen
-//	Date:	12/11/2013
+//	Date:	12/18/2013
 //	Brief:	Provides access to VectorThree for 2D sprite games
 //
 //////////////////////////////////////////////////////////////////////////
 
 #ifndef _VECTORTHREE_H_
 #define _VECTORTHREE_H_
+
+#include <math.h>
 
 namespace tbyte
 {
@@ -22,7 +24,7 @@ namespace tbyte
 		float	fZ;
 
 		// Get Euler Angle Between Two Vectors
-		float Vector3::GetEulerAngle(const Vector3 &a_Term);
+		float	GetEulerAngle(const Vector3 &a_Term);
 
 		// Returns the Dot Product between the caller and the Vector3 term
 		float	GetDotProduct(const Vector3 &a_Term);

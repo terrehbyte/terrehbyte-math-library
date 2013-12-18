@@ -1,13 +1,12 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	MatrixFour.cpp
 //	Author:	Terry Nguyen
-//	Date:	11/05/2013
+//	Date:	12/18/2013
 //	Brief:	Defines functions pertaining to Matrix4
 //
 //////////////////////////////////////////////////////////////////////////
 
 #include "MatrixFour.h"
-#include <cmath>
 
 namespace tbyte
 {
@@ -144,7 +143,6 @@ namespace tbyte
 		return OrthoProj;
 	}
 
-	// depreciated
 	tbyte::Vector4 Matrix4::Scale(const tbyte::Vector4 a_Vector)
 	{
 		tbyte::Vector4 temp;
@@ -155,7 +153,6 @@ namespace tbyte
 		return temp;
 	}
 
-	// depreciated
 	tbyte::Vector3 Matrix4::Scale(const tbyte::Vector3 a_Vector)
 	{
 		tbyte::Vector3 temp;

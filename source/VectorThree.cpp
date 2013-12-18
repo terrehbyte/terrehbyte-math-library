@@ -1,26 +1,19 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	VectorThree.cpp
 //	Author:	Terry Nguyen
-//	Date:	11/05/2013
+//	Date:	12/18/2013
 //	Brief:	Defines functions pertaining to Vector3D
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include <math.h>
 #include "VectorThree.h"
-
-// ** CONSTRUCTORS ** - initialize values
 
 namespace tbyte
 {
 	Vector3::Vector3()
 	{
-		fY = 0;
-		fX = 0;
-		fZ = 0;
 	}
 	
-	// ** DESTRUCTORS ** - destroy values in heap
 	Vector3::~Vector3()
 	{
 	}

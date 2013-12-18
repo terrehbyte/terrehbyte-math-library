@@ -1,13 +1,16 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	TBYTEmath.h
 //	Author:	Terry Nguyen
-//	Date:	12/11/2013
+//	Date:	12/18/2013
 //	Brief:	Provides functions for handling basic mathematical inconveniences
 //
 //////////////////////////////////////////////////////////////////////////
 
 #ifndef _TBYTEMATH_H_
 #define _TBYTEMATH_H_
+
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 namespace tbyte
 {
@@ -21,9 +24,10 @@ namespace tbyte
 	// Convert Radians to Deg
 	float  RadiansToDegrees(float a_fRadians);
 
-	// Test Scalar Value for Power of Two (shift to nearest power of two)
+	// Test Scalar Value if Power of Two
 	bool  CheckPowerOfTwo(double a_dTestNumber);
 
+	// Shift a Given Value to the Next Power of Two
 	double  ShiftNextPowerOfTwo(double &a_dTestNumber);
 
 

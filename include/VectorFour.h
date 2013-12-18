@@ -1,13 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	VectorFour.h
 //	Author:	Terry Nguyen
-//	Date:	12/11/2013
+//	Date:	12/18/2013
 //	Brief:	Provides access to VectorFour
 //
 //////////////////////////////////////////////////////////////////////////
 
 #ifndef _VECTORFOUR_H_
 #define _VECTORFOUR_H_
+
+#include <math.h>
 
 namespace tbyte
 {
@@ -29,12 +31,15 @@ namespace tbyte
 		Vector4	GetNormal();
 
 		// Reconstructs the caller to be comrpised of hex color values
-		void	ConstructFromHex(
+		Vector4	ConstructFromHex(
 			float a_iRED,
 			float a_iGREEN,
 			float a_iBLUE,
 			float a_iALPHA
 			);
+
+		// Reconstructs the caller to be comrpised of hex color values
+		Vector4	ConstructFromHex(int a_iHEXValue);
 
 		// Operators overloaded - see parameters
 		Vector4	operator + (const Vector4 &a_Addend);

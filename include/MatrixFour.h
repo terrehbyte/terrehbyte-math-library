@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	MatrixFour.h
 //	Author:	Terry Nguyen
-//	Date:	12/11/2013
+//	Date:	12/18/2013
 //	Brief:	Provides access to MatrixFour for 2D sprite games
 //
 //////////////////////////////////////////////////////////////////////////
@@ -11,6 +11,8 @@
 
 #include "VectorThree.h"
 #include "VectorFour.h"
+
+#include <cmath>
 
 namespace tbyte
 {
@@ -81,8 +83,6 @@ namespace tbyte
 
 		Matrix4 operator = (const Matrix4 a_Source);
 		bool	operator == (const Matrix4 a_Source);
-
-		// test these
 
 		bool	operator > (const Matrix4 a_Source);
 		bool	operator < (const Matrix4 a_Source);
