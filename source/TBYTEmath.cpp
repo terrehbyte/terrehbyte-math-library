@@ -1,13 +1,11 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	TBYTEmath.h
 //	Author:	Terry Nguyen
-//	Date:	12/11/2013
+//	Date:	12/18/2013
 //	Brief:	Provides functions for handling basic mathematical inconveniences
 //
 //////////////////////////////////////////////////////////////////////////
 
-#define _USE_MATH_DEFINES
-#include <math.h>
 #include "TBYTEmath.h"
 
 namespace tbyte
@@ -43,8 +41,6 @@ namespace tbyte
 
 		return false;
 	}
-
-	// consider overloading to provide a overload for integral types
 
 	double ShiftNextPowerOfTwo(double &a_dTestNumber)
 	{

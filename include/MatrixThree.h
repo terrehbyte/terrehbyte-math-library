@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	MatrixThree.h
 //	Author:	Terry Nguyen
-//	Date:	12/11/2013
+//	Date:	12/18/2013
 //	Brief:	Provides access to MatrixFour for 2D sprite games
 //
 //////////////////////////////////////////////////////////////////////////
@@ -11,6 +11,8 @@
 
 #include "VectorThree.h"
 #include "VectorFour.h"
+
+#include <cmath>
 
 #ifdef DLL
 	#define DLLEXPORT __declspec(dllexport)
@@ -23,8 +25,6 @@ namespace tbyte
 	class DLLEXPORT Matrix3
 	{
 	public:
-
-
 
 		Matrix3();
 		~Matrix3();
@@ -43,12 +43,10 @@ namespace tbyte
 		Matrix3 MakeIdentityMatrix();
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
-		// depreciated
 		tbyte::Vector4 Scale(const tbyte::Vector4 a_Vector);
 		tbyte::Vector3 Scale(const tbyte::Vector3 a_Vector);
 
 		// Returns a Transform Matrix3 for rotation around the '_'-axis in radians
-		// Consider making these static
 		Matrix3 MakeXRotationMatrix(float a_Radians);
 		Matrix3 MakeYRotationMatrix(float a_Radians);
 		Matrix3 MakeZRotationMatrix(float a_Radians);

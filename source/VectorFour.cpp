@@ -1,16 +1,12 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	VectorThree.cpp
 //	Author:	Terry Nguyen
-//	Date:	11/05/2013
+//	Date:	11/18/2013
 //	Brief:	Defines functions pertaining to Vector3D
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include <math.h>
 #include "VectorFour.h"
-#include <iostream>
-
-// ** CONSTRUCTORS ** - initialize values
 
 namespace tbyte
 {
@@ -18,7 +14,6 @@ namespace tbyte
 	{
 	}
 	
-	// ** DESTRUCTORS ** - destroy values in heap
 	Vector4::~Vector4()
 	{
 	}

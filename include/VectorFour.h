@@ -1,13 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	VectorFour.h
 //	Author:	Terry Nguyen
-//	Date:	12/11/2013
+//	Date:	12/18/2013
 //	Brief:	Provides access to VectorFour
 //
 //////////////////////////////////////////////////////////////////////////
 
 #ifndef _VECTORFOUR_H_
 #define _VECTORFOUR_H_
+
+#include <math.h>
 
 #ifdef DLL
 	#define DLLEXPORT __declspec(dllexport)

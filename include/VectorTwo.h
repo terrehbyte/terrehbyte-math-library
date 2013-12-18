@@ -1,13 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	VectorTwo.h
 //	Author:	Terry Nguyen
-//	Date:	12/11/2013
+//	Date:	12/18/2013
 //	Brief:	Provides access to VectorTwo for 2D sprite games
 //
 //////////////////////////////////////////////////////////////////////////
 
 #ifndef _VECTORTWO_H_
 #define _VECTORTWO_H_
+
+#include <math.h>
 
 #ifdef DLL
 	#define DLLEXPORT __declspec(dllexport)
@@ -38,6 +40,7 @@ namespace tbyte
 		// Return the magnitude of the Vector
 		float	GetMagnitude();
 
+		// Return linearly interpolated vector
 		Vector2 Lerp(const Vector2 &a_TerminatingVector, const float &a_fInterpolationPoint);
 
 		// Operators overloaded - see parameters
