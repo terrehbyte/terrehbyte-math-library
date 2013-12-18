@@ -12,9 +12,6 @@ namespace tbyte
 {
 	Vector3::Vector3()
 	{
-		fY = 0;
-		fX = 0;
-		fZ = 0;
 	}
 	
 	Vector3::~Vector3()
