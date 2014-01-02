@@ -76,6 +76,21 @@ namespace tbyte
 
 		return (*this);
 	}
+
+	float Matrix3::GetDeterminant()
+	{
+		float fDeterminant;
+
+		float fTermA = m_afArray[0][0] * (m_afArray[1][1] * m_afArray[2][2] - m_afArray[1][2] * m_afArray[2][1]);
+		float fTermB = m_afArray[0][1] * (m_afArray[1][0] * m_afArray[2][2] - m_afArray[1][2] * m_afArray[2][0]);
+		float fTermC = m_afArray[0][2] * (m_afArray[1][0] * m_afArray[2][1] - m_afArray[1][2] * m_afArray[2][0]);
+
+		fDeterminant = fTermA + fTermB + fTermC;
+
+		return fDeterminant;
+	}
+
+
 	// depreciated
 	tbyte::Vector4 Matrix3::Scale(const tbyte::Vector4 a_Vector)
 	{
