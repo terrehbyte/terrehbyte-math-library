@@ -8,6 +8,8 @@
 
 #include "TBYTEmath.h"
 
+using std::map;
+
 namespace tbyte
 {
 	float LERP(float a_First, float a_Second, float a_InterpolationValue)
@@ -29,11 +31,60 @@ namespace tbyte
 
 	bool CheckPowerOfTwo(double a_dTestNumber)
 	{
-		for(float iPow = 1;
-			iPow <= 46;
-			iPow++)
+		// Cache of Calculated Values
+		static map<int, float> Cache;
+		
+		map<int,float>::iterator RevIt = Cache.end();
+
+		//int iIterationVal;
+		const int ciBase = 2;
+
+		int iIterationVal = ciBase;
+
+		bool bCacheStatus = Cache.empty();
+
+		if ( !Cache.empty())
 		{
-			if (pow(2, iPow) == a_dTestNumber)
+			// If this key exists, then it must be a power of two
+			if (Cache.count(a_dTestNumber))
+			{
+				return true;
+			}
+
+			for (map<int,float>::iterator MapIterator = Cache.begin();
+					MapIterator != Cache.end();
+					MapIterator++)
+			{
+				if (MapIterator->first >= a_dTestNumber)
+				{
+					if (MapIterator->first == a_dTestNumber)
+					{
+						return true;
+					}
+					else
+					{
+						if ( (MapIterator->first) * 2 > a_dTestNumber)
+						{
+							return false;
+						}
+					}
+				}
+
+			}
+		}
+
+		if (!Cache.empty())
+		{
+			iIterationVal = RevIt->first;
+		}
+
+		while (iIterationVal < a_dTestNumber)
+		{
+			iIterationVal *= 2;
+
+			//Cache.insert(iIterationVal,0);
+
+			if (iIterationVal == a_dTestNumber)
 			{
 				return true;
 			}

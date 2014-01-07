@@ -11,6 +11,7 @@
 
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <map>
 
 #ifdef DLL
 	#define DLLEXPORT __declspec(dllexport)
