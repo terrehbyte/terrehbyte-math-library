@@ -35,7 +35,7 @@ namespace tbyte
 		static map<int, float> Cache;
 		
 		map<int,float>::iterator RevIt = Cache.end();
-
+		
 		//int iIterationVal;
 		const int ciBase = 2;
 
@@ -72,9 +72,10 @@ namespace tbyte
 
 			}
 		}
-
+		
 		if (!Cache.empty())
 		{
+			RevIt--;
 			iIterationVal = RevIt->first;
 		}
 
@@ -82,7 +83,7 @@ namespace tbyte
 		{
 			iIterationVal *= 2;
 
-			//Cache.insert(iIterationVal,0);
+			Cache.emplace(std::pair<int, float>(iIterationVal,0));
 
 			if (iIterationVal == a_dTestNumber)
 			{
