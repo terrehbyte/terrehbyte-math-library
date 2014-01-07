@@ -74,9 +74,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="source\MatrixFour.cpp" />
     <ClCompile Include="source\MatrixThree.cpp" />
     <ClCompile Include="source\TBYTEmath.cpp" />

@@ -22,25 +22,17 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix;
 
-		tempMatrix.m_afArray[0][0] = m_afArray[0][0];
-		tempMatrix.m_afArray[0][1] = m_afArray[1][0];
-		tempMatrix.m_afArray[0][2] = m_afArray[2][0];
-		tempMatrix.m_afArray[0][3] = m_afArray[3][0];
-		
-		tempMatrix.m_afArray[1][0] = m_afArray[0][1];
-		tempMatrix.m_afArray[1][1] = m_afArray[1][1];
-		tempMatrix.m_afArray[1][2] = m_afArray[2][1];
-		tempMatrix.m_afArray[1][3] = m_afArray[3][1];
-		
-		tempMatrix.m_afArray[2][0] = m_afArray[0][2];
-		tempMatrix.m_afArray[2][1] = m_afArray[1][2];
-		tempMatrix.m_afArray[2][2] = m_afArray[2][2];
-		tempMatrix.m_afArray[2][3] = m_afArray[3][2];
-		
-		tempMatrix.m_afArray[3][0] = m_afArray[0][3];
-		tempMatrix.m_afArray[3][1] = m_afArray[1][3];
-		tempMatrix.m_afArray[3][2] = m_afArray[2][3];
-		tempMatrix.m_afArray[3][3] = m_afArray[3][3];
+		for (int iPosX = 0;
+			iPosX < 4;
+			iPosX++)
+		{
+			for (int iPosY = 0;
+				iPosY < 4;
+				iPosY++)
+			{
+				tempMatrix.m_afArray[iPosX][iPosY] = m_afArray[iPosY][iPosX];
+			}
+		}
 
 		return tempMatrix;
 	}
