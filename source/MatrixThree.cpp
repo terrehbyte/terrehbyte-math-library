@@ -37,7 +37,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	tbyte::Vector4 Matrix3::VectorTransform(const tbyte::Vector4 a_Point)
+	tbyte::Vector4 Matrix3::VectorTransform(const tbyte::Vector4 &a_Point)
 	{
 		tbyte::Vector4 temp;
 		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
@@ -47,7 +47,7 @@ namespace tbyte
 		return temp;
 	}
 
-	tbyte::Vector3 Matrix3::VectorTransform(const tbyte::Vector3 a_Point)
+	tbyte::Vector3 Matrix3::VectorTransform(const tbyte::Vector3 &a_Point)
 	{
 		tbyte::Vector3 temp;
 		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
@@ -92,7 +92,7 @@ namespace tbyte
 
 
 	// depreciated
-	tbyte::Vector4 Matrix3::Scale(const tbyte::Vector4 a_Vector)
+	tbyte::Vector4 Matrix3::Scale(const tbyte::Vector4 &a_Vector)
 	{
 		tbyte::Vector4 temp;
 		
@@ -103,7 +103,7 @@ namespace tbyte
 		return temp;
 	}
 	// depreciated
-	tbyte::Vector3 Matrix3::Scale(const tbyte::Vector3 a_Vector)
+	tbyte::Vector3 Matrix3::Scale(const tbyte::Vector3 &a_Vector)
 	{
 		tbyte::Vector3 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
@@ -178,7 +178,7 @@ namespace tbyte
 
 
 	// OPERATORS
-	Matrix3 Matrix3::operator+ (const Matrix3 a_Addend)
+	Matrix3 Matrix3::operator+ (const Matrix3 &a_Addend)
 	{
 		Matrix3 tempMatrix = *this;
 
@@ -197,7 +197,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix3 Matrix3::operator+ (const float a_fAddendScalar)
+	Matrix3 Matrix3::operator+ (const float &a_fAddendScalar)
 	{
 		Matrix3 tempMatrix = *this;
 
@@ -216,19 +216,19 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix3 Matrix3::operator+= (const Matrix3 a_Addend)
+	Matrix3 Matrix3::operator+= (const Matrix3 &a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
 		return (*this);
 	}
 
-	Matrix3 Matrix3::operator+= (const float a_fAddendScalar)
+	Matrix3 Matrix3::operator+= (const float &a_fAddendScalar)
 	{
 		(*this) = (*this) + a_fAddendScalar;
 		return (*this);
 	}
 
-	Matrix3 Matrix3::operator- (const Matrix3 a_Subtrahend)
+	Matrix3 Matrix3::operator- (const Matrix3 &a_Subtrahend)
 	{
 		Matrix3 tempMatrix = *this;
 
@@ -247,7 +247,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix3 Matrix3::operator- (const float a_fSubtrahendScalar)
+	Matrix3 Matrix3::operator- (const float &a_fSubtrahendScalar)
 	{
 		Matrix3 tempMatrix = *this;
 
@@ -266,19 +266,19 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix3 Matrix3::operator-= (const Matrix3 a_Subtrahend)
+	Matrix3 Matrix3::operator-= (const Matrix3 &a_Subtrahend)
 	{
 		(*this) =  (*this) - a_Subtrahend;
 		return (*this);
 	}
 
-	Matrix3 Matrix3::operator-= (const float a_fSubtrahendScalar)
+	Matrix3 Matrix3::operator-= (const float &a_fSubtrahendScalar)
 	{
 		(*this) = (*this) - a_fSubtrahendScalar;
 		return (*this);
 	}
 
-	Matrix3	Matrix3::operator * (const Matrix3 a_Factor)
+	Matrix3	Matrix3::operator * (const Matrix3 &a_Factor)
 	{
 		Matrix3 tempMatrix;
 
@@ -322,7 +322,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix3	Matrix3::operator * (const float a_fFactorScalar)
+	Matrix3	Matrix3::operator * (const float &a_fFactorScalar)
 	{
 		Matrix3 tempMatrix = *this;
 
@@ -342,7 +342,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix3 Matrix3::operator = (const Matrix3 a_Source)
+	Matrix3 Matrix3::operator = (const Matrix3 &a_Source)
 	{
 		for (int iCol = 0;
 			 iCol <= 2;
@@ -359,19 +359,19 @@ namespace tbyte
 		return *this;
 	}
 
-	Matrix3 Matrix3::operator*= (const Matrix3 a_Factor)
+	Matrix3 Matrix3::operator*= (const Matrix3 &a_Factor)
 	{
 		(*this) = (*this) * a_Factor;
 		return (*this);
 	}
 
-	Matrix3 Matrix3::operator*= (const float a_FactorScalar)
+	Matrix3 Matrix3::operator*= (const float &a_FactorScalar)
 	{
 		(*this) = (*this) * a_FactorScalar;
 		return (*this);
 	}
 
-	bool Matrix3::operator == (const Matrix3 a_Source)
+	bool Matrix3::operator == (const Matrix3 &a_Source)
 	{
 		for (int iCol = 0;
 			 iCol <= 2;

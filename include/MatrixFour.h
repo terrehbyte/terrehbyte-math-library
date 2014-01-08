@@ -37,7 +37,7 @@ namespace tbyte
 		Matrix4 Transpose();
 
 		// Returns a point that has been transformed by the Matrix caller
-		tbyte::Vector4 PointTransform(const tbyte::Vector4 a_Point);
+		tbyte::Vector4 PointTransform(const tbyte::Vector4 &a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix4 MakeIdentityMatrix();
@@ -59,8 +59,8 @@ namespace tbyte
 									float a_fNear);
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
-		tbyte::Vector4 Scale(const tbyte::Vector4 a_Vector);
-		tbyte::Vector3 Scale(const tbyte::Vector3 a_Vector);
+		tbyte::Vector4 Scale(const tbyte::Vector4 &a_Vector);
+		tbyte::Vector3 Scale(const tbyte::Vector3 &a_Vector);
 
 		// Returns a Transform Matrix4 for rotation around the '_'-axis in radians
 		Matrix4 MakeXRotationMatrix(float a_Radians);
@@ -68,37 +68,37 @@ namespace tbyte
 		Matrix4 MakeZRotationMatrix(float a_Radians);
 
 		// Returns a Vector4 transformed by the Matrix caller
-		tbyte::Vector4 VectorTransform(const tbyte::Vector4 a_Vector);
-		tbyte::Vector3 VectorTransform(const tbyte::Vector3 a_Vector);
+		tbyte::Vector4 VectorTransform(const tbyte::Vector4 &a_Vector);
+		tbyte::Vector3 VectorTransform(const tbyte::Vector3 &a_Vector);
 
 		// Operators (explained by their parameters)
-		Matrix4	operator + (const Matrix4 a_Addend);
-		Matrix4	operator + (const float a_AddendScalar);
-		Matrix4 operator += (const Matrix4 a_Addend);
-		Matrix4 operator += (const float a_AddendScalar);
+		Matrix4	operator + (const Matrix4 &a_Addend);
+		Matrix4	operator + (const float &a_AddendScalar);
+		Matrix4 operator += (const Matrix4 &a_Addend);
+		Matrix4 operator += (const float &a_AddendScalar);
 
-		Matrix4	operator - (const Matrix4 a_Subtrahend);
-		Matrix4	operator - (const float a_SubtrahendScalar);
-		Matrix4	operator -= (const Matrix4 a_Subtrahend);
-		Matrix4	operator -= (const float a_SubtrahendScalar);
+		Matrix4	operator - (const Matrix4 &a_Subtrahend);
+		Matrix4	operator - (const float &a_SubtrahendScalar);
+		Matrix4	operator -= (const Matrix4 &a_Subtrahend);
+		Matrix4	operator -= (const float &a_SubtrahendScalar);
 
-		Matrix4	operator * (const Matrix4 a_Factor);
-		Matrix4	operator * (const float a_FactorScalar);
-		Matrix4	operator *= (const Matrix4 a_Factor);
-		Matrix4	operator *= (const float a_FactorScalar);
+		Matrix4	operator * (const Matrix4 &a_Factor);
+		Matrix4	operator * (const float &a_FactorScalar);
+		Matrix4	operator *= (const Matrix4 &a_Factor);
+		Matrix4	operator *= (const float &a_FactorScalar);
 
-		Matrix4 operator = (const Matrix4 a_Source);
-		bool	operator == (const Matrix4 a_Source);
+		Matrix4 operator = (const Matrix4 &a_Source);
+		bool	operator == (const Matrix4 &a_Source);
 
-		bool	operator > (const Matrix4 a_Source);
-		bool	operator < (const Matrix4 a_Source);
-		bool	operator > (const float a_Scalar);
-		bool	operator < (const float a_Scalar);
+		bool	operator > (const Matrix4 &a_Source);
+		bool	operator < (const Matrix4 &a_Source);
+		bool	operator > (const float &a_Scalar);
+		bool	operator < (const float &a_Scalar);
 
-		bool	operator >= (const Matrix4 a_Source);
-		bool	operator <= (const Matrix4 a_Source);
-		bool	operator >= (const float a_Scalar);
-		bool	operator <= (const float a_Scalar);
+		bool	operator >= (const Matrix4 &a_Source);
+		bool	operator <= (const Matrix4 &a_Source);
+		bool	operator >= (const float &a_Scalar);
+		bool	operator <= (const float &a_Scalar);
 
 	};
 }

@@ -36,8 +36,8 @@ namespace tbyte
 		Matrix3 Transpose();
 
 		// Returns a point that has been transformed by the Matrix3 caller
-		tbyte::Vector4 VectorTransform(const tbyte::Vector4 a_Point);
-		tbyte::Vector3 VectorTransform(const tbyte::Vector3 a_Point);
+		tbyte::Vector4 VectorTransform(const tbyte::Vector4 &a_Point);
+		tbyte::Vector3 VectorTransform(const tbyte::Vector3 &a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
 		Matrix3 MakeIdentityMatrix();
@@ -46,8 +46,8 @@ namespace tbyte
 		float GetDeterminant();
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
-		tbyte::Vector4 Scale(const tbyte::Vector4 a_Vector);
-		tbyte::Vector3 Scale(const tbyte::Vector3 a_Vector);
+		tbyte::Vector4 Scale(const tbyte::Vector4 &a_Vector);
+		tbyte::Vector3 Scale(const tbyte::Vector3 &a_Vector);
 
 		// Returns a Transform Matrix3 for rotation around the '_'-axis in radians
 		Matrix3 MakeXRotationMatrix(float a_Radians);
@@ -55,23 +55,23 @@ namespace tbyte
 		Matrix3 MakeZRotationMatrix(float a_Radians);
 
 		// Operators (explained by their parameters)
-		Matrix3	operator + (const Matrix3 a_Addend);
-		Matrix3	operator + (const float a_fAddendScalar);
-		Matrix3	operator += (const Matrix3 a_Addend);
-		Matrix3	operator += (const float a_fAddendScalar);
+		Matrix3	operator + (const Matrix3 &a_Addend);
+		Matrix3	operator + (const float &a_fAddendScalar);
+		Matrix3	operator += (const Matrix3 &a_Addend);
+		Matrix3	operator += (const float &a_fAddendScalar);
 
-		Matrix3	operator - (const Matrix3 a_Subtrahend);
-		Matrix3	operator - (const float a_fSubtrahendScalar);
-		Matrix3	operator -= (const Matrix3 a_Subtrahend);
-		Matrix3	operator -= (const float a_fSubtrahendScalar);
+		Matrix3	operator - (const Matrix3 &a_Subtrahend);
+		Matrix3	operator - (const float &a_fSubtrahendScalar);
+		Matrix3	operator -= (const Matrix3 &a_Subtrahend);
+		Matrix3	operator -= (const float &a_fSubtrahendScalar);
 
-		Matrix3	operator * (const Matrix3 a_Factor);
-		Matrix3	operator * (const float a_fFactorScalar);
-		Matrix3	operator *= (const Matrix3 a_Factor);
-		Matrix3	operator *= (const float a_fFactorScalar);
+		Matrix3	operator * (const Matrix3 &a_Factor);
+		Matrix3	operator * (const float &a_fFactorScalar);
+		Matrix3	operator *= (const Matrix3 &a_Factor);
+		Matrix3	operator *= (const float &a_fFactorScalar);
 
-		Matrix3 operator = (const Matrix3 a_Source);
-		bool	operator == (const Matrix3 a_Term);
+		Matrix3 operator = (const Matrix3 &a_Source);
+		bool	operator == (const Matrix3 &a_Term);
 	};
 }
 

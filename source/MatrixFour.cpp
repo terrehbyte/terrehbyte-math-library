@@ -22,22 +22,30 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix;
 
-		for (int iPosX = 0;
-			iPosX < 4;
-			iPosX++)
-		{
-			for (int iPosY = 0;
-				iPosY < 4;
-				iPosY++)
-			{
-				tempMatrix.m_afArray[iPosX][iPosY] = m_afArray[iPosY][iPosX];
-			}
-		}
+		tempMatrix.m_afArray[0][0] = m_afArray[0][0];
+		tempMatrix.m_afArray[0][1] = m_afArray[1][0];
+		tempMatrix.m_afArray[0][2] = m_afArray[2][0];
+		tempMatrix.m_afArray[0][3] = m_afArray[3][0];
+		
+		tempMatrix.m_afArray[1][0] = m_afArray[0][1];
+		tempMatrix.m_afArray[1][1] = m_afArray[1][1];
+		tempMatrix.m_afArray[1][2] = m_afArray[2][1];
+		tempMatrix.m_afArray[1][3] = m_afArray[3][1];
+		
+		tempMatrix.m_afArray[2][0] = m_afArray[0][2];
+		tempMatrix.m_afArray[2][1] = m_afArray[1][2];
+		tempMatrix.m_afArray[2][2] = m_afArray[2][2];
+		tempMatrix.m_afArray[2][3] = m_afArray[3][2];
+		
+		tempMatrix.m_afArray[3][0] = m_afArray[0][3];
+		tempMatrix.m_afArray[3][1] = m_afArray[1][3];
+		tempMatrix.m_afArray[3][2] = m_afArray[2][3];
+		tempMatrix.m_afArray[3][3] = m_afArray[3][3];
 
 		return tempMatrix;
 	}
 
-	tbyte::Vector4 Matrix4::PointTransform(const tbyte::Vector4 a_Point)
+	tbyte::Vector4 Matrix4::PointTransform(const tbyte::Vector4 &a_Point)
 	{
 		tbyte::Vector4 temp;
 
@@ -135,7 +143,7 @@ namespace tbyte
 		return OrthoProj;
 	}
 
-	tbyte::Vector4 Matrix4::Scale(const tbyte::Vector4 a_Vector)
+	tbyte::Vector4 Matrix4::Scale(const tbyte::Vector4 &a_Vector)
 	{
 		tbyte::Vector4 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ	* 0					+ a_Vector.fW * 0;
@@ -145,7 +153,7 @@ namespace tbyte
 		return temp;
 	}
 
-	tbyte::Vector3 Matrix4::Scale(const tbyte::Vector3 a_Vector)
+	tbyte::Vector3 Matrix4::Scale(const tbyte::Vector3 &a_Vector)
 	{
 		tbyte::Vector3 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
@@ -217,7 +225,7 @@ namespace tbyte
 		return (*this);
 	}
 
-	tbyte::Vector4 Matrix4::VectorTransform(const tbyte::Vector4 a_Vector)
+	tbyte::Vector4 Matrix4::VectorTransform(const tbyte::Vector4 &a_Vector)
 	{
 		tbyte::Vector4 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * m_afArray[1][0] + a_Vector.fZ * m_afArray[2][0] + a_Vector.fW * m_afArray[3][0];
@@ -228,7 +236,7 @@ namespace tbyte
 		return temp;
 	}
 
-	tbyte::Vector3 Matrix4::VectorTransform(const tbyte::Vector3 a_Vector)
+	tbyte::Vector3 Matrix4::VectorTransform(const tbyte::Vector3 &a_Vector)
 	{
 		tbyte::Vector3 temp;
 		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * m_afArray[1][0] + a_Vector.fZ * m_afArray[2][0];
@@ -238,7 +246,7 @@ namespace tbyte
 		return temp;
 	}
 
-	Matrix4 Matrix4::operator+ (const Matrix4 a_Addend)
+	Matrix4 Matrix4::operator+ (const Matrix4 &a_Addend)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -257,7 +265,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator+ (const float a_AddendScalar)
+	Matrix4 Matrix4::operator+ (const float &a_AddendScalar)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -276,19 +284,19 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator+= (const Matrix4 a_Addend)
+	Matrix4 Matrix4::operator+= (const Matrix4 &a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator+= (const float a_AddendScalar)
+	Matrix4 Matrix4::operator+= (const float &a_AddendScalar)
 	{
 		(*this) = (*this) + a_AddendScalar;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator- (const Matrix4 a_Subtrahend)
+	Matrix4 Matrix4::operator- (const Matrix4 &a_Subtrahend)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -307,7 +315,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator- (const float a_SubtrahendScalar)
+	Matrix4 Matrix4::operator- (const float &a_SubtrahendScalar)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -326,20 +334,20 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator-= (const Matrix4 a_Subtrahend)
+	Matrix4 Matrix4::operator-= (const Matrix4 &a_Subtrahend)
 	{
 		(*this) = (*this) - a_Subtrahend;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator-= (const float a_SubtrahendScalar)
+	Matrix4 Matrix4::operator-= (const float &a_SubtrahendScalar)
 	{
 		(*this) = (*this) - a_SubtrahendScalar;
 		return (*this);
 	}
 
 	// Lazy to hard code all of the matrix concatenation stuff so will leave as is
-	Matrix4	Matrix4::operator * (const Matrix4 a_Factor)
+	Matrix4	Matrix4::operator * (const Matrix4 &a_Factor)
 	{
 		Matrix4 tempMatrix;
 		
@@ -431,7 +439,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4	Matrix4::operator * (const float a_FactorScalar)
+	Matrix4	Matrix4::operator * (const float &a_FactorScalar)
 	{
 		Matrix4 tempMatrix;
 
@@ -450,7 +458,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator = (const Matrix4 a_Source)
+	Matrix4 Matrix4::operator = (const Matrix4 &a_Source)
 	{
 		for (int iCol = 0;
 			 iCol <= 3;
@@ -467,19 +475,19 @@ namespace tbyte
 		return *this;
 	}
 
-	Matrix4 Matrix4::operator*= (const Matrix4 a_Factor)
+	Matrix4 Matrix4::operator*= (const Matrix4 &a_Factor)
 	{
 		(*this) = (*this) * a_Factor;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator*= (const float a_FactorScalar)
+	Matrix4 Matrix4::operator*= (const float &a_FactorScalar)
 	{
 		(*this) = (*this) * a_FactorScalar;
 		return (*this);
 	}
 
-	bool	Matrix4::operator == (const Matrix4 a_Source)
+	bool	Matrix4::operator == (const Matrix4 &a_Source)
 	{
 		for (int iCol = 0;
 			 iCol <= 3;
@@ -499,7 +507,7 @@ namespace tbyte
 		return true;
 	}
 
-	bool	Matrix4::operator > (const Matrix4 a_Source)
+	bool	Matrix4::operator > (const Matrix4 &a_Source)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -521,7 +529,7 @@ namespace tbyte
 
 		return true;
 	}
-	bool	Matrix4::operator < (const Matrix4 a_Source)
+	bool	Matrix4::operator < (const Matrix4 &a_Source)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -544,7 +552,7 @@ namespace tbyte
 		return true;
 	}
 
-	bool	Matrix4::operator > (const float a_Scalar)
+	bool	Matrix4::operator > (const float &a_Scalar)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -566,7 +574,7 @@ namespace tbyte
 
 		return true;
 	}
-	bool	Matrix4::operator < (const float a_Scalar)
+	bool	Matrix4::operator < (const float &a_Scalar)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -589,7 +597,7 @@ namespace tbyte
 		return true;
 	}
 
-	bool	Matrix4::operator >= (const Matrix4 a_Source)
+	bool	Matrix4::operator >= (const Matrix4 &a_Source)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -612,7 +620,7 @@ namespace tbyte
 		return true;
 
 	}
-	bool	Matrix4::operator <= (const Matrix4 a_Source)
+	bool	Matrix4::operator <= (const Matrix4 &a_Source)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -635,7 +643,7 @@ namespace tbyte
 		return true;
 	}
 
-	bool	Matrix4::operator >= (const float a_Scalar)
+	bool	Matrix4::operator >= (const float &a_Scalar)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -658,7 +666,7 @@ namespace tbyte
 		return true;
 	}
 	
-	bool	Matrix4::operator <= (const float a_Scalar)
+	bool	Matrix4::operator <= (const float &a_Scalar)
 	{
 		Matrix4 tempMatrix = *this;
 
