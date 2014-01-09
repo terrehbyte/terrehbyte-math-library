@@ -19,14 +19,12 @@ namespace tbyte
 
 	float DegreesToRadians(float a_fDegrees)
 	{
-		float fRadians = a_fDegrees * (M_PI / 180);
-		return fRadians;
+		return a_fDegrees * (M_PI / 180);
 	}
 
 	float RadiansToDegrees(float a_fRadians)
 	{
-		float fDegrees = a_fRadians * (180 / M_PI);
-		return fDegrees;
+		return a_fRadians * (180 / M_PI);
 	}
 
 	bool CheckPowerOfTwo(double a_dTestNumber)
