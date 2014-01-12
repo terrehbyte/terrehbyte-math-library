@@ -39,8 +39,6 @@ namespace tbyte
 
 		int iIterationVal = ciBase;
 
-		bool bCacheStatus = Cache.empty();
-
 		if ( !Cache.empty())
 		{
 			// If this key exists, then it must be a power of two
