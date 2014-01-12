@@ -14,6 +14,12 @@ namespace tbyte
 	{
 	}
 	
+	Vector2::Vector2(const float a_fX, const float a_fY)
+	{
+		fX = a_fX;
+		fY = a_fY;
+	}
+
 	Vector2::~Vector2()
 	{
 	}
