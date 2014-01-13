@@ -90,26 +90,14 @@ namespace tbyte
 		return fDeterminant;
 	}
 
-
-	// depreciated
 	tbyte::Vector4 Matrix3::Scale(const tbyte::Vector4 &a_Vector)
 	{
-		tbyte::Vector4 temp;
-		
-		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
-		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
-		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];
-		temp.fW = a_Vector.fW;
-		return temp;
+		return VectorTransform(a_Vector);
 	}
-	// depreciated
+
 	tbyte::Vector3 Matrix3::Scale(const tbyte::Vector3 &a_Vector)
 	{
-		tbyte::Vector3 temp;
-		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
-		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
-		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];
-		return temp;
+		return VectorTransform(a_Vector);
 	}
 
 	Matrix3 Matrix3::MakeXRotationMatrix(float a_Radians)

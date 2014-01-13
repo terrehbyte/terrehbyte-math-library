@@ -145,21 +145,12 @@ namespace tbyte
 
 	tbyte::Vector4 Matrix4::Scale(const tbyte::Vector4 &a_Vector)
 	{
-		tbyte::Vector4 temp;
-		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ	* 0					+ a_Vector.fW * 0;
-		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ	* 0					+ a_Vector.fW * 0;
-		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ	* m_afArray[2][2]	+ a_Vector.fW * 0;
-		temp.fW = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ	* 0					+ a_Vector.fW * m_afArray[3][3];
-		return temp;
+		return VectorTransform(a_Vector);
 	}
 
 	tbyte::Vector3 Matrix4::Scale(const tbyte::Vector3 &a_Vector)
 	{
-		tbyte::Vector3 temp;
-		temp.fX = a_Vector.fX * m_afArray[0][0] + a_Vector.fY * 0				+ a_Vector.fZ * 0;
-		temp.fY = a_Vector.fX * 0				+ a_Vector.fY * m_afArray[1][1] + a_Vector.fZ * 0;
-		temp.fZ = a_Vector.fX * 0				+ a_Vector.fY * 0				+ a_Vector.fZ * m_afArray[2][2];
-		return temp;
+		return VectorTransform(a_Vector);
 	}
 
 	Matrix4 Matrix4::MakeXRotationMatrix(float a_Radians)
