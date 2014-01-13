@@ -14,6 +14,14 @@ namespace tbyte
 	{
 	}
 	
+	Vector4::Vector4(const float a_fW, const float a_fX, const float a_fY, const float a_fZ)
+	{
+		fW = a_fW;
+		fX = a_fX;
+		fY = a_fY;
+		fZ = a_fZ;
+	}
+
 	Vector4::~Vector4()
 	{
 	}

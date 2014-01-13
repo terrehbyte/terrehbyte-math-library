@@ -16,8 +16,8 @@ namespace tbyte
 	
 	Vector2::Vector2(const float a_fX, const float a_fY)
 	{
-		fX = a_fX;
-		fY = a_fY;
+		m_fX = a_fX;
+		m_fY = a_fY;
 	}
 
 	Vector2::~Vector2()
@@ -39,7 +39,7 @@ namespace tbyte
 
 	float	Vector2::GetDotProduct(const Vector2 &a_Term)
 	{
-		return (fX * a_Term.fX) + (fY * a_Term.fY);
+		return (m_fX * a_Term.m_fX) + (m_fY * a_Term.m_fY);
 	}
 
 	Vector2 Vector2::GetNormal()
@@ -53,8 +53,8 @@ namespace tbyte
 
 	float	Vector2::GetMagnitude()
 	{
-		float fFirst = fX * fX;
-		float fSecond = fY * fY;
+		float fFirst = m_fX * m_fX;
+		float fSecond = m_fY * m_fY;
 	
 		return sqrt(fFirst + fSecond);
 	}
@@ -62,14 +62,14 @@ namespace tbyte
 	Vector2 Vector2::Lerp(const Vector2 &a_TerminatingVector, const float &a_fInterpPoint)
 	{
 		Vector2 InterpolatedVector;
-		InterpolatedVector.fX = a_fInterpPoint;
+		InterpolatedVector.m_fX = a_fInterpPoint;
 		
 		float InterpValue;
 
-		InterpValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fY - fY) ) / (a_TerminatingVector.fX - fX);
-		InterpValue += fY;
+		InterpValue = ( (a_fInterpPoint - m_fX) * (a_TerminatingVector.m_fY - m_fY) ) / (a_TerminatingVector.m_fX - m_fX);
+		InterpValue += m_fY;
 
-		InterpolatedVector.fY = InterpValue;
+		InterpolatedVector.m_fY = InterpValue;
 
 		return InterpolatedVector;
 	}
@@ -81,8 +81,8 @@ namespace tbyte
 		Vector2 temp = (*this);
 
 		// Add the two things together
-		temp.fX += a_Addend.fX;
-		temp.fY += a_Addend.fY;
+		temp.m_fX += a_Addend.m_fX;
+		temp.m_fY += a_Addend.m_fY;
 
 		// Return dat shit
 		return temp;
@@ -94,8 +94,8 @@ namespace tbyte
 		Vector2 temp = (*this);
 
 		// Add temp's X and Y to the other X and Y
-		temp.fX += a_fAddendScalar;
-		temp.fY += a_fAddendScalar;
+		temp.m_fX += a_fAddendScalar;
+		temp.m_fY += a_fAddendScalar;
 
 		// Return temp, the sum of two Vector2 things
 		return temp;
@@ -117,8 +117,8 @@ namespace tbyte
 	{
 		Vector2 temp = (*this);
 
-		temp.fX -= a_Subtrahend.fX;
-		temp.fY -= a_Subtrahend.fY;
+		temp.m_fX -= a_Subtrahend.m_fX;
+		temp.m_fY -= a_Subtrahend.m_fY;
 
 		return temp;
 	}
@@ -127,8 +127,8 @@ namespace tbyte
 	{
 		Vector2 temp = (*this);
 
-		temp.fX -= a_fSubtrahendScalar;
-		temp.fY -= a_fSubtrahendScalar;
+		temp.m_fX -= a_fSubtrahendScalar;
+		temp.m_fY -= a_fSubtrahendScalar;
 
 		return temp;
 	}
@@ -147,8 +147,8 @@ namespace tbyte
 	{
 		Vector2 temp = (*this);
 
-		temp.fX *= a_fScalar;
-		temp.fY *= a_fScalar;
+		temp.m_fX *= a_fScalar;
+		temp.m_fY *= a_fScalar;
 
 		return temp;
 	}
@@ -163,8 +163,8 @@ namespace tbyte
 	{
 		Vector2 temp = (*this);
 
-		temp.fX /= a_fScalar;
-		temp.fY /= a_fScalar;
+		temp.m_fX /= a_fScalar;
+		temp.m_fY /= a_fScalar;
 
 		return temp;
 	}
@@ -184,16 +184,16 @@ namespace tbyte
 			return *this;
 		}
 
-		fX = a_Source.fX;
-		fY = a_Source.fY;
+		m_fX = a_Source.m_fX;
+		m_fY = a_Source.m_fY;
 		
 		return *this;
 	}
 
 	bool	Vector2::operator == (const Vector2 &a_Source)
 	{
-		if (fX == a_Source.fX &&
-			fY == a_Source.fY)
+		if (m_fX == a_Source.m_fX &&
+			m_fY == a_Source.m_fY)
 		{
 			return true;
 		}

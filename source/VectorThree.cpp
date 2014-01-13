@@ -14,6 +14,13 @@ namespace tbyte
 	{
 	}
 	
+	Vector3::Vector3(const float a_fX, const float a_fY, const float a_fZ)
+	{
+		fX = a_fX;
+		fY = a_fY;
+		fZ = a_fZ;
+	}
+
 	Vector3::~Vector3()
 	{
 	}

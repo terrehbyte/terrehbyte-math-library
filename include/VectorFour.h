@@ -23,6 +23,9 @@ namespace tbyte
 	{
 	public:
 		Vector4();
+		
+		Vector4(const float a_fW, const float a_fX, const float a_fY, const float a_fZ);
+
 		~Vector4();
 
 		float	fW;

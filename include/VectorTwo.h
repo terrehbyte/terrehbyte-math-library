@@ -28,8 +28,8 @@ namespace tbyte
 
 		~Vector2();
 
-		float	fY;
-		float	fX;
+		float	m_fY;
+		float	m_fX;
 
 		// Get Euler Angle Between Two Vectors
 		float GetEulerAngle(const Vector2 &a_Term);
