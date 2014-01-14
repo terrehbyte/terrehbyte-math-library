@@ -34,7 +34,6 @@ namespace tbyte
 		VectorB = VectorB.GetNormal();
 		
 		float fEuler = acos( (VectorA).GetDotProduct(VectorB) );
-
 		return fEuler;
 	}
 
@@ -45,13 +44,11 @@ namespace tbyte
 
 	Vector3 Vector3::GetNormal()
 	{
-		Vector3 temp;
+		Vector3 temp = (*this);
 
 		float fMagnitude = GetMagnitude();
 
-		temp.fX = fX / fMagnitude;
-		temp.fY = fY / fMagnitude;
-		temp.fZ = fZ / fMagnitude;
+		temp /= fMagnitude;
 		
 		return temp;
 	}
@@ -88,13 +85,10 @@ namespace tbyte
 		Vector3 InterpolatedVector;
 		InterpolatedVector.fX = a_fInterpPoint;
 		
-		float InterpYValue;
-		float InterpZValue;
+		float InterpYValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fY - fY) ) / (a_TerminatingVector.fX - fX);
+		float InterpZValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fZ - fZ) ) / (a_TerminatingVector.fX - fX);
 
-		InterpYValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fY - fY) ) / (a_TerminatingVector.fX - fX);
 		InterpYValue += fY;
-
-		InterpZValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fZ - fZ) ) / (a_TerminatingVector.fX - fX);
 		InterpZValue += fY;
 
 		InterpolatedVector.fY = InterpYValue;
@@ -126,12 +120,14 @@ namespace tbyte
 
 	Vector3	Vector3::operator += (const Vector3 &a_Addend)
 	{
-		return (*this) + a_Addend;
+		(*this) = (*this) + a_Addend;
+		return (*this);
 	}
 
 	Vector3	Vector3::operator += (const float &a_fAddendScalar)
 	{
-		return (*this) + a_fAddendScalar;
+		(*this) = (*this) + a_fAddendScalar;
+		return (*this);
 	}
 
 	Vector3	Vector3::operator - (const Vector3 &a_Subtrahend)
@@ -156,12 +152,14 @@ namespace tbyte
 
 	Vector3	Vector3::operator -= (const Vector3 &a_Subtrahend)
 	{
-		return (*this) - a_Subtrahend;
+		(*this) = (*this) - a_Subtrahend;
+		return (*this);
 	}
 
 	Vector3 Vector3::operator -= (const float &a_fSubtrahendScalar)
 	{
-		return (*this) - a_fSubtrahendScalar;
+		(*this) = (*this) - a_fSubtrahendScalar;
+		return (*this);
 	}
 
 	Vector3 Vector3::operator * (const float &a_fScalar)
@@ -177,7 +175,8 @@ namespace tbyte
 
 	Vector3 Vector3::operator *= (const float &a_fScalar)
 	{
-		return (*this) * a_fScalar;
+		(*this) = (*this) * a_fScalar;
+		return (*this);
 	}
 
 	Vector3 Vector3::operator / (const float &a_fScalar)
@@ -193,7 +192,8 @@ namespace tbyte
 
 	Vector3 Vector3::operator /= (const float &a_fScalar)
 	{
-		return (*this) / a_fScalar;
+		(*this) = (*this) / a_fScalar;
+		return (*this);
 	}
 
 	// Assignment Operator - Assigns the values of an existing Vector3 to another existing Vector3

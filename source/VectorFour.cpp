@@ -38,14 +38,11 @@ namespace tbyte
 
 	Vector4 Vector4::GetNormal()
 	{
-		Vector4 temp;
+		Vector4 temp = (*this);
 
 		float fMagnitude = GetMagnitude();
 
-		temp.fW = fW / fMagnitude;
-		temp.fX = fX / fMagnitude;
-		temp.fY = fY / fMagnitude;
-		temp.fZ = fZ / fMagnitude;
+		temp /= fMagnitude;
 		
 		return temp;
 	}
