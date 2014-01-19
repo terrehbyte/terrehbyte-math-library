@@ -105,6 +105,9 @@ namespace tbyte
 				return dPowTwo;
 			}
 		}
+		
+		// return -1 for error
+		return -1;
 	}
 
 }

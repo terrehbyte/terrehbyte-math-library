@@ -24,7 +24,9 @@ namespace tbyte
 	public:
 		Vector2();
 
-		Vector2(const float a_fX, const float a_fY);
+		Vector2(const float a_m_fX, const float a_m_fY);
+
+		Vector2(const Vector2 &a_Source);
 
 		~Vector2();
 

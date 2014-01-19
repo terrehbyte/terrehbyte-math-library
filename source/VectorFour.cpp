@@ -14,12 +14,12 @@ namespace tbyte
 	{
 	}
 	
-	Vector4::Vector4(const float a_fW, const float a_fX, const float a_fY, const float a_fZ)
+	Vector4::Vector4(const float a_m_fW, const float a_m_fX, const float a_m_fY, const float a_m_fZ)
 	{
-		fW = a_fW;
-		fX = a_fX;
-		fY = a_fY;
-		fZ = a_fZ;
+		m_fW = a_m_fW;
+		m_fX = a_m_fX;
+		m_fY = a_m_fY;
+		m_fZ = a_m_fZ;
 	}
 
 	Vector4::~Vector4()
@@ -28,10 +28,10 @@ namespace tbyte
 
 	float	Vector4::GetMagnitude()
 	{
-		float fFirst	= fW * fW;
-		float fSecond	= fX * fX;
-		float fThird	= fY * fY;
-		float fFourth	= fZ * fZ;
+		float fFirst	= m_fW * m_fW;
+		float fSecond	= m_fX * m_fX;
+		float fThird	= m_fY * m_fY;
+		float fFourth	= m_fZ * m_fZ;
 		
 		return sqrt(fFirst + fSecond + fThird + fFourth);
 	}
@@ -54,20 +54,20 @@ namespace tbyte
 		float a_iALPHA
 		)
 	{	
-		fW = a_iRED   / 255;
-		fX = a_iGREEN / 255;
-		fY = a_iBLUE  / 255;
-		fZ = a_iALPHA / 255;
+		m_fW = a_iRED   / 255;
+		m_fX = a_iGREEN / 255;
+		m_fY = a_iBLUE  / 255;
+		m_fZ = a_iALPHA / 255;
 
 		return (*this);
 	}
 
 	Vector4 Vector4::ConstructFromHex(int a_iHEXValue)
 	{	
-		fW = ((a_iHEXValue >> 24) & 0xFF) / 255.0;
-		fX = ((a_iHEXValue >> 16) & 0xFF) / 255.0;
-		fY = ((a_iHEXValue >> 8) & 0xFF) / 255.0;
-		fZ = ((a_iHEXValue) & 0xFF) / 255.0;
+		m_fW = ((a_iHEXValue >> 24) & 0xFF) / 255.0;
+		m_fX = ((a_iHEXValue >> 16) & 0xFF) / 255.0;
+		m_fY = ((a_iHEXValue >> 8) & 0xFF) / 255.0;
+		m_fZ = ((a_iHEXValue) & 0xFF) / 255.0;
 
 		return (*this);
 	}
@@ -78,10 +78,10 @@ namespace tbyte
 		Vector4 temp = (*this);
 
 		// Add temp's X and Y to the other X and Y
-		temp.fW = temp.fW + a_Addend.fW;
-		temp.fX = temp.fX + a_Addend.fX;
-		temp.fY = temp.fY + a_Addend.fY;
-		temp.fZ = temp.fZ + a_Addend.fZ;
+		temp.m_fW = temp.m_fW + a_Addend.m_fW;
+		temp.m_fX = temp.m_fX + a_Addend.m_fX;
+		temp.m_fY = temp.m_fY + a_Addend.m_fY;
+		temp.m_fZ = temp.m_fZ + a_Addend.m_fZ;
 
 		// Return temp, the sum of two Vector4 things
 		return temp;
@@ -93,10 +93,10 @@ namespace tbyte
 		Vector4 temp = (*this);
 
 		// Add temp's X and Y to the other X and Y
-		temp.fW = temp.fW + a_fAddendScalar;
-		temp.fX = temp.fX + a_fAddendScalar;
-		temp.fY = temp.fY + a_fAddendScalar;
-		temp.fZ = temp.fZ + a_fAddendScalar;
+		temp.m_fW = temp.m_fW + a_fAddendScalar;
+		temp.m_fX = temp.m_fX + a_fAddendScalar;
+		temp.m_fY = temp.m_fY + a_fAddendScalar;
+		temp.m_fZ = temp.m_fZ + a_fAddendScalar;
 
 		// Return temp, the sum of two Vector4 things
 		return temp;
@@ -118,10 +118,10 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 
-		temp.fW = fW - a_Subtrahend.fW;
-		temp.fX = fX - a_Subtrahend.fX;
-		temp.fY = fY - a_Subtrahend.fY;
-		temp.fZ = fZ - a_Subtrahend.fZ;
+		temp.m_fW = m_fW - a_Subtrahend.m_fW;
+		temp.m_fX = m_fX - a_Subtrahend.m_fX;
+		temp.m_fY = m_fY - a_Subtrahend.m_fY;
+		temp.m_fZ = m_fZ - a_Subtrahend.m_fZ;
 		return temp;
 	}
 
@@ -129,10 +129,10 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 		
-		temp.fW = temp.fW - a_fSubtrahendScalar;
-		temp.fX = temp.fX - a_fSubtrahendScalar;
-		temp.fY = temp.fY - a_fSubtrahendScalar;
-		temp.fZ = temp.fZ - a_fSubtrahendScalar;
+		temp.m_fW = temp.m_fW - a_fSubtrahendScalar;
+		temp.m_fX = temp.m_fX - a_fSubtrahendScalar;
+		temp.m_fY = temp.m_fY - a_fSubtrahendScalar;
+		temp.m_fZ = temp.m_fZ - a_fSubtrahendScalar;
 
 		return temp;
 	}
@@ -153,10 +153,10 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 
-		temp.fW = temp.fW * a_fScalar;
-		temp.fX = temp.fX * a_fScalar;
-		temp.fY = temp.fY * a_fScalar;
-		temp.fZ = temp.fZ * a_fScalar;
+		temp.m_fW = temp.m_fW * a_fScalar;
+		temp.m_fX = temp.m_fX * a_fScalar;
+		temp.m_fY = temp.m_fY * a_fScalar;
+		temp.m_fZ = temp.m_fZ * a_fScalar;
 
 		return temp;
 	}
@@ -171,10 +171,10 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 
-		temp.fW = temp.fW / a_fScalar;
-		temp.fX = temp.fX / a_fScalar;
-		temp.fY = temp.fY / a_fScalar;
-		temp.fZ = temp.fZ / a_fScalar;
+		temp.m_fW = temp.m_fW / a_fScalar;
+		temp.m_fX = temp.m_fX / a_fScalar;
+		temp.m_fY = temp.m_fY / a_fScalar;
+		temp.m_fZ = temp.m_fZ / a_fScalar;
 
 		return temp;
 	}
@@ -188,20 +188,20 @@ namespace tbyte
 	// Assignment Operator - Assigns the values of an existing Vector4 to another existing Vector4
 	Vector4	Vector4::operator = (const Vector4 &a_Source)
 	{
-		fW = a_Source.fW;
-		fX = a_Source.fX;
-		fY = a_Source.fY;
-		fZ = a_Source.fZ;
+		m_fW = a_Source.m_fW;
+		m_fX = a_Source.m_fX;
+		m_fY = a_Source.m_fY;
+		m_fZ = a_Source.m_fZ;
 		
 		return *this;
 	}
 
 	bool	Vector4::operator == (const Vector4 &a_Source)
 	{
-		if (fW == a_Source.fW &&
-			fX == a_Source.fX &&
-			fY == a_Source.fY &&
-			fZ == a_Source.fZ)
+		if (m_fW == a_Source.m_fW &&
+			m_fX == a_Source.m_fX &&
+			m_fY == a_Source.m_fY &&
+			m_fZ == a_Source.m_fZ)
 		{
 			return true;
 		}

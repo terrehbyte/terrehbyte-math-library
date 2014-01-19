@@ -40,19 +40,19 @@ namespace tbyte
 	tbyte::Vector4 Matrix3::VectorTransform(const tbyte::Vector4 &a_Point)
 	{
 		tbyte::Vector4 temp;
-		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
-		temp.fY = a_Point.fX * m_afArray[0][1] + a_Point.fY * m_afArray[1][1] + a_Point.fZ * m_afArray[2][1];
-		temp.fZ = a_Point.fX * m_afArray[0][2] + a_Point.fY * m_afArray[1][2] + a_Point.fZ * m_afArray[2][2];
-		temp.fW = a_Point.fW;
+		temp.m_fX = a_Point.m_fX * m_afArray[0][0] + a_Point.m_fY * m_afArray[1][0] + a_Point.m_fZ * m_afArray[2][0];
+		temp.m_fY = a_Point.m_fX * m_afArray[0][1] + a_Point.m_fY * m_afArray[1][1] + a_Point.m_fZ * m_afArray[2][1];
+		temp.m_fZ = a_Point.m_fX * m_afArray[0][2] + a_Point.m_fY * m_afArray[1][2] + a_Point.m_fZ * m_afArray[2][2];
+		temp.m_fW = a_Point.m_fW;
 		return temp;
 	}
 
 	tbyte::Vector3 Matrix3::VectorTransform(const tbyte::Vector3 &a_Point)
 	{
 		tbyte::Vector3 temp;
-		temp.fX = a_Point.fX * m_afArray[0][0] + a_Point.fY * m_afArray[1][0] + a_Point.fZ * m_afArray[2][0];
-		temp.fY = a_Point.fX * m_afArray[0][1] + a_Point.fY * m_afArray[1][1] + a_Point.fZ * m_afArray[2][1];
-		temp.fZ = a_Point.fX * m_afArray[0][2] + a_Point.fY * m_afArray[1][2] + a_Point.fZ * m_afArray[2][2];
+		temp.m_fX = a_Point.m_fX * m_afArray[0][0] + a_Point.m_fY * m_afArray[1][0] + a_Point.m_fZ * m_afArray[2][0];
+		temp.m_fY = a_Point.m_fX * m_afArray[0][1] + a_Point.m_fY * m_afArray[1][1] + a_Point.m_fZ * m_afArray[2][1];
+		temp.m_fZ = a_Point.m_fX * m_afArray[0][2] + a_Point.m_fY * m_afArray[1][2] + a_Point.m_fZ * m_afArray[2][2];
 		return temp;
 	}
 

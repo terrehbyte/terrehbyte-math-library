@@ -14,11 +14,17 @@ namespace tbyte
 	{
 	}
 	
-	Vector3::Vector3(const float a_fX, const float a_fY, const float a_fZ)
+	Vector3::Vector3(const float a_m_fX, const float a_m_fY, const float a_m_fZ)
 	{
-		fX = a_fX;
-		fY = a_fY;
-		fZ = a_fZ;
+		m_fX = a_m_fX;
+		m_fY = a_m_fY;
+		m_fZ = a_m_fZ;
+	}
+
+	Vector3::Vector3(const Vector3 &a_Source)
+	{
+		m_fX = a_Source.m_fX;
+		m_fY = a_Source.m_fY;
 	}
 
 	Vector3::~Vector3()
@@ -39,7 +45,7 @@ namespace tbyte
 
 	float	Vector3::GetDotProduct(const Vector3 &a_Term)
 	{
-		return (fX * a_Term.fX) + (fY * a_Term.fY) + (fZ * a_Term.fZ);
+		return (m_fX * a_Term.m_fX) + (m_fY * a_Term.m_fY) + (m_fZ * a_Term.m_fZ);
 	}
 
 	Vector3 Vector3::GetNormal()
@@ -61,20 +67,20 @@ namespace tbyte
 		// a x b = (a2b3 - a3b2, a3b1 - a1b3, a1b2 - a2b1)
 		Vector3 temp;
 		// a2b3 - a3b2
-		temp.fX = (fY * a_Term.fZ - fZ * a_Term.fY);
+		temp.m_fX = (m_fY * a_Term.m_fZ - m_fZ * a_Term.m_fY);
 		// a3b1 - a1b3
-		temp.fY = (fZ * a_Term.fX - fX * a_Term.fZ);
+		temp.m_fY = (m_fZ * a_Term.m_fX - m_fX * a_Term.m_fZ);
 		// a1b2 - a2b1
-		temp.fZ = (fX * a_Term.fY - fY * a_Term.fX);
+		temp.m_fZ = (m_fX * a_Term.m_fY - m_fY * a_Term.m_fX);
 	
 		return temp;
 	}
 
 	float	Vector3::GetMagnitude()
 	{
-		float fFirst	= fX * fX;
-		float fSecond	= fY * fY;
-		float fThird	= fZ * fZ;
+		float fFirst	= m_fX * m_fX;
+		float fSecond	= m_fY * m_fY;
+		float fThird	= m_fZ * m_fZ;
 
 		// consider using something besides costly sqrt
 		return sqrt(fFirst + fSecond + fThird);
@@ -83,16 +89,16 @@ namespace tbyte
 	Vector3 Vector3::Lerp(const Vector3 &a_TerminatingVector, const float &a_fInterpPoint)
 	{
 		Vector3 InterpolatedVector;
-		InterpolatedVector.fX = a_fInterpPoint;
+		InterpolatedVector.m_fX = a_fInterpPoint;
 		
-		float InterpYValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fY - fY) ) / (a_TerminatingVector.fX - fX);
-		float InterpZValue = ( (a_fInterpPoint - fX) * (a_TerminatingVector.fZ - fZ) ) / (a_TerminatingVector.fX - fX);
+		float InterpYValue = ( (a_fInterpPoint - m_fX) * (a_TerminatingVector.m_fY - m_fY) ) / (a_TerminatingVector.m_fX - m_fX);
+		float InterpZValue = ( (a_fInterpPoint - m_fX) * (a_TerminatingVector.m_fZ - m_fZ) ) / (a_TerminatingVector.m_fX - m_fX);
 
-		InterpYValue += fY;
-		InterpZValue += fY;
+		InterpYValue += m_fY;
+		InterpZValue += m_fY;
 
-		InterpolatedVector.fY = InterpYValue;
-		InterpolatedVector.fZ = InterpZValue;
+		InterpolatedVector.m_fY = InterpYValue;
+		InterpolatedVector.m_fZ = InterpZValue;
 
 		return InterpolatedVector;
 	}
@@ -102,9 +108,9 @@ namespace tbyte
 	{
 		Vector3 temp = (*this);
 
-		temp.fX = fX + a_Addend.fX;
-		temp.fY = fY + a_Addend.fY;
-		temp.fZ = fZ + a_Addend.fZ;
+		temp.m_fX = m_fX + a_Addend.m_fX;
+		temp.m_fY = m_fY + a_Addend.m_fY;
+		temp.m_fZ = m_fZ + a_Addend.m_fZ;
 		return temp;
 	}
 
@@ -112,9 +118,9 @@ namespace tbyte
 	{
 		Vector3 temp = (*this);
 
-		temp.fX = fX + a_fAddendScalar;
-		temp.fY = fY + a_fAddendScalar;
-		temp.fZ = fZ + a_fAddendScalar;
+		temp.m_fX = m_fX + a_fAddendScalar;
+		temp.m_fY = m_fY + a_fAddendScalar;
+		temp.m_fZ = m_fZ + a_fAddendScalar;
 		return temp;
 	}
 
@@ -134,9 +140,9 @@ namespace tbyte
 	{
 		Vector3 temp = (*this);
 
-		temp.fX = fX - a_Subtrahend.fX;
-		temp.fY = fY - a_Subtrahend.fY;
-		temp.fZ = fZ - a_Subtrahend.fZ;
+		temp.m_fX = m_fX - a_Subtrahend.m_fX;
+		temp.m_fY = m_fY - a_Subtrahend.m_fY;
+		temp.m_fZ = m_fZ - a_Subtrahend.m_fZ;
 		return temp;
 	}
 
@@ -144,9 +150,9 @@ namespace tbyte
 	{
 		Vector3 temp = (*this);
 
-		temp.fX = fX - a_fSubtrahendScalar;
-		temp.fY = fY - a_fSubtrahendScalar;
-		temp.fZ = fZ - a_fSubtrahendScalar;
+		temp.m_fX = m_fX - a_fSubtrahendScalar;
+		temp.m_fY = m_fY - a_fSubtrahendScalar;
+		temp.m_fZ = m_fZ - a_fSubtrahendScalar;
 		return temp;
 	}
 
@@ -166,9 +172,9 @@ namespace tbyte
 	{
 		Vector3 temp = (*this);
 
-		temp.fX = temp.fX * a_fScalar;
-		temp.fY = temp.fY * a_fScalar;
-		temp.fZ = temp.fZ * a_fScalar;
+		temp.m_fX = temp.m_fX * a_fScalar;
+		temp.m_fY = temp.m_fY * a_fScalar;
+		temp.m_fZ = temp.m_fZ * a_fScalar;
 
 		return temp;
 	}
@@ -183,9 +189,9 @@ namespace tbyte
 	{
 		Vector3 temp = (*this);
 
-		temp.fX = temp.fX / a_fScalar;
-		temp.fY = temp.fY / a_fScalar;
-		temp.fZ = temp.fZ / a_fScalar;
+		temp.m_fX = temp.m_fX / a_fScalar;
+		temp.m_fY = temp.m_fY / a_fScalar;
+		temp.m_fZ = temp.m_fZ / a_fScalar;
 
 		return temp;
 	}
@@ -205,18 +211,18 @@ namespace tbyte
 			return *this;
 		}
 
-		fX = a_Source.fX;
-		fY = a_Source.fY;
-		fZ = a_Source.fZ;
+		m_fX = a_Source.m_fX;
+		m_fY = a_Source.m_fY;
+		m_fZ = a_Source.m_fZ;
 	
 		return *this;
 	}
 
 	bool	Vector3::operator == (const Vector3 &a_Source)
 	{
-		if(fX == a_Source.fX &&
-		   fY == a_Source.fY &&
-		   fZ == a_Source.fZ
+		if(m_fX == a_Source.m_fX &&
+		   m_fY == a_Source.m_fY &&
+		   m_fZ == a_Source.m_fZ
 		)
 		{
 			return true;

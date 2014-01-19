@@ -24,13 +24,15 @@ namespace tbyte
 	public:
 		Vector3();
 
-		Vector3(const float a_fX, const float a_fY, const float a_fZ);
+		Vector3(const float a_m_fX, const float a_m_fY, const float a_m_fZ);
+
+		Vector3(const Vector3 &a_Source);
 
 		~Vector3();
 
-		float	fX;
-		float	fY;
-		float	fZ;
+		float	m_fX;
+		float	m_fY;
+		float	m_fZ;
 
 		// Get Euler Angle Between Two Vectors
 		float	GetEulerAngle(const Vector3 &a_Term);

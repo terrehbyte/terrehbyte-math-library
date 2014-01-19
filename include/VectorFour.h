@@ -24,14 +24,14 @@ namespace tbyte
 	public:
 		Vector4();
 		
-		Vector4(const float a_fW, const float a_fX, const float a_fY, const float a_fZ);
+		Vector4(const float a_m_fW, const float a_m_fX, const float a_m_fY, const float a_m_fZ);
 
 		~Vector4();
 
-		float	fW;
-		float	fX;
-		float	fY;
-		float	fZ;
+		float	m_fW;
+		float	m_fX;
+		float	m_fY;
+		float	m_fZ;
 
 		// Returns the magnitude of the vector
 		float	GetMagnitude();
