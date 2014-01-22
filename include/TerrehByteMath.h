@@ -5,6 +5,8 @@
 //	Brief:	Combined all the .h into a single file for ease of including
 //
 //////////////////////////////////////////////////////////////////////////
+#ifndef _TERREH_BYTE_MATH_H_
+#define _TERREH_BYTE_MATH_H_
 #include <math.h>
 
 namespace tbyte
@@ -314,4 +316,5 @@ namespace tbyte
 
 
 }
+#endif
 
