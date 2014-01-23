@@ -53,5 +53,8 @@
     <ClInclude Include="include\VectorTwo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\TerrehByteMath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

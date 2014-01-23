@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathLibTerrehbyte", "MathLibTerrehbyte.vcxproj", "{8F6C761B-01D8-41B3-8AC7-E0DC616EE144}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathLibTerrehbyte", "MathLibTerrehbyteProj\MathLibTerrehbyte.vcxproj", "{8F6C761B-01D8-41B3-8AC7-E0DC616EE144}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
