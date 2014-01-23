@@ -64,10 +64,10 @@ namespace tbyte
 
 	Vector4 Vector4::ConstructFromHex(int a_iHEXValue)
 	{	
-		m_fW = ((a_iHEXValue >> 24) & 0xFF) / 255.0;
-		m_fX = ((a_iHEXValue >> 16) & 0xFF) / 255.0;
-		m_fY = ((a_iHEXValue >> 8) & 0xFF) / 255.0;
-		m_fZ = ((a_iHEXValue) & 0xFF) / 255.0;
+		m_fW = ((a_iHEXValue >> 24) & 0xFF) / 255.0f;
+		m_fX = ((a_iHEXValue >> 16) & 0xFF) / 255.0f;
+		m_fY = ((a_iHEXValue >> 8) & 0xFF) / 255.0f;
+		m_fZ = ((a_iHEXValue) & 0xFF) / 255.0f;
 
 		return (*this);
 	}
