@@ -25,6 +25,7 @@ namespace tbyte
 	{
 		m_fX = a_Source.m_fX;
 		m_fY = a_Source.m_fY;
+		m_fZ = a_Source.m_fZ;
 	}
 
 	Vector3::~Vector3()
