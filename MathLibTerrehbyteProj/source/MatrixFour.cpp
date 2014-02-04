@@ -22,25 +22,25 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix;
 
-		tempMatrix.m_afArray[0][0] = m_afArray[0][0];
-		tempMatrix.m_afArray[0][1] = m_afArray[1][0];
-		tempMatrix.m_afArray[0][2] = m_afArray[2][0];
-		tempMatrix.m_afArray[0][3] = m_afArray[3][0];
+		tempMatrix.m_afArray[0] = m_afArray[0];
+		tempMatrix.m_afArray[4] = m_afArray[1];
+		tempMatrix.m_afArray[8] = m_afArray[2];
+		tempMatrix.m_afArray[12] = m_afArray[3];
 		
-		tempMatrix.m_afArray[1][0] = m_afArray[0][1];
-		tempMatrix.m_afArray[1][1] = m_afArray[1][1];
-		tempMatrix.m_afArray[1][2] = m_afArray[2][1];
-		tempMatrix.m_afArray[1][3] = m_afArray[3][1];
+		tempMatrix.m_afArray[1] = m_afArray[4];
+		tempMatrix.m_afArray[5] = m_afArray[5];
+		tempMatrix.m_afArray[9] = m_afArray[6];
+		tempMatrix.m_afArray[13] = m_afArray[7];
 		
-		tempMatrix.m_afArray[2][0] = m_afArray[0][2];
-		tempMatrix.m_afArray[2][1] = m_afArray[1][2];
-		tempMatrix.m_afArray[2][2] = m_afArray[2][2];
-		tempMatrix.m_afArray[2][3] = m_afArray[3][2];
+		tempMatrix.m_afArray[2] = m_afArray[8];
+		tempMatrix.m_afArray[6] = m_afArray[9];
+		tempMatrix.m_afArray[10] = m_afArray[10];
+		tempMatrix.m_afArray[14] = m_afArray[11];
 		
-		tempMatrix.m_afArray[3][0] = m_afArray[0][3];
-		tempMatrix.m_afArray[3][1] = m_afArray[1][3];
-		tempMatrix.m_afArray[3][2] = m_afArray[2][3];
-		tempMatrix.m_afArray[3][3] = m_afArray[3][3];
+		tempMatrix.m_afArray[3] = m_afArray[12];
+		tempMatrix.m_afArray[7] = m_afArray[13];
+		tempMatrix.m_afArray[11] = m_afArray[14];
+		tempMatrix.m_afArray[15] = m_afArray[15];
 
 		return tempMatrix;
 	}
@@ -49,10 +49,10 @@ namespace tbyte
 	{
 		tbyte::Vector4 temp;
 
-		temp.m_fX = a_Point.m_fX * m_afArray[0][0] + a_Point.m_fY * m_afArray[1][0] + a_Point.m_fY * m_afArray[2][0] + a_Point.m_fW * m_afArray[3][0];
-		temp.m_fY = a_Point.m_fX * m_afArray[0][1] + a_Point.m_fY * m_afArray[1][1] + a_Point.m_fY * m_afArray[2][1] + a_Point.m_fW * m_afArray[3][1];
-		temp.m_fZ = a_Point.m_fX * m_afArray[0][2] + a_Point.m_fY * m_afArray[1][2] + a_Point.m_fY * m_afArray[2][2] + a_Point.m_fW * m_afArray[3][2];
-		temp.m_fW = a_Point.m_fX * m_afArray[0][3] + a_Point.m_fY * m_afArray[1][3] + a_Point.m_fW * m_afArray[2][3] + a_Point.m_fW * m_afArray[3][3];
+		temp.m_fX = a_Point.m_fX * m_afArray[0] + a_Point.m_fY * m_afArray[1] + a_Point.m_fY * m_afArray[2] + a_Point.m_fW * m_afArray[3];
+		temp.m_fY = a_Point.m_fX * m_afArray[4] + a_Point.m_fY * m_afArray[5] + a_Point.m_fY * m_afArray[6] + a_Point.m_fW * m_afArray[7];
+		temp.m_fZ = a_Point.m_fX * m_afArray[8] + a_Point.m_fY * m_afArray[9] + a_Point.m_fY * m_afArray[10] + a_Point.m_fW * m_afArray[11];
+		temp.m_fW = a_Point.m_fX * m_afArray[12] + a_Point.m_fY * m_afArray[13] + a_Point.m_fW * m_afArray[14] + a_Point.m_fW * m_afArray[15];
 		
 		if (temp.m_fW != 1 && temp.m_fW != 0)
 		{
@@ -69,25 +69,25 @@ namespace tbyte
 	{
 		Matrix4 temp;
 
-		temp.m_afArray[0][0] = 1;
-		temp.m_afArray[0][1] = 0;
-		temp.m_afArray[0][2] = 0;
-		temp.m_afArray[0][3] = 0;
+		temp.m_afArray[0] = 1;
+		temp.m_afArray[4] = 0;
+		temp.m_afArray[8] = 0;
+		temp.m_afArray[12] = 0;
 		
-		temp.m_afArray[1][0] = 0;
-		temp.m_afArray[1][1] = 1;
-		temp.m_afArray[1][2] = 0;
-		temp.m_afArray[1][3] = 0;
+		temp.m_afArray[1] = 0;
+		temp.m_afArray[5] = 1;
+		temp.m_afArray[9] = 0;
+		temp.m_afArray[13] = 0;
 
-		temp.m_afArray[2][0] = 0;
-		temp.m_afArray[2][1] = 0;
-		temp.m_afArray[2][2] = 1;
-		temp.m_afArray[2][3] = 0;
+		temp.m_afArray[2] = 0;
+		temp.m_afArray[6] = 0;
+		temp.m_afArray[10] = 1;
+		temp.m_afArray[14] = 0;
 
-		temp.m_afArray[3][0] = 0;
-		temp.m_afArray[3][1] = 0;
-		temp.m_afArray[3][2] = 0;
-		temp.m_afArray[3][3] = 1;
+		temp.m_afArray[3] = 0;
+		temp.m_afArray[7] = 0;
+		temp.m_afArray[11] = 0;
+		temp.m_afArray[15] = 1;
 
 		(*this) = temp;
 
@@ -105,14 +105,14 @@ namespace tbyte
 
 		OrthoProj.MakeIdentityMatrix();
 
-		OrthoProj.m_afArray [0][0] = 2 / (a_fRight - a_fLeft);
-		OrthoProj.m_afArray [0][3] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
+		OrthoProj.m_afArray [0] = 2 / (a_fRight - a_fLeft);
+		OrthoProj.m_afArray [12] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
 
-		OrthoProj.m_afArray [1][1] = 2 / (a_fTop - a_fBottom);
-		OrthoProj.m_afArray [1][3] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
+		OrthoProj.m_afArray [5] = 2 / (a_fTop - a_fBottom);
+		OrthoProj.m_afArray [13] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
 
-		OrthoProj.m_afArray [2][2] = -2 / (a_fFar - a_fNear);
-		OrthoProj.m_afArray [2][3] = -( (a_fFar + a_fNear) / (a_fFar - a_fNear));
+		OrthoProj.m_afArray [10] = -2 / (a_fFar - a_fNear);
+		OrthoProj.m_afArray [14] = -( (a_fFar + a_fNear) / (a_fFar - a_fNear));
 		
 		return OrthoProj;
 	}
@@ -128,17 +128,17 @@ namespace tbyte
 
 		OrthoProj.MakeIdentityMatrix();
 
-		OrthoProj.m_afArray [0][0] = 2 / (a_fRight - a_fLeft);
+		OrthoProj.m_afArray [0] = 2 / (a_fRight - a_fLeft);
 		
 
-		OrthoProj.m_afArray [1][1] = 2 / (a_fTop - a_fBottom);
+		OrthoProj.m_afArray [5] = 2 / (a_fTop - a_fBottom);
 		
 
-		OrthoProj.m_afArray [2][2] = -1 / (a_fFar - a_fNear);
+		OrthoProj.m_afArray [10] = -1 / (a_fFar - a_fNear);
 
-		OrthoProj.m_afArray [3][0] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
-		OrthoProj.m_afArray [3][1] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
-		OrthoProj.m_afArray [3][2] = a_fNear / (a_fFar - a_fNear);
+		OrthoProj.m_afArray [3] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
+		OrthoProj.m_afArray [7] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
+		OrthoProj.m_afArray [11] = a_fNear / (a_fFar - a_fNear);
 		
 		return OrthoProj;
 	}
@@ -157,17 +157,17 @@ namespace tbyte
 	{
 		Matrix4 temp;
 
-		temp.m_afArray[0][0] = 1;
-		temp.m_afArray[0][1] = 0;
-		temp.m_afArray[0][2] = 0;
+		temp.m_afArray[0] = 1;
+		temp.m_afArray[4] = 0;
+		temp.m_afArray[8] = 0;
 		
-		temp.m_afArray[1][0] = 0;
-		temp.m_afArray[1][1] = std::cos(a_Radians);
-		temp.m_afArray[1][2] = std::sin(a_Radians);
+		temp.m_afArray[1] = 0;
+		temp.m_afArray[5] = std::cos(a_Radians);
+		temp.m_afArray[9] = std::sin(a_Radians);
 
-		temp.m_afArray[2][0] = 0;
-		temp.m_afArray[2][1] = std::sin(a_Radians) * -1;
-		temp.m_afArray[2][2] = std::cos(a_Radians);
+		temp.m_afArray[2] = 0;
+		temp.m_afArray[6] = std::sin(a_Radians) * -1;
+		temp.m_afArray[10] = std::cos(a_Radians);
 
 		(*this) = temp;
 
@@ -178,17 +178,17 @@ namespace tbyte
 	{
 		Matrix4 temp;
 
-		temp.m_afArray[0][0] = std::cos(a_Radians);
-		temp.m_afArray[0][1] = 0;
-		temp.m_afArray[0][2] = std::sin(a_Radians) * -1;
+		temp.m_afArray[0] = std::cos(a_Radians);
+		temp.m_afArray[4] = 0;
+		temp.m_afArray[8] = std::sin(a_Radians) * -1;
 		
-		temp.m_afArray[1][0] = 0;
-		temp.m_afArray[1][1] = 1;
-		temp.m_afArray[1][2] = 0;
+		temp.m_afArray[1] = 0;
+		temp.m_afArray[5] = 1;
+		temp.m_afArray[9] = 0;
 
-		temp.m_afArray[2][0] = std::sin(a_Radians);
-		temp.m_afArray[2][1] = 0;
-		temp.m_afArray[2][2] = std::cos(a_Radians);
+		temp.m_afArray[2] = std::sin(a_Radians);
+		temp.m_afArray[6] = 0;
+		temp.m_afArray[10] = std::cos(a_Radians);
 
 		(*this) = temp;
 
@@ -199,17 +199,17 @@ namespace tbyte
 	{
 		Matrix4 temp;
 
-		temp.m_afArray[0][0] = std::cos(a_Radians);
-		temp.m_afArray[0][1] = std::sin(a_Radians);
-		temp.m_afArray[0][2] = 0;
+		temp.m_afArray[0] = std::cos(a_Radians);
+		temp.m_afArray[4] = std::sin(a_Radians);
+		temp.m_afArray[8] = 0;
 		
-		temp.m_afArray[1][0] = std::sin(a_Radians) * -1;
-		temp.m_afArray[1][1] = std::cos(a_Radians);
-		temp.m_afArray[1][2] = 0;
+		temp.m_afArray[1] = std::sin(a_Radians) * -1;
+		temp.m_afArray[5] = std::cos(a_Radians);
+		temp.m_afArray[9] = 0;
 
-		temp.m_afArray[2][0] = 0;
-		temp.m_afArray[2][1] = 0;
-		temp.m_afArray[2][2] = 1;
+		temp.m_afArray[2] = 0;
+		temp.m_afArray[6] = 0;
+		temp.m_afArray[10] = 1;
 
 		(*this) = temp;
 
@@ -219,10 +219,10 @@ namespace tbyte
 	tbyte::Vector4 Matrix4::VectorTransform(const tbyte::Vector4 &a_Vector)
 	{
 		tbyte::Vector4 temp;
-		temp.m_fX = a_Vector.m_fX * m_afArray[0][0] + a_Vector.m_fY * m_afArray[1][0] + a_Vector.m_fZ * m_afArray[2][0] + a_Vector.m_fW * m_afArray[3][0];
-		temp.m_fY = a_Vector.m_fX * m_afArray[0][1] + a_Vector.m_fY * m_afArray[1][1] + a_Vector.m_fZ * m_afArray[2][1] + a_Vector.m_fW * m_afArray[3][1];
-		temp.m_fZ = a_Vector.m_fX * m_afArray[0][2] + a_Vector.m_fY * m_afArray[1][2] + a_Vector.m_fZ * m_afArray[2][2] + a_Vector.m_fW * m_afArray[3][2];
-		temp.m_fW = a_Vector.m_fX * m_afArray[0][3] + a_Vector.m_fY * m_afArray[1][3] + a_Vector.m_fZ * m_afArray[2][3] + a_Vector.m_fW * m_afArray[3][3];
+		temp.m_fX = a_Vector.m_fX * m_afArray[0] + a_Vector.m_fY * m_afArray[1] + a_Vector.m_fZ * m_afArray[2] + a_Vector.m_fW * m_afArray[3];
+		temp.m_fY = a_Vector.m_fX * m_afArray[4] + a_Vector.m_fY * m_afArray[5] + a_Vector.m_fZ * m_afArray[6] + a_Vector.m_fW * m_afArray[7];
+		temp.m_fZ = a_Vector.m_fX * m_afArray[8] + a_Vector.m_fY * m_afArray[9] + a_Vector.m_fZ * m_afArray[10] + a_Vector.m_fW * m_afArray[11];
+		temp.m_fW = a_Vector.m_fX * m_afArray[12] + a_Vector.m_fY * m_afArray[13] + a_Vector.m_fZ * m_afArray[14] + a_Vector.m_fW * m_afArray[15];
 
 		return temp;
 	}
@@ -230,9 +230,9 @@ namespace tbyte
 	tbyte::Vector3 Matrix4::VectorTransform(const tbyte::Vector3 &a_Vector)
 	{
 		tbyte::Vector3 temp;
-		temp.m_fX = a_Vector.m_fX * m_afArray[0][0] + a_Vector.m_fY * m_afArray[1][0] + a_Vector.m_fZ * m_afArray[2][0];
-		temp.m_fY = a_Vector.m_fX * m_afArray[0][1] + a_Vector.m_fY * m_afArray[1][1] + a_Vector.m_fZ * m_afArray[2][1];
-		temp.m_fZ = a_Vector.m_fX * m_afArray[0][2] + a_Vector.m_fY * m_afArray[1][2] + a_Vector.m_fZ * m_afArray[2][2];
+		temp.m_fX = a_Vector.m_fX * m_afArray[0] + a_Vector.m_fY * m_afArray[1] + a_Vector.m_fZ * m_afArray[2];
+		temp.m_fY = a_Vector.m_fX * m_afArray[4] + a_Vector.m_fY * m_afArray[5] + a_Vector.m_fZ * m_afArray[6];
+		temp.m_fZ = a_Vector.m_fX * m_afArray[8] + a_Vector.m_fY * m_afArray[9] + a_Vector.m_fZ * m_afArray[10];
 
 		return temp;
 	}
@@ -241,16 +241,11 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
+		for (int i = 0;i < 16;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] += a_Addend.m_afArray[iRow][iCol];
-			}
+			
+				tempMatrix.m_afArray[i] += a_Addend.m_afArray[i];
+			
 		}
 
 		return tempMatrix;
@@ -260,16 +255,11 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
+			for (int i = 0;i < 16;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] += a_AddendScalar;
-			}
+			
+				tempMatrix.m_afArray[i] += a_AddendScalar;
+			
 		}
 
 		return tempMatrix;
@@ -291,16 +281,11 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
+	for (int i = 0;i < 16;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] -= a_Subtrahend.m_afArray[iRow][iCol];
-			}
+			
+				tempMatrix.m_afArray[i] -= a_Subtrahend.m_afArray[i];
+			
 		}
 
 		return tempMatrix;
@@ -310,16 +295,11 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
+			for (int i = 0;i < 16;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] -= a_SubtrahendScalar;
-			}
+			
+				tempMatrix.m_afArray[i] -= a_SubtrahendScalar;
+			
 		}
 
 		return tempMatrix;
@@ -344,88 +324,88 @@ namespace tbyte
 		
 		// row 1
 
-		tempMatrix.m_afArray[0][0] =	m_afArray[0][0] * a_Factor.m_afArray[0][0] +
-										m_afArray[0][1] * a_Factor.m_afArray[1][0] +
-										m_afArray[0][2] * a_Factor.m_afArray[2][0] +
-										m_afArray[0][3] * a_Factor.m_afArray[3][0];
+		tempMatrix.m_afArray[0] =	m_afArray[0] * a_Factor.m_afArray[0] +
+										m_afArray[4] * a_Factor.m_afArray[1] +
+										m_afArray[8] * a_Factor.m_afArray[2] +
+										m_afArray[12] * a_Factor.m_afArray[3];
 
-		tempMatrix.m_afArray[0][1] =	m_afArray[0][0] * a_Factor.m_afArray[0][1] +
-										m_afArray[0][1] * a_Factor.m_afArray[1][1] +
-										m_afArray[0][2] * a_Factor.m_afArray[2][1] +
-										m_afArray[0][3] * a_Factor.m_afArray[3][1];
+		tempMatrix.m_afArray[4] =	m_afArray[0] * a_Factor.m_afArray[4] +
+										m_afArray[4] * a_Factor.m_afArray[5] +
+										m_afArray[8] * a_Factor.m_afArray[6] +
+										m_afArray[12] * a_Factor.m_afArray[7];
 		
-		tempMatrix.m_afArray[0][2] =	m_afArray[0][0] * a_Factor.m_afArray[0][2] +
-										m_afArray[0][1] * a_Factor.m_afArray[1][2] +
-										m_afArray[0][2] * a_Factor.m_afArray[2][2] +
-										m_afArray[0][3] * a_Factor.m_afArray[3][2];
+		tempMatrix.m_afArray[8] =	m_afArray[0] * a_Factor.m_afArray[8] +
+										m_afArray[4] * a_Factor.m_afArray[9] +
+										m_afArray[8] * a_Factor.m_afArray[10] +
+										m_afArray[12] * a_Factor.m_afArray[11];
 
-		tempMatrix.m_afArray[0][3] =	m_afArray[0][0] * a_Factor.m_afArray[0][3] +
-										m_afArray[0][1] * a_Factor.m_afArray[1][3] +
-										m_afArray[0][2] * a_Factor.m_afArray[2][3] +
-										m_afArray[0][3] * a_Factor.m_afArray[3][3];
+		tempMatrix.m_afArray[12] =	m_afArray[0] * a_Factor.m_afArray[12] +
+										m_afArray[4] * a_Factor.m_afArray[13] +
+										m_afArray[8] * a_Factor.m_afArray[14] +
+										m_afArray[12] * a_Factor.m_afArray[15];
 		// row 2
 
-		tempMatrix.m_afArray[1][0] =	m_afArray[1][0] * a_Factor.m_afArray[0][0] +
-										m_afArray[1][1] * a_Factor.m_afArray[1][0] +
-										m_afArray[1][2] * a_Factor.m_afArray[2][0] +
-										m_afArray[1][3] * a_Factor.m_afArray[3][0];
+		tempMatrix.m_afArray[1] =	m_afArray[1] * a_Factor.m_afArray[0] +
+										m_afArray[5] * a_Factor.m_afArray[1] +
+										m_afArray[9] * a_Factor.m_afArray[2] +
+										m_afArray[13] * a_Factor.m_afArray[3];
 
-		tempMatrix.m_afArray[1][1] =	m_afArray[1][0] * a_Factor.m_afArray[0][1] +
-										m_afArray[1][1] * a_Factor.m_afArray[1][1] +
-										m_afArray[1][2] * a_Factor.m_afArray[2][1] +
-										m_afArray[1][3] * a_Factor.m_afArray[3][1];
+		tempMatrix.m_afArray[5] =	m_afArray[1] * a_Factor.m_afArray[4] +
+										m_afArray[5] * a_Factor.m_afArray[5] +
+										m_afArray[9] * a_Factor.m_afArray[6] +
+										m_afArray[13] * a_Factor.m_afArray[7];
 
-		tempMatrix.m_afArray[1][2] =	m_afArray[1][0] * a_Factor.m_afArray[0][2] +
-										m_afArray[1][1] * a_Factor.m_afArray[1][2] + 
-										m_afArray[1][2] * a_Factor.m_afArray[2][2] +
-										m_afArray[1][3] * a_Factor.m_afArray[3][2];
+		tempMatrix.m_afArray[9] =	m_afArray[1] * a_Factor.m_afArray[8] +
+										m_afArray[5] * a_Factor.m_afArray[9] + 
+										m_afArray[9] * a_Factor.m_afArray[10] +
+										m_afArray[13] * a_Factor.m_afArray[11];
 
-		tempMatrix.m_afArray[1][3] =	m_afArray[1][0] * a_Factor.m_afArray[0][3] +
-										m_afArray[1][1] * a_Factor.m_afArray[1][3] + 
-										m_afArray[1][2] * a_Factor.m_afArray[2][3] +
-										m_afArray[1][3] * a_Factor.m_afArray[3][3];
+		tempMatrix.m_afArray[13] =	m_afArray[1] * a_Factor.m_afArray[12] +
+										m_afArray[5] * a_Factor.m_afArray[13] + 
+										m_afArray[9] * a_Factor.m_afArray[14] +
+										m_afArray[13] * a_Factor.m_afArray[15];
 
 		// row 3
-		tempMatrix.m_afArray[2][0] =	m_afArray[2][0] * a_Factor.m_afArray[0][0] +
-										m_afArray[2][1] * a_Factor.m_afArray[1][0] +
-										m_afArray[2][2] * a_Factor.m_afArray[2][0] +
-										m_afArray[2][3] * a_Factor.m_afArray[3][0];
+		tempMatrix.m_afArray[2] =	m_afArray[2] * a_Factor.m_afArray[0] +
+										m_afArray[6] * a_Factor.m_afArray[1] +
+										m_afArray[10] * a_Factor.m_afArray[2] +
+										m_afArray[14] * a_Factor.m_afArray[3];
 
-		tempMatrix.m_afArray[2][1] =	m_afArray[2][0] * a_Factor.m_afArray[0][1] +
-										m_afArray[2][1] * a_Factor.m_afArray[1][1] +
-										m_afArray[2][2] * a_Factor.m_afArray[2][1] +
-										m_afArray[2][3] * a_Factor.m_afArray[3][1];
+		tempMatrix.m_afArray[6] =	m_afArray[2] * a_Factor.m_afArray[4] +
+										m_afArray[6] * a_Factor.m_afArray[5] +
+										m_afArray[10] * a_Factor.m_afArray[6] +
+										m_afArray[14] * a_Factor.m_afArray[7];
 		
-		tempMatrix.m_afArray[2][2] =	m_afArray[2][0] * a_Factor.m_afArray[0][2] +
-										m_afArray[2][1] * a_Factor.m_afArray[1][2] +
-										m_afArray[2][2] * a_Factor.m_afArray[2][2] +
-										m_afArray[2][3] * a_Factor.m_afArray[3][2];
+		tempMatrix.m_afArray[10] =	m_afArray[2] * a_Factor.m_afArray[8] +
+										m_afArray[6] * a_Factor.m_afArray[9] +
+										m_afArray[10] * a_Factor.m_afArray[10] +
+										m_afArray[14] * a_Factor.m_afArray[11];
 
-		tempMatrix.m_afArray[2][3] =	m_afArray[2][0] * a_Factor.m_afArray[0][3] +
-										m_afArray[2][1] * a_Factor.m_afArray[1][3] +
-										m_afArray[2][2] * a_Factor.m_afArray[2][3] +
-										m_afArray[2][3] * a_Factor.m_afArray[3][3];
+		tempMatrix.m_afArray[14] =	m_afArray[2] * a_Factor.m_afArray[12] +
+										m_afArray[6] * a_Factor.m_afArray[13] +
+										m_afArray[10] * a_Factor.m_afArray[14] +
+										m_afArray[14] * a_Factor.m_afArray[15];
 
 		// row 4
-		tempMatrix.m_afArray[3][0] =	m_afArray[3][0] * a_Factor.m_afArray[0][0] +
-										m_afArray[3][1] * a_Factor.m_afArray[1][0] +
-										m_afArray[3][2] * a_Factor.m_afArray[2][0] +
-										m_afArray[3][3] * a_Factor.m_afArray[3][0];
+		tempMatrix.m_afArray[3] =	m_afArray[3] * a_Factor.m_afArray[0] +
+										m_afArray[7] * a_Factor.m_afArray[1] +
+										m_afArray[11] * a_Factor.m_afArray[2] +
+										m_afArray[15] * a_Factor.m_afArray[3];
 
-		tempMatrix.m_afArray[3][1] =	m_afArray[3][0] * a_Factor.m_afArray[0][1] +
-										m_afArray[3][1] * a_Factor.m_afArray[1][1] +
-										m_afArray[3][2] * a_Factor.m_afArray[2][1] +
-										m_afArray[3][3] * a_Factor.m_afArray[3][1];
+		tempMatrix.m_afArray[7] =	m_afArray[3] * a_Factor.m_afArray[4] +
+										m_afArray[7] * a_Factor.m_afArray[5] +
+										m_afArray[11] * a_Factor.m_afArray[6] +
+										m_afArray[15] * a_Factor.m_afArray[7];
 		
-		tempMatrix.m_afArray[3][2] =	m_afArray[3][0] * a_Factor.m_afArray[0][2] +
-										m_afArray[3][1] * a_Factor.m_afArray[1][2] +
-										m_afArray[3][2] * a_Factor.m_afArray[2][2] +
-										m_afArray[3][3] * a_Factor.m_afArray[3][2];
+		tempMatrix.m_afArray[11] =	m_afArray[3] * a_Factor.m_afArray[8] +
+										m_afArray[7] * a_Factor.m_afArray[9] +
+										m_afArray[11] * a_Factor.m_afArray[10] +
+										m_afArray[15] * a_Factor.m_afArray[11];
 
-		tempMatrix.m_afArray[3][3] =	m_afArray[3][0] * a_Factor.m_afArray[0][3] +
-										m_afArray[3][1] * a_Factor.m_afArray[1][3] +
-										m_afArray[3][2] * a_Factor.m_afArray[2][3] +
-										m_afArray[3][3] * a_Factor.m_afArray[3][3];
+		tempMatrix.m_afArray[15] =	m_afArray[3] * a_Factor.m_afArray[12] +
+										m_afArray[7] * a_Factor.m_afArray[13] +
+										m_afArray[11] * a_Factor.m_afArray[14] +
+										m_afArray[15] * a_Factor.m_afArray[15];
 
 		return tempMatrix;
 	}
@@ -434,16 +414,11 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix;
 
-		for(int iPosX = 0;
-			iPosX <= 3;
-			iPosX++)
+		for (int i = 0;i < 16;i++)
 		{
-			for(int iPosY = 0;
-				iPosY <= 3;
-				iPosY++)
-			{
-				tempMatrix.m_afArray[iPosX][iPosY] = m_afArray[iPosX][iPosY] * a_FactorScalar;
-			}
+			
+				tempMatrix.m_afArray[i] *= a_FactorScalar;
+			
 		}
 
 		return tempMatrix;
@@ -451,16 +426,11 @@ namespace tbyte
 
 	Matrix4 Matrix4::operator = (const Matrix4 &a_Source)
 	{
-		for (int iCol = 0;
-			 iCol <= 3;
-			 iCol++)
+		for (int i = 0;i < 16;i++)
 		{
-			for (int iRow = 0;
-				iRow <= 3;
-				iRow++)
-			{
-				m_afArray[iCol][iRow] = a_Source.m_afArray[iCol][iRow];
-			}
+			
+			m_afArray[i] = a_Source.m_afArray[i];
+			
 		}
 
 		return *this;
@@ -480,203 +450,18 @@ namespace tbyte
 
 	bool	Matrix4::operator == (const Matrix4 &a_Source)
 	{
-		for (int iCol = 0;
-			 iCol <= 3;
-			 iCol++)
+		for (int i = 0;i < 16;i++)
 		{
-			for (int iRow = 0;
-				iRow <= 3;
-				iRow++)
-			{
-				if (m_afArray[iCol][iRow] != a_Source.m_afArray[iCol][iRow])
-				{
+			
+			if(m_afArray[i] != a_Source.m_afArray[i])
 					return false;
-				}
-			}
-		}
-
-		return true;
-	}
-
-	bool	Matrix4::operator > (const Matrix4 &a_Source)
-	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				if (!(tempMatrix.m_afArray[iRow][iCol] > a_Source.m_afArray[iRow][iCol]))
-				{
-					return false;
-				}
-
-			}
-		}
-
-		return true;
-	}
-	bool	Matrix4::operator < (const Matrix4 &a_Source)
-	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				if (!(tempMatrix.m_afArray[iRow][iCol] < a_Source.m_afArray[iRow][iCol]))
-				{
-					return false;
-				}
-
-			}
-		}
-
-		return true;
-	}
-
-	bool	Matrix4::operator > (const float &a_Scalar)
-	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				if (!(tempMatrix.m_afArray[iRow][iCol] > a_Scalar))
-				{
-					return false;
-				}
-
-			}
-		}
-
-		return true;
-	}
-	bool	Matrix4::operator < (const float &a_Scalar)
-	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				if (!(tempMatrix.m_afArray[iRow][iCol] < a_Scalar))
-				{
-					return false;
-				}
-
-			}
-		}
-
-		return true;
-	}
-
-	bool	Matrix4::operator >= (const Matrix4 &a_Source)
-	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				if (!(tempMatrix.m_afArray[iRow][iCol] >= a_Source.m_afArray[iRow][iCol]))
-				{
-					return false;
-				}
-
-			}
+				
+			
 		}
 
 		return true;
 
-	}
-	bool	Matrix4::operator <= (const Matrix4 &a_Source)
-	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				if (!(tempMatrix.m_afArray[iRow][iCol] <= a_Source.m_afArray[iRow][iCol]))
-				{
-					return false;
-				}
-
-			}
-		}
-
 		return true;
 	}
 
-	bool	Matrix4::operator >= (const float &a_Scalar)
-	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				if (!(tempMatrix.m_afArray[iRow][iCol] >= a_Scalar))
-				{
-					return false;
-				}
-
-			}
-		}
-
-		return true;
 	}
-	
-	bool	Matrix4::operator <= (const float &a_Scalar)
-	{
-		Matrix4 tempMatrix = *this;
-
-		for (int iRow = 0;
-			iRow <= 3;
-			iRow++)
-		{
-			for (int iCol = 0;
-				iCol <= 3;
-				iCol++)
-			{
-				if (!(tempMatrix.m_afArray[iRow][iCol] <= a_Scalar))
-				{
-					return false;
-				}
-
-			}
-		}
-
-		return true;
-	}
-}

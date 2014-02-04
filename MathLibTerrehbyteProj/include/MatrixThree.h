@@ -30,7 +30,10 @@ namespace tbyte
 		~Matrix3();
 
 		// 3D Array for Easy Traversal
-		float m_afArray[3][3];
+		//float m_afArray[3][3];
+
+		//For better OpenGL use Column Major Order
+		float m_afArray[9];
 
 		// Returns the matrix, but transposed
 		Matrix3 Transpose();

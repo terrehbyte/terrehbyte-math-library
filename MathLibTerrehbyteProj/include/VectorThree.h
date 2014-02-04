@@ -35,19 +35,19 @@ namespace tbyte
 		float	m_fZ;
 
 		// Get Euler Angle Between Two Vectors
-		float	GetEulerAngle(const Vector3 &a_Term);
+		float	EulerAngle(const Vector3 &a_Term);
 
 		// Returns the Dot Product between the caller and the Vector3 term
-		float	GetDotProduct(const Vector3 &a_Term);
+		float	DotProduct(const Vector3 &a_Term);
 
 		// Return what the caller would be when normalized
-		Vector3	GetNormal();
-
+		Vector3	Normal();
+		void Normalise();
 		// Returns the cross product between caller and term
-		Vector3	GetCrossProduct(const Vector3 &a_Term);
+		Vector3	CrossProduct(const Vector3 &a_Term);
 		
 		// Returns the magnitude of the vector
-		float	GetMagnitude();
+		float	Magnitude();
 
 		// Return a linearly interpolated Vector3
 		Vector3 Lerp(const Vector3 &a_TerminatingVector, const float &a_fInterpPoint);

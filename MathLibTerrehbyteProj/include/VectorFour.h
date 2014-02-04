@@ -34,10 +34,14 @@ namespace tbyte
 		float	m_fZ;
 
 		// Returns the magnitude of the vector
-		float	GetMagnitude();
+		float	Magnitude();
 
 		// Return what the caller would be when normalized
-		Vector4	GetNormal();
+		Vector4	Normal();
+			void Normalise();
+
+			Vector4 CrossProduct(const Vector4 &a_Term);
+		 float DotProduct(const Vector4 &a_Term) ;
 
 		// Reconstructs the caller to be comrpised of hex color values
 		Vector4	ConstructFromHex(

@@ -34,16 +34,16 @@ namespace tbyte
 		float	m_fX;
 
 		// Get Euler Angle Between Two Vectors
-		float GetEulerAngle(const Vector2 &a_Term);
+		float EulerAngle(const Vector2 &a_Term);
 
 		// Returns the Dot Product between the caller and the Vector2 term
-		float	GetDotProduct(const Vector2 &a_Term);
+		float	DotProduct(const Vector2 &a_Term);
 		
 		// Return what the caller would be when normalized
-		Vector2	GetNormal();
-
+		Vector2	Normal();
+		void Normalise();
 		// Return the magnitude of the Vector
-		float	GetMagnitude();
+		float	Magnitude();
 
 		// Return linearly interpolated vector
 		Vector2 Lerp(const Vector2 &a_TerminatingVector, const float &a_fInterpolationPoint);

@@ -31,7 +31,10 @@ namespace tbyte
 		~Matrix4();
 
 		// 4D Array for Easy Traversal
-		float m_afArray[4][4];
+		//float m_afArray[4][4];
+
+		//For better OpenGL use Column Major Order
+		float m_afArray[16];
 
 		// Returns the matrix, but transposed
 		Matrix4 Transpose();
@@ -90,15 +93,6 @@ namespace tbyte
 		Matrix4 operator = (const Matrix4 &a_Source);
 		bool	operator == (const Matrix4 &a_Source);
 
-		bool	operator > (const Matrix4 &a_Source);
-		bool	operator < (const Matrix4 &a_Source);
-		bool	operator > (const float &a_Scalar);
-		bool	operator < (const float &a_Scalar);
-
-		bool	operator >= (const Matrix4 &a_Source);
-		bool	operator <= (const Matrix4 &a_Source);
-		bool	operator >= (const float &a_Scalar);
-		bool	operator <= (const float &a_Scalar);
 
 	};
 }

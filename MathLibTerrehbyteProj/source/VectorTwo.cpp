@@ -30,34 +30,41 @@ namespace tbyte
 	{
 	}
 
-	float Vector2::GetEulerAngle(const Vector2 &a_Term)
+	float Vector2::EulerAngle(const Vector2 &a_Term)
 	{
 		Vector2 VectorA = (*this);
-		VectorA = VectorA.GetNormal();
+		VectorA = VectorA.Normal();
 		
 		Vector2 VectorB = a_Term;
-		VectorB = VectorB.GetNormal();
+		VectorB = VectorB.Normal();
 		
-		float fEuler = acos((VectorA).GetDotProduct(VectorB));
+		float fEuler = acos((VectorA).DotProduct(VectorB));
 
 		return fEuler;
 	}
 
-	float	Vector2::GetDotProduct(const Vector2 &a_Term)
+	float	Vector2::DotProduct(const Vector2 &a_Term)
 	{
 		return (m_fX * a_Term.m_fX) + (m_fY * a_Term.m_fY);
 	}
 
-	Vector2 Vector2::GetNormal()
+	Vector2 Vector2::Normal()
 	{
 		Vector2 temp = (*this);
-		float fMagnitude = GetMagnitude();
+		float fMagnitude = Magnitude();
 		temp /= fMagnitude;
 
 		return temp;
 	}
+	void Vector2::Normalise()
+	{
+		float fMag = sqrtf(m_fX*m_fX + m_fY*m_fY );
+		m_fX /= fMag;
+		m_fY /= fMag;
+	
+	}
 
-	float	Vector2::GetMagnitude()
+	float	Vector2::Magnitude()
 	{
 		float fFirst = m_fX * m_fX;
 		float fSecond = m_fY * m_fY;

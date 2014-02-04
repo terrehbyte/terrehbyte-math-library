@@ -26,16 +26,16 @@ namespace tbyte
 		float	m_fX;
 
 		// Get Euler Angle Between Two Vectors
-		float GetEulerAngle(const Vector2 &a_Term);
+		float EulerAngle(const Vector2 &a_Term);
 
 		// Returns the Dot Product between the caller and the Vector2 term
-		float	GetDotProduct(const Vector2 &a_Term);
+		float	DotProduct(const Vector2 &a_Term);
 
 		// Return what the caller would be when normalized
-		Vector2	GetNormal();
-
+		Vector2	Normal();
+		void Normalise();
 		// Return the magnitude of the Vector
-		float	GetMagnitude();
+		float	Magnitude();
 
 		// Return linearly interpolated vector
 		Vector2 Lerp(const Vector2 &a_TerminatingVector, const float &a_fInterpolationPoint);
@@ -77,19 +77,19 @@ namespace tbyte
 		float	m_fZ;
 
 		// Get Euler Angle Between Two Vectors
-		float	GetEulerAngle(const Vector3 &a_Term);
+		float	EulerAngle(const Vector3 &a_Term);
 
 		// Returns the Dot Product between the caller and the Vector3 term
-		float	GetDotProduct(const Vector3 &a_Term);
+		float	DotProduct(const Vector3 &a_Term);
 
 		// Return what the caller would be when normalized
-		Vector3	GetNormal();
-
+		Vector3	Normal();
+		void Normalise();
 		// Returns the cross product between caller and term
-		Vector3	GetCrossProduct(const Vector3 &a_Term);
+		Vector3	CrossProduct(const Vector3 &a_Term);
 
 		// Returns the magnitude of the vector
-		float	GetMagnitude();
+		float	Magnitude();
 
 		// Return a linearly interpolated Vector3
 		Vector3 Lerp(const Vector3 &a_TerminatingVector, const float &a_fInterpPoint);
@@ -129,10 +129,14 @@ namespace tbyte
 		float	m_fZ;
 
 		// Returns the magnitude of the vector
-		float	GetMagnitude();
+		float	Magnitude();
 
 		// Return what the caller would be when normalized
-		Vector4	GetNormal();
+		Vector4	Normal();
+		void Normalise();
+
+		Vector4 CrossProduct(const Vector4 &a_Term);
+		float DotProduct(const Vector4 &a_Term) ;
 
 		// Reconstructs the caller to be comrpised of hex color values
 		Vector4	ConstructFromHex(
@@ -165,7 +169,6 @@ namespace tbyte
 		Vector4	operator = (const Vector4 &a_Source);
 		bool	operator == (const Vector4 &a_Source);
 	};
-
 	class Matrix3
 	{
 	public:
@@ -174,7 +177,10 @@ namespace tbyte
 		~Matrix3();
 
 		// 3D Array for Easy Traversal
-		float m_afArray[3][3];
+		//float m_afArray[3][3];
+
+		//For better OpenGL use Column Major Order
+		float m_afArray[9];
 
 		// Returns the matrix, but transposed
 		Matrix3 Transpose();
@@ -227,7 +233,10 @@ namespace tbyte
 		~Matrix4();
 
 		// 4D Array for Easy Traversal
-		float m_afArray[4][4];
+		//float m_afArray[4][4];
+
+		//For better OpenGL use Column Major Order
+		float m_afArray[16];
 
 		// Returns the matrix, but transposed
 		Matrix4 Transpose();
@@ -286,15 +295,6 @@ namespace tbyte
 		Matrix4 operator = (const Matrix4 &a_Source);
 		bool	operator == (const Matrix4 &a_Source);
 
-		bool	operator > (const Matrix4 &a_Source);
-		bool	operator < (const Matrix4 &a_Source);
-		bool	operator > (const float &a_Scalar);
-		bool	operator < (const float &a_Scalar);
-
-		bool	operator >= (const Matrix4 &a_Source);
-		bool	operator <= (const Matrix4 &a_Source);
-		bool	operator >= (const float &a_Scalar);
-		bool	operator <= (const float &a_Scalar);
 
 	};
 
