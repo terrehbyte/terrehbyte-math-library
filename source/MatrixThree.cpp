@@ -21,18 +21,18 @@ namespace tbyte
 	Matrix3 Matrix3::Transpose()
 	{
 		Matrix3 tempMatrix;
-
-		for (int iPosX = 0;
-			iPosX < 3;
-			iPosX++)
-		{
-			for (int iPosY = 0;
-				iPosY < 3;
-				iPosY++)
-			{
-				tempMatrix.m_afArray[iPosX][iPosY] = m_afArray[iPosY][iPosX];
-			}
-		}
+		//hard coded more efficient than for loop
+		
+			tempMatrix.m_afArray[0] = m_afArray[0];
+			tempMatrix.m_afArray[1] = m_afArray[3];
+			tempMatrix.m_afArray[2] = m_afArray[6];
+			tempMatrix.m_afArray[3] = m_afArray[1];
+			tempMatrix.m_afArray[4] = m_afArray[4];
+			tempMatrix.m_afArray[5] = m_afArray[7];
+			tempMatrix.m_afArray[6] = m_afArray[2];
+			tempMatrix.m_afArray[7] = m_afArray[5];
+			tempMatrix.m_afArray[8] = m_afArray[8];
+		
 
 		return tempMatrix;
 	}
@@ -40,9 +40,9 @@ namespace tbyte
 	tbyte::Vector4 Matrix3::VectorTransform(const tbyte::Vector4 &a_Point)
 	{
 		tbyte::Vector4 temp;
-		temp.m_fX = a_Point.m_fX * m_afArray[0][0] + a_Point.m_fY * m_afArray[1][0] + a_Point.m_fZ * m_afArray[2][0];
-		temp.m_fY = a_Point.m_fX * m_afArray[0][1] + a_Point.m_fY * m_afArray[1][1] + a_Point.m_fZ * m_afArray[2][1];
-		temp.m_fZ = a_Point.m_fX * m_afArray[0][2] + a_Point.m_fY * m_afArray[1][2] + a_Point.m_fZ * m_afArray[2][2];
+		temp.m_fX = a_Point.m_fX * m_afArray[0] + a_Point.m_fY * m_afArray[1] + a_Point.m_fZ * m_afArray[2];
+		temp.m_fY = a_Point.m_fX * m_afArray[3] + a_Point.m_fY * m_afArray[4] + a_Point.m_fZ * m_afArray[5];
+		temp.m_fZ = a_Point.m_fX * m_afArray[6] + a_Point.m_fY * m_afArray[7] + a_Point.m_fZ * m_afArray[8];
 		temp.m_fW = a_Point.m_fW;
 		return temp;
 	}
@@ -50,9 +50,9 @@ namespace tbyte
 	tbyte::Vector3 Matrix3::VectorTransform(const tbyte::Vector3 &a_Point)
 	{
 		tbyte::Vector3 temp;
-		temp.m_fX = a_Point.m_fX * m_afArray[0][0] + a_Point.m_fY * m_afArray[1][0] + a_Point.m_fZ * m_afArray[2][0];
-		temp.m_fY = a_Point.m_fX * m_afArray[0][1] + a_Point.m_fY * m_afArray[1][1] + a_Point.m_fZ * m_afArray[2][1];
-		temp.m_fZ = a_Point.m_fX * m_afArray[0][2] + a_Point.m_fY * m_afArray[1][2] + a_Point.m_fZ * m_afArray[2][2];
+		temp.m_fX = a_Point.m_fX * m_afArray[0] + a_Point.m_fY * m_afArray[1] + a_Point.m_fZ * m_afArray[2];
+		temp.m_fY = a_Point.m_fX * m_afArray[3] + a_Point.m_fY * m_afArray[4] + a_Point.m_fZ * m_afArray[5];
+		temp.m_fZ = a_Point.m_fX * m_afArray[6] + a_Point.m_fY * m_afArray[7] + a_Point.m_fZ * m_afArray[8];
 		return temp;
 	}
 
@@ -60,17 +60,17 @@ namespace tbyte
 	{
 		Matrix3 temp;
 
-		temp.m_afArray[0][0] = 1;
-		temp.m_afArray[0][1] = 0;
-		temp.m_afArray[0][2] = 0;
+		temp.m_afArray[0] = 1;
+		temp.m_afArray[3] = 0;
+		temp.m_afArray[6] = 0;
 		
-		temp.m_afArray[1][0] = 0;
-		temp.m_afArray[1][1] = 1;
-		temp.m_afArray[1][2] = 0;
+		temp.m_afArray[1] = 0;
+		temp.m_afArray[4] = 1;
+		temp.m_afArray[7] = 0;
 
-		temp.m_afArray[2][0] = 0;
-		temp.m_afArray[2][1] = 0;
-		temp.m_afArray[2][2] = 1;
+		temp.m_afArray[2] = 0;
+		temp.m_afArray[5] = 0;
+		temp.m_afArray[8] = 1;
 
 		(*this) = temp;
 
@@ -81,9 +81,9 @@ namespace tbyte
 	{
 		float fDeterminant;
 
-		float fTermA = m_afArray[0][0] * (m_afArray[1][1] * m_afArray[2][2] - m_afArray[1][2] * m_afArray[2][1]);
-		float fTermB = m_afArray[0][1] * (m_afArray[1][0] * m_afArray[2][2] - m_afArray[1][2] * m_afArray[2][0]);
-		float fTermC = m_afArray[0][2] * (m_afArray[1][0] * m_afArray[2][1] - m_afArray[1][2] * m_afArray[2][0]);
+		float fTermA = m_afArray[0] * (m_afArray[4] * m_afArray[8] - m_afArray[7] * m_afArray[5]);
+		float fTermB = m_afArray[3] * (m_afArray[1] * m_afArray[8] - m_afArray[7] * m_afArray[2]);
+		float fTermC = m_afArray[6] * (m_afArray[1] * m_afArray[5] - m_afArray[7] * m_afArray[2]);
 
 		fDeterminant = fTermA + fTermB + fTermC;
 
@@ -104,18 +104,18 @@ namespace tbyte
 	{
 		Matrix3 temp;
 
-		temp.m_afArray[0][0] = 1;
-		temp.m_afArray[0][1] = 0;
-		temp.m_afArray[0][2] = 0;
+		temp.m_afArray[0] = 1;
+		temp.m_afArray[3] = 0;
+		temp.m_afArray[6] = 0;
 		
-		temp.m_afArray[1][0] = 0;
+		temp.m_afArray[1] = 0;
 		// float imprecision http://stackoverflow.com/questions/1605435/cosfm-pi-2-not-returning-zero
-		temp.m_afArray[1][1] = std::cos(a_Radians);
-		temp.m_afArray[1][2] = std::sin(a_Radians);
+		temp.m_afArray[4] = std::cos(a_Radians);
+		temp.m_afArray[7] = std::sin(a_Radians);
 
-		temp.m_afArray[2][0] = 0;
-		temp.m_afArray[2][1] = std::sin(a_Radians) * -1;
-		temp.m_afArray[2][2] = std::cos(a_Radians);
+		temp.m_afArray[2] = 0;
+		temp.m_afArray[5] = std::sin(a_Radians) * -1;
+		temp.m_afArray[8] = std::cos(a_Radians);
 
 		(*this) = temp;
 
@@ -126,17 +126,17 @@ namespace tbyte
 	{
 		Matrix3 temp;
 
-		temp.m_afArray[0][0] = std::cos(a_Radians);
-		temp.m_afArray[0][1] = 0;
-		temp.m_afArray[0][2] = std::sin(a_Radians) * -1;
+		temp.m_afArray[0] = std::cos(a_Radians);
+		temp.m_afArray[3] = 0;
+		temp.m_afArray[6] = std::sin(a_Radians) * -1;
 		
-		temp.m_afArray[1][0] = 0;
-		temp.m_afArray[1][1] = 1;
-		temp.m_afArray[1][2] = 0;
+		temp.m_afArray[1] = 0;
+		temp.m_afArray[4] = 1;
+		temp.m_afArray[7] = 0;
 
-		temp.m_afArray[2][0] = std::sin(a_Radians);
-		temp.m_afArray[2][1] = 0;
-		temp.m_afArray[2][2] = std::cos(a_Radians);
+		temp.m_afArray[2] = std::sin(a_Radians);
+		temp.m_afArray[5] = 0;
+		temp.m_afArray[8] = std::cos(a_Radians);
 
 		(*this) = temp;
 
@@ -147,17 +147,17 @@ namespace tbyte
 	{
 		Matrix3 temp;
 
-		temp.m_afArray[0][0] = std::cos(a_Radians);
-		temp.m_afArray[0][1] = std::sin(a_Radians) * -1;
-		temp.m_afArray[0][2] = 0;
+		temp.m_afArray[0] = std::cos(a_Radians);
+		temp.m_afArray[3] = std::sin(a_Radians) * -1;
+		temp.m_afArray[6] = 0;
 		
-		temp.m_afArray[1][0] = std::sin(a_Radians);
-		temp.m_afArray[1][1] = std::cos(a_Radians);
-		temp.m_afArray[1][2] = 0;
+		temp.m_afArray[1] = std::sin(a_Radians);
+		temp.m_afArray[4] = std::cos(a_Radians);
+		temp.m_afArray[7] = 0;
 
-		temp.m_afArray[2][0] = 0;
-		temp.m_afArray[2][1] = 0;
-		temp.m_afArray[2][2] = 1;
+		temp.m_afArray[2] = 0;
+		temp.m_afArray[5] = 0;
+		temp.m_afArray[8] = 1;
 
 		(*this) = temp;
 
@@ -170,16 +170,11 @@ namespace tbyte
 	{
 		Matrix3 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 2;
-			iRow++)
+		for (int i = 0;i < 9;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 2;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] += a_Addend.m_afArray[iRow][iCol];
-			}
+			
+				tempMatrix.m_afArray[i] += a_Addend.m_afArray[i];
+			
 		}
 
 		return tempMatrix;
@@ -189,17 +184,13 @@ namespace tbyte
 	{
 		Matrix3 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 2;
-			iRow++)
+		for (int i = 0;i < 9;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 2;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] += a_fAddendScalar;
-			}
+			
+				tempMatrix.m_afArray[i] += a_fAddendScalar;
+			
 		}
+
 
 		return tempMatrix;
 	}
@@ -220,16 +211,11 @@ namespace tbyte
 	{
 		Matrix3 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 2;
-			iRow++)
+	for (int i = 0;i < 9;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 2;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] -= a_Subtrahend.m_afArray[iRow][iCol];
-			}
+			
+				tempMatrix.m_afArray[i] -= a_Subtrahend.m_afArray[i];
+			
 		}
 
 		return tempMatrix;
@@ -239,16 +225,11 @@ namespace tbyte
 	{
 		Matrix3 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 2;
-			iRow++)
+		for (int i = 0;i < 9;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 2;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] -= a_fSubtrahendScalar;
-			}
+			
+				tempMatrix.m_afArray[i] -= a_fSubtrahendScalar;
+			
 		}
 
 		return tempMatrix;
@@ -270,42 +251,42 @@ namespace tbyte
 	{
 		Matrix3 tempMatrix;
 
-		tempMatrix.m_afArray[0][0] =	m_afArray[0][0] * a_Factor.m_afArray[0][0] +
-										m_afArray[0][1] * a_Factor.m_afArray[1][0] +
-										m_afArray[0][2] * a_Factor.m_afArray[2][0];
+		tempMatrix.m_afArray[0] =	m_afArray[0] * a_Factor.m_afArray[0] +
+										m_afArray[3] * a_Factor.m_afArray[1] +
+										m_afArray[6] * a_Factor.m_afArray[2];
 
-		tempMatrix.m_afArray[0][1] =	m_afArray[0][0] * a_Factor.m_afArray[0][1] +
-										m_afArray[0][1] * a_Factor.m_afArray[1][1] +
-										m_afArray[0][2] * a_Factor.m_afArray[2][1];
+		tempMatrix.m_afArray[3] =	m_afArray[0] * a_Factor.m_afArray[3] +
+										m_afArray[3] * a_Factor.m_afArray[4] +
+										m_afArray[6] * a_Factor.m_afArray[5];
 		
-		tempMatrix.m_afArray[0][2] =	m_afArray[0][0] * a_Factor.m_afArray[0][2] +
-										m_afArray[0][1] * a_Factor.m_afArray[1][2] +
-										m_afArray[0][2] * a_Factor.m_afArray[2][2];
+		tempMatrix.m_afArray[6] =	m_afArray[0] * a_Factor.m_afArray[6] +
+										m_afArray[3] * a_Factor.m_afArray[7] +
+										m_afArray[6] * a_Factor.m_afArray[8];
 
 
-		tempMatrix.m_afArray[1][0] =	m_afArray[1][0] * a_Factor.m_afArray[0][0] +
-										m_afArray[1][1] * a_Factor.m_afArray[1][0] +
-										m_afArray[1][2] * a_Factor.m_afArray[2][0];
+		tempMatrix.m_afArray[1] =	m_afArray[1] * a_Factor.m_afArray[0] +
+										m_afArray[4] * a_Factor.m_afArray[1] +
+										m_afArray[7] * a_Factor.m_afArray[2];
 
-		tempMatrix.m_afArray[1][1] =	m_afArray[1][0] * a_Factor.m_afArray[0][1] +
-										m_afArray[1][1] * a_Factor.m_afArray[1][1] +
-										m_afArray[1][2] * a_Factor.m_afArray[2][1];
+		tempMatrix.m_afArray[4] =	m_afArray[1] * a_Factor.m_afArray[3] +
+										m_afArray[4] * a_Factor.m_afArray[4] +
+										m_afArray[7] * a_Factor.m_afArray[5];
 
-		tempMatrix.m_afArray[1][2] =	m_afArray[1][0] * a_Factor.m_afArray[0][2] +
-										m_afArray[1][1] * a_Factor.m_afArray[1][2] + 
-										m_afArray[1][2] * a_Factor.m_afArray[2][2];
+		tempMatrix.m_afArray[7] =	m_afArray[1] * a_Factor.m_afArray[6] +
+										m_afArray[4] * a_Factor.m_afArray[7] + 
+										m_afArray[7] * a_Factor.m_afArray[8];
 
-		tempMatrix.m_afArray[2][0] =	m_afArray[2][0] * a_Factor.m_afArray[0][0] +
-										m_afArray[2][1] * a_Factor.m_afArray[1][0] +
-										m_afArray[2][2] * a_Factor.m_afArray[2][0];
+		tempMatrix.m_afArray[2] =	m_afArray[2] * a_Factor.m_afArray[0] +
+										m_afArray[5] * a_Factor.m_afArray[1] +
+										m_afArray[8] * a_Factor.m_afArray[2];
 
-		tempMatrix.m_afArray[2][1] =	m_afArray[2][0] * a_Factor.m_afArray[0][1] +
-										m_afArray[2][1] * a_Factor.m_afArray[1][1] +
-										m_afArray[2][2] * a_Factor.m_afArray[2][1];
+		tempMatrix.m_afArray[5] =	m_afArray[2] * a_Factor.m_afArray[3] +
+										m_afArray[5] * a_Factor.m_afArray[4] +
+										m_afArray[8] * a_Factor.m_afArray[5];
 		
-		tempMatrix.m_afArray[2][2] =	m_afArray[2][0] * a_Factor.m_afArray[0][2] +
-										m_afArray[2][1] * a_Factor.m_afArray[1][2] +
-										m_afArray[2][2] * a_Factor.m_afArray[2][2];
+		tempMatrix.m_afArray[8] =	m_afArray[2] * a_Factor.m_afArray[6] +
+										m_afArray[5] * a_Factor.m_afArray[7] +
+										m_afArray[8] * a_Factor.m_afArray[8];
 
 		return tempMatrix;
 	}
@@ -314,16 +295,11 @@ namespace tbyte
 	{
 		Matrix3 tempMatrix = *this;
 
-		for (int iRow = 0;
-			iRow <= 2;
-			iRow++)
+		for (int i = 0;i < 9;i++)
 		{
-			for (int iCol = 0;
-				iCol <= 2;
-				iCol++)
-			{
-				tempMatrix.m_afArray[iRow][iCol] *= a_fFactorScalar;
-			}
+			
+				tempMatrix.m_afArray[i] *= a_fFactorScalar;
+			
 		}
 
 
@@ -332,16 +308,11 @@ namespace tbyte
 
 	Matrix3 Matrix3::operator = (const Matrix3 &a_Source)
 	{
-		for (int iCol = 0;
-			 iCol <= 2;
-			 iCol++)
+		for (int i = 0;i < 9;i++)
 		{
-			for (int iRow = 0;
-				iRow <= 2;
-				iRow++)
-			{
-				m_afArray[iCol][iRow] = a_Source.m_afArray[iCol][iRow];
-			}
+			
+			m_afArray[i] = a_Source.m_afArray[i];
+			
 		}
 
 		return *this;
@@ -361,19 +332,13 @@ namespace tbyte
 
 	bool Matrix3::operator == (const Matrix3 &a_Source)
 	{
-		for (int iCol = 0;
-			 iCol <= 2;
-			 iCol++)
+		for (int i = 0;i < 9;i++)
 		{
-			for (int iRow = 0;
-				iRow <= 2;
-				iRow++)
-			{
-				if (m_afArray[iCol][iRow] != a_Source.m_afArray[iCol][iRow])
-				{
+			
+			if(m_afArray[i] != a_Source.m_afArray[i])
 					return false;
-				}
-			}
+				
+			
 		}
 
 		return true;

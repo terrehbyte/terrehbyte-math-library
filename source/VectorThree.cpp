@@ -31,35 +31,42 @@ namespace tbyte
 	{
 	}
 	
-	float Vector3::GetEulerAngle(const Vector3 &a_Term)
+	float Vector3::EulerAngle(const Vector3 &a_Term)
 	{
 		Vector3 VectorA = (*this);
-		VectorA = VectorA.GetNormal();
+		VectorA = VectorA.Normal();
 		
 		Vector3 VectorB = a_Term;
-		VectorB = VectorB.GetNormal();
+		VectorB = VectorB.Normal();
 		
-		float fEuler = acos( (VectorA).GetDotProduct(VectorB) );
+		float fEuler = acos( (VectorA).DotProduct(VectorB) );
 		return fEuler;
 	}
 
-	float	Vector3::GetDotProduct(const Vector3 &a_Term)
+	float	Vector3::DotProduct(const Vector3 &a_Term)
 	{
 		return (m_fX * a_Term.m_fX) + (m_fY * a_Term.m_fY) + (m_fZ * a_Term.m_fZ);
 	}
 
-	Vector3 Vector3::GetNormal()
+	Vector3 Vector3::Normal()
 	{
 		Vector3 temp = (*this);
 
-		float fMagnitude = GetMagnitude();
+		float fMagnitude = Magnitude();
 
 		temp /= fMagnitude;
 		
 		return temp;
 	}
 
-	Vector3 Vector3::GetCrossProduct(const Vector3 &a_Term)
+	void Vector3::Normalise()
+	{
+		float fMag = sqrtf(m_fX*m_fX + m_fY*m_fY + m_fZ*m_fZ);
+		m_fX /= fMag;
+		m_fY /= fMag;
+		m_fZ /= fMag;
+	}
+	Vector3 Vector3::CrossProduct(const Vector3 &a_Term)
 	{
 		// X is 1
 		// Y is 2
@@ -76,7 +83,7 @@ namespace tbyte
 		return temp;
 	}
 
-	float	Vector3::GetMagnitude()
+	float	Vector3::Magnitude()
 	{
 		float fFirst	= m_fX * m_fX;
 		float fSecond	= m_fY * m_fY;

@@ -26,7 +26,7 @@ namespace tbyte
 	{
 	}
 
-	float	Vector4::GetMagnitude()
+	float	Vector4::Magnitude()
 	{
 		float fFirst	= m_fW * m_fW;
 		float fSecond	= m_fX * m_fX;
@@ -36,15 +36,23 @@ namespace tbyte
 		return sqrt(fFirst + fSecond + fThird + fFourth);
 	}
 
-	Vector4 Vector4::GetNormal()
+	Vector4 Vector4::Normal()
 	{
 		Vector4 temp = (*this);
 
-		float fMagnitude = GetMagnitude();
+		float fMagnitude = Magnitude();
 
 		temp /= fMagnitude;
-		
+		temp.m_fW = 0;		
 		return temp;
+	}
+	void Vector4::Normalise()
+	{
+		float fMag = sqrtf(m_fX*m_fX + m_fY*m_fY + m_fZ*m_fZ);
+		m_fX /= fMag;
+		m_fY /= fMag;
+		m_fZ /= fMag;
+		m_fW = 0;
 	}
 
 	Vector4 Vector4::ConstructFromHex(
@@ -71,6 +79,15 @@ namespace tbyte
 
 		return (*this);
 	}
+	 Vector4 Vector4::CrossProduct(const Vector4 &a_Term) 
+	{
+		return Vector4(m_fY * a_Term.m_fZ - a_Term.m_fY  * m_fZ, m_fZ * a_Term.m_fX - a_Term.m_fZ * m_fX, m_fX * a_Term.m_fY  - a_Term.m_fX * m_fY , 0);
+	} 
+	float Vector4::DotProduct(const Vector4 &a_Term)
+	{
+		return m_fX * a_Term.m_fX + m_fY * a_Term.m_fY + m_fZ * a_Term.m_fZ;
+	}
+
 	
 	Vector4 Vector4::operator + (const Vector4 &a_Addend)
 	{
