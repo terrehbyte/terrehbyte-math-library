@@ -37,13 +37,13 @@ namespace tbyte
 		float m_afArray[16];
 
 		// Returns the matrix, but transposed
-		Matrix4 Transpose();
+		void Transpose();
 
 		// Returns a point that has been transformed by the Matrix caller
 		tbyte::Vector4 PointTransform(const tbyte::Vector4 &a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
-		Matrix4 MakeIdentityMatrix();
+		static Matrix4 IdentityMatrix();
 
 		// Assigns & Returns the Orthographic Project Matrix that was created
 		Matrix4 MakeOGLOrthoProjMatrix(float a_fLeft,
@@ -66,9 +66,9 @@ namespace tbyte
 		tbyte::Vector3 Scale(const tbyte::Vector3 &a_Vector);
 
 		// Returns a Transform Matrix4 for rotation around the '_'-axis in radians
-		Matrix4 MakeXRotationMatrix(float a_Radians);
-		Matrix4 MakeYRotationMatrix(float a_Radians);
-		Matrix4 MakeZRotationMatrix(float a_Radians);
+		static Matrix4 MakeXRotationMatrix(float a_Radians);
+		static Matrix4 MakeYRotationMatrix(float a_Radians);
+		static Matrix4 MakeZRotationMatrix(float a_Radians);
 
 		// Returns a Vector4 transformed by the Matrix caller
 		tbyte::Vector4 VectorTransform(const tbyte::Vector4 &a_Vector);
@@ -95,6 +95,8 @@ namespace tbyte
 
 
 	};
+
+	
 }
 
 #endif
