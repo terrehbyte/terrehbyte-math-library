@@ -123,10 +123,11 @@ namespace tbyte
 
 		~Vector4();
 
-		float	m_fW;
+		
 		float	m_fX;
 		float	m_fY;
 		float	m_fZ;
+		float	m_fW;
 
 		// Returns the magnitude of the vector
 		float	Magnitude();
@@ -176,21 +177,18 @@ namespace tbyte
 		Matrix3();
 		~Matrix3();
 
-		// 3D Array for Easy Traversal
-		//float m_afArray[3][3];
 
 		//For better OpenGL use Column Major Order
-		float m_afArray[9];
+				float m_afArray[9];
 
-		// Returns the matrix, but transposed
-		Matrix3 Transpose();
+		void Transpose();
 
 		// Returns a point that has been transformed by the Matrix3 caller
 		tbyte::Vector4 VectorTransform(const tbyte::Vector4 &a_Point);
 		tbyte::Vector3 VectorTransform(const tbyte::Vector3 &a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
-		Matrix3 MakeIdentityMatrix();
+		static Matrix3 IdentityMatrix();
 
 		// Returns the determinant of the matrix
 		float GetDeterminant();
@@ -200,9 +198,9 @@ namespace tbyte
 		tbyte::Vector3 Scale(const tbyte::Vector3 &a_Vector);
 
 		// Returns a Transform Matrix3 for rotation around the '_'-axis in radians
-		Matrix3 MakeXRotationMatrix(float a_Radians);
-		Matrix3 MakeYRotationMatrix(float a_Radians);
-		Matrix3 MakeZRotationMatrix(float a_Radians);
+		static Matrix3 MakeXRotationMatrix(float a_Radians);
+		static Matrix3 MakeYRotationMatrix(float a_Radians);
+		static Matrix3 MakeZRotationMatrix(float a_Radians);
 
 		// Operators (explained by their parameters)
 		Matrix3	operator + (const Matrix3 &a_Addend);
@@ -232,45 +230,42 @@ namespace tbyte
 		Matrix4();
 		~Matrix4();
 
-		// 4D Array for Easy Traversal
-		//float m_afArray[4][4];
-
 		//For better OpenGL use Column Major Order
 		float m_afArray[16];
 
 		// Returns the matrix, but transposed
-		Matrix4 Transpose();
+		void Transpose();
 
 		// Returns a point that has been transformed by the Matrix caller
 		tbyte::Vector4 PointTransform(const tbyte::Vector4 &a_Point);
 
 		// Assigns & Returns the Identity Matrix for 3x3 to the caller
-		Matrix4 MakeIdentityMatrix();
+		static Matrix4 IdentityMatrix();
 
 		// Assigns & Returns the Orthographic Project Matrix that was created
 		Matrix4 MakeOGLOrthoProjMatrix(float a_fLeft,
-			float a_fRight,
-			float a_fTop,
-			float a_fBottom,
-			float a_fFar,
-			float a_fNear);
+									float a_fRight,
+									float a_fTop,
+									float a_fBottom,
+									float a_fFar,
+									float a_fNear);
 
 		// Assigns & Returns the Orthographic Project Matrix that was created
 		Matrix4 MakeOrthoProjMatrix(float a_fLeft,
-			float a_fRight,
-			float a_fTop,
-			float a_fBottom,
-			float a_fFar,
-			float a_fNear);
+									float a_fRight,
+									float a_fTop,
+									float a_fBottom,
+									float a_fFar,
+									float a_fNear);
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
 		tbyte::Vector4 Scale(const tbyte::Vector4 &a_Vector);
 		tbyte::Vector3 Scale(const tbyte::Vector3 &a_Vector);
 
 		// Returns a Transform Matrix4 for rotation around the '_'-axis in radians
-		Matrix4 MakeXRotationMatrix(float a_Radians);
-		Matrix4 MakeYRotationMatrix(float a_Radians);
-		Matrix4 MakeZRotationMatrix(float a_Radians);
+		static Matrix4 MakeXRotationMatrix(float a_Radians);
+		static Matrix4 MakeYRotationMatrix(float a_Radians);
+		static Matrix4 MakeZRotationMatrix(float a_Radians);
 
 		// Returns a Vector4 transformed by the Matrix caller
 		tbyte::Vector4 VectorTransform(const tbyte::Vector4 &a_Vector);
@@ -297,6 +292,9 @@ namespace tbyte
 
 
 	};
+
+	
+
 
 	// Linear Interpolation for Scalar Values
 	// http://msdn.microsoft.com/en-us/library/windows/desktop/bb509618%28v=vs.85%29.aspx
