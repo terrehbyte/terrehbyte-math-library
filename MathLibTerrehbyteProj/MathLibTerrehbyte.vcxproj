@@ -86,13 +86,7 @@
     <ClCompile Include="source\VectorTwo.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\MatrixFour.h" />
-    <ClInclude Include="include\MatrixThree.h" />
-    <ClInclude Include="include\TBYTEmath.h" />
     <ClInclude Include="include\TerrehByteMath.h" />
-    <ClInclude Include="include\VectorFour.h" />
-    <ClInclude Include="include\VectorThree.h" />
-    <ClInclude Include="include\VectorTwo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

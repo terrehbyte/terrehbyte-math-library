@@ -7,7 +7,19 @@
 //////////////////////////////////////////////////////////////////////////
 #ifndef _TERREH_BYTE_MATH_H_
 #define _TERREH_BYTE_MATH_H_
+
+#ifdef DLL
+	#define DLLEXPORT __declspec(dllexport)
+#else
+	#define DLLEXPORT __declspec(dllimport)
+#endif
+
+// Vector Needs
+#define _USE_MATH_DEFINES
 #include <math.h>
+
+// General Mathematical Needs
+#include <map>
 
 namespace tbyte
 {
@@ -60,7 +72,6 @@ namespace tbyte
 		Vector2	operator = (const Vector2 &a_Source);
 		bool	operator == (const Vector2 &a_Source);
 	};
-
 	class Vector3
 	{
 	public:
@@ -113,7 +124,6 @@ namespace tbyte
 		Vector3	operator = (const Vector3 &a_Source);
 		bool	operator == (const Vector3 &a_Source);
 	};
-
 	class Vector4
 	{
 	public:
@@ -221,7 +231,6 @@ namespace tbyte
 		Matrix3 operator = (const Matrix3 &a_Source);
 		bool	operator == (const Matrix3 &a_Term);
 	};
-
 	class Matrix4
 	{
 	private:
@@ -293,11 +302,9 @@ namespace tbyte
 
 	};
 
-	
-
+	/* General Mathematical Functions */
 
 	// Linear Interpolation for Scalar Values
-	// http://msdn.microsoft.com/en-us/library/windows/desktop/bb509618%28v=vs.85%29.aspx
 	float LERP(float a_First, float a_Second, float a_InterpolationValue);
 
 	// Convert Deg to Radians
@@ -311,8 +318,6 @@ namespace tbyte
 
 	// Shift a Given Value to the Next Power of Two
 	double ShiftNextPowerOfTwo(double &a_dTestNumber);
-
-
 }
 #endif
 
