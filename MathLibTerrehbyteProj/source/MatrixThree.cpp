@@ -18,23 +18,22 @@ namespace tbyte
 	{
 	}
 
-	Matrix3 Matrix3::Transpose()
+	void Matrix3::Transpose()
 	{
-		Matrix3 tempMatrix;
+		
 		//hard coded more efficient than for loop
 		
-			tempMatrix.m_afArray[0] = m_afArray[0];
-			tempMatrix.m_afArray[1] = m_afArray[3];
-			tempMatrix.m_afArray[2] = m_afArray[6];
-			tempMatrix.m_afArray[3] = m_afArray[1];
-			tempMatrix.m_afArray[4] = m_afArray[4];
-			tempMatrix.m_afArray[5] = m_afArray[7];
-			tempMatrix.m_afArray[6] = m_afArray[2];
-			tempMatrix.m_afArray[7] = m_afArray[5];
-			tempMatrix.m_afArray[8] = m_afArray[8];
+			m_afArray[0] = m_afArray[0];
+			m_afArray[1] = m_afArray[3];
+			m_afArray[2] = m_afArray[6];
+			m_afArray[3] = m_afArray[1];
+			m_afArray[4] = m_afArray[4];
+			m_afArray[5] = m_afArray[7];
+			m_afArray[6] = m_afArray[2];
+			m_afArray[7] = m_afArray[5];
+			m_afArray[8] = m_afArray[8];
 		
 
-		return tempMatrix;
 	}
 
 	tbyte::Vector4 Matrix3::VectorTransform(const tbyte::Vector4 &a_Point)
@@ -56,7 +55,7 @@ namespace tbyte
 		return temp;
 	}
 
-	Matrix3 Matrix3::MakeIdentityMatrix()
+	Matrix3 Matrix3::IdentityMatrix()
 	{
 		Matrix3 temp;
 
@@ -72,9 +71,9 @@ namespace tbyte
 		temp.m_afArray[5] = 0;
 		temp.m_afArray[8] = 1;
 
-		(*this) = temp;
+		return temp;
 
-		return (*this);
+	
 	}
 
 	float Matrix3::GetDeterminant()
@@ -117,9 +116,7 @@ namespace tbyte
 		temp.m_afArray[5] = std::sin(a_Radians) * -1;
 		temp.m_afArray[8] = std::cos(a_Radians);
 
-		(*this) = temp;
-
-		return (*this);
+	return temp;
 	}
 	
 	Matrix3 Matrix3::MakeYRotationMatrix(float a_Radians)
@@ -138,9 +135,7 @@ namespace tbyte
 		temp.m_afArray[5] = 0;
 		temp.m_afArray[8] = std::cos(a_Radians);
 
-		(*this) = temp;
-
-		return (*this);
+		return temp;
 	}
 	
 	Matrix3 Matrix3::MakeZRotationMatrix(float a_Radians)
@@ -159,9 +154,7 @@ namespace tbyte
 		temp.m_afArray[5] = 0;
 		temp.m_afArray[8] = 1;
 
-		(*this) = temp;
-
-		return (*this);
+		return temp;
 	}
 
 
