@@ -23,7 +23,7 @@
 
 namespace tbyte
 {
-	class Vector2
+	class DLLEXPORT Vector2
 	{
 	public:
 		Vector2();
@@ -72,7 +72,7 @@ namespace tbyte
 		Vector2	operator = (const Vector2 &a_Source);
 		bool	operator == (const Vector2 &a_Source);
 	};
-	class Vector3
+	class DLLEXPORT Vector3
 	{
 	public:
 		Vector3();
@@ -124,7 +124,7 @@ namespace tbyte
 		Vector3	operator = (const Vector3 &a_Source);
 		bool	operator == (const Vector3 &a_Source);
 	};
-	class Vector4
+	class DLLEXPORT Vector4
 	{
 	public:
 		Vector4();
@@ -180,7 +180,7 @@ namespace tbyte
 		Vector4	operator = (const Vector4 &a_Source);
 		bool	operator == (const Vector4 &a_Source);
 	};
-	class Matrix3
+	class DLLEXPORT Matrix3
 	{
 	public:
 
@@ -197,7 +197,7 @@ namespace tbyte
 		tbyte::Vector4 VectorTransform(const tbyte::Vector4 &a_Point);
 		tbyte::Vector3 VectorTransform(const tbyte::Vector3 &a_Point);
 
-		// Assigns & Returns the Identity Matrix for 3x3 to the caller
+		// Returns the Identity Matrix for 3x3
 		static Matrix3 IdentityMatrix();
 
 		// Returns the determinant of the matrix
@@ -231,7 +231,7 @@ namespace tbyte
 		Matrix3 operator = (const Matrix3 &a_Source);
 		bool	operator == (const Matrix3 &a_Term);
 	};
-	class Matrix4
+	class DLLEXPORT Matrix4
 	{
 	private:
 
@@ -248,7 +248,7 @@ namespace tbyte
 		// Returns a point that has been transformed by the Matrix caller
 		tbyte::Vector4 PointTransform(const tbyte::Vector4 &a_Point);
 
-		// Assigns & Returns the Identity Matrix for 3x3 to the caller
+		// Returns the Identity Matrix for 4x4
 		static Matrix4 IdentityMatrix();
 
 		// Assigns & Returns the Orthographic Project Matrix that was created
