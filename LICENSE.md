@@ -1,3 +1,5 @@
+License
+--
 The "terrehbyte-math-library" project is licensed under the zlib license.
 
 Other included libraries, if any, are licensed under their own respective licenses.
@@ -5,8 +7,9 @@ They may be listed below for your convenience, but it is by no means guaranteed 
 a comprehensive list.
 
 zlib License
+--
 
-Copyright (c) {{{year}}} {{{fullname}}}
+Copyright (c) 2014 Terry Nguyen
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any damages
