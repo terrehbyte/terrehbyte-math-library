@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////
 //	File:	TerrehByteMath.h
 //	Author:	Justin Loudermilk
-//	Date:	1/22/2014
+//	Date:	2/24/2014
 //	Brief:	Combined all the .h into a single file for ease of including
 //
 //////////////////////////////////////////////////////////////////////////
@@ -36,7 +36,7 @@ namespace tbyte
 
 		float	m_fX;
 		float	m_fY;
-
+		
 		// Get Euler Angle Between Two Vectors
 		float EulerAngle(const Vector2 &a_Term);
 
@@ -305,19 +305,20 @@ namespace tbyte
 	/* General Mathematical Functions */
 
 	// Linear Interpolation for Scalar Values
-	float LERP(float a_First, float a_Second, float a_InterpolationValue);
+	float DLLEXPORT LERP(float a_First, float a_Second, float a_InterpolationValue);
 
 	// Convert Deg to Radians
-	float DegreesToRadians(float a_fDegrees);
+	float DLLEXPORT DegreesToRadians(float a_fDegrees);
 
 	// Convert Radians to Deg
-	float RadiansToDegrees(float a_fRadians);
+	float DLLEXPORT RadiansToDegrees(float a_fRadians);
 
 	// Test Scalar Value if Power of Two
-	bool CheckPowerOfTwo(double a_dTestNumber);
+	bool DLLEXPORT CheckPowerOfTwo(double a_dTestNumber);
 
 	// Shift a Given Value to the Next Power of Two
-	double ShiftNextPowerOfTwo(double &a_dTestNumber);
+	double DLLEXPORT ShiftNextPowerOfTwo(double &a_dTestNumber);
+
 }
 #endif
 
