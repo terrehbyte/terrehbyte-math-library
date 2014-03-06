@@ -28,7 +28,7 @@ namespace tbyte
 	public:
 		Vector2();
 
-		Vector2(const float a_m_fX, const float a_m_fY);
+		Vector2(const float a_fX, const float a_fY);
 
 		Vector2(const Vector2 &a_Source);
 
@@ -77,7 +77,7 @@ namespace tbyte
 	public:
 		Vector3();
 
-		Vector3(const float a_m_fX, const float a_m_fY, const float a_m_fZ);
+		Vector3(const float a_fX, const float a_fY, const float a_fZ);
 
 		Vector3(const Vector3 &a_Source);
 
@@ -129,11 +129,10 @@ namespace tbyte
 	public:
 		Vector4();
 
-		Vector4(const float a_m_fW, const float a_m_fX, const float a_m_fY, const float a_m_fZ);
+		Vector4(const float a_fX, const float a_fY, const float a_fZ, const float a_fW);
 
 		~Vector4();
 
-		
 		float	m_fX;
 		float	m_fY;
 		float	m_fZ;
@@ -185,6 +184,9 @@ namespace tbyte
 	public:
 
 		Matrix3();
+
+		Matrix3(const Matrix3 &a_Source);
+
 		~Matrix3();
 
 
@@ -237,6 +239,9 @@ namespace tbyte
 
 	public:
 		Matrix4();
+
+		Matrix4(const Matrix4 &a_Source);
+
 		~Matrix4();
 
 		//For better OpenGL use Column Major Order
