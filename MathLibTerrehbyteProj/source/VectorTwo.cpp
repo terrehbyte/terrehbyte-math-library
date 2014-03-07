@@ -20,10 +20,10 @@ namespace tbyte
 		m_fY = a_Source.m_fY;
 	}
 
-	Vector2::Vector2(const float a_m_fX, const float a_m_fY)
+	Vector2::Vector2(const float &a_fX, const float &a_fY)
 	{
-		m_fX = a_m_fX;
-		m_fY = a_m_fY;
+		m_fX = a_fX;
+		m_fY = a_fY;
 	}
 
 	Vector2::~Vector2()

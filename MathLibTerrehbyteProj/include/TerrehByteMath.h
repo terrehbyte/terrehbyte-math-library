@@ -28,7 +28,7 @@ namespace tbyte
 	public:
 		Vector2();
 
-		Vector2(const float a_fX, const float a_fY);
+		Vector2(const float &a_fX, const float &a_fY);
 
 		Vector2(const Vector2 &a_Source);
 
@@ -77,7 +77,7 @@ namespace tbyte
 	public:
 		Vector3();
 
-		Vector3(const float a_fX, const float a_fY, const float a_fZ);
+		Vector3(const float &a_fX, const float &a_fY, const float &a_fZ);
 
 		Vector3(const Vector3 &a_Source);
 
@@ -130,6 +130,8 @@ namespace tbyte
 		Vector4();
 
 		Vector4(const float a_fX, const float a_fY, const float a_fZ, const float a_fW);
+
+		Vector4(const Vector4 &a_Source);
 
 		~Vector4();
 

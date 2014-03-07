@@ -14,14 +14,22 @@ namespace tbyte
 	{
 	}
 
+	Matrix4::Matrix4(const Matrix4 &a_Source)
+	{
+		for (int i = 0;
+			 i < 16;
+			 i++)
+		{
+			m_afArray[i] = a_Source.m_afArray[i];
+		}
+	}
+
 	Matrix4::~Matrix4()
 	{
 	}
 
 	void Matrix4::Transpose()
 	{
-
-
 		m_afArray[0] = m_afArray[0];
 		m_afArray[4] = m_afArray[1];
 		m_afArray[8] = m_afArray[2];
@@ -41,7 +49,6 @@ namespace tbyte
 		m_afArray[7] = m_afArray[13];
 		m_afArray[11] = m_afArray[14];
 		m_afArray[15] = m_afArray[15];
-
 	}
 	Matrix4 Matrix4::IdentityMatrix()
 	{
@@ -409,7 +416,6 @@ namespace tbyte
 		{
 
 			tempMatrix.m_afArray[i] *= a_FactorScalar;
-
 		}
 
 		return tempMatrix;
@@ -443,12 +449,12 @@ namespace tbyte
 	{
 		for (int i = 0;i < 16;i++)
 		{
-
 			if(m_afArray[i] != a_Source.m_afArray[i])
+			{
 				return false;
-
-
+			}
 		}
+
 		return true;
 	}
 

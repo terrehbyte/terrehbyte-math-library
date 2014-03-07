@@ -1,8 +1,8 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	VectorThree.cpp
+//	File:	VectorFour.cpp
 //	Author:	Terry Nguyen
-//	Date:	12/18/2013
-//	Brief:	Defines functions pertaining to Vector3D
+//	Date:	03/06/2014
+//	Brief:	Defines functions pertaining to Vector4D
 //
 //////////////////////////////////////////////////////////////////////////
 
@@ -14,12 +14,17 @@ namespace tbyte
 	{
 	}
 	
-	Vector4::Vector4(const float a_m_fW, const float a_m_fX, const float a_m_fY, const float a_m_fZ)
+	Vector4::Vector4(const float &a_fX, const float &a_fY, const float &a_fZ, const float &a_fW)
 	{
-		m_fW = a_m_fW;
-		m_fX = a_m_fX;
-		m_fY = a_m_fY;
-		m_fZ = a_m_fZ;
+		m_fX = a_fX;
+		m_fY = a_fY;
+		m_fZ = a_fZ;
+		m_fW = a_fW;
+	}
+
+	Vector4::Vector4(const Vector4 &a_Source)
+	{
+
 	}
 
 	Vector4::~Vector4()

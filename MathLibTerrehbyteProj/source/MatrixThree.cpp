@@ -14,6 +14,16 @@ namespace tbyte
 	{
 	}
 
+	Matrix3::Matrix3(const Matrix3 &a_Source)
+	{
+		for (int i = 0;
+			 i < 9;
+			 i++)
+		{
+			m_afArray[i] = a_Source.m_afArray[i];
+		}
+	}
+
 	Matrix3::~Matrix3()
 	{
 	}
