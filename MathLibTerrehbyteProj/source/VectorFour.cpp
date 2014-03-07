@@ -36,12 +36,10 @@ namespace tbyte
 
 	float	Vector4::Magnitude()
 	{
-		float fFirst	= m_fW * m_fW;
-		float fSecond	= m_fX * m_fX;
-		float fThird	= m_fY * m_fY;
-		float fFourth	= m_fZ * m_fZ;
-		
-		return sqrt(fFirst + fSecond + fThird + fFourth);
+		return sqrt(m_fX * m_fX +
+					m_fY * m_fY + 
+					m_fZ * m_fZ +
+					m_fW * m_fW);
 	}
 
 	Vector4 Vector4::Normal()
@@ -51,12 +49,13 @@ namespace tbyte
 		float fMagnitude = Magnitude();
 
 		temp /= fMagnitude;
-		temp.m_fW = 0;		
+		temp.m_fW = 0;
+
 		return temp;
 	}
 	void Vector4::Normalise()
 	{
-		float fMag = sqrtf(m_fX*m_fX + m_fY*m_fY + m_fZ*m_fZ);
+		float fMag = Magnitude();
 		m_fX /= fMag;
 		m_fY /= fMag;
 		m_fZ /= fMag;
@@ -87,13 +86,18 @@ namespace tbyte
 
 		return (*this);
 	}
-	 Vector4 Vector4::CrossProduct(const Vector4 &a_Term) 
+	Vector4 Vector4::CrossProduct(const Vector4 &a_Term) 
 	{
-		return Vector4(m_fY * a_Term.m_fZ - a_Term.m_fY  * m_fZ, m_fZ * a_Term.m_fX - a_Term.m_fZ * m_fX, m_fX * a_Term.m_fY  - a_Term.m_fX * m_fY , 0);
+		return Vector4(m_fY * a_Term.m_fZ - a_Term.m_fY * m_fZ,
+				       m_fZ * a_Term.m_fX - a_Term.m_fZ * m_fX,
+                       m_fX * a_Term.m_fY - a_Term.m_fX * m_fY,
+                       0);
 	} 
 	float Vector4::DotProduct(const Vector4 &a_Term)
 	{
-		return m_fX * a_Term.m_fX + m_fY * a_Term.m_fY + m_fZ * a_Term.m_fZ;
+		return m_fX * a_Term.m_fX +
+               m_fY * a_Term.m_fY +
+               m_fZ * a_Term.m_fZ;
 	}
 
 	
@@ -103,10 +107,10 @@ namespace tbyte
 		Vector4 temp = (*this);
 
 		// Add temp's X and Y to the other X and Y
-		temp.m_fW = temp.m_fW + a_Addend.m_fW;
-		temp.m_fX = temp.m_fX + a_Addend.m_fX;
-		temp.m_fY = temp.m_fY + a_Addend.m_fY;
-		temp.m_fZ = temp.m_fZ + a_Addend.m_fZ;
+		temp.m_fX += a_Addend.m_fX;
+		temp.m_fY += a_Addend.m_fY;
+		temp.m_fZ += a_Addend.m_fZ;
+        temp.m_fW += a_Addend.m_fW;
 
 		// Return temp, the sum of two Vector4 things
 		return temp;
@@ -118,10 +122,10 @@ namespace tbyte
 		Vector4 temp = (*this);
 
 		// Add temp's X and Y to the other X and Y
-		temp.m_fW = temp.m_fW + a_fAddendScalar;
-		temp.m_fX = temp.m_fX + a_fAddendScalar;
-		temp.m_fY = temp.m_fY + a_fAddendScalar;
-		temp.m_fZ = temp.m_fZ + a_fAddendScalar;
+		temp.m_fW += a_fAddendScalar;
+		temp.m_fX += a_fAddendScalar;
+		temp.m_fY += a_fAddendScalar;
+		temp.m_fZ += a_fAddendScalar;
 
 		// Return temp, the sum of two Vector4 things
 		return temp;
@@ -143,10 +147,10 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 
-		temp.m_fW = m_fW - a_Subtrahend.m_fW;
-		temp.m_fX = m_fX - a_Subtrahend.m_fX;
-		temp.m_fY = m_fY - a_Subtrahend.m_fY;
-		temp.m_fZ = m_fZ - a_Subtrahend.m_fZ;
+		temp.m_fW -= a_Subtrahend.m_fW;
+		temp.m_fX -= a_Subtrahend.m_fX;
+		temp.m_fY -= a_Subtrahend.m_fY;
+		temp.m_fZ -= a_Subtrahend.m_fZ;
 		return temp;
 	}
 
@@ -154,10 +158,10 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 		
-		temp.m_fW = temp.m_fW - a_fSubtrahendScalar;
-		temp.m_fX = temp.m_fX - a_fSubtrahendScalar;
-		temp.m_fY = temp.m_fY - a_fSubtrahendScalar;
-		temp.m_fZ = temp.m_fZ - a_fSubtrahendScalar;
+		temp.m_fW -= a_fSubtrahendScalar;
+		temp.m_fX -= a_fSubtrahendScalar;
+		temp.m_fY -= a_fSubtrahendScalar;
+		temp.m_fZ -= a_fSubtrahendScalar;
 
 		return temp;
 	}
@@ -178,10 +182,10 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 
-		temp.m_fW = temp.m_fW * a_fScalar;
-		temp.m_fX = temp.m_fX * a_fScalar;
-		temp.m_fY = temp.m_fY * a_fScalar;
-		temp.m_fZ = temp.m_fZ * a_fScalar;
+		temp.m_fW *= a_fScalar;
+		temp.m_fX *= a_fScalar;
+		temp.m_fY *= a_fScalar;
+		temp.m_fZ *= a_fScalar;
 
 		return temp;
 	}
@@ -196,10 +200,10 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 
-		temp.m_fW = temp.m_fW / a_fScalar;
-		temp.m_fX = temp.m_fX / a_fScalar;
-		temp.m_fY = temp.m_fY / a_fScalar;
-		temp.m_fZ = temp.m_fZ / a_fScalar;
+		temp.m_fW /= a_fScalar;
+		temp.m_fX /= a_fScalar;
+		temp.m_fY /= a_fScalar;
+		temp.m_fZ /= a_fScalar;
 
 		return temp;
 	}
@@ -213,20 +217,25 @@ namespace tbyte
 	// Assignment Operator - Assigns the values of an existing Vector4 to another existing Vector4
 	Vector4	Vector4::operator = (const Vector4 &a_Source)
 	{
-		m_fW = a_Source.m_fW;
+		// avoid self-assignment
+		if (this == &a_Source)
+		{
+			return *this;
+		}
+
 		m_fX = a_Source.m_fX;
 		m_fY = a_Source.m_fY;
 		m_fZ = a_Source.m_fZ;
-		
+		m_fW = a_Source.m_fW;
 		return *this;
 	}
 
 	bool	Vector4::operator == (const Vector4 &a_Source)
 	{
-		if (m_fW == a_Source.m_fW &&
-			m_fX == a_Source.m_fX &&
+		if (m_fX == a_Source.m_fX &&
 			m_fY == a_Source.m_fY &&
-			m_fZ == a_Source.m_fZ)
+			m_fZ == a_Source.m_fZ &&
+            m_fW == a_Source.m_fW)
 		{
 			return true;
 		}

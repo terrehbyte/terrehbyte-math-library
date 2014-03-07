@@ -239,7 +239,9 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix = *this;
 
-		for (int i = 0;i < 16;i++)
+		for (int i = 0;
+             i < 16;
+             i++)
 		{
 
 			tempMatrix.m_afArray[i] += a_Addend.m_afArray[i];
@@ -253,7 +255,9 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix = *this;
 
-		for (int i = 0;i < 16;i++)
+		for (int i = 0;
+             i < 16;
+             i++)
 		{
 
 			tempMatrix.m_afArray[i] += a_AddendScalar;
@@ -279,7 +283,9 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix = *this;
 
-		for (int i = 0;i < 16;i++)
+		for (int i = 0;
+             i < 16;
+             i++)
 		{
 
 			tempMatrix.m_afArray[i] -= a_Subtrahend.m_afArray[i];
@@ -293,11 +299,11 @@ namespace tbyte
 	{
 		Matrix4 tempMatrix = *this;
 
-		for (int i = 0;i < 16;i++)
+		for (int i = 0;
+             i < 16;
+             i++)
 		{
-
 			tempMatrix.m_afArray[i] -= a_SubtrahendScalar;
-
 		}
 
 		return tempMatrix;
@@ -423,11 +429,17 @@ namespace tbyte
 
 	Matrix4 Matrix4::operator = (const Matrix4 &a_Source)
 	{
-		for (int i = 0;i < 16;i++)
+		// avoid self-assignment
+		if (this == &a_Source)
 		{
+			return *this;
+		}
 
+		for (int i = 0;
+             i < 16;
+             i++)
+		{
 			m_afArray[i] = a_Source.m_afArray[i];
-
 		}
 
 		return *this;

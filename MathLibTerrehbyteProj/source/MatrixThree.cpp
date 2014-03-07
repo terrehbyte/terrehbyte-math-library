@@ -311,6 +311,12 @@ namespace tbyte
 
 	Matrix3 Matrix3::operator = (const Matrix3 &a_Source)
 	{
+		// avoid self-assignment
+		if (this == &a_Source)
+		{
+			return *this;
+		}
+
 		for (int i = 0;i < 9;i++)
 		{
 			

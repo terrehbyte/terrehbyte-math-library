@@ -58,7 +58,7 @@ namespace tbyte
 	}
 	void Vector2::Normalise()
 	{
-		float fMag = sqrtf(m_fX*m_fX + m_fY*m_fY );
+		float fMag = Magnitude();
 		m_fX /= fMag;
 		m_fY /= fMag;
 	
