@@ -129,7 +129,7 @@ namespace tbyte
 	public:
 		Vector4();
 
-		Vector4(const float a_fX, const float a_fY, const float a_fZ, const float a_fW);
+		Vector4(const float &a_fX, const float &a_fY, const float &a_fZ, const float &a_fW);
 
 		Vector4(const Vector4 &a_Source);
 
