@@ -24,7 +24,10 @@ namespace tbyte
 
 	Vector4::Vector4(const Vector4 &a_Source)
 	{
-
+		m_fX = a_Source.m_fX;
+		m_fY = a_Source.m_fY;
+		m_fZ = a_Source.m_fZ;
+		m_fW = a_Source.m_fW;
 	}
 
 	Vector4::~Vector4()
