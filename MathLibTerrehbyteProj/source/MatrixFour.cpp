@@ -97,55 +97,62 @@ namespace tbyte
 		return temp;
 	}
 
-
-
-	Matrix4 Matrix4::MakeOGLOrthoProjMatrix(float a_fLeft,
-		float a_fRight,
-		float a_fTop,
-		float a_fBottom,
-		float a_fFar,
-		float a_fNear)
+	Matrix4 Matrix4::MakeOrthoProj(const float &a_fLeft,
+                                         const float &a_fRight,
+                                         const float &a_fTop,
+                                         const float &a_fBottom,
+                                         const float &a_fFar,
+                                         const float &a_fNear,
+                                         Matrix4 * a_Dest)
 	{
-		Matrix4 OrthoProj;
-
-		OrthoProj.IdentityMatrix();
-
-		OrthoProj.m_afArray [0] = 2 / (a_fRight - a_fLeft);
-		OrthoProj.m_afArray [12] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
-
-		OrthoProj.m_afArray [5] = 2 / (a_fTop - a_fBottom);
-		OrthoProj.m_afArray [13] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
-
-		OrthoProj.m_afArray [10] = -2 / (a_fFar - a_fNear);
-		OrthoProj.m_afArray [14] = -( (a_fFar + a_fNear) / (a_fFar - a_fNear));
-
-		return OrthoProj;
-	}
-
-	Matrix4 Matrix4::MakeOrthoProjMatrix(float a_fLeft,
-		float a_fRight,
-		float a_fTop,
-		float a_fBottom,
-		float a_fFar,
-		float a_fNear)
-	{
-		Matrix4 OrthoProj;
-
-		OrthoProj.IdentityMatrix();
-
-		OrthoProj.m_afArray [0] = 2 / (a_fRight - a_fLeft);
+        // If there isn't a destination, just make one and return it
+        if (a_Dest == nullptr)
+        {
+		    Matrix4 OrthoProj;
 
 
-		OrthoProj.m_afArray [5] = 2 / (a_fTop - a_fBottom);
+		    OrthoProj.m_afArray[0] = 2.0f / (a_fRight - a_fLeft);
+            OrthoProj.m_afArray[1] = 0.0f;
+            OrthoProj.m_afArray[2] = 0.0f;
+            OrthoProj.m_afArray[3] = 0.0f;
+            OrthoProj.m_afArray[4] = 0.0f;
+		    OrthoProj.m_afArray[5] = 2.0f / (a_fTop - a_fBottom);
+            OrthoProj.m_afArray[6] = 0.0f;
+            OrthoProj.m_afArray[7] = 0.0f;
+            OrthoProj.m_afArray[8] = 0.0f;
+            OrthoProj.m_afArray[9] = 0.0f;
+		    OrthoProj.m_afArray[10] = 2.0f / (a_fNear - a_fFar);
+            OrthoProj.m_afArray[11] = 0.0f;
+            OrthoProj.m_afArray[12] = (a_fLeft + a_fRight) / (a_fLeft - a_fRight);
+            OrthoProj.m_afArray[13] = (a_fBottom + a_fTop) / (a_fBottom - a_fTop);
+            OrthoProj.m_afArray[14] = (-(a_fNear + a_fFar)/(a_fFar - a_fNear));
+            OrthoProj.m_afArray[15] = 1.0f;
 
+		    return OrthoProj;
+        }
+        // If there is a destination, return a copy of that matrix4 after we're done modifying it
+        else
+        {
+		    a_Dest->m_afArray[0] = 2.0f / (a_fRight - a_fLeft);
+            a_Dest->m_afArray[1] = 0.0f;
+            a_Dest->m_afArray[2] = 0.0f;
+            a_Dest->m_afArray[3] = 0.0f;
+            a_Dest->m_afArray[4] = 0.0f;
+		    a_Dest->m_afArray[5] = 2.0f / (a_fTop - a_fBottom);
+            a_Dest->m_afArray[6] = 0.0f;
+            a_Dest->m_afArray[7] = 0.0f;
+            a_Dest->m_afArray[8] = 0.0f;
+            a_Dest->m_afArray[9] = 0.0f;
+		    a_Dest->m_afArray[10] = 2.0f / (a_fNear - a_fFar);
+            a_Dest->m_afArray[11] = 0.0f;
+            a_Dest->m_afArray[12] = (a_fLeft + a_fRight) / (a_fLeft - a_fRight);
+            a_Dest->m_afArray[13] = (a_fBottom + a_fTop) / (a_fBottom - a_fTop);
+            a_Dest->m_afArray[14] = (-(a_fNear + a_fFar)/(a_fFar - a_fNear));
+            a_Dest->m_afArray[15] = 1.0f;
 
-		OrthoProj.m_afArray [10] = -1 / (a_fFar - a_fNear);
+            return *a_Dest;
+        }
 
-		OrthoProj.m_afArray [3] = -( (a_fRight + a_fLeft) / (a_fRight - a_fLeft));
-		OrthoProj.m_afArray [7] = -( (a_fTop + a_fBottom) / (a_fTop - a_fBottom));
-		OrthoProj.m_afArray [11] = a_fNear / (a_fFar - a_fNear);
-
-		return OrthoProj;
 	}
 
 	tbyte::Vector4 Matrix4::Scale(const tbyte::Vector4 &a_Vector)
@@ -214,7 +221,8 @@ namespace tbyte
 
 		return temp;
 	}
-	tbyte::Vector4 Matrix4::VectorTransform(const tbyte::Vector4 &a_Vector)
+
+    tbyte::Vector4 Matrix4::VectorTransform(const tbyte::Vector4 &a_Vector)
 	{
 		tbyte::Vector4 temp;
 		temp.m_fX = a_Vector.m_fX * m_afArray[0] + a_Vector.m_fY * m_afArray[1] + a_Vector.m_fZ * m_afArray[2] + a_Vector.m_fW * m_afArray[3];
@@ -235,7 +243,7 @@ namespace tbyte
 		return temp;
 	}
 
-	Matrix4 Matrix4::operator+ (const Matrix4 &a_Addend)
+	Matrix4 Matrix4::operator +  (const Matrix4 &a_Addend)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -251,7 +259,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator+ (const float &a_AddendScalar)
+	Matrix4 Matrix4::operator +  (const float &a_AddendScalar)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -267,19 +275,19 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator+= (const Matrix4 &a_Addend)
+	Matrix4 Matrix4::operator += (const Matrix4 &a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator+= (const float &a_AddendScalar)
+	Matrix4 Matrix4::operator += (const float &a_AddendScalar)
 	{
 		(*this) = (*this) + a_AddendScalar;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator- (const Matrix4 &a_Subtrahend)
+	Matrix4 Matrix4::operator -  (const Matrix4 &a_Subtrahend)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -295,7 +303,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator- (const float &a_SubtrahendScalar)
+	Matrix4 Matrix4::operator -  (const float &a_SubtrahendScalar)
 	{
 		Matrix4 tempMatrix = *this;
 
@@ -309,20 +317,19 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator-= (const Matrix4 &a_Subtrahend)
+	Matrix4 Matrix4::operator -= (const Matrix4 &a_Subtrahend)
 	{
 		(*this) = (*this) - a_Subtrahend;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator-= (const float &a_SubtrahendScalar)
+	Matrix4 Matrix4::operator -= (const float &a_SubtrahendScalar)
 	{
 		(*this) = (*this) - a_SubtrahendScalar;
 		return (*this);
 	}
 
-	// Lazy to hard code all of the matrix concatenation stuff so will leave as is
-	Matrix4	Matrix4::operator * (const Matrix4 &a_Factor)
+	Matrix4	Matrix4::operator *  (const Matrix4 &a_Factor)
 	{
 		Matrix4 tempMatrix;
 
@@ -414,7 +421,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4	Matrix4::operator * (const float &a_FactorScalar)
+	Matrix4	Matrix4::operator *  (const float &a_FactorScalar)
 	{
 		Matrix4 tempMatrix;
 
@@ -427,7 +434,7 @@ namespace tbyte
 		return tempMatrix;
 	}
 
-	Matrix4 Matrix4::operator = (const Matrix4 &a_Source)
+	Matrix4 Matrix4::operator =  (const Matrix4 &a_Source)
 	{
 		// avoid self-assignment
 		if (this == &a_Source)
@@ -445,13 +452,13 @@ namespace tbyte
 		return *this;
 	}
 
-	Matrix4 Matrix4::operator*= (const Matrix4 &a_Factor)
+	Matrix4 Matrix4::operator *= (const Matrix4 &a_Factor)
 	{
 		(*this) = (*this) * a_Factor;
 		return (*this);
 	}
 
-	Matrix4 Matrix4::operator*= (const float &a_FactorScalar)
+	Matrix4 Matrix4::operator *= (const float &a_FactorScalar)
 	{
 		(*this) = (*this) * a_FactorScalar;
 		return (*this);

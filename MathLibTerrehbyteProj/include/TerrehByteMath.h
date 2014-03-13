@@ -260,20 +260,13 @@ namespace tbyte
 		static Matrix4 IdentityMatrix();
 
 		// Assigns & Returns the Orthographic Project Matrix that was created
-		Matrix4 MakeOGLOrthoProjMatrix(float a_fLeft,
-									float a_fRight,
-									float a_fTop,
-									float a_fBottom,
-									float a_fFar,
-									float a_fNear);
-
-		// Assigns & Returns the Orthographic Project Matrix that was created
-		Matrix4 MakeOrthoProjMatrix(float a_fLeft,
-									float a_fRight,
-									float a_fTop,
-									float a_fBottom,
-									float a_fFar,
-									float a_fNear);
+		static Matrix4 MakeOrthoProj(const float &a_fLeft,
+                                           const float &a_fRight,
+                                           const float &a_fTop,
+                                           const float &a_fBottom,
+                                           const float &a_fFar,
+                                           const float &a_fNear,
+                                           Matrix4 * a_Dest = nullptr);
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
 		tbyte::Vector4 Scale(const tbyte::Vector4 &a_Vector);
