@@ -12,22 +12,22 @@ using std::map;
 
 namespace tbyte
 {
-	float LERP(float a_First, float a_Second, float a_InterpolationValue)
+	float LERP(const float &a_First, const float &a_Second, const float &a_InterpolationValue)
 	{
 		return a_First + (a_Second - a_First) * a_InterpolationValue;
 	}
 
-	float DegreesToRadians(float a_fDegrees)
+	float DegreesToRadians(const float &a_fDegrees)
 	{
 		return a_fDegrees * (M_PI / 180.0f);
 	}
 
-	float RadiansToDegrees(float a_fRadians)
+	float RadiansToDegrees(const float &a_fRadians)
 	{
 		return a_fRadians * (180.f / M_PI);
 	}
 
-	bool CheckPowerOfTwo(double a_dTestNumber)
+	bool CheckPowerOfTwo(const double &a_dTestNumber)
 	{
 		// Cache of Calculated Values
 		static map<int, float> Cache;

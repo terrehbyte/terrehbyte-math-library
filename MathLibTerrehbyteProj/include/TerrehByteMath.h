@@ -195,6 +195,7 @@ namespace tbyte
 		//For better OpenGL use Column Major Order
 				float m_afArray[9];
 
+        // Transposes the matrix
 		void Transpose();
 
 		// Returns a point that has been transformed by the Matrix3 caller
@@ -249,7 +250,7 @@ namespace tbyte
 		//For better OpenGL use Column Major Order
 		float m_afArray[16];
 
-		// Returns the matrix, but transposed
+		// Transposes the matrix
 		void Transpose();
 
 		// Returns a point that has been transformed by the Matrix caller
@@ -312,16 +313,16 @@ namespace tbyte
 	/* General Mathematical Functions */
 
 	// Linear Interpolation for Scalar Values
-	float DLLEXPORT LERP(float a_First, float a_Second, float a_InterpolationValue);
+	float DLLEXPORT LERP(const float &a_First, const float &a_Second, const float &a_InterpolationValue);
 
-	// Convert Deg to Radians
-	float DLLEXPORT DegreesToRadians(float a_fDegrees);
+	// Returns Degrees as Radians
+	float DLLEXPORT DegreesToRadians(const float &a_fDegrees);
 
-	// Convert Radians to Deg
-	float DLLEXPORT RadiansToDegrees(float a_fRadians);
+	// Returns Radians as Degrees
+	float DLLEXPORT RadiansToDegrees(const float &a_fRadians);
 
 	// Test Scalar Value if Power of Two
-	bool DLLEXPORT CheckPowerOfTwo(double a_dTestNumber);
+	bool DLLEXPORT CheckPowerOfTwo(const double &a_dTestNumber);
 
 	// Shift a Given Value to the Next Power of Two
 	double DLLEXPORT ShiftNextPowerOfTwo(double &a_dTestNumber);
