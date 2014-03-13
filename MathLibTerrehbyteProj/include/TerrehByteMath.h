@@ -187,6 +187,17 @@ namespace tbyte
 
 		Matrix3();
 
+        Matrix3(const float &a_f0,
+                const float &a_f1,
+                const float &a_f2,
+                const float &a_f3,
+                const float &a_f4,
+                const float &a_f5,
+                const float &a_f6,
+                const float &a_f7,
+                const float &a_f8);
+
+
 		Matrix3(const Matrix3 &a_Source);
 
 		~Matrix3();
@@ -242,6 +253,23 @@ namespace tbyte
 
 	public:
 		Matrix4();
+
+        Matrix4(const float &a_f0,
+                const float &a_f1,
+                const float &a_f2,
+                const float &a_f3,
+                const float &a_f4,
+                const float &a_f5,
+                const float &a_f6,
+                const float &a_f7,
+                const float &a_f8,
+                const float &a_f9,
+                const float &a_f10,
+                const float &a_f11,
+                const float &a_f12,
+                const float &a_f13,
+                const float &a_f14,
+                const float &a_f15);
 
 		Matrix4(const Matrix4 &a_Source);
 

@@ -14,6 +14,27 @@ namespace tbyte
 	{
 	}
 
+    Matrix3::Matrix3(const float &a_f0,
+                     const float &a_f1,
+                     const float &a_f2,
+                     const float &a_f3,
+                     const float &a_f4,
+                     const float &a_f5,
+                     const float &a_f6,
+                     const float &a_f7,
+                     const float &a_f8)
+    {
+        m_afArray[0] = a_f0;
+        m_afArray[1] = a_f1;
+        m_afArray[2] = a_f2;
+        m_afArray[3] = a_f3;
+        m_afArray[4] = a_f4;
+        m_afArray[5] = a_f5;
+        m_afArray[6] = a_f6;
+        m_afArray[7] = a_f7;
+        m_afArray[8] = a_f8;
+    }
+
 	Matrix3::Matrix3(const Matrix3 &a_Source)
 	{
 		for (int i = 0;
