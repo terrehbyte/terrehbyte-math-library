@@ -62,29 +62,31 @@ namespace tbyte
 		m_fW = 0;
 	}
 
-	Vector4 Vector4::ConstructFromHex(
-		float a_iRED,
-		float a_iGREEN,
-		float a_iBLUE,
-		float a_iALPHA
-		)
-	{	
-		m_fW = a_iRED   / 255;
-		m_fX = a_iGREEN / 255;
-		m_fY = a_iBLUE  / 255;
-		m_fZ = a_iALPHA / 255;
+	Vector4 Vector4::ConstructFromHex(float a_iRED,
+		                              float a_iGREEN,
+		                              float a_iBLUE,
+		                              float a_iALPHA)
+	{
+        Vector4 Color;
+		
+        Color.m_fW = a_iRED   / 255;
+		Color.m_fX = a_iGREEN / 255;
+		Color.m_fY = a_iBLUE  / 255;
+		Color.m_fZ = a_iALPHA / 255;
 
-		return (*this);
+		return (Color);
 	}
 
 	Vector4 Vector4::ConstructFromHex(int a_iHEXValue)
 	{	
-		m_fW = ((a_iHEXValue >> 24) & 0xFF) / 255.0f;
-		m_fX = ((a_iHEXValue >> 16) & 0xFF) / 255.0f;
-		m_fY = ((a_iHEXValue >> 8) & 0xFF) / 255.0f;
-		m_fZ = ((a_iHEXValue) & 0xFF) / 255.0f;
+        Vector4 Color;
 
-		return (*this);
+		Color.m_fW = ((a_iHEXValue >> 24) & 0xFF) / 255.0f;
+		Color.m_fX = ((a_iHEXValue >> 16) & 0xFF) / 255.0f;
+		Color.m_fY = ((a_iHEXValue >> 8) & 0xFF) / 255.0f;
+		Color.m_fZ = ((a_iHEXValue) & 0xFF) / 255.0f;
+
+		return (Color);
 	}
 	Vector4 Vector4::CrossProduct(const Vector4 &a_Term) 
 	{

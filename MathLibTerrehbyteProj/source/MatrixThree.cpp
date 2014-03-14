@@ -103,11 +103,9 @@ namespace tbyte
 		temp.m_afArray[8] = 1;
 
 		return temp;
-
-	
 	}
 
-	float Matrix3::GetDeterminant()
+	float Matrix3::Determinant()
 	{
 		float fDeterminant;
 
@@ -147,7 +145,7 @@ namespace tbyte
 		temp.m_afArray[5] = std::sin(a_Radians) * -1;
 		temp.m_afArray[8] = std::cos(a_Radians);
 
-	return temp;
+	    return temp;
 	}
 	
 	Matrix3 Matrix3::MakeYRotationMatrix(float a_Radians)
