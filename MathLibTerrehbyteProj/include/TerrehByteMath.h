@@ -215,7 +215,7 @@ namespace tbyte
 		static Matrix3 IdentityMatrix();
 
 		// Returns the determinant of the matrix
-		float GetDeterminant();
+		float Determinant();
 
 		// Returns a Vector4 that has been scaled by the Matrix caller
 		tbyte::Vector4 Scale(const tbyte::Vector4 &a_Vector);
