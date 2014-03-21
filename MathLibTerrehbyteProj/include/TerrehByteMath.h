@@ -214,9 +214,6 @@ namespace tbyte
 		// Returns the Identity Matrix for 3x3
 		static Matrix3 IdentityMatrix();
 
-		// Returns the determinant of the matrix
-		float Determinant();
-
 		// Returns a Vector4 that has been scaled by the Matrix caller
 		tbyte::Vector4 Scale(const tbyte::Vector4 &a_Vector);
 		tbyte::Vector3 Scale(const tbyte::Vector3 &a_Vector);
