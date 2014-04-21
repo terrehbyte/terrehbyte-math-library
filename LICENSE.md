@@ -6,6 +6,11 @@ Other included libraries, if any, are licensed under their own respective licens
 They may be listed below for your convenience, but it is by no means guaranteed to be
 a comprehensive list.
 
+Python License
+--
+
+Licensing information for Python 3, the version used for this project, can be found at the [Python wiki](https://docs.python.org/3/license.html).
+
 zlib License
 --
 
