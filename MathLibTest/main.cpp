@@ -1,10 +1,11 @@
+// Google Test
+//  - for more tests and help, see http://code.google.com/p/googletest/wiki/V1_7_Primer
 #include <gtest\gtest.h>
 
-TEST(MathTest, OnePlusOne)
-{
-    EXPECT_EQ(2, 1+1);
-}
+// Math Library
+#include <TerrehByteMath.h>
 
+// Program Entry Point
 int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);

@@ -148,12 +148,14 @@ namespace tbyte
 
 	Vector2	Vector2::operator -= (const Vector2 &a_Subtrahend)
 	{
-		return (*this) - a_Subtrahend;
+        (*this) = (*this) - a_Subtrahend;
+		return (*this);
 	}
 
 	Vector2	Vector2::operator -= (const float &a_fSubtrahendScalar)
 	{
-		return (*this) - a_fSubtrahendScalar;
+        (*this)= (*this) - a_fSubtrahendScalar;
+		return (*this);
 	}
 
 	Vector2 Vector2::operator * (const float &a_fScalar)
