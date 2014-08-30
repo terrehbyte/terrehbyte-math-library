@@ -3,6 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathLibTerrehbyte", "MathLibTerrehbyteProj\MathLibTerrehbyte.vcxproj", "{8F6C761B-01D8-41B3-8AC7-E0DC616EE144}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MathLibTest", "MathLibTest\MathLibTest.vcxproj", "{AF27FAB7-0D09-4323-AEEC-701F024948A1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8F6C761B-01D8-41B3-8AC7-E0DC616EE144} = {8F6C761B-01D8-41B3-8AC7-E0DC616EE144}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "MathLibTest\lib\gtest-1.7.0\msvc\gtest.vcxproj", "{C8F6C172-56F2-4E76-B5FA-C3B423B31BE7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest_main", "MathLibTest\lib\gtest-1.7.0\msvc\gtest_main.vcxproj", "{3AF54C8A-10BF-4332-9147-F68ED9862032}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +22,18 @@ Global
 		{8F6C761B-01D8-41B3-8AC7-E0DC616EE144}.Debug|Win32.Build.0 = Debug|Win32
 		{8F6C761B-01D8-41B3-8AC7-E0DC616EE144}.Release|Win32.ActiveCfg = Release|Win32
 		{8F6C761B-01D8-41B3-8AC7-E0DC616EE144}.Release|Win32.Build.0 = Release|Win32
+		{AF27FAB7-0D09-4323-AEEC-701F024948A1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AF27FAB7-0D09-4323-AEEC-701F024948A1}.Debug|Win32.Build.0 = Debug|Win32
+		{AF27FAB7-0D09-4323-AEEC-701F024948A1}.Release|Win32.ActiveCfg = Release|Win32
+		{AF27FAB7-0D09-4323-AEEC-701F024948A1}.Release|Win32.Build.0 = Release|Win32
+		{C8F6C172-56F2-4E76-B5FA-C3B423B31BE7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C8F6C172-56F2-4E76-B5FA-C3B423B31BE7}.Debug|Win32.Build.0 = Debug|Win32
+		{C8F6C172-56F2-4E76-B5FA-C3B423B31BE7}.Release|Win32.ActiveCfg = Release|Win32
+		{C8F6C172-56F2-4E76-B5FA-C3B423B31BE7}.Release|Win32.Build.0 = Release|Win32
+		{3AF54C8A-10BF-4332-9147-F68ED9862032}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3AF54C8A-10BF-4332-9147-F68ED9862032}.Debug|Win32.Build.0 = Debug|Win32
+		{3AF54C8A-10BF-4332-9147-F68ED9862032}.Release|Win32.ActiveCfg = Release|Win32
+		{3AF54C8A-10BF-4332-9147-F68ED9862032}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
