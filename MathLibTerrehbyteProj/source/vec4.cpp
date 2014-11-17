@@ -49,10 +49,8 @@ namespace tbyte
 	{
 		Vector4 temp = (*this);
 
-		float fMagnitude = Magnitude();
-
-		temp /= fMagnitude;
-		temp.m_fW = 0;
+		if (Magnitude() == 0.0f) return Vector4(0, 0, 0, 0);
+		temp /= Magnitude();
 
 		return temp;
 	}
@@ -62,7 +60,7 @@ namespace tbyte
 		m_fX /= fMag;
 		m_fY /= fMag;
 		m_fZ /= fMag;
-		m_fW = 0;
+		m_fW /= fMag;
 	}
 
 	Vector4 Vector4::ConstructFromHex(float a_iRED,
@@ -136,13 +134,13 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4	Vector4::operator += (const Vector4 &a_Addend)
+	Vector4& Vector4::operator += (const Vector4 &a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
 		return (*this);
 	}
 
-	Vector4 Vector4::operator += (const float &a_fAddendScalar)
+	Vector4& Vector4::operator += (const float &a_fAddendScalar)
 	{
 		(*this) = (*this) + a_fAddendScalar;
 		return (*this);
@@ -171,13 +169,13 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4	Vector4::operator -= (const Vector4 &a_Subtrahend)
+	Vector4&	Vector4::operator -= (const Vector4 &a_Subtrahend)
 	{
 		(*this) = (*this) - a_Subtrahend;
 		return (*this);
 	}
 
-	Vector4	Vector4::operator -= (const float &a_fSubtrahendScalar)
+	Vector4&	Vector4::operator -= (const float &a_fSubtrahendScalar)
 	{
 		(*this) = (*this) - a_fSubtrahendScalar;
 		return (*this);
@@ -195,7 +193,7 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4 Vector4::operator *= (const float &a_fScalar)
+	Vector4& Vector4::operator *= (const float &a_fScalar)
 	{
 		(*this) = (*this) * a_fScalar;
 		return (*this);
@@ -213,14 +211,14 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4 Vector4::operator /= (const float &a_fScalar)
+	Vector4& Vector4::operator /= (const float &a_fScalar)
 	{
 		(*this) = (*this) / a_fScalar;
 		return (*this);
 	}
 
 	// Assignment Operator - Assigns the values of an existing Vector4 to another existing Vector4
-	Vector4	Vector4::operator = (const Vector4 &a_Source)
+	Vector4&	Vector4::operator = (const Vector4 &a_Source)
 	{
 		// avoid self-assignment
 		if (this == &a_Source)
