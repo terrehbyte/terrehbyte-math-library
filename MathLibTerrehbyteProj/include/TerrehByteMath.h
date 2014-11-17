@@ -143,9 +143,15 @@ namespace tbyte
 		// Returns the magnitude of the vector
 		float	Magnitude();
 
-		// Return what the caller would be when normalized
+		/*
+		can check returned Vector4 for Vector4(0,0,0,0) to see if failed
+		*/
 		Vector4	Normal();
-		void Normalise();
+		
+		/*
+		return true if able to normalize else returns false (i.e. Magnitude() == 0
+		*/
+		bool Normalise();
 
 		Vector4 CrossProduct(const Vector4 &a_Term);
 		float DotProduct(const Vector4 &a_Term) ;
@@ -162,22 +168,23 @@ namespace tbyte
 		// Operators overloaded - see parameters
 		Vector4	operator + (const Vector4 &a_Addend);
 		Vector4	operator + (const float &a_fAddendScalar);
-		Vector4	operator += (const Vector4 &a_Addend);
-		Vector4 operator += (const float &a_fAddendScalar);
+		Vector4& operator += (const Vector4 &a_Addend);
+		Vector4& operator += (const float &a_fAddendScalar);
 
 		Vector4 operator - (const Vector4 &a_Subtrahend);
 		Vector4 operator - (const float &a_fSubtrahendScalar);
-		Vector4 operator -= (const Vector4 &a_Addend);
-		Vector4 operator -= (const float &a_fSubtrahendScalar);
+		Vector4& operator -= (const Vector4 &a_Addend);
+		Vector4& operator -= (const float &a_fSubtrahendScalar);
 
 		Vector4 operator * (const float &a_fScalar);
-		Vector4 operator *= (const float &a_fScalar);
+		Vector4& operator *= (const float &a_fScalar);
 
 		Vector4 operator / (const float &a_fScalar);	
-		Vector4 operator /= (const float &a_fScalar);
+		Vector4& operator /= (const float &a_fScalar);
 
-		Vector4	operator = (const Vector4 &a_Source);
-		bool	operator == (const Vector4 &a_Source);
+		Vector4& operator = (const Vector4 &a_Source);
+		bool operator == (const Vector4 &a_Source);
+		bool operator!=(const Vector4& rhs);
 	};
 	class DLLEXPORT Matrix3
 	{
