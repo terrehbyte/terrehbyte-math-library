@@ -44,6 +44,9 @@ namespace tbyte
 
 	Vector4 Vector4::Normal()
 	{
+		/*
+		Beware Magnitude of zero!!
+		*/
 		Vector4 temp = (*this);
 
 		float fMagnitude = Magnitude();
@@ -55,6 +58,9 @@ namespace tbyte
 	}
 	void Vector4::Normalise()
 	{
+		/*
+		Beware Magnitude of zero!!
+		*/
 		float fMag = Magnitude();
 		m_fX /= fMag;
 		m_fY /= fMag;
@@ -120,6 +126,9 @@ namespace tbyte
 	
 	Vector4 Vector4::operator + (const float &a_fAddendScalar)
 	{
+		/*
+		adding scalar to vector MAKES NO SENSE!!
+		*/
 		// Create a temp Vector4
 		Vector4 temp = (*this);
 
@@ -133,12 +142,16 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4	Vector4::operator += (const Vector4 &a_Addend)
+	//BUGBUG:: you are returning a copy of 'this' not the reference!!
+	//maybe tests should have caught??
+	//Vector4	Vector4::operator += (const Vector4 &a_Addend)
+	Vector4&	Vector4::operator += (const Vector4 &a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
 		return (*this);
 	}
 
+/*bugbug::see above*/
 	Vector4 Vector4::operator += (const float &a_fAddendScalar)
 	{
 		(*this) = (*this) + a_fAddendScalar;
@@ -216,6 +229,7 @@ namespace tbyte
 		return (*this);
 	}
 
+//bugbug:: same problem, you are returning a new copy of 'this' not a reference to actual object
 	// Assignment Operator - Assigns the values of an existing Vector4 to another existing Vector4
 	Vector4	Vector4::operator = (const Vector4 &a_Source)
 	{
@@ -247,4 +261,9 @@ namespace tbyte
 			return false;
 		}
 	}
+	
+	/*
+	where is the operator!=?
+	good form to provide != if you overload ==
+	*/
 }
