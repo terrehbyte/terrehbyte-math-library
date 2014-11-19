@@ -74,15 +74,10 @@ namespace tbyte
 
 	Vector2 Vector2::Lerp(const Vector2 &a_TerminatingVector, const float &a_fInterpPoint)
 	{
-		Vector2 InterpolatedVector;
-		InterpolatedVector.m_fX = a_fInterpPoint;
-		
-		float InterpValue;
+		Vector2 start = (*this);
+		Vector2 end = a_TerminatingVector;
 
-		InterpValue = ( (a_fInterpPoint - m_fX) * (a_TerminatingVector.m_fY - m_fY) ) / (a_TerminatingVector.m_fX - m_fX);
-		InterpValue += m_fY;
-
-		InterpolatedVector.m_fY = InterpValue;
+		Vector2 InterpolatedVector = (*this) + (end - start) * a_fInterpPoint;
 
 		return InterpolatedVector;
 	}
