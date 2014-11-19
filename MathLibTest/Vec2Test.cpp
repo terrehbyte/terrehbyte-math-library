@@ -30,8 +30,8 @@ protected:
         Vec2A.m_fX = 1.0f;
         Vec2A.m_fY = 1.0f;
 
-        Vec2B.m_fX = 0.1f;
-        Vec2B.m_fY = 0.1f;
+        Vec2B.m_fX = 3.1f;
+        Vec2B.m_fY = -0.4f;
 
         Vec2C.m_fX = 5.5f;
         Vec2C.m_fY = 3.8f;
@@ -60,83 +60,54 @@ protected:
 // ----------------
 
 // # Constructors
+
 // ## Parameterized Ctors
 TEST_F(Vec2Test, FloatCtor)
 {
-    Vector2 TestVec = Vector2(0.0f, 0.0f);
-
-    ASSERT_FLOAT_EQ(0.0f, TestVec.m_fX);
-    ASSERT_FLOAT_EQ(0.0f, TestVec.m_fY);
+	ASSERT_FLOAT_EQ(0.0f, Vector2(0.0f, 0.0f).m_fX);
+	ASSERT_FLOAT_EQ(0.0f, Vector2(0.0f, 0.0f).m_fY);
 }
 
 // ## Copy Constructor
 TEST_F(Vec2Test, Vec2Copy)
 {
     // compare that the values are the same
-    Vector2 TestVecA;
+	Vector2 TestVecA = Vec2One;
 
-    TestVecA.m_fX = 3.0f;
-    TestVecA.m_fY = 3.0f;
-
-    Vector2 TestVecB = TestVecA;
-
-    ASSERT_FLOAT_EQ(TestVecA.m_fX, TestVecB.m_fX);
-    ASSERT_FLOAT_EQ(TestVecA.m_fY, TestVecB.m_fY);
+    ASSERT_FLOAT_EQ(Vec2One.m_fX, TestVecA.m_fX);
+    ASSERT_FLOAT_EQ(Vec2One.m_fY, TestVecA.m_fY);
 }
 
 // # Operators
+
 // ## Addition
 TEST_F(Vec2Test, Add)
 {
-	// manually check against math
-	Vector2 TestVecA;
-	TestVecA.m_fX = 1.3f;
-	TestVecA.m_fY = 1.4f;
-
-	Vector2 TestVecB;
-	TestVecB.m_fX = 1.7f;
-	TestVecB.m_fY = 1.6f;
-
-	ASSERT_FLOAT_EQ(3.0f, (TestVecA.m_fX + TestVecB.m_fX));
-	ASSERT_FLOAT_EQ(3.0f, (TestVecA.m_fY + TestVecB.m_fY));
+	ASSERT_FLOAT_EQ(3.0f, (Vec2One + Vec2Two).m_fX);
+	ASSERT_FLOAT_EQ(3.0f, (Vec2One + Vec2Two).m_fY);
 }
 TEST_F(Vec2Test, AddScalar)
 {
-    Vector2 TestVecA;
-    TestVecA.m_fX = 1.0f;
-    TestVecA.m_fY = 1.0f;
-
-    TestVecA = TestVecA + 1;
-
-    ASSERT_FLOAT_EQ(2.0f, TestVecA.m_fX);
-    ASSERT_FLOAT_EQ(2.0f, TestVecA.m_fY);
+	ASSERT_FLOAT_EQ(2.0f, (Vec2One + 1).m_fX);
+	ASSERT_FLOAT_EQ(2.0f, (Vec2One + 1).m_fY);
 }
 TEST_F(Vec2Test, AddEqual)
 {
-    // manually check against math
+	Vector2 result;
+	result.m_fX = 1;
+	result.m_fY = 1;
 
-    Vector2 TestVecA;
-    TestVecA.m_fX = 1.3f;
-    TestVecA.m_fY = 1.4f;
-
-    Vector2 TestVecB;
-    TestVecB.m_fX = 1.7f;
-    TestVecB.m_fY = 1.6f;
-
-    Vector2 TestVecC;
-    TestVecC.m_fX = TestVecA.m_fX;
-    TestVecC.m_fY = TestVecA.m_fY;
-
-    TestVecC += TestVecB;
-
-    ASSERT_FLOAT_EQ(3.0f, TestVecC.m_fX);
-    ASSERT_FLOAT_EQ(3.0f, TestVecC.m_fY);
+	result += Vec2Two;
+	
+    ASSERT_FLOAT_EQ(3.0f, result.m_fX);
+    ASSERT_FLOAT_EQ(3.0f, result.m_fY);
 }
 TEST_F(Vec2Test, AddEqualScalar)
 {
     Vector2 TestVecA;
     TestVecA.m_fX = 1.0f;
     TestVecA.m_fY = 2.0f;
+
     TestVecA += 1;
 
     ASSERT_FLOAT_EQ(2.0f, TestVecA.m_fX);
@@ -146,82 +117,45 @@ TEST_F(Vec2Test, AddEqualScalar)
 // ## Subtraction
 TEST_F(Vec2Test, Sub)
 {
-    // manually check against math
-    Vector2 TestVecA;
-    TestVecA.m_fX = 5.0f;
-    TestVecA.m_fY = 5.0f;
-
-    Vector2 TestVecB;
-    TestVecB.m_fX = 4.0f;
-    TestVecB.m_fY = 4.0f;
-
-    ASSERT_FLOAT_EQ(1.0f, (TestVecA.m_fX - TestVecB.m_fX));
-    ASSERT_FLOAT_EQ(1.0f, (TestVecA.m_fY - TestVecB.m_fY));
+	ASSERT_FLOAT_EQ(-1.0f, (Vec2One - Vec2Two).m_fX);
+	ASSERT_FLOAT_EQ(-1.0f, (Vec2One - Vec2Two).m_fY);
 }
 TEST_F(Vec2Test, SubScalar)
 {
-    Vector2 TestVecA;
-    TestVecA.m_fX = 2.0f;
-    TestVecA.m_fY = 2.0f;
-
-    TestVecA = TestVecA - 1;
-
-    ASSERT_FLOAT_EQ(1.0f, TestVecA.m_fX);
-    ASSERT_FLOAT_EQ(1.0f, TestVecA.m_fY);
+	ASSERT_FLOAT_EQ(0.0f, (Vec2One - 1).m_fX);
+	ASSERT_FLOAT_EQ(0.0f, (Vec2One - 1).m_fY);
 }
 TEST_F(Vec2Test, SubEqual)
 {
-    // manually check against math
+    Vector2 result;
+	result.m_fX = 1;
+	result.m_fY = 1;
 
-    Vector2 TestVecA;
-    TestVecA.m_fX = 7.0f;
-    TestVecA.m_fY = 5.0f;
+	result -= Vec2Two;
 
-    Vector2 TestVecB;
-    TestVecB.m_fX = 3.0f;
-    TestVecB.m_fY = 4.0f;
-
-    Vector2 TestVecC;
-    TestVecC.m_fX = TestVecA.m_fX;
-    TestVecC.m_fY = TestVecA.m_fY;
-
-    TestVecC -= TestVecB;
-
-    ASSERT_FLOAT_EQ(4.0f, TestVecC.m_fX);
-    ASSERT_FLOAT_EQ(1.0f, TestVecC.m_fY);
+	ASSERT_FLOAT_EQ(-1.0f, result.m_fX);
+	ASSERT_FLOAT_EQ(-1.0f, result.m_fY);
 }
 TEST_F(Vec2Test, SubEqualScalar)
 {
-    Vector2 TestVecA;
-    TestVecA.m_fX = 4.0f;
-    TestVecA.m_fY = 2.0f;
-    TestVecA -= 1;
+	Vec2B -= 2;
 
-    ASSERT_FLOAT_EQ(3.0f, TestVecA.m_fX);
-    ASSERT_FLOAT_EQ(1.0f, TestVecA.m_fY);
+    ASSERT_FLOAT_EQ(1.1f, Vec2B.m_fX);
+	ASSERT_FLOAT_EQ(-2.4f, Vec2B.m_fY);
 }
 
 // ## Multiplication
 TEST_F(Vec2Test, MultiScalar)
 {
-    Vector2 TestVecA;
-    TestVecA.m_fX = 6.0f;
-    TestVecA.m_fY = 4.7f;
-	TestVecA = TestVecA * 2;
-
-	ASSERT_FLOAT_EQ(12.0f, TestVecA.m_fX);
-	ASSERT_FLOAT_EQ(9.4f, TestVecA.m_fY);
+	ASSERT_FLOAT_EQ(11.0f,(Vec2C * 2.f).m_fX);
+	ASSERT_FLOAT_EQ(7.6f, (Vec2C * 2.f).m_fY);
 }
 TEST_F(Vec2Test, MultiEqualScalar)
 {
-	Vector2 TestVecA;
-	TestVecA.m_fX = 4.2f;
-	TestVecA.m_fY = 7.9f;
+	Vec2B *= 3.5f;
 
-	TestVecA *= 3;
-
-	ASSERT_FLOAT_EQ(12.6f, TestVecA.m_fX);
-	ASSERT_FLOAT_EQ(23.7f, TestVecA.m_fY);
+	ASSERT_FLOAT_EQ(10.85f, Vec2B.m_fX);
+	ASSERT_FLOAT_EQ(-1.4f, Vec2B.m_fY);
 }
 
 // ## Division
