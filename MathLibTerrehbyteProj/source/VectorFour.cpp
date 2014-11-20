@@ -42,24 +42,38 @@ namespace tbyte
 					m_fW * m_fW);
 	}
 
+	/*
+	can check returned Vector4 for Vector4(0,0,0,0) to see if failed
+	*/
 	Vector4 Vector4::Normal()
 	{
 		Vector4 temp = (*this);
 
 		float fMagnitude = Magnitude();
 
+		//if magnitude == 0, return empty vector
+		if (fMagnitude == 0)
+			return Vector4(0,0,0,0);
+
 		temp /= fMagnitude;
 		temp.m_fW = 0;
 
 		return temp;
 	}
-	void Vector4::Normalise()
+	
+	/*
+	return true if able to normalize else returns false (i.e. Magnitude() == 0
+	*/
+	bool Vector4::Normalise()
 	{
 		float fMag = Magnitude();
+		if (fMag == 0)
+			return false;
 		m_fX /= fMag;
 		m_fY /= fMag;
 		m_fZ /= fMag;
 		m_fW = 0;
+		return true;
 	}
 
 	Vector4 Vector4::ConstructFromHex(float a_iRED,
@@ -120,6 +134,9 @@ namespace tbyte
 	
 	Vector4 Vector4::operator + (const float &a_fAddendScalar)
 	{
+		/*
+		adding scalar to vector MAKES NO SENSE!!
+		*/
 		// Create a temp Vector4
 		Vector4 temp = (*this);
 
@@ -133,13 +150,13 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4	Vector4::operator += (const Vector4 &a_Addend)
+	Vector4& Vector4::operator += (const Vector4 &a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
 		return (*this);
 	}
 
-	Vector4 Vector4::operator += (const float &a_fAddendScalar)
+	Vector4& Vector4::operator += (const float &a_fAddendScalar)
 	{
 		(*this) = (*this) + a_fAddendScalar;
 		return (*this);
@@ -168,13 +185,13 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4	Vector4::operator -= (const Vector4 &a_Subtrahend)
+	Vector4& Vector4::operator -= (const Vector4 &a_Subtrahend)
 	{
 		(*this) = (*this) - a_Subtrahend;
 		return (*this);
 	}
 
-	Vector4	Vector4::operator -= (const float &a_fSubtrahendScalar)
+	Vector4& Vector4::operator -= (const float &a_fSubtrahendScalar)
 	{
 		(*this) = (*this) - a_fSubtrahendScalar;
 		return (*this);
@@ -192,7 +209,7 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4 Vector4::operator *= (const float &a_fScalar)
+	Vector4& Vector4::operator *= (const float &a_fScalar)
 	{
 		(*this) = (*this) * a_fScalar;
 		return (*this);
@@ -210,14 +227,13 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector4 Vector4::operator /= (const float &a_fScalar)
+	Vector4& Vector4::operator /= (const float &a_fScalar)
 	{
 		(*this) = (*this) / a_fScalar;
 		return (*this);
 	}
 
-	// Assignment Operator - Assigns the values of an existing Vector4 to another existing Vector4
-	Vector4	Vector4::operator = (const Vector4 &a_Source)
+	Vector4& Vector4::operator = (const Vector4 &a_Source)
 	{
 		// avoid self-assignment
 		if (this == &a_Source)
@@ -232,7 +248,7 @@ namespace tbyte
 		return *this;
 	}
 
-	bool	Vector4::operator == (const Vector4 &a_Source)
+	bool Vector4::operator == (const Vector4 &a_Source)
 	{
 		if (m_fX == a_Source.m_fX &&
 			m_fY == a_Source.m_fY &&
@@ -246,5 +262,10 @@ namespace tbyte
 		{
 			return false;
 		}
+	}
+	
+	bool Vector4::operator!=(const Vector4& rhs)
+	{
+		return !(*this == rhs);
 	}
 }
