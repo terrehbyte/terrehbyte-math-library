@@ -3,7 +3,7 @@
 #include <gtest\gtest.h>
 
 // Math Library
-#include <TerrehByteMath.h>
+#include <tbytemath.h>
 
 // Program Entry Point
 int main(int argc, char **argv)

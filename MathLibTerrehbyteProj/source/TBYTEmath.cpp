@@ -1,12 +1,12 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	TBYTEmath.h
+//	File:	tbytemath.h
 //	Author:	Terry Nguyen
 //	Date:	12/18/2013
 //	Brief:	Provides functions for handling basic mathematical inconveniences
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include <TerrehByteMath.h>
+#include <tbytemath.h>
 
 using std::map;
 

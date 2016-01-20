@@ -1,17 +1,25 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	TerrehByteMath.h
+//	File:	tbytemath.h
 //	Author:	Justin Loudermilk
 //	Date:	03/06/2014
 //	Brief:	Combined all the .h into a single file for ease of including
 //
 //////////////////////////////////////////////////////////////////////////
-#ifndef _TERREH_BYTE_MATH_H_
-#define _TERREH_BYTE_MATH_H_
+#ifndef _TBYTEMATH_H_
+#define _TBYTEMATH_H_
 
-#ifdef DLL
-	#define DLLEXPORT __declspec(dllexport)
-#else
-	#define DLLEXPORT __declspec(dllimport)
+#if !defined(_WIN32) && (defined(__WIN32__) || defined(WIN32) || defined(__MINGW32__))
+	#define _WIN32
+#endif
+
+#ifdef _WIN32
+	#ifdef TBYTEMATH_EXPORT
+		#define TBYTELIB __declspec(dllexport)
+	#elif defined(TBYTEMATH_IMPORT) 
+		#define TBYTELIB __declspec(dllimport)
+	#else
+		#define TBYTELIB
+	#endif
 #endif
 
 // Vector Needs
@@ -23,7 +31,7 @@
 
 namespace tbyte
 {
-	class DLLEXPORT Vector2
+	class TBYTELIB Vector2
 	{
 	public:
 		Vector2();
@@ -72,7 +80,7 @@ namespace tbyte
 		Vector2	operator = (const Vector2 &a_Source);
 		bool	operator == (const Vector2 &a_Source);
 	};
-	class DLLEXPORT Vector3
+	class TBYTELIB Vector3
 	{
 	public:
 		Vector3();
@@ -124,7 +132,7 @@ namespace tbyte
 		Vector3	operator = (const Vector3 &a_Source);
 		bool	operator == (const Vector3 &a_Source);
 	};
-	class DLLEXPORT Vector4
+	class TBYTELIB Vector4
 	{
 	public:
 		Vector4();
@@ -179,7 +187,7 @@ namespace tbyte
 		Vector4	operator = (const Vector4 &a_Source);
 		bool	operator == (const Vector4 &a_Source);
 	};
-	class DLLEXPORT Matrix3
+	class TBYTELIB Matrix3
 	{
 	public:
 
@@ -242,7 +250,7 @@ namespace tbyte
 		Matrix3 operator = (const Matrix3 &a_Source);
 		bool	operator == (const Matrix3 &a_Term);
 	};
-	class DLLEXPORT Matrix4
+	class TBYTELIB Matrix4
 	{
 	private:
 
@@ -329,19 +337,19 @@ namespace tbyte
 	/* General Mathematical Functions */
 
 	// Linear Interpolation for Scalar Values
-	float DLLEXPORT LERP(const float &a_First, const float &a_Second, const float &a_InterpolationValue);
+	float TBYTELIB LERP(const float &a_First, const float &a_Second, const float &a_InterpolationValue);
 
 	// Returns Degrees as Radians
-	float DLLEXPORT DegreesToRadians(const float &a_fDegrees);
+	float TBYTELIB DegreesToRadians(const float &a_fDegrees);
 
 	// Returns Radians as Degrees
-	float DLLEXPORT RadiansToDegrees(const float &a_fRadians);
+	float TBYTELIB RadiansToDegrees(const float &a_fRadians);
 
 	// Test Scalar Value if Power of Two
-	bool DLLEXPORT CheckPowerOfTwo(const double &a_dTestNumber);
+	bool TBYTELIB CheckPowerOfTwo(const double &a_dTestNumber);
 
 	// Shift a Given Value to the Next Power of Two
-	double DLLEXPORT ShiftNextPowerOfTwo(double &a_dTestNumber);
+	double TBYTELIB ShiftNextPowerOfTwo(double &a_dTestNumber);
 
 }
 #endif

@@ -1,5 +1,5 @@
 #include <gtest\gtest.h>    // Testing Framework
-#include <TerrehByteMath.h> // Math Library
+#include <tbytemath.h> // Math Library
 
 using tbyte::Vector2;
 
