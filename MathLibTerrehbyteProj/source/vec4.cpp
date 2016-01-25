@@ -1,12 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	VectorFour.cpp
+//	File:	vec4.cpp
 //	Author:	Terry Nguyen
 //	Date:	03/06/2014
 //	Brief:	Defines functions pertaining to Vector4D
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include <tbytemath.h>
+#include "vec4.h"
+
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 namespace tbyte
 {

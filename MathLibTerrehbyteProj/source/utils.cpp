@@ -1,12 +1,17 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	tbytemath.h
+//	File:	utils.cpp
 //	Author:	Terry Nguyen
-//	Date:	12/18/2013
+//	Date:	01/25/2016
 //	Brief:	Provides functions for handling basic mathematical inconveniences
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include <tbytemath.h>
+#include "utils.h"
+
+#include <map>
+
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 using std::map;
 

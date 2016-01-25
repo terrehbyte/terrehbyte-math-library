@@ -1,12 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	VectorThree.cpp
+//	File:	vec3.cpp
 //	Author:	Terry Nguyen
 //	Date:	12/18/2013
 //	Brief:	Defines functions pertaining to Vector3D
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include <tbytemath.h>
+#include "vec3.h"
+
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 namespace tbyte
 {

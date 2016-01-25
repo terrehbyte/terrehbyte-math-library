@@ -86,7 +86,7 @@
     <IncludePath>$(ProjectDir)include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Lib|Win32'">
-    <IncludePath>$(ProjectDir)include;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSdkDir)include;$(FrameworkSDKDir)\include;</IncludePath>
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Dll|Win32'">
     <ClCompile>
@@ -153,15 +153,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\MatrixFour.cpp" />
-    <ClCompile Include="source\MatrixThree.cpp" />
-    <ClCompile Include="source\tbytemath.cpp" />
-    <ClCompile Include="source\VectorFour.cpp" />
-    <ClCompile Include="source\VectorThree.cpp" />
-    <ClCompile Include="source\VectorTwo.cpp" />
+    <ClCompile Include="source\mat4x4.cpp" />
+    <ClCompile Include="source\mat3x3.cpp" />
+    <ClCompile Include="source\utils.cpp" />
+    <ClCompile Include="source\vec4.cpp" />
+    <ClCompile Include="source\vec3.cpp" />
+    <ClCompile Include="source\vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\mat3x3.h" />
+    <ClInclude Include="include\mat4x4.h" />
     <ClInclude Include="include\tbytemath.h" />
+    <ClInclude Include="include\utils.h" />
+    <ClInclude Include="include\vec2.h" />
+    <ClInclude Include="include\internal\_compiler.h" />
+    <ClInclude Include="include\vec3.h" />
+    <ClInclude Include="include\vec4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

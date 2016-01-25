@@ -1,12 +1,18 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	MatrixFour.cpp
+//	File:	mat4x4.cpp
 //	Author:	Terry Nguyen
 //	Date:	12/18/2013
 //	Brief:	Defines functions pertaining to Matrix4
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include <tbytemath.h>
+#include "mat4x4.h"
+
+#define _USE_MATH_DEFINES
+#include <cmath>
+
+#include "vec3.h"
+#include "vec4.h"
 
 namespace tbyte
 {

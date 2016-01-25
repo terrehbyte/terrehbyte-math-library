@@ -1,7 +1,15 @@
 #include <gtest\gtest.h>    // Testing Framework
-#include <tbytemath.h> // Math Library
+
+#define _USE_MATH_DEFINES
+#include <cmath>
+
+const double M_PI = 3.14159265358979323846f;
+
+#include "tbytemath.h" // Math Library
 
 using tbyte::Vector2;
+
+
 
 class Vec2Test : public ::testing::Test
 {

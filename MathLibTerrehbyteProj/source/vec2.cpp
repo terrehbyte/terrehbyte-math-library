@@ -1,12 +1,15 @@
 //////////////////////////////////////////////////////////////////////////
-//	File:	VectorTwo.cpp
+//	File:	vec2.cpp
 //	Author:	Terry Nguyen
 //	Date:	12/18/2013
 //	Brief:	Defines functions pertaining to Vector2D
 //
 //////////////////////////////////////////////////////////////////////////
 
-#include <tbytemath.h>
+#include "vec2.h"
+
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 namespace tbyte
 {
