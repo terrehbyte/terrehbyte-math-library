@@ -167,7 +167,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Vec2Test.cpp" />
+    <ClCompile Include="vec2test.cpp" />
+    <ClCompile Include="vec3test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vec2Test-inl.h" />

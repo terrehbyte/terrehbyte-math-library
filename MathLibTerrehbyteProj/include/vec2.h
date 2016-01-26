@@ -22,8 +22,11 @@ namespace tbyte
 
         ~Vector2();
 
-        float	m_fX;
-        float	m_fY;
+		union
+		{
+			float m_fV[2];
+			struct { float m_fX; float m_fY; };
+		};
 
         float	EulerAngle(const Vector2 &a_Term);
         float	DotProduct(const Vector2 &a_Term);

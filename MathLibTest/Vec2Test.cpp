@@ -9,8 +9,6 @@ const double M_PI = 3.14159265358979323846f;
 
 using tbyte::Vector2;
 
-
-
 class Vec2Test : public ::testing::Test
 {
 protected:

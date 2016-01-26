@@ -11,6 +11,10 @@
 #define _USE_MATH_DEFINES
 #include <cmath>
 
+#include <limits>
+
+const float eps = std::numeric_limits<float>::epsilon();
+
 namespace tbyte
 {
 	Vector3::Vector3()
@@ -35,7 +39,7 @@ namespace tbyte
 	{
 	}
 	
-	float Vector3::EulerAngle(const Vector3 &a_Term)
+	float		Vector3::EulerAngle(const Vector3 &a_Term) const
 	{
         Vector3 VectorA = (*this).Normal();
 		
@@ -46,14 +50,14 @@ namespace tbyte
 		return fEuler;
 	}
 
-	float	Vector3::DotProduct(const Vector3 &a_Term)
+	float		Vector3::DotProduct(const Vector3 &a_Term) const
 	{
 		return (m_fX * a_Term.m_fX) +
                (m_fY * a_Term.m_fY) +
                (m_fZ * a_Term.m_fZ);
 	}
 
-	Vector3 Vector3::Normal()
+	Vector3		Vector3::Normal() const
 	{
 		Vector3 temp = (*this);
 
@@ -64,21 +68,21 @@ namespace tbyte
 		return temp;
 	}
 
-	void Vector3::Normalise()
+	void		Vector3::Normalise()
 	{
 		float fMag = Magnitude();
 		m_fX /= fMag;
 		m_fY /= fMag;
 		m_fZ /= fMag;
 	}
-	Vector3 Vector3::CrossProduct(const Vector3 &a_Term)
+	Vector3		Vector3::CrossProduct(const Vector3 &a_Term) const
 	{
 		return Vector3((m_fY * a_Term.m_fZ - m_fZ * a_Term.m_fY),
                        (m_fZ * a_Term.m_fX - m_fX * a_Term.m_fZ),
                        (m_fX * a_Term.m_fY - m_fY * a_Term.m_fX));
 	}
 
-	float	Vector3::Magnitude()
+	float		Vector3::Magnitude() const
 	{
 		float fFirst	= m_fX * m_fX;
 		float fSecond	= m_fY * m_fY;
@@ -88,18 +92,13 @@ namespace tbyte
 		return sqrt(fFirst + fSecond + fThird);
 	}
 
-	Vector3 Vector3::Lerp(const Vector3 &a_TerminatingVector, const float &a_fInterpPoint)
+	Vector3		Vector3::Lerp(const Vector3 &a_end, const float &a_fTime) const
 	{
-		Vector3 start = (*this);
-		Vector3 end = a_TerminatingVector;
-
-		Vector3 InterpolatedVector = (*this) + (end - start) * a_fInterpPoint;
-
-		return InterpolatedVector;
+		return (*this) + (a_end - (*this)) * a_fTime;
 	}
 
 	// ** OPERATOR OVERLOADS ** - allows the object to be used with basic operators
-	Vector3	Vector3::operator + (const Vector3 &a_Addend)
+	Vector3		Vector3::operator + (const Vector3 &a_Addend) const
 	{
 		Vector3 temp = (*this);
 
@@ -109,7 +108,7 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector3	Vector3::operator + (const float &a_fAddendScalar)
+	Vector3		Vector3::operator + (const float &a_fAddendScalar) const
 	{
 		Vector3 temp = (*this);
 
@@ -119,19 +118,19 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector3	Vector3::operator += (const Vector3 &a_Addend)
+	Vector3&	Vector3::operator += (const Vector3 &a_Addend)
 	{
 		(*this) = (*this) + a_Addend;
 		return (*this);
 	}
 
-	Vector3	Vector3::operator += (const float &a_fAddendScalar)
+	Vector3&	Vector3::operator += (const float &a_fAddendScalar)
 	{
 		(*this) = (*this) + a_fAddendScalar;
 		return (*this);
 	}
 
-	Vector3	Vector3::operator - (const Vector3 &a_Subtrahend)
+	Vector3		Vector3::operator - (const Vector3 &a_Subtrahend) const
 	{
 		Vector3 temp = (*this);
 
@@ -141,7 +140,7 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector3 Vector3::operator - (const float &a_fSubtrahendScalar)
+	Vector3		Vector3::operator - (const float &a_fSubtrahendScalar) const
 	{
 		Vector3 temp = (*this);
 
@@ -151,19 +150,19 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector3	Vector3::operator -= (const Vector3 &a_Subtrahend)
+	Vector3&	Vector3::operator -= (const Vector3 &a_Subtrahend)
 	{
 		(*this) = (*this) - a_Subtrahend;
 		return (*this);
 	}
 
-	Vector3 Vector3::operator -= (const float &a_fSubtrahendScalar)
+	Vector3&	Vector3::operator -= (const float &a_fSubtrahendScalar)
 	{
 		(*this) = (*this) - a_fSubtrahendScalar;
 		return (*this);
 	}
 
-	Vector3 Vector3::operator * (const float &a_fScalar)
+	Vector3		Vector3::operator * (const float &a_fScalar) const
 	{
 		Vector3 temp = (*this);
 
@@ -174,13 +173,13 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector3 Vector3::operator *= (const float &a_fScalar)
+	Vector3&	Vector3::operator *= (const float &a_fScalar)
 	{
 		(*this) = (*this) * a_fScalar;
 		return (*this);
 	}
 
-	Vector3 Vector3::operator / (const float &a_fScalar)
+	Vector3		Vector3::operator / (const float &a_fScalar) const
 	{
 		Vector3 temp = (*this);
 
@@ -191,14 +190,14 @@ namespace tbyte
 		return temp;
 	}
 
-	Vector3 Vector3::operator /= (const float &a_fScalar)
+	Vector3&	Vector3::operator /= (const float &a_fScalar)
 	{
 		(*this) = (*this) / a_fScalar;
 		return (*this);
 	}
 
 	// Assignment Operator - Assigns the values of an existing Vector3 to another existing Vector3
-	Vector3	Vector3::operator = (const Vector3 &a_Source)
+	Vector3&	Vector3::operator = (const Vector3 &a_Source)
 	{
 		// avoid self-assignment
 		if (this == &a_Source)
@@ -213,19 +212,15 @@ namespace tbyte
 		return *this;
 	}
 
-	bool	Vector3::operator == (const Vector3 &a_Source)
+	bool	Vector3::operator == (const Vector3 &a_Source) const
 	{
-		if(m_fX == a_Source.m_fX &&
-		   m_fY == a_Source.m_fY &&
-		   m_fZ == a_Source.m_fZ
-		)
-		{
-			return true;
-		}
+		return fabs(m_fX / a_Source.m_fX - 1) < eps &&
+			   fabs(m_fY / a_Source.m_fY - 1) < eps &&
+			   fabs(m_fZ / a_Source.m_fZ - 1) < eps;
+	}
 
-		else
-		{
-			return false;
-		}
+	bool	Vector3::operator != (const Vector3  &a_Source) const
+	{
+		return !((*this) == a_Source);
 	}
 }

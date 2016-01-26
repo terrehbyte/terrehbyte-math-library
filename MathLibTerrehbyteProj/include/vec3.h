@@ -17,9 +17,7 @@ namespace tbyte
 	{
 	public:
 		Vector3();
-
 		Vector3(const float &a_fX, const float &a_fY, const float &a_fZ);
-
 		Vector3(const Vector3 &a_Source);
 
 		~Vector3();
@@ -28,42 +26,37 @@ namespace tbyte
 		float	m_fY;
 		float	m_fZ;
 
-		// Get Euler Angle Between Two Vectors
-		float	EulerAngle(const Vector3 &a_Term);
+		float	EulerAngle(const Vector3 &a_Term) const;
+		float	DotProduct(const Vector3 &a_Term) const;
 
-		// Returns the Dot Product between the caller and the Vector3 term
-		float	DotProduct(const Vector3 &a_Term);
+		Vector3	Normal() const;		// returns a normalized version of this vector
+		void Normalise();			// normalizes the vector in-place
+		Vector3	CrossProduct(const Vector3 &a_Term) const;	// returns the cross product
 
-		// Return what the caller would be when normalized
-		Vector3	Normal();
-		void Normalise();
-		// Returns the cross product between caller and term
-		Vector3	CrossProduct(const Vector3 &a_Term);
+		float	Magnitude() const;	// returns the magnitude of the vector
 
-		// Returns the magnitude of the vector
-		float	Magnitude();
+		// Return a linearly interpolated vector
+		Vector3 Lerp(const Vector3 &a_end, const float &a_fTime) const;
 
-		// Return a linearly interpolated Vector3
-		Vector3 Lerp(const Vector3 &a_TerminatingVector, const float &a_fInterpPoint);
+		Vector3		operator +	(const Vector3	&a_First) const;
+		Vector3		operator +	(const float	&a_fAddendScalar) const;
+		Vector3&	operator += (const Vector3	&a_Addend);
+		Vector3&	operator += (const float	&a_fAddendScalar);
 
-		Vector3	operator + (const Vector3 &a_First);
-		Vector3	operator + (const float &a_fAddendScalar);
-		Vector3 operator += (const Vector3 &a_Addend);
-		Vector3 operator += (const float &a_fAddendScalar);
+		Vector3		operator -	(const Vector3	&a_Subtrahend) const;
+		Vector3		operator -	(const float	&a_fSubtrahendScalar) const;
+		Vector3&	operator -= (const Vector3	&a_Subtrahend);
+		Vector3&	operator -= (const float	&a_fSubtrahendScalar);
 
-		Vector3 operator - (const Vector3 &a_Subtrahend);
-		Vector3 operator - (const float &a_fSubtrahendScalar);
-		Vector3 operator -= (const Vector3 &a_Subtrahend);
-		Vector3 operator -= (const float &a_fSubtrahendScalar);
+		Vector3		operator *	(const float	&a_fScalar) const;
+		Vector3&	operator *= (const float	&a_fScalar);
 
-		Vector3 operator * (const float &a_fScalar);
-		Vector3 operator *= (const float &a_fScalar);
+		Vector3		operator /	(const float	&a_fScalar) const;
+		Vector3&	operator /= (const float	&a_fScalar);
 
-		Vector3 operator / (const float &a_fScalar);
-		Vector3 operator /= (const float &a_fScalar);
-
-		Vector3	operator = (const Vector3 &a_Source);
-		bool	operator == (const Vector3 &a_Source);
+		Vector3&	operator =	(const Vector3	&a_Source);
+		bool		operator == (const Vector3	&a_Source) const;
+		bool		operator != (const Vector3  &a_Source) const;
 	};
 }
 

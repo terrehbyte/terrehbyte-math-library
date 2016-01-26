@@ -24,8 +24,11 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vec2Test.cpp">
+    <ClCompile Include="vec2test.cpp">
       <Filter>Source Files\Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="vec3test.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
