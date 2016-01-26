@@ -28,7 +28,7 @@
       <Filter>Source Files\Tests</Filter>
     </ClCompile>
     <ClCompile Include="vec3test.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Tests</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -43,7 +43,7 @@ protected:
 
 		Vec3A.m_fX = 1.1f;
 		Vec3A.m_fY = 1.2f;
-		Vec3A.m_fY = 1.3f;
+		Vec3A.m_fZ = 1.3f;
 
 		Vec3B.m_fX = 3.1f;
 		Vec3B.m_fY = -0.4f;
@@ -77,13 +77,17 @@ TEST_F(Vec3Test, FloatCtor)
 
 	ASSERT_FLOAT_EQ(5.7f, test.m_fX);
 	ASSERT_FLOAT_EQ(3.4f, test.m_fY);
-	ASSERT_FLOAT_EQ(5.7f, test.m_fZ);
+	ASSERT_FLOAT_EQ(4.4f, test.m_fZ);
 }
 
 // ## Copy Constructor
 TEST_F(Vec3Test, Vec3Copy)
 {
+	Vector3 test = Vec3B;
 
+	ASSERT_FLOAT_EQ(3.1f, test.m_fX);
+	ASSERT_FLOAT_EQ(-0.4f, test.m_fY);
+	ASSERT_FLOAT_EQ(1.2f, test.m_fZ);
 }
 
 // # Operators
@@ -91,65 +95,118 @@ TEST_F(Vec3Test, Vec3Copy)
 // ## Addition
 TEST_F(Vec3Test, Add)
 {
-
+	ASSERT_FLOAT_EQ(4.2f, (Vec3A + Vec3B).m_fX);
+	ASSERT_FLOAT_EQ(1.6f, (Vec3A + Vec3B).m_fY);
+	ASSERT_FLOAT_EQ(2.5f, (Vec3A + Vec3B).m_fZ);
 }
 TEST_F(Vec3Test, AddScalar)
 {
+	Vector3 result = Vec3A + 1;
 
+	ASSERT_FLOAT_EQ(2.1f, result.m_fX);
+	ASSERT_FLOAT_EQ(2.2f, result.m_fY);
+	ASSERT_FLOAT_EQ(2.3f, result.m_fZ);
 }
 TEST_F(Vec3Test, AddEqual)
 {
+	Vec3A += Vec3B;
 
+	ASSERT_FLOAT_EQ(4.2f, (Vec3A).m_fX);
+	ASSERT_FLOAT_EQ(0.8f, (Vec3A).m_fY);
+	ASSERT_FLOAT_EQ(2.5f, (Vec3A).m_fZ);
 }
 TEST_F(Vec3Test, AddEqualScalar)
 {
+	Vec3A += 1;
+
+	ASSERT_FLOAT_EQ(2.1f, Vec3A.m_fX);
+	ASSERT_FLOAT_EQ(2.2f, Vec3A.m_fY);
+	ASSERT_FLOAT_EQ(2.3f, Vec3A.m_fZ);
 }
 
 // ## Subtraction
 TEST_F(Vec3Test, Sub)
 {
-
+	ASSERT_FLOAT_EQ(-2.0f, (Vec3A - Vec3B).m_fX);
+	ASSERT_FLOAT_EQ(1.6f, (Vec3A - Vec3B).m_fY);
+	ASSERT_FLOAT_EQ(0.1f, (Vec3A - Vec3B).m_fZ);
 }
 TEST_F(Vec3Test, SubScalar)
 {
+	Vector3 result = Vec3A - 1;
 
+	ASSERT_FLOAT_EQ(0.1f, result.m_fX);
+	ASSERT_FLOAT_EQ(0.2f, result.m_fY);
+	ASSERT_FLOAT_EQ(0.3f, result.m_fZ);
 }
 TEST_F(Vec3Test, SubEqual)
 {
+	Vec3A -= Vec3B;
 
+	ASSERT_FLOAT_EQ(-2.0f, Vec3A.m_fX);
+	ASSERT_FLOAT_EQ(1.6f,  Vec3A.m_fY);
+	ASSERT_FLOAT_EQ(0.1f,  Vec3A.m_fZ);
 }
 TEST_F(Vec3Test, SubEqualScalar)
 {
+	Vec3A -= 1;
 
+	ASSERT_FLOAT_EQ(0.1f, Vec3A.m_fX);
+	ASSERT_FLOAT_EQ(0.2f, Vec3A.m_fY);
+	ASSERT_FLOAT_EQ(0.3f, Vec3A.m_fZ);
 }
 
 // ## Multiplication
 TEST_F(Vec3Test, MultiScalar)
 {
+	Vector3 result = Vec3A * 2.f;
+
+	ASSERT_FLOAT_EQ(2.2f, result.m_fX);
+	ASSERT_FLOAT_EQ(2.4f, result.m_fY);
+	ASSERT_FLOAT_EQ(2.6f, result.m_fZ);
 }
 TEST_F(Vec3Test, MultiEqualScalar)
 {
+	Vec3A *= 2.f;
 
+	ASSERT_FLOAT_EQ(2.2f, Vec3A.m_fX);
+	ASSERT_FLOAT_EQ(2.4f, Vec3A.m_fY);
+	ASSERT_FLOAT_EQ(2.6f, Vec3A.m_fZ);
 }
 
 // ## Division
 TEST_F(Vec3Test, DivScalar)
 {
+	Vector3 result = Vec3A / 2.f;
 
+	ASSERT_FLOAT_EQ(0.55f, result.m_fX);
+	ASSERT_FLOAT_EQ(0.6f,  result.m_fY);
+	ASSERT_FLOAT_EQ(0.65f, result.m_fZ);
 }
 TEST_F(Vec3Test, DivEqualsScalar)
 {
+	Vec3A /= 2.f;
 
+	ASSERT_FLOAT_EQ(0.55f, Vec3A.m_fX);
+	ASSERT_FLOAT_EQ(0.6f,  Vec3A.m_fY);
+	ASSERT_FLOAT_EQ(0.65f, Vec3A.m_fZ);
 }
 
 // ## Equality & Assignment
 TEST_F(Vec3Test, Equality)
 {
-
+	// compare against the same values
+	ASSERT_TRUE(Vec3One == Vec3One);
+	ASSERT_FLOAT_EQ(Vec3One.m_fX, Vec3One.m_fX);
+	ASSERT_FLOAT_EQ(Vec3One.m_fY, Vec3One.m_fY);
 }
 TEST_F(Vec3Test, Assignment)
 {
+	Vector3 Vec3ADoppelganger = Vector3(1.1f, 1.2f, 1.3f);
 
+	ASSERT_FLOAT_EQ(1.1f, Vec3ADoppelganger.m_fX);
+	ASSERT_FLOAT_EQ(1.2f, Vec3ADoppelganger.m_fY);
+	ASSERT_FLOAT_EQ(1.3f, Vec3ADoppelganger.m_fZ);
 }
 
 // # Functions
