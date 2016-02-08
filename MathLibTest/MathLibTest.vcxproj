@@ -170,9 +170,6 @@
     <ClCompile Include="vec2test.cpp" />
     <ClCompile Include="vec3test.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Vec2Test-inl.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

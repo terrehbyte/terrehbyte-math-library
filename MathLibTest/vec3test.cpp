@@ -9,7 +9,7 @@ const double M_PI = 3.14159265358979323846f;
 
 using tbyte::Vector3;
 
-class Vec3Test : public ::testing::Test
+class Vec3Test : public ::testing::Test	
 {
 protected:
 
@@ -222,20 +222,31 @@ TEST_F(Vec3Test, DotProduct)
 
 TEST_F(Vec3Test, Normal)
 {
+	Vector3 Normal = Vec3Three.Normal();
 
+	ASSERT_FLOAT_EQ(0.57735f, Normal.m_fX);
+	ASSERT_FLOAT_EQ(0.57735f, Normal.m_fY);
+	ASSERT_FLOAT_EQ(0.57735f, Normal.m_fZ);
 }
-
 TEST_F(Vec3Test, Normalise)
 {
+	Vec3Three.Normalise();
 
+	ASSERT_FLOAT_EQ(0.57735f, Vec3Three.m_fX);
+	ASSERT_FLOAT_EQ(0.57735f, Vec3Three.m_fY);
+	ASSERT_FLOAT_EQ(0.57735f, Vec3Three.m_fZ);
 }
-
 TEST_F(Vec3Test, Magnitude)
 {
-
+	float mag = Vec3Three.Magnitude();
+	ASSERT_FLOAT_EQ(5.19615, mag);
 }
 
 TEST_F(Vec3Test, LERP)
 {
-
+	Vector3 result;
+	result = Vec3Three.Lerp(Vec3Two, 0.5f);
+	ASSERT_FLOAT_EQ(2.5f, result.m_fX);
+	ASSERT_FLOAT_EQ(2.5f, result.m_fY);
+	ASSERT_FLOAT_EQ(2.5f, result.m_fZ);
 }

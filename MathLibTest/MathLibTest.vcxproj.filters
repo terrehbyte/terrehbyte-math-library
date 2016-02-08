@@ -31,9 +31,4 @@
       <Filter>Source Files\Tests</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Vec2Test-inl.h">
-      <Filter>Header Files\Tests</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>
