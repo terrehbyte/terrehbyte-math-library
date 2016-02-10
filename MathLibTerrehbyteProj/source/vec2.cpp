@@ -17,11 +17,6 @@ const float eps = std::numeric_limits<float>::epsilon();
 
 namespace tbyte
 {
-	Vector2::Vector2(void)
-	{
-
-	}
-
 	Vector2::Vector2(const Vector2 &a_Source)
 	{
 		m_fX = a_Source.m_fX;

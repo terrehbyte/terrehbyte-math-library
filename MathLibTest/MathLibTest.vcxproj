@@ -102,7 +102,7 @@
       <AdditionalDependencies>tbytemath_d.lib;gtestd.lib;gtest_maind.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>“$(TargetDir)$(TargetFileName)”</Command>
+      <Command>"$(TargetDir)$(TargetFileName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Lib|Win32'">
@@ -120,7 +120,7 @@
       <AdditionalDependencies>gtestd.lib;gtest_maind.lib;tbytemath_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>“$(TargetDir)$(TargetFileName)”</Command>
+      <Command>"$(TargetDir)$(TargetFileName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-Dll|Win32'">
@@ -141,7 +141,7 @@
       <AdditionalDependencies>gtest.lib;gtest_main.lib;tbytemath.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>“$(TargetDir)$(TargetFileName)”</Command>
+      <Command>"$(TargetDir)$(TargetFileName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-Lib|Win32'">
@@ -162,7 +162,7 @@
       <AdditionalDependencies>gtest.lib;gtest_main.lib;tbytemath.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>“$(TargetDir)$(TargetFileName)”</Command>
+      <Command>"$(TargetDir)$(TargetFileName)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

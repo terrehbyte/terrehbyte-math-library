@@ -16,7 +16,7 @@ namespace tbyte
     struct TBYTELIB Vector2
     {
     public:
-		Vector2(void);
+		Vector2(void) : m_fX(0), m_fY(0) {}
         Vector2(const float &a_fX, const float &a_fY);
         Vector2(const Vector2 &a_Source);
 
