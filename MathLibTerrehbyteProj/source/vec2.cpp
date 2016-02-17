@@ -19,7 +19,8 @@ namespace tbyte
 {
 	Vector2::Vector2(void)
 	{
-
+		m_fX = 0.0f;
+		m_fY = 0.0f;
 	}
 
 	Vector2::Vector2(const Vector2 &a_Source)

@@ -13,45 +13,17 @@ class Vec3Test : public ::testing::Test
 {
 protected:
 
-	Vector3 Vec3Zero;
-	Vector3 Vec3One;
-	Vector3 Vec3Two;
-	Vector3 Vec3Three;
-
-	Vector3 Vec3A;
-	Vector3 Vec3B;
-	Vector3 Vec3C;
+	Vector3 vecA;
+	Vector3 vecB;
 
 	// this is called before each test
 	virtual void SetUp()
 	{
-		Vec3Zero.m_fX = 0.0f;
-		Vec3Zero.m_fY = 0.0f;
-		Vec3Zero.m_fZ = 0.0f;
+		vecA.m_fX = 0.0f;
+		vecA.m_fY = 0.0f;
 
-		Vec3One.m_fX = 1.0f;
-		Vec3One.m_fY = 1.0f;
-		Vec3One.m_fZ = 1.0f;
-
-		Vec3Two.m_fX = 2.0f;
-		Vec3Two.m_fY = 2.0f;
-		Vec3Two.m_fZ = 2.0f;
-
-		Vec3Three.m_fX = 3.0f;
-		Vec3Three.m_fY = 3.0f;
-		Vec3Three.m_fZ = 3.0f;
-
-		Vec3A.m_fX = 1.1f;
-		Vec3A.m_fY = 1.2f;
-		Vec3A.m_fZ = 1.3f;
-
-		Vec3B.m_fX = 3.1f;
-		Vec3B.m_fY = -0.4f;
-		Vec3B.m_fZ = 1.2f;
-
-		Vec3C.m_fX = 5.5f;
-		Vec3C.m_fY = 3.8f;
-		Vec3C.m_fZ = 4.4f;
+		vecB.m_fX = 0.0f;
+		vecB.m_fY = 0.0f;
 	}
 
 	// this is called after each test
@@ -69,6 +41,10 @@ protected:
 // ----------------
 
 // # Constructors
+TEST_F(Vec3Test, DefaultCtor)
+{
+
+}
 
 // ## Parameterized Ctors
 TEST_F(Vec3Test, FloatCtor)
