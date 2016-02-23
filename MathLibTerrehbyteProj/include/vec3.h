@@ -16,15 +16,17 @@ namespace tbyte
 	struct TBYTELIB Vector3
 	{
 	public:
-		Vector3();
+		Vector3() : m_fX(0), m_fY(0), m_fZ(0) {};
 		Vector3(const float &a_fX, const float &a_fY, const float &a_fZ);
 		Vector3(const Vector3 &a_Source);
 
 		~Vector3();
 
-		float	m_fX;
-		float	m_fY;
-		float	m_fZ;
+		union
+		{
+			float m_fV[3];
+			struct { float m_fX; float m_fY; float	m_fZ; };
+		};
 
 		float	EulerAngle(const Vector3 &a_Term) const;
 		float	DotProduct(const Vector3 &a_Term) const;

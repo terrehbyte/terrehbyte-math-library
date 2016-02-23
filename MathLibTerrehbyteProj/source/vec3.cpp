@@ -17,10 +17,6 @@ const float eps = std::numeric_limits<float>::epsilon();
 
 namespace tbyte
 {
-	Vector3::Vector3()
-	{
-	}
-	
 	Vector3::Vector3(const float &a_fX, const float &a_fY, const float &a_fZ)
 	{
 		m_fX = a_fX;

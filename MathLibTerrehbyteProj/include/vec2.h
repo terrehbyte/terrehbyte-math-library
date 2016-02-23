@@ -28,7 +28,7 @@ namespace tbyte
 			struct { float m_fX; float m_fY; };
 		};
 
-        float	EulerAngle(const Vector2 &a_Term);
+        float	EulerAngle(const Vector2 &a_Term);	// returns the smallest angle between two vectors in radians
         float	DotProduct(const Vector2 &a_Term);
 
 		Vector2	Normal() const;		// returns a normalized version of this vector

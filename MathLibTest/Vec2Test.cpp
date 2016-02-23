@@ -19,11 +19,8 @@ protected:
 	// this is called before each test
     virtual void SetUp()
     {
-		vecA.m_fX = 0.0f;
-		vecA.m_fY = 0.0f;
-
-		vecB.m_fX = 1.0f;
-		vecB.m_fY = 1.0f;
+		vecA = { 0.0f, 0.0f };
+		vecB = { 1.0f, 1.0f };
 	}
 
     // this is called after each test
