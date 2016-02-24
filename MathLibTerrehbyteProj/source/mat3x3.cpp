@@ -43,9 +43,7 @@ namespace tbyte
 
 	Matrix3::Matrix3(const Matrix3 &a_Source)
 	{
-		for (int i = 0;
-			 i < 9;
-			 i++)
+		for (int i = 0; i < 9; i++)
 		{
 			m_afArray[i] = a_Source.m_afArray[i];
 		}
@@ -57,39 +55,15 @@ namespace tbyte
 
 	void Matrix3::Transpose()
 	{
-		
-		//hard coded more efficient than for loop
-		
-			m_afArray[0] = m_afArray[0];
-			m_afArray[1] = m_afArray[3];
-			m_afArray[2] = m_afArray[6];
-			m_afArray[3] = m_afArray[1];
-			m_afArray[4] = m_afArray[4];
-			m_afArray[5] = m_afArray[7];
-			m_afArray[6] = m_afArray[2];
-			m_afArray[7] = m_afArray[5];
-			m_afArray[8] = m_afArray[8];
-		
-
-	}
-
-	tbyte::Vector4 Matrix3::VectorTransform(const tbyte::Vector4 &a_Point)
-	{
-		tbyte::Vector4 temp;
-		temp.m_fX = a_Point.m_fX * m_afArray[0] + a_Point.m_fY * m_afArray[3] + a_Point.m_fZ * m_afArray[6];
-		temp.m_fY = a_Point.m_fX * m_afArray[1] + a_Point.m_fY * m_afArray[4] + a_Point.m_fZ * m_afArray[7];
-		temp.m_fZ = a_Point.m_fX * m_afArray[2] + a_Point.m_fY * m_afArray[5] + a_Point.m_fZ * m_afArray[8];
-		temp.m_fW = a_Point.m_fW;
-		return temp;
-	}
-
-	tbyte::Vector3 Matrix3::VectorTransform(const tbyte::Vector3 &a_Point)
-	{
-		tbyte::Vector3 temp;
-		temp.m_fX = a_Point.m_fX * m_afArray[0] + a_Point.m_fY * m_afArray[3] + a_Point.m_fZ * m_afArray[6];
-		temp.m_fY = a_Point.m_fX * m_afArray[1] + a_Point.m_fY * m_afArray[4] + a_Point.m_fZ * m_afArray[7];
-		temp.m_fZ = a_Point.m_fX * m_afArray[2] + a_Point.m_fY * m_afArray[5] + a_Point.m_fZ * m_afArray[8];
-		return temp;
+		m_afArray[0] = m_afArray[0];
+		m_afArray[1] = m_afArray[3];
+		m_afArray[2] = m_afArray[6];
+		m_afArray[3] = m_afArray[1];
+		m_afArray[4] = m_afArray[4];
+		m_afArray[5] = m_afArray[7];
+		m_afArray[6] = m_afArray[2];
+		m_afArray[7] = m_afArray[5];
+		m_afArray[8] = m_afArray[8];
 	}
 
 	Matrix3 Matrix3::IdentityMatrix()
@@ -109,16 +83,6 @@ namespace tbyte
 		temp.m_afArray[8] = 1;
 
 		return temp;
-	}
-
-	tbyte::Vector4 Matrix3::Scale(const tbyte::Vector4 &a_Vector)
-	{
-		return VectorTransform(a_Vector);
-	}
-
-	tbyte::Vector3 Matrix3::Scale(const tbyte::Vector3 &a_Vector)
-	{
-		return VectorTransform(a_Vector);
 	}
 
 	Matrix3 Matrix3::MakeXRotationMatrix(float a_Radians)
